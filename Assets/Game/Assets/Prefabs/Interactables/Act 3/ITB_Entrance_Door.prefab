@@ -1,0 +1,510 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8116571445565319427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188178353252757453}
+  - component: {fileID: 7493055477753433781}
+  - component: {fileID: 8194789368149996343}
+  - component: {fileID: 1977082551199324976}
+  - component: {fileID: 1694429596482445106}
+  - component: {fileID: 1694429596482445107}
+  m_Layer: 14
+  m_Name: ITB_Entrance_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &188178353252757453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116571445565319427}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6, y: 0, z: -6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7969438707262467767}
+  - {fileID: 3118068462573464364}
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7493055477753433781
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116571445565319427}
+  m_Mesh: {fileID: -3780022686360732592, guid: 5b7de892548834e3f8c53671f6cf5080, type: 3}
+--- !u!23 &8194789368149996343
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116571445565319427}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b0fe2c680e7354109832594be2748e08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1977082551199324976
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116571445565319427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3780022686360732592, guid: 5b7de892548834e3f8c53671f6cf5080, type: 3}
+--- !u!114 &1694429596482445106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116571445565319427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 1542767844054270499
+    - rid: 1542767844054270503
+    - rid: 1542767844054270506
+  m_TriggerEvent:
+    rid: 1542767844054270474
+  references:
+    version: 2
+    RefIds:
+    - rid: 1542767844054270474
+      type: {class: EventOnReceiveSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Signal:
+          m_String: Stop-Entrance-Door-Anim
+    - rid: 1542767844054270499
+      type: {class: InstructionLogicStopTrigger, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Trigger:
+          m_Property:
+            rid: 1542767844054270500
+    - rid: 1542767844054270500
+      type: {class: GetGameObjectTrigger, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Trigger: {fileID: 1694429596482445107}
+    - rid: 1542767844054270503
+      type: {class: InstructionTransformChangeRotation, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Transform:
+          m_Property:
+            rid: 1542767844054270504
+        m_Rotation:
+          m_Operation: 0
+          m_Value:
+            m_Property:
+              rid: 1542767844054270505
+        m_Space: 1
+        m_Transition:
+          m_Duration: 0.1
+          m_Easing: 3
+          m_Time: 0
+          m_WaitToComplete: 0
+    - rid: 1542767844054270504
+      type: {class: GetGameObjectTransform, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Transform: {fileID: 4400435766834107082}
+    - rid: 1542767844054270505
+      type: {class: GetRotationEuler, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Rotation: {x: 0, y: 0, z: 0}
+    - rid: 1542767844054270506
+      type: {class: InstructionTransformChangeRotation, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Transform:
+          m_Property:
+            rid: 1542767844054270507
+        m_Rotation:
+          m_Operation: 0
+          m_Value:
+            m_Property:
+              rid: 1542767844054270508
+        m_Space: 1
+        m_Transition:
+          m_Duration: 0.2
+          m_Easing: 3
+          m_Time: 0
+          m_WaitToComplete: 0
+    - rid: 1542767844054270507
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1542767844054270508
+      type: {class: GetRotationEuler, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Rotation: {x: 0, y: 0, z: 0}
+--- !u!114 &1694429596482445107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116571445565319427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 1542767844054270475
+    - rid: 1542767844054270478
+    - rid: 1542767844054270482
+    - rid: 1542767844054270491
+    - rid: 1542767844054270485
+  m_TriggerEvent:
+    rid: 1542767844054270472
+  references:
+    version: 2
+    RefIds:
+    - rid: 1542767844054270472
+      type: {class: EventOnReceiveSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Signal:
+          m_String: Start-Entrance-Door-Anim
+    - rid: 1542767844054270475
+      type: {class: InstructionTransformChangeRotation, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Transform:
+          m_Property:
+            rid: 1542767844054270476
+        m_Rotation:
+          m_Operation: 0
+          m_Value:
+            m_Property:
+              rid: 1542767844054270477
+        m_Space: 1
+        m_Transition:
+          m_Duration: 0.5
+          m_Easing: 3
+          m_Time: 0
+          m_WaitToComplete: 0
+    - rid: 1542767844054270476
+      type: {class: GetGameObjectTransform, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Transform: {fileID: 4400435766834107082}
+    - rid: 1542767844054270477
+      type: {class: GetRotationEuler, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Rotation: {x: -0, y: 0, z: -35}
+    - rid: 1542767844054270478
+      type: {class: InstructionTransformChangeRotation, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Transform:
+          m_Property:
+            rid: 1542767844054270481
+        m_Rotation:
+          m_Operation: 0
+          m_Value:
+            m_Property:
+              rid: 1542767844054270480
+        m_Space: 1
+        m_Transition:
+          m_Duration: 0.5
+          m_Easing: 3
+          m_Time: 0
+          m_WaitToComplete: 1
+    - rid: 1542767844054270480
+      type: {class: GetRotationEuler, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Rotation: {x: -0, y: 0.988, z: 0}
+    - rid: 1542767844054270481
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1542767844054270482
+      type: {class: InstructionTransformChangeRotation, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Transform:
+          m_Property:
+            rid: 1542767844054270483
+        m_Rotation:
+          m_Operation: 0
+          m_Value:
+            m_Property:
+              rid: 1542767844054270484
+        m_Space: 1
+        m_Transition:
+          m_Duration: 0.5
+          m_Easing: 3
+          m_Time: 0
+          m_WaitToComplete: 1
+    - rid: 1542767844054270483
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1542767844054270484
+      type: {class: GetRotationEuler, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Rotation: {x: 0, y: -0.988, z: 0}
+    - rid: 1542767844054270485
+      type: {class: InstructionLogicRestartInstructions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+    - rid: 1542767844054270491
+      type: {class: InstructionTransformChangeRotation, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Transform:
+          m_Property:
+            rid: 1542767844054270492
+        m_Rotation:
+          m_Operation: 0
+          m_Value:
+            m_Property:
+              rid: 1542767844054270493
+        m_Space: 1
+        m_Transition:
+          m_Duration: 0.25
+          m_Easing: 3
+          m_Time: 0
+          m_WaitToComplete: 1
+    - rid: 1542767844054270492
+      type: {class: GetGameObjectTransform, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Transform: {fileID: 4400435766834107082}
+    - rid: 1542767844054270493
+      type: {class: GetRotationEuler, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Rotation: {x: 0, y: 0, z: 0}
+--- !u!1001 &858804397104078218
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 188178353252757453}
+    m_Modifications:
+    - target: {fileID: 130729027860715819, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 130729027860715819, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.222
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131620146837642024, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_Name
+      value: DoorHandle_Base (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131620146837642024, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131620146837642024, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+--- !u!4 &3118068462573464364 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+  m_PrefabInstance: {fileID: 858804397104078218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5636165823019358225
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 188178353252757453}
+    m_Modifications:
+    - target: {fileID: 130729027860715819, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 130729027860715819, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.222
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131620146837642024, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_Name
+      value: DoorHandle_Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131620146837642024, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131620146837642024, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+--- !u!4 &4400435766834107082 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8297552424027425499, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+  m_PrefabInstance: {fileID: 5636165823019358225}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7969438707262467767 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2354974358103176870, guid: 1d2ffeee32ba148668228940cbf6f36d, type: 3}
+  m_PrefabInstance: {fileID: 5636165823019358225}
+  m_PrefabAsset: {fileID: 0}

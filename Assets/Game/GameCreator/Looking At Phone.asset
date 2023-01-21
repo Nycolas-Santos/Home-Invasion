@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232752578b594dac8363ce5618d051fa, type: 3}
+  m_Name: Looking At Phone
+  m_EditorClassIdentifier: 
+  m_StateMask: {fileID: 31900000, guid: 2ba3313cffd1cfd4e83f4d81da516042, type: 2}
+  m_Entry:
+    m_EntryClip: {fileID: 0}
+    m_EntryMask: {fileID: 0}
+  m_Exit:
+    m_ExitClip: {fileID: 0}
+    m_ExitMask: {fileID: 0}
+  m_OnChange:
+    m_Instructions: []
+  m_Controller: {fileID: 2480460008565410015}
+  m_StateClip: {fileID: 7400000, guid: e8abc9569f747b4428376c9a2ea3f471, type: 2}
+  references:
+    version: 2
+    RefIds: []
+--- !u!221 &2480460008565410015
+AnimatorOverrideController:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Animation
+  m_Controller: {fileID: 9100000, guid: 2c8b7312f36f04157932300782d990e0, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 3fd1b37d27b754527950ef1a42916157, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e8abc9569f747b4428376c9a2ea3f471, type: 2}

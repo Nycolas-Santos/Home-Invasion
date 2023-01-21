@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09adff397b704c4985383dd1017864ba, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  m_Actant:
+    m_Name:
+      m_Property:
+        rid: 5542639655363805295
+    m_Description:
+      m_Property:
+        rid: 5542639655363805296
+  m_Expressions:
+    m_Expressions:
+    - m_IsExpanded: 0
+      m_Breakpoint: 0
+      m_IsEnabled: 1
+      m_Id:
+        m_String: neutral
+      m_Sprite: {fileID: 21300000, guid: 815444dca9b0c4775b7796f11cba8afe, type: 3}
+      m_InstructionsOnStart:
+        m_Instructions: []
+      m_InstructionsOnEnd:
+        m_Instructions: []
+      m_OverrideSpeechSkin: {fileID: 0}
+    - m_IsExpanded: 0
+      m_Breakpoint: 0
+      m_IsEnabled: 1
+      m_Id:
+        m_String: angry
+      m_Sprite: {fileID: 21300000, guid: ab96891d3531a46ccaaff78abb57d7e6, type: 3}
+      m_InstructionsOnStart:
+        m_Instructions: []
+      m_InstructionsOnEnd:
+        m_Instructions: []
+      m_OverrideSpeechSkin: {fileID: 0}
+    - m_IsExpanded: 0
+      m_Breakpoint: 0
+      m_IsEnabled: 1
+      m_Id:
+        m_String: dismiss
+      m_Sprite: {fileID: 21300000, guid: 350c596f20bd64d058e3430d08be3957, type: 3}
+      m_InstructionsOnStart:
+        m_Instructions: []
+      m_InstructionsOnEnd:
+        m_Instructions: []
+      m_OverrideSpeechSkin: {fileID: 0}
+    - m_IsExpanded: 0
+      m_Breakpoint: 0
+      m_IsEnabled: 1
+      m_Id:
+        m_String: surprise
+      m_Sprite: {fileID: 21300000, guid: e77f46ccf00134109ad3d1b0cde29a1a, type: 3}
+      m_InstructionsOnStart:
+        m_Instructions: []
+      m_InstructionsOnEnd:
+        m_Instructions: []
+      m_OverrideSpeechSkin: {fileID: 0}
+  m_Typewriter:
+    m_UseTypewriter: 0
+    m_Frequency: 50
+    m_Gibberish:
+      m_Property:
+        rid: 5542639879596015775
+    m_Pitch: {x: 0.9, y: 1.1}
+  m_OverrideSpeechSkin: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 5542639655363805295
+      type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: Player
+    - rid: 5542639655363805296
+      type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 
+    - rid: 5542639879596015775
+      type: {class: GetAudioNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}

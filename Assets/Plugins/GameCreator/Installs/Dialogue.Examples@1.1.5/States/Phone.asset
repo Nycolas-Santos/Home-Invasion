@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &-4970340959191140368
+AnimatorOverrideController:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Animation
+  m_Controller: {fileID: 9100000, guid: 2c8b7312f36f04157932300782d990e0, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 3fd1b37d27b754527950ef1a42916157, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bafb09068e5ab450183bb5652931529d, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232752578b594dac8363ce5618d051fa, type: 3}
+  m_Name: Phone
+  m_EditorClassIdentifier: 
+  m_StateMask: {fileID: 31900000, guid: e93476ddb239f4093b8321dd17369942, type: 2}
+  m_Entry:
+    m_EntryClip: {fileID: 7400000, guid: b6f63c7f9d356441a9637f9dca27e8cb, type: 2}
+    m_EntryMask: {fileID: 31900000, guid: e93476ddb239f4093b8321dd17369942, type: 2}
+  m_Exit:
+    m_ExitClip: {fileID: 7400000, guid: 7fb6e21cd1ad24357ae921ab65bbcea3, type: 2}
+    m_ExitMask: {fileID: 31900000, guid: e93476ddb239f4093b8321dd17369942, type: 2}
+  m_OnChange:
+    m_Instructions:
+    - rid: 9161455713135362060
+  m_Controller: {fileID: -4970340959191140368}
+  m_StateClip: {fileID: 7400000, guid: bafb09068e5ab450183bb5652931529d, type: 2}
+  references:
+    version: 2
+    RefIds:
+    - rid: 9161455713135362060
+      type: {class: InstructionCharacterPropertyMoveSpeed, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 9161455713135362061
+        m_Speed:
+          m_Operation: 0
+          m_Value:
+            m_Property:
+              rid: 9161455713135362062
+        m_Transition:
+          m_Duration: 0.25
+          m_Easing: 3
+          m_Time: 0
+          m_WaitToComplete: 1
+    - rid: 9161455713135362061
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 9161455713135362062
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0

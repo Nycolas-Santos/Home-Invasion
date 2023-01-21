@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0b935016f124151bbd7d3de9dcfa14, type: 3}
+  m_Name: Thug Footsteps
+  m_EditorClassIdentifier: 
+  m_MaterialSounds:
+    m_LayerMask:
+      serializedVersion: 2
+      m_Bits: 16321
+    m_MaterialSounds:
+    - rid: 9161455761160667186
+    m_DefaultSounds:
+      m_Volume: 1
+      m_Variations:
+      - {fileID: 8300000, guid: 19ed061256d342b46a33003379ee04f3, type: 3}
+      - {fileID: 8300000, guid: b2fccfa2d7b82be439ba8ed9fd27e67c, type: 3}
+      - {fileID: 8300000, guid: 9974e467e23fa2a4eb91c51e3e7f05a4, type: 3}
+      - {fileID: 8300000, guid: 82bd3c2b184a6a046831927b15a46806, type: 3}
+      - {fileID: 8300000, guid: 83a51e24ee435df44b08684e682808a0, type: 3}
+      - {fileID: 8300000, guid: 7d62eceaaa45f364eb4ccf2318d0b1cb, type: 3}
+      m_Impact:
+        m_Prefab: {fileID: 6108325258994811630, guid: 31a56ead8dd9b024995479a906d927d6, type: 3}
+        m_UsePooling: 0
+        m_Size: 5
+        m_HasDuration: 0
+        m_Duration: 10
+  references:
+    version: 2
+    RefIds:
+    - rid: 9161455761160667186
+      type: {class: MaterialSoundTexture, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Name: Wood
+        m_Texture: {fileID: 2800000, guid: ea7d74a30df444de1af1da5e5030fafa, type: 3}
+        m_Impact:
+          m_Prefab: {fileID: 6108325258994811630, guid: 31a56ead8dd9b024995479a906d927d6, type: 3}
+          m_UsePooling: 0
+          m_Size: 5
+          m_HasDuration: 0
+          m_Duration: 5
+        m_Volume: 1
+        m_Variations:
+        - {fileID: 8300000, guid: 19ed061256d342b46a33003379ee04f3, type: 3}
+        - {fileID: 8300000, guid: b2fccfa2d7b82be439ba8ed9fd27e67c, type: 3}
+        - {fileID: 8300000, guid: 9974e467e23fa2a4eb91c51e3e7f05a4, type: 3}
+        - {fileID: 8300000, guid: 82bd3c2b184a6a046831927b15a46806, type: 3}
+        - {fileID: 8300000, guid: 83a51e24ee435df44b08684e682808a0, type: 3}
+        - {fileID: 8300000, guid: 7d62eceaaa45f364eb4ccf2318d0b1cb, type: 3}

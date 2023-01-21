@@ -1,0 +1,39 @@
+﻿#GC-PropertyElement-Head {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-right: 0;
+}
+
+#GC-PropertyElement-Head Label {
+    -unity-text-align: middle-left;
+    /*flex-grow: var(--gc-common-label-grow-ratio);*/
+    flex-grow: 0;
+    flex-shrink: 1;
+    width: var(--gc-common-label-length);
+    /*flex-basis: var(--gc-common-label-length);*/
+    /*min-width: var(--gc-common-label-min-width);*/
+}
+
+#GC-PropertyElement-Head Button {
+    /*flex-grow: var(--gc-common-control-grow-ratio);*/
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: var(--gc-common-control-min-width);
+    margin-left: 0;
+    margin-right: 0;
+    padding: 2px 5px;
+    -unity-text-align: middle-left;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#GC-PropertyElement-Head Button Image {
+    width: var(--gc-list-head-image-size);
+    height: var(--gc-list-head-image-size);
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+#GC-PropertyElement-Body-HideLabels { }
+
+#GC-PropertyElement-Body-ShowLabels { }
