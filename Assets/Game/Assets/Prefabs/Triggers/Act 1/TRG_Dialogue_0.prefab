@@ -286,60 +286,14 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 9161455892367933513
-    - rid: 9161455893332361370
-    - rid: 9161455893332361364
     - rid: 9161455893332361344
-    - rid: 1542767844054269983
-    - rid: 1542767844054269971
-    - rid: 1542767844054269974
+    - rid: 1542768348523134983
     - rid: 1542767844054269977
   m_TriggerEvent:
     rid: 9161455892367933508
   references:
     version: 2
     RefIds:
-    - rid: 1542767844054269971
-      type: {class: InstructionCharacterPropertyIsControllable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Character:
-          m_Property:
-            rid: 1542767844054269972
-        m_IsControllable:
-          m_Property:
-            rid: 1542767844054269973
-    - rid: 1542767844054269972
-      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 1542767844054269973
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 1
-    - rid: 1542767844054269974
-      type: {class: InstructionShotFirstPersonSensitivity, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Shot:
-          m_Property:
-            rid: 1542767844054269975
-        m_Sensitivity:
-          m_Property:
-            rid: 1542767844054269976
-    - rid: 1542767844054269975
-      type: {class: GetShotMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
-    - rid: 1542767844054269976
-      type: {class: GetPositionGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Variable:
-          m_TypeID:
-            m_String: vector3
-          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
-          m_Name:
-            m_String: Sensitivity
-            m_ID: 2047615200
     - rid: 1542767844054269977
       type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -358,20 +312,20 @@ MonoBehaviour:
       type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 0
-    - rid: 1542767844054269983
-      type: {class: InstructionDialoguePlay, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+    - rid: 1542768348523134983
+      type: {class: InstructionLogicRunTrigger, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
-        m_Dialogue:
+        m_Trigger:
           m_Property:
-            rid: 1542767844054269984
+            rid: 1542768348523134984
         m_WaitToFinish: 1
-    - rid: 1542767844054269984
-      type: {class: GetGameObjectDialogue, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+    - rid: 1542768348523134984
+      type: {class: GetGameObjectTrigger, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_Dialogue: {fileID: 0}
+        m_Trigger: {fileID: 0}
     - rid: 9161455892367933508
       type: {class: EventTriggerEnter, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -415,42 +369,6 @@ MonoBehaviour:
           m_Name:
             m_String: Current-Message
             m_ID: -1245895659
-    - rid: 9161455893332361364
-      type: {class: InstructionCharacterPropertyIsControllable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Character:
-          m_Property:
-            rid: 9161455893332361365
-        m_IsControllable:
-          m_Property:
-            rid: 9161455893332361366
-    - rid: 9161455893332361365
-      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 9161455893332361366
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 0
-    - rid: 9161455893332361370
-      type: {class: InstructionShotFirstPersonSensitivity, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Shot:
-          m_Property:
-            rid: 9161455893332361373
-        m_Sensitivity:
-          m_Property:
-            rid: 9161455893332361372
-    - rid: 9161455893332361372
-      type: {class: GetPositionVector3, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Position: {x: 0, y: 0, z: 0}
-    - rid: 9161455893332361373
-      type: {class: GetShotMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
 --- !u!114 &7641148305803356481
 MonoBehaviour:
   m_ObjectHideFlags: 0

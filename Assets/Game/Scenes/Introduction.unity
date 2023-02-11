@@ -184,6 +184,10 @@ MonoBehaviour:
     - rid: 9161455907997483472
     - rid: 9161455907997483497
     - rid: 9161455907997483500
+    - rid: 1542768364414304325
+    - rid: 1542768364414304328
+    - rid: 1542768364414304330
+    - rid: 1542768364414304333
     - rid: 9161455907997483474
     - rid: 9161455907997483477
     - rid: 9161455907997483504
@@ -204,6 +208,72 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 1542768364414304325
+      type: {class: InstructionUIChangeText, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Text:
+          m_Property:
+            rid: 1542768364414304326
+        m_Value:
+          m_Property:
+            rid: 1542768364414304327
+    - rid: 1542768364414304326
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1542768364414304327
+      type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: F for Flashlight
+    - rid: 1542768364414304328
+      type: {class: InstructionCommonTimeWait, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Seconds:
+          m_Property:
+            rid: 1542768364414304329
+        m_Mode:
+          m_UpdateTime: 0
+    - rid: 1542768364414304329
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 2
+    - rid: 1542768364414304330
+      type: {class: InstructionUIChangeText, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Text:
+          m_Property:
+            rid: 1542768364414304331
+        m_Value:
+          m_Property:
+            rid: 1542768364414304332
+    - rid: 1542768364414304331
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1542768364414304332
+      type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 
+    - rid: 1542768364414304333
+      type: {class: InstructionCommonTimeWait, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Seconds:
+          m_Property:
+            rid: 1542768364414304334
+        m_Mode:
+          m_UpdateTime: 0
+    - rid: 1542768364414304334
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 2
     - rid: 9161455907997483459
       type: {class: EventOnStart, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 9161455907997483463
@@ -242,7 +312,7 @@ MonoBehaviour:
     - rid: 9161455907997483469
       type: {class: InstructionUIChangeText, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 1
+        m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Text:
@@ -271,7 +341,7 @@ MonoBehaviour:
     - rid: 9161455907997483473
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 5
+        m_Value: 2
     - rid: 9161455907997483474
       type: {class: InstructionUIChangeText, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -1526,7 +1596,7 @@ MonoBehaviour:
       data:
         m_Scene:
           m_Scene: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-          m_SceneName: SampleScene
+          m_SceneName: World
           m_SceneIndex: 2
 --- !u!1 &2112586385
 GameObject:

@@ -235,7 +235,7 @@ MonoBehaviour:
             m_Children: 
         m_Roots: c72c3a65
         m_Roles: []
-        m_DialogueSkin: {fileID: 11400000, guid: 4d17091e135494104b77cf834e70e07b, type: 2}
+        m_DialogueSkin: {fileID: 11400000, guid: ba9a808a451da404890276a7f6a9441f, type: 2}
         m_Time:
           m_UpdateTime: 1
     - rid: 9161455879377912384

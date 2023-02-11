@@ -29,13 +29,14 @@ MonoBehaviour:
         rid: 5542639879596015710
     m_Pitch: {x: 0.8, y: 1}
   m_OverrideSpeechSkin: {fileID: 11400000, guid: 5a30ce2be15504f639c9b8e1aa56f41d, type: 2}
+  m_Portrait: 1
   references:
     version: 2
     RefIds:
     - rid: 5542639655363805295
       type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: Player
+        m_Value: You
     - rid: 5542639655363805296
       type: {class: GetStringString, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:

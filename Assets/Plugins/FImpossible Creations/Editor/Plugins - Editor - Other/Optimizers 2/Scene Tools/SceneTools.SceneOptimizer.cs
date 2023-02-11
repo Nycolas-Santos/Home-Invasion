@@ -61,7 +61,7 @@ namespace FIMSpace.FOptimizing
             if (fastMode)
             {
                 bool areUnsaved = false;
-                for (int i = 0; i < EditorSceneManager.loadedSceneCount; i++)
+                for (int i = 0; i < UnityEngine.SceneManagement.SceneManager.loadedSceneCount; i++)
                     if (EditorSceneManager.GetSceneAt(i).isDirty) { areUnsaved = true; break; }
 
                 if (areUnsaved)

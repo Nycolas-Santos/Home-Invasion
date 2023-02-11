@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 988638181297799344}
   - component: {fileID: 988638181297799359}
   - component: {fileID: 1569960700778039226}
+  - component: {fileID: 14495258203086279}
   m_Layer: 5
   m_Name: Dialogue_Default_Choice
   m_TagString: Untagged
@@ -161,7 +162,7 @@ MonoBehaviour:
     m_TMP: {fileID: 0}
   m_Index:
     m_Type: 0
-    m_Text: {fileID: 7801356600690810876}
+    m_Text: {fileID: 0}
     m_TMP: {fileID: 0}
   m_Button: {fileID: 988638181297799344}
   m_Actor: {fileID: 0}
@@ -181,6 +182,48 @@ MonoBehaviour:
   m_Color: {fileID: 988638181297799344}
   m_ColorNormal: {r: 1, g: 1, b: 1, a: 1}
   m_ColorVisited: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+--- !u!114 &14495258203086279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988638181297799346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 8406859392272040092
+  m_TriggerEvent:
+    rid: 8406859392272040084
+  references:
+    version: 2
+    RefIds:
+    - rid: 8406859392272040084
+      type: {class: EventUIOnSelect, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 8406859392272040092
+      type: {class: InstructionCommonAudioUIPlay, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_AudioClip: {fileID: 8300000, guid: 7a6fca7503716904db5c4337d5233ba6, type: 3}
+        m_WaitToComplete: 0
+        m_Config:
+          m_Volume: 1
+          m_Pitch: {x: 0.95, y: 1.05}
+          m_UpdateMode: 1
+          m_SpatialBlend: 0
+          m_Target:
+            m_Property:
+              rid: 8406859392272040093
+    - rid: 8406859392272040093
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 0}
 --- !u!1 &1954151679848102623
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,10 +259,10 @@ RectTransform:
   m_Father: {fileID: 595372325246993526}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 51.333336, y: 0}
+  m_SizeDelta: {x: 22.666668, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &5749487485877211532
 CanvasRenderer:
@@ -332,10 +375,10 @@ RectTransform:
   m_Father: {fileID: 595372325246993526}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: 0}
+  m_SizeDelta: {x: 23.666668, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8255358451343293171
 CanvasRenderer:
@@ -428,10 +471,10 @@ RectTransform:
   m_Father: {fileID: 595372325246993526}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 23.666668, y: 0}
+  m_SizeDelta: {x: 23.666668, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &5586574851585758230
 CanvasRenderer:
@@ -506,7 +549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &595372325246993526
 RectTransform:
   m_ObjectHideFlags: 0

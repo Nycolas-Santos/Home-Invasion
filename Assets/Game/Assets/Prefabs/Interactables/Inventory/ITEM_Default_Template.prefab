@@ -386,6 +386,7 @@ MonoBehaviour:
           - rid: 1542767844054270291
           - rid: 1542767844054270322
           - rid: 1542767844054270325
+          - rid: 1542768364414304315
           - rid: 1542767844054270295
         m_OnFinish:
           m_Instructions: []
@@ -694,6 +695,57 @@ MonoBehaviour:
       type: {class: GetAudioClip, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: {fileID: 8300000, guid: 656bc3a01b7be0148971548ef0c30d4e, type: 3}
+    - rid: 1542768364414304315
+      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 1542768364414304316
+        m_Active:
+          m_Property:
+            rid: 1542768364414304317
+    - rid: 1542768364414304316
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 5803017792931933599}
+    - rid: 1542768364414304317
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
+--- !u!1 &5803017792931933599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4948657067065543425}
+  m_Layer: 0
+  m_Name: ItemMesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4948657067065543425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5803017792931933599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6826573161554864122}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7099141761489932780
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +794,7 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 9161455879377912216
+    - rid: 1542768364414304324
     - rid: 9161455879377912349
     - rid: 9161455879377912343
     - rid: 1542767844054270289
@@ -766,6 +819,13 @@ MonoBehaviour:
       type: {class: GetGameObjectDialogue, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
       data:
         m_Dialogue: {fileID: 8067120048283599800}
+    - rid: 1542768364414304324
+      type: {class: InstructionCommonDebugComment, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Text: PLACE THIS GAME OBJECT AT WHERE THE PLAYER SHOULD AIM TO INTERACT
     - rid: 9161455879377911817
       type: {class: EventCharacterOnInteract, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -897,8 +957,9 @@ Transform:
   m_Children:
   - {fileID: 4586831815120662793}
   - {fileID: 3761076893254686932}
+  - {fileID: 4948657067065543425}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5898370215455585664
 MonoBehaviour:

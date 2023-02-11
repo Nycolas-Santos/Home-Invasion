@@ -52,7 +52,7 @@ namespace GameCreator.Editor.Hub
             IsRequesting = true;
             string post = $"{{ \"data\": {EditorJsonUtility.ToJson(data)} }}";
 
-            UnityWebRequest request = UnityWebRequest.Post(
+            UnityWebRequest request = UnityWebRequest.PostWwwForm(
                 GameCreatorHub.URI_CF + gate,
                 string.Empty
             );
