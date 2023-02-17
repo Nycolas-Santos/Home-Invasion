@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9c8bb75ba540b7b4099c9402ae94b3, type: 3}
   m_Name: Message_Dialogue
   m_EditorClassIdentifier: 
-  m_Value: {fileID: 6803370199602019877, guid: aab28625c60174592b450116c99232e3, type: 3}
+  m_Value: {fileID: 5198880970184907861, guid: f3e98d9fedb152348b66c0b13621fbe4, type: 3}
   m_Controller: {fileID: 8305944992580982055}
   m_Idle: {fileID: 7400000, guid: 91fead27ecce44dbd864722c051b8c72, type: 2}
   m_Open: {fileID: 7400000, guid: d91850fd0fd844fd0b0dd65a0238a909, type: 2}
