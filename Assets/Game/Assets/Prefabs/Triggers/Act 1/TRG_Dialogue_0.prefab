@@ -286,33 +286,42 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 9161455892367933513
-    - rid: 9161455893332361344
-    - rid: 1542768348523134983
-    - rid: 1542767844054269977
+    - rid: 8399875665273028789
+    - rid: 8399875665273028792
+    - rid: 8399875665273028794
+    - rid: 8399875665273028795
   m_TriggerEvent:
     rid: 9161455892367933508
   references:
     version: 2
     RefIds:
-    - rid: 1542767844054269977
-      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 8399875665273028789
+      type: {class: InstructionGameObjectSetGameObject, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
-        m_GameObject:
+        m_Set:
           m_Property:
-            rid: 1542767844054269978
-        m_Active:
+            rid: 8399875665273028790
+        m_From:
           m_Property:
-            rid: 1542767844054269979
-    - rid: 1542767844054269978
-      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 1542767844054269979
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+            rid: 8399875665273028791
+    - rid: 8399875665273028790
+      type: {class: SetGameObjectGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 0
-    - rid: 1542768348523134983
+        m_Variable:
+          m_TypeID:
+            m_String: game-object
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Current-Message
+            m_ID: -1245895659
+    - rid: 8399875665273028791
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 0}
+    - rid: 8399875665273028792
       type: {class: InstructionLogicRunTrigger, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_IsExpanded: 0
@@ -320,12 +329,38 @@ MonoBehaviour:
         m_IsEnabled: 1
         m_Trigger:
           m_Property:
-            rid: 1542768348523134984
+            rid: 8399875665273028793
         m_WaitToFinish: 1
-    - rid: 1542768348523134984
+    - rid: 8399875665273028793
       type: {class: GetGameObjectTrigger, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Trigger: {fileID: 0}
+    - rid: 8399875665273028794
+      type: {class: InstructionLogicRaiseSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Signal:
+          m_String: Phone-Enter-Message
+    - rid: 8399875665273028795
+      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 8399875665273028796
+        m_Active:
+          m_Property:
+            rid: 8399875665273028797
+    - rid: 8399875665273028796
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 8399875665273028797
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
     - rid: 9161455892367933508
       type: {class: EventTriggerEnter, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -343,32 +378,6 @@ MonoBehaviour:
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Text: Enter Behaviour
-    - rid: 9161455893332361344
-      type: {class: InstructionGameObjectSetGameObject, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Set:
-          m_Property:
-            rid: 9161455893332361347
-        m_From:
-          m_Property:
-            rid: 9161455893332361346
-    - rid: 9161455893332361346
-      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_GameObject: {fileID: 0}
-    - rid: 9161455893332361347
-      type: {class: SetGameObjectGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Variable:
-          m_TypeID:
-            m_String: game-object
-          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
-          m_Name:
-            m_String: Current-Message
-            m_ID: -1245895659
 --- !u!114 &7641148305803356481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,9 +423,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6075984485086518613}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 1, y: 2.7843447, z: 2.9426036}
   m_Center: {x: 0, y: 0.89217234, z: -0.09989381}
 --- !u!114 &6644511782178609294

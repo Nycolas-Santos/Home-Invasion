@@ -27,6 +27,9 @@ MonoBehaviour:
     - rid: 9161455664503980154
     - rid: 9161455715800318163
     - rid: 8406859602015027200
+    - rid: 8399875665273028746
+    - rid: 8399875683333177436
+    - rid: 8399875692577161250
   references:
     version: 2
     RefIds:
@@ -47,10 +50,61 @@ MonoBehaviour:
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Value: 0
+    - rid: 8399875665273028746
+      type: {class: NameVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value:
+          rid: 8399875665273028819
+        m_Name:
+          m_String: Current-Message-Actor
+    - rid: 8399875665273028819
+      type: {class: ValueGameObject, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value: {fileID: 0}
+    - rid: 8399875683333177436
+      type: {class: NameVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value:
+          rid: 8399875683333177438
+        m_Name:
+          m_String: Current-Phone-Contact
+    - rid: 8399875683333177438
+      type: {class: ValueGameObject, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value: {fileID: 0}
+    - rid: 8399875692577161250
+      type: {class: NameVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value:
+          rid: 8399875692577161252
+        m_Name:
+          m_String: UI-Phone-Default-Inventory-Parent
+    - rid: 8399875692577161252
+      type: {class: ValueGameObject, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value: {fileID: 0}
     - rid: 8406859602015027200
       type: {class: NameVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 1
+        m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Value:
