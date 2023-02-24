@@ -30,6 +30,7 @@ MonoBehaviour:
     - rid: 8399875665273028746
     - rid: 8399875683333177436
     - rid: 8399875692577161250
+    - rid: 3574107128921325641
   references:
     version: 2
     RefIds:
@@ -44,6 +45,23 @@ MonoBehaviour:
         m_Name:
           m_String: Is-Being-Chased
     - rid: 1542767747813605436
+      type: {class: ValueBool, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value: 0
+    - rid: 3574107128921325641
+      type: {class: NameVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value:
+          rid: 3574107128921325643
+        m_Name:
+          m_String: Can-Stop-Look-At-Phone
+    - rid: 3574107128921325643
       type: {class: ValueBool, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
       data:
         m_IsExpanded: 1

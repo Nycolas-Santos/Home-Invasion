@@ -1465,14 +1465,14 @@ GameObject:
   - component: {fileID: 221188546766850627}
   - component: {fileID: 6873752589396117338}
   - component: {fileID: 4139555314982247583}
-  - component: {fileID: 1282532631638370198}
+  - component: {fileID: 1636041003744470594}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5290220141941992237
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1484,7 +1484,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5915788758006617561}
   m_Father: {fileID: 5666996339770140566}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1514,7 +1515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.20299488, g: 0.20299488, b: 0.20299488, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1546,11 +1547,38 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 8399875685382619192
+    - rid: 3574107128921325648
   m_TriggerEvent:
     rid: 8399875685382619191
   references:
     version: 2
     RefIds:
+    - rid: 3574107128921325648
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3574107128921325649
+        m_From:
+          m_Property:
+            rid: 3574107128921325650
+    - rid: 3574107128921325649
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Can-Stop-Look-At-Phone
+            m_ID: -1020729994
+    - rid: 3574107128921325650
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
     - rid: 8399875685382619191
       type: {class: EventOnDisable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 8399875685382619192
@@ -1583,7 +1611,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1282532631638370198
+--- !u!114 &1636041003744470594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1592,9 +1620,64 @@ MonoBehaviour:
   m_GameObject: {fileID: 1304663328304582742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4529bc54a38f4d52b0a1a74e2c07fbd3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 3574107128655773712
+    - rid: 3574107128921325644
+  m_TriggerEvent:
+    rid: 3574107128655773711
+  references:
+    version: 2
+    RefIds:
+    - rid: 3574107128655773711
+      type: {class: EventOnEnable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 3574107128655773712
+      type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_CanvasGroup:
+          m_Property:
+            rid: 3574107128655773715
+        m_Interactable:
+          m_Property:
+            rid: 3574107128655773714
+    - rid: 3574107128655773714
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
+    - rid: 3574107128655773715
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 3574107128921325644
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3574107128921325647
+        m_From:
+          m_Property:
+            rid: 3574107128921325646
+    - rid: 3574107128921325646
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
+    - rid: 3574107128921325647
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Can-Stop-Look-At-Phone
+            m_ID: -1020729994
 --- !u!1 &1305773105529056356
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,12 +3221,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
+    - rid: 3574107128921325600
     - rid: 8406859596494274604
   m_TriggerEvent:
     rid: 8406859596494274603
   references:
     version: 2
     RefIds:
+    - rid: 3574107128921325574
+      type: {class: GetGameObjectChildByIndex, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Transform:
+          m_Property:
+            rid: 3574107128921325577
+        m_Index:
+          m_Property:
+            rid: 3574107128921325576
+    - rid: 3574107128921325576
+      type: {class: GetDecimalInteger, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
+    - rid: 3574107128921325577
+      type: {class: GetGameObjectTransform, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Transform: {fileID: 6730698535885536165}
+    - rid: 3574107128921325600
+      type: {class: InstructionCommonTimeFrame, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Frames:
+          m_Property:
+            rid: 3574107128921325601
+    - rid: 3574107128921325601
+      type: {class: GetDecimalInteger, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
     - rid: 8406859596494274603
       type: {class: EventOnEnable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 8406859596494274604
@@ -3154,11 +3268,7 @@ MonoBehaviour:
         m_IsEnabled: 1
         m_FocusOn:
           m_Property:
-            rid: 8406859596494274605
-    - rid: 8406859596494274605
-      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_GameObject: {fileID: 4735414526845035636}
+            rid: 3574107128921325574
 --- !u!1 &2447723578583785557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3736,6 +3846,255 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageLogs: []
   contactPicture: {fileID: 0}
+--- !u!1 &3292552464822039576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5915788758006617561}
+  - component: {fileID: 1825308516713256554}
+  - component: {fileID: 5361495493368306230}
+  - component: {fileID: 1485014235448234859}
+  - component: {fileID: 3640256736452404411}
+  m_Layer: 0
+  m_Name: Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5915788758006617561
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292552464822039576}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000000013969839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5298151296151889727}
+  m_Father: {fileID: 5290220141941992237}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 97.97, y: 8.970001}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!222 &1825308516713256554
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292552464822039576}
+  m_CullTransparentMesh: 1
+--- !u!114 &5361495493368306230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292552464822039576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1485014235448234859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292552464822039576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 5361495493368306230}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3640256736452404411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292552464822039576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 8406859596494274589
+    - rid: 8406859596494274586
+    - rid: 8406859596494274592
+    - rid: 3574107128655773702
+    - rid: 8406859596494274595
+  m_TriggerEvent:
+    rid: 8406859596494274585
+  references:
+    version: 2
+    RefIds:
+    - rid: 3574107128655773702
+      type: {class: InstructionInventoryCloseBagUI, ns: GameCreator.Runtime.Inventory.UnityUI, asm: GameCreator.Runtime.Inventory}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+    - rid: 8406859596494274585
+      type: {class: EventUIOnButtonClick, ns: , asm: Assembly-CSharp-firstpass}
+    - rid: 8406859596494274586
+      type: {class: InstructionUICanvasGroupAlpha, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_CanvasGroup:
+          m_Property:
+            rid: 8406859596494274587
+        m_Alpha:
+          m_Operation: 0
+          m_Value:
+            m_Property:
+              rid: 8406859596494274588
+        m_Transition:
+          m_Duration: 0
+          m_Easing: 3
+          m_Time: 1
+          m_WaitToComplete: 1
+    - rid: 8406859596494274587
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 2308799019215074924}
+    - rid: 8406859596494274588
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
+    - rid: 8406859596494274589
+      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 8406859596494274590
+        m_Active:
+          m_Property:
+            rid: 8406859596494274591
+    - rid: 8406859596494274590
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 2308799019215074924}
+    - rid: 8406859596494274591
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
+    - rid: 8406859596494274592
+      type: {class: InstructionUICanvasGroupAlpha, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_CanvasGroup:
+          m_Property:
+            rid: 8406859596494274593
+        m_Alpha:
+          m_Operation: 0
+          m_Value:
+            m_Property:
+              rid: 8406859596494274594
+        m_Transition:
+          m_Duration: 0.25
+          m_Easing: 3
+          m_Time: 1
+          m_WaitToComplete: 0
+    - rid: 8406859596494274593
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 2308799019215074924}
+    - rid: 8406859596494274594
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
+    - rid: 8406859596494274595
+      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 8406859596494274596
+        m_Active:
+          m_Property:
+            rid: 8406859596494274597
+    - rid: 8406859596494274596
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 1304663328304582742}
+    - rid: 8406859596494274597
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
 --- !u!1 &3356391812808395883
 GameObject:
   m_ObjectHideFlags: 0
@@ -4721,11 +5080,38 @@ MonoBehaviour:
     m_Instructions:
     - rid: 8406859581305913460
     - rid: 8399875685382619186
+    - rid: 3574107128921325665
   m_TriggerEvent:
     rid: 8406859581305913459
   references:
     version: 2
     RefIds:
+    - rid: 3574107128921325665
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3574107128921325666
+        m_From:
+          m_Property:
+            rid: 3574107128921325667
+    - rid: 3574107128921325666
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Can-Stop-Look-At-Phone
+            m_ID: -1020729994
+    - rid: 3574107128921325667
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
     - rid: 8399875685382619186
       type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -4749,7 +5135,7 @@ MonoBehaviour:
     - rid: 8406859581305913460
       type: {class: InstructionUIFocus, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 1
+        m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_FocusOn:
@@ -4786,11 +5172,38 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 8399875685382619192
+    - rid: 3574107128921325668
   m_TriggerEvent:
     rid: 8399875685382619191
   references:
     version: 2
     RefIds:
+    - rid: 3574107128921325668
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3574107128921325669
+        m_From:
+          m_Property:
+            rid: 3574107128921325670
+    - rid: 3574107128921325669
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Can-Stop-Look-At-Phone
+            m_ID: -1020729994
+    - rid: 3574107128921325670
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
     - rid: 8399875685382619191
       type: {class: EventOnDisable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 8399875685382619192
@@ -5055,6 +5468,7 @@ GameObject:
   - component: {fileID: 1164178668593490487}
   - component: {fileID: 8413535802941935445}
   - component: {fileID: 5194911737844746261}
+  - component: {fileID: 8985636526478327496}
   - component: {fileID: 5048127936526658095}
   - component: {fileID: 8782725914330302823}
   m_Layer: 0
@@ -5138,11 +5552,38 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 8399875685382619192
+    - rid: 3574107128921325657
   m_TriggerEvent:
     rid: 8399875685382619191
   references:
     version: 2
     RefIds:
+    - rid: 3574107128921325657
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3574107128921325658
+        m_From:
+          m_Property:
+            rid: 3574107128921325659
+    - rid: 3574107128921325658
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Can-Stop-Look-At-Phone
+            m_ID: -1020729994
+    - rid: 3574107128921325659
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
     - rid: 8399875685382619191
       type: {class: EventOnDisable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 8399875685382619192
@@ -5163,6 +5604,54 @@ MonoBehaviour:
         m_Value: 0
     - rid: 8399875685382619195
       type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+--- !u!114 &8985636526478327496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4446493937257469744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 3574107128921325662
+  m_TriggerEvent:
+    rid: 3574107128921325661
+  references:
+    version: 2
+    RefIds:
+    - rid: 3574107128921325661
+      type: {class: EventOnEnable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 3574107128921325662
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3574107128921325663
+        m_From:
+          m_Property:
+            rid: 3574107128921325664
+    - rid: 3574107128921325663
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Can-Stop-Look-At-Phone
+            m_ID: -1020729994
+    - rid: 3574107128921325664
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
 --- !u!225 &5048127936526658095
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5696,7 +6185,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 4256574189385343923}
   m_OnClick:
     m_PersistentCalls:
@@ -6811,6 +7300,82 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Contact Name
+--- !u!1 &5296988757621697637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5298151296151889727}
+  - component: {fileID: 2976692025732964520}
+  - component: {fileID: 3490495601208042287}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5298151296151889727
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296988757621697637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000000013969839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5915788758006617561}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000034332275, y: 0}
+  m_SizeDelta: {x: 10.77, y: 7.26}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2976692025732964520
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296988757621697637}
+  m_CullTransparentMesh: 1
+--- !u!114 &3490495601208042287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296988757621697637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6d6088174bb906b49ad8428526ee337b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5458123386155061236
 GameObject:
   m_ObjectHideFlags: 0
@@ -7170,11 +7735,52 @@ MonoBehaviour:
     m_Instructions:
     - rid: 8399875683333177374
     - rid: 8399875683333177355
+    - rid: 3574107128921325598
+    - rid: 3574107128921325592
   m_TriggerEvent:
     rid: 8399875665273028705
   references:
     version: 2
     RefIds:
+    - rid: 3574107128921325592
+      type: {class: InstructionUIFocus, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_FocusOn:
+          m_Property:
+            rid: 3574107128921325594
+    - rid: 3574107128921325594
+      type: {class: GetGameObjectChildByIndex, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Transform:
+          m_Property:
+            rid: 3574107128921325597
+        m_Index:
+          m_Property:
+            rid: 3574107128921325596
+    - rid: 3574107128921325596
+      type: {class: GetDecimalInteger, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
+    - rid: 3574107128921325597
+      type: {class: GetGameObjectTransform, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Transform: {fileID: 6730698535885536165}
+    - rid: 3574107128921325598
+      type: {class: InstructionCommonTimeFrame, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Frames:
+          m_Property:
+            rid: 3574107128921325599
+    - rid: 3574107128921325599
+      type: {class: GetDecimalInteger, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
     - rid: 8399875665273028705
       type: {class: EventOnReceiveSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -7183,7 +7789,7 @@ MonoBehaviour:
     - rid: 8399875683333177355
       type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 0
+        m_IsExpanded: 1
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_CanvasGroup:
@@ -7327,7 +7933,6 @@ Transform:
   - {fileID: 2028169146664931172}
   - {fileID: 2883897464091015073}
   - {fileID: 8880747987416683509}
-  - {fileID: 4946612233001265911}
   m_Father: {fileID: 5710664173697343360}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7738,12 +8343,124 @@ MonoBehaviour:
     m_Instructions:
     - rid: 8399875683333177376
     - rid: 8399875665273028734
+    - rid: 3574107128921325624
     - rid: 8399875682953068556
+    - rid: 3574107128921325605
+    - rid: 3574107128921325608
+    - rid: 3574107128921325611
+    - rid: 3574107128921325614
+    - rid: 3574107128921325620
   m_TriggerEvent:
     rid: 8399875665273028705
   references:
     version: 2
     RefIds:
+    - rid: 3574107128921325605
+      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 3574107128921325606
+        m_Active:
+          m_Property:
+            rid: 3574107128921325607
+    - rid: 3574107128921325606
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 3980165520632039170}
+    - rid: 3574107128921325607
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
+    - rid: 3574107128921325608
+      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 3574107128921325609
+        m_Active:
+          m_Property:
+            rid: 3574107128921325610
+    - rid: 3574107128921325609
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 4446493937257469744}
+    - rid: 3574107128921325610
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
+    - rid: 3574107128921325611
+      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 3574107128921325612
+        m_Active:
+          m_Property:
+            rid: 3574107128921325613
+    - rid: 3574107128921325612
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 7580092383324210470}
+    - rid: 3574107128921325613
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
+    - rid: 3574107128921325614
+      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 3574107128921325615
+        m_Active:
+          m_Property:
+            rid: 3574107128921325616
+    - rid: 3574107128921325615
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 1304663328304582742}
+    - rid: 3574107128921325616
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
+    - rid: 3574107128921325620
+      type: {class: InstructionInventoryCloseBagUI, ns: GameCreator.Runtime.Inventory.UnityUI, asm: GameCreator.Runtime.Inventory}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+    - rid: 3574107128921325624
+      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 3574107128921325625
+        m_Active:
+          m_Property:
+            rid: 3574107128921325626
+    - rid: 3574107128921325625
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 2308799019215074924}
+    - rid: 3574107128921325626
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
     - rid: 8399875665273028705
       type: {class: EventOnReceiveSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -9131,11 +9848,38 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 8406859581305913460
+    - rid: 3574107128921325651
   m_TriggerEvent:
     rid: 8406859581305913459
   references:
     version: 2
     RefIds:
+    - rid: 3574107128921325651
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3574107128921325652
+        m_From:
+          m_Property:
+            rid: 3574107128921325653
+    - rid: 3574107128921325652
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Can-Stop-Look-At-Phone
+            m_ID: -1020729994
+    - rid: 3574107128921325653
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
     - rid: 8406859581305913459
       type: {class: EventOnEnable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 8406859581305913460
@@ -9178,11 +9922,38 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 8399875685382619192
+    - rid: 3574107128921325654
   m_TriggerEvent:
     rid: 8399875685382619191
   references:
     version: 2
     RefIds:
+    - rid: 3574107128921325654
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3574107128921325655
+        m_From:
+          m_Property:
+            rid: 3574107128921325656
+    - rid: 3574107128921325655
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Can-Stop-Look-At-Phone
+            m_ID: -1020729994
+    - rid: 3574107128921325656
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
     - rid: 8399875685382619191
       type: {class: EventOnDisable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 8399875685382619192
@@ -10573,10 +11344,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2025000925432936557}
-  - {fileID: 8703822243768468630}
   - {fileID: 1005138423837586179}
   - {fileID: 7263437577196754893}
+  - {fileID: 8703822243768468630}
+  - {fileID: 2025000925432936557}
   m_Father: {fileID: 6169070680245793832}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10711,445 +11482,3 @@ MonoBehaviour:
       data:
         m_Signal:
           m_String: Stop-Look-At-Phone
---- !u!1001 &7772102162098286071
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3214927687165779794}
-    m_Modifications:
-    - target: {fileID: -5850828185893361618, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: managedReferences[8406859602015027209].m_IsExpanded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5850828185893361618, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: managedReferences[8406859602015027215].m_IsExpanded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 861381251690476915, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 861381251690476915, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 861381251690476915, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 861381251690476915, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 861381251690476915, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 139.04999
-      objectReference: {fileID: 0}
-    - target: {fileID: 861381251690476915, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -395
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002624962167420158, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002624962167420158, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002624962167420158, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1774493634838739592, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1774493634838739592, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1774493634838739592, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1774493634838739592, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1832022642763411955, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: managedReferences[8406859596494274587].m_GameObject
-      value: 
-      objectReference: {fileID: 2308799019215074924}
-    - target: {fileID: 1832022642763411955, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: managedReferences[8406859596494274590].m_GameObject
-      value: 
-      objectReference: {fileID: 2308799019215074924}
-    - target: {fileID: 1832022642763411955, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: managedReferences[8406859596494274593].m_GameObject
-      value: 
-      objectReference: {fileID: 2308799019215074924}
-    - target: {fileID: 1832022642763411955, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: managedReferences[8406859596494274596].m_GameObject
-      value: 
-      objectReference: {fileID: 3980165520632039170}
-    - target: {fileID: 2555006126408303209, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555006126408303209, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555006126408303209, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555006126408303209, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555006126408303209, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 139.04999
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555006126408303209, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -645
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1919.0264
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.018000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.00000058114523
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.0541
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638276, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_Name
-      value: UI_Phone_Inventory
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421020628655638276, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3943243071543373100, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3943243071543373100, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3943243071543373100, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3943243071543373100, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3943243071543373100, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 139.04999
-      objectReference: {fileID: 0}
-    - target: {fileID: 3943243071543373100, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -895
-      objectReference: {fileID: 0}
-    - target: {fileID: 3982600987914850223, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3982600987914850223, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3982600987914850223, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3982600987914850223, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3982600987914850223, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 389.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3982600987914850223, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -895
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046862567594545604, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: managedReferences[8406859596494274587].m_GameObject
-      value: 
-      objectReference: {fileID: 2308799019215074924}
-    - target: {fileID: 4046862567594545604, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: managedReferences[8406859596494274590].m_GameObject
-      value: 
-      objectReference: {fileID: 2308799019215074924}
-    - target: {fileID: 4046862567594545604, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: managedReferences[8406859596494274593].m_GameObject
-      value: 
-      objectReference: {fileID: 2308799019215074924}
-    - target: {fileID: 4046862567594545604, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: managedReferences[8406859596494274596].m_GameObject
-      value: 
-      objectReference: {fileID: 3980165520632039170}
-    - target: {fileID: 4252865382981020561, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4252865382981020561, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4252865382981020561, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697241230766841539, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697241230766841539, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697241230766841539, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697241230766841539, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697241230766841539, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 389.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697241230766841539, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -145
-      objectReference: {fileID: 0}
-    - target: {fileID: 4973267126762287077, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4973267126762287077, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4973267126762287077, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4973267126762287077, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4973267127192336677, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4973267128069406759, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6211910127772111440, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6211910127772111440, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6211910127772111440, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 6211910127772111440, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 6211910127772111440, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 389.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6211910127772111440, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -395
-      objectReference: {fileID: 0}
-    - target: {fileID: 6338045677342045687, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6338045677342045687, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6338045677342045687, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 6338045677342045687, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 6338045677342045687, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 139.04999
-      objectReference: {fileID: 0}
-    - target: {fileID: 6338045677342045687, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1145
-      objectReference: {fileID: 0}
-    - target: {fileID: 6575923937053849763, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6575923937053849763, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6575923937053849763, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7579697392515183378, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7579697392515183378, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7579697392515183378, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 7579697392515183378, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 7579697392515183378, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 389.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7579697392515183378, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -645
-      objectReference: {fileID: 0}
-    - target: {fileID: 8666810494370019964, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8666810494370019964, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8666810494370019964, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 8666810494370019964, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 8666810494370019964, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 139.04999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8666810494370019964, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -145
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
---- !u!224 &4946612233001265911 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3421020628655638272, guid: e0877087d1bb054789e3a960a48fa532, type: 3}
-  m_PrefabInstance: {fileID: 7772102162098286071}
-  m_PrefabAsset: {fileID: 0}

@@ -672,6 +672,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
@@ -714,7 +715,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
 --- !u!114 &2680586533525312112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,12 +728,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e848186ce5fc4ad2b9975864329d078e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_DefaultBag:
+    m_Property:
+      rid: 1000
   m_PrefabCell: {fileID: 4058282066688056449, guid: e07ecc04057bc43509225da541cc5275, type: 3}
   m_CanDropOutside: 1
   m_MaxDropDistance: 1
   m_DropAmount: 0
   m_FilterByParent: {fileID: 0}
   m_Content: {fileID: 7536770143598201346}
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000
+      type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
 --- !u!225 &3791940478866487027
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -747,7 +756,7 @@ CanvasGroup:
   m_IgnoreParentGroups: 0
 --- !u!95 &4693288290115809750
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -764,7 +773,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2619838438569560516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,7 +2565,6 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 2531411172990648700
-  m_InBackground: 1
   m_TriggerEvent:
     rid: 2531411172990648701
   references:
