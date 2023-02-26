@@ -51585,6 +51585,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1658692661}
   - component: {fileID: 1658692662}
+  - component: {fileID: 1658692663}
+  - component: {fileID: 1658692664}
   m_Layer: 3
   m_Name: Dialogue
   m_TagString: Untagged
@@ -51724,6 +51726,81 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 0}
+--- !u!114 &1658692663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658692660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 3574107173153144838
+  m_TriggerEvent:
+    rid: 3574107173720686614
+  references:
+    version: 2
+    RefIds:
+    - rid: 3574107173153144838
+      type: {class: InstructionSetCurrentMessagingContact, ns: GameCreator.Runtime.VisualScripting, asm: Assembly-CSharp}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        contact: 0
+    - rid: 3574107173720686614
+      type: {class: EventDialogueOnStart, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue:
+          m_Property:
+            rid: 3574107173720686615
+    - rid: 3574107173720686615
+      type: {class: GetGameObjectDialogue, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue: {fileID: 1658692662}
+--- !u!114 &1658692664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658692660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 3574107173720686626
+  m_TriggerEvent:
+    rid: 3574107173720686624
+  references:
+    version: 2
+    RefIds:
+    - rid: 3574107173720686624
+      type: {class: EventDialogueOnFinish, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue:
+          m_Property:
+            rid: 3574107173720686625
+    - rid: 3574107173720686625
+      type: {class: GetGameObjectDialogue, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue: {fileID: 1658692662}
+    - rid: 3574107173720686626
+      type: {class: InstructionLogicRaiseSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Signal:
+          m_String: Phone-Leave-Message
 --- !u!1001 &1662106389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61142,6 +61219,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2085162735}
     m_Modifications:
+    - target: {fileID: 1005138423837586179, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005138423837586179, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005138423837586179, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005138423837586179, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025000925432936557, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025000925432936557, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025000925432936557, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2025000925432936557, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4903164780794594618, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
       propertyPath: m_Name
       value: Phone
@@ -61189,6 +61298,38 @@ PrefabInstance:
     - target: {fileID: 5710664173697343360, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 48.595
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263437577196754893, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263437577196754893, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263437577196754893, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263437577196754893, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703822243768468630, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703822243768468630, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703822243768468630, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703822243768468630, guid: 31d85e2c43c2fa74f8e4caa32b7ec199, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -63672,6 +63813,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2044912948}
   - component: {fileID: 2044912949}
+  - component: {fileID: 2044912950}
+  - component: {fileID: 2044912951}
   m_Layer: 3
   m_Name: Dialogue_ThugWarning
   m_TagString: Untagged
@@ -63849,6 +63992,81 @@ MonoBehaviour:
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 4
+--- !u!114 &2044912950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044912947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 3574107173153144835
+  m_TriggerEvent:
+    rid: 3574107173153144833
+  references:
+    version: 2
+    RefIds:
+    - rid: 3574107173153144833
+      type: {class: EventDialogueOnStart, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue:
+          m_Property:
+            rid: 3574107173153144834
+    - rid: 3574107173153144834
+      type: {class: GetGameObjectDialogue, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue: {fileID: 2044912949}
+    - rid: 3574107173153144835
+      type: {class: InstructionSetCurrentMessagingContact, ns: GameCreator.Runtime.VisualScripting, asm: Assembly-CSharp}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        contact: 7
+--- !u!114 &2044912951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044912947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 3574107173720686621
+  m_TriggerEvent:
+    rid: 3574107173720686619
+  references:
+    version: 2
+    RefIds:
+    - rid: 3574107173720686619
+      type: {class: EventDialogueOnFinish, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue:
+          m_Property:
+            rid: 3574107173720686620
+    - rid: 3574107173720686620
+      type: {class: GetGameObjectDialogue, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue: {fileID: 0}
+    - rid: 3574107173720686621
+      type: {class: InstructionLogicRaiseSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Signal:
+          m_String: Phone-Leave-Message
 --- !u!1001 &2045015126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64804,6 +65022,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2061439719}
   - component: {fileID: 2061439720}
+  - component: {fileID: 2061439721}
+  - component: {fileID: 2061439722}
   m_Layer: 3
   m_Name: Dialogue (1)
   m_TagString: Untagged
@@ -64943,6 +65163,81 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 0}
+--- !u!114 &2061439721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061439718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 3574107173153144842
+  m_TriggerEvent:
+    rid: 3574107173153144840
+  references:
+    version: 2
+    RefIds:
+    - rid: 3574107173153144840
+      type: {class: EventDialogueOnStart, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue:
+          m_Property:
+            rid: 3574107173153144841
+    - rid: 3574107173153144841
+      type: {class: GetGameObjectDialogue, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue: {fileID: 2061439720}
+    - rid: 3574107173153144842
+      type: {class: InstructionSetCurrentMessagingContact, ns: GameCreator.Runtime.VisualScripting, asm: Assembly-CSharp}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        contact: 2
+--- !u!114 &2061439722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061439718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 3574107173720686630
+  m_TriggerEvent:
+    rid: 3574107173720686628
+  references:
+    version: 2
+    RefIds:
+    - rid: 3574107173720686628
+      type: {class: EventDialogueOnFinish, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue:
+          m_Property:
+            rid: 3574107173720686629
+    - rid: 3574107173720686629
+      type: {class: GetGameObjectDialogue, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
+      data:
+        m_Dialogue: {fileID: 2061439720}
+    - rid: 3574107173720686630
+      type: {class: InstructionLogicRaiseSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Signal:
+          m_String: Phone-Leave-Message
 --- !u!1 &2061531931
 GameObject:
   m_ObjectHideFlags: 0
