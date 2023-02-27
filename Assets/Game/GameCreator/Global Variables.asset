@@ -22,6 +22,7 @@ MonoBehaviour:
     m_Source:
     - rid: 1542767747813605434
     - rid: 9161455664503980341
+    - rid: 3574107173720686701
     - rid: 9161455650582298633
     - rid: 9161455650582298635
     - rid: 9161455664503980154
@@ -54,7 +55,7 @@ MonoBehaviour:
     - rid: 3574107128921325641
       type: {class: NameVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 1
+        m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Value:
@@ -62,6 +63,23 @@ MonoBehaviour:
         m_Name:
           m_String: Can-Stop-Look-At-Phone
     - rid: 3574107128921325643
+      type: {class: ValueBool, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value: 0
+    - rid: 3574107173720686701
+      type: {class: NameVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Value:
+          rid: 3574107173720686703
+        m_Name:
+          m_String: Is-Looking-At-Phone
+    - rid: 3574107173720686703
       type: {class: ValueBool, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
       data:
         m_IsExpanded: 1

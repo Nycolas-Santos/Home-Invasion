@@ -49989,6 +49989,7 @@ MonoBehaviour:
     - rid: 9161455879377911854
     - rid: 8406859392272040017
     - rid: 8406859581305913418
+    - rid: 3574107173720686704
     - rid: 9161455713135362326
     - rid: 9161455669159920132
     - rid: 9161455713135362120
@@ -50002,6 +50003,32 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 3574107173720686704
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3574107173720686707
+        m_From:
+          m_Property:
+            rid: 3574107173720686706
+    - rid: 3574107173720686706
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
+    - rid: 3574107173720686707
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Is-Looking-At-Phone
+            m_ID: 142304011
     - rid: 8406859392272040017
       type: {class: InstructionLogicRaiseSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -50474,6 +50501,7 @@ MonoBehaviour:
     m_Instructions:
     - rid: 3574107128921325636
     - rid: 8406859581305913419
+    - rid: 3574107173720686708
     - rid: 9161455713135362126
     - rid: 9161455713135362117
     - rid: 9161455713135362329
@@ -50524,6 +50552,32 @@ MonoBehaviour:
           m_Name:
             m_String: Can-Stop-Look-At-Phone
             m_ID: -1020729994
+    - rid: 3574107173720686708
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 3574107173720686709
+        m_From:
+          m_Property:
+            rid: 3574107173720686710
+    - rid: 3574107173720686709
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Is-Looking-At-Phone
+            m_ID: 142304011
+    - rid: 3574107173720686710
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
     - rid: 8406859581305913419
       type: {class: InstructionLogicRaiseSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -68686,7 +68740,7 @@ GameObject:
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &737453572461360033
 PrefabInstance:
   m_ObjectHideFlags: 0

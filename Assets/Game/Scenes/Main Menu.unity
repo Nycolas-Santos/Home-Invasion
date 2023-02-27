@@ -316,7 +316,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
 --- !u!114 &203290759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2339,7 +2339,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7dcf42ab4695bf84094962abe3b4ab00, type: 3}
-    m_FontSize: 24
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2350,29 +2350,48 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Hey there! First of all, I would like to present myself. My name is Eduardo,
-    or Ed, current Game Designer and narrative writer from I Can See You. We have
-    some important things to discuss today, but like Jack would say, let's go by
-    pieces. \n\nLet's start with some fixes. After carefully checking every (or almost
-    all) the YouTube videos from the game page description and carefully analyze
-    all the feedback by you guys, we've decided to not only release this patch to
-    fix some bugs, but also some corrections in game elements that you guy mentioned.
-    I'll leave it as a list with the details down here:\n\n- Flashlight: The flashlight
-    now will only take a single click to turn-on. Many people mentioned how uncomfortable
-    it was to hold the button, which also take us to our second change;\n\n- Doors:
-    They're heavy right?! Well, our initial idea was to make the doors physics \"hard\"
-    or \"heavy\" in order to avoid any bugs when the enemy. With this correction,
-    now it should be a lot easier to open it;\n\n- New control design: Some of the
-    controls from the game were changed in order to provide a best experience. You
-    might not even notice this change at all, but it's there, trust me! \n\nAll the
-    feedbacks we've received, from comments on the page to feedback from YouTubers,
-    was very valuable to us and helped us get to this current stage of the game.
-    Some big changes are coming up soon and we'll keep you updated on everything
-    here, but let me give you some spoilers: ~whisper~ multiple endings ~whisper~\n\nSo
-    if you were asking yourself if any new update would come, adding new itens, moments
-    and a story to the game, the answer is yes, and it'll be huge my brother! Of
-    course, we'll need some time to deliver the complete version of the game, plus,
-    as always, we're open to any feedback! \n\nHope you enjoy it! ;)"
+  m_Text: 'Fixes and Updates:
+
+
+    Graphics improvement;
+
+    Lights improvements;
+
+    Phone
+    elements and visual;
+
+    Overall game performance;
+
+    New cursor added;
+
+    Doors
+    improvements;
+
+    Fixed flashlight turn-on;
+
+
+    Additions:
+
+    Four new apps
+    in the Phone;
+
+    Dialogues in the Phone;
+
+    Random flashlight blackout;
+
+    In-game
+    update screen;
+
+
+    If you enjoy the experience consider making a donation to
+    our Ko-fi and help us improve the game even more.
+
+
+    Next update release:
+    03/11
+
+
+    - Skyward Games'
 --- !u!222 &1087677416
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2984,9 +3003,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'I CAN SEE YOU - UPDATE LOG VERSION 1.02
-
-'
+  m_Text: I Can See You v1.1 - Patch notes
 --- !u!222 &1485052529
 CanvasRenderer:
   m_ObjectHideFlags: 0
