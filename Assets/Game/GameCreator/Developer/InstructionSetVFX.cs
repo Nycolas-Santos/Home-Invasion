@@ -4,6 +4,7 @@ using Game.Scripts;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 
@@ -19,10 +20,10 @@ using Object = UnityEngine.Object;
 public class InstructionSetVFX : Instruction
 {
     // MEMBERS: -------------------------------------------------------------------------------
-    [SerializeField] public GameSettings.VFXMode vfxMode;
+    [FormerlySerializedAs("vfxMode")] [SerializeField] public GameSettings.VFXMode m_VfxMode;
     // PROPERTIES: ----------------------------------------------------------------------------
         
-    public override string Title => $"Set VFX to: {vfxMode}";
+    public override string Title => $"Set VFX to: {this.m_VfxMode}";
     // RUN METHOD: ----------------------------------------------------------------------------
     protected override Task Run(Args args)
     {
@@ -32,7 +33,7 @@ public class InstructionSetVFX : Instruction
         var vhs = camera.GetComponent<postVHSPro>();
         if (vhs == null) return DefaultResult;
 
-        switch (this.vfxMode)
+        switch (this.m_VfxMode)
         {
             case GameSettings.VFXMode.VHS:
                 vhs.enabled = true;
@@ -44,11 +45,7 @@ public class InstructionSetVFX : Instruction
                 throw new ArgumentOutOfRangeException();
         }
 
-        var settings = Object.FindObjectOfType<GameSettings>();
-        if (settings == null) return DefaultResult;
-        
-        settings.vfx = this.vfxMode;
-        
+        GameSettings.Instance.vfx = this.m_VfxMode;
         return DefaultResult;
     }
 }
