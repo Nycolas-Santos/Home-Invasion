@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 4800214570171556028}
   - component: {fileID: 8380339795621636654}
   m_Layer: 0
-  m_Name: TriggerSignalStopLookAtPhone
+  m_Name: TriggerSignalClosePhone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1087,12 +1087,46 @@ MonoBehaviour:
     - rid: 3574107128921325608
     - rid: 3574107128921325611
     - rid: 3574107128921325614
+    - rid: 1442244927301091382
     - rid: 3574107128921325620
+    - rid: 1442244927301091388
   m_TriggerEvent:
     rid: 8399875665273028705
   references:
     version: 2
     RefIds:
+    - rid: 1442244927301091382
+      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Set:
+          m_Property:
+            rid: 1442244927301091383
+        m_From:
+          m_Property:
+            rid: 1442244927301091384
+    - rid: 1442244927301091383
+      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: boolean
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Is-Looking-At-Phone
+            m_ID: 142304011
+    - rid: 1442244927301091384
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 0
+    - rid: 1442244927301091388
+      type: {class: InstructionClosePhoneUI, ns: , asm: Assembly-CSharp}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
     - rid: 3574107128921325605
       type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -1198,12 +1232,12 @@ MonoBehaviour:
     - rid: 3574107128921325626
       type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 1
+        m_Value: 0
     - rid: 8399875665273028705
       type: {class: EventOnReceiveSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Signal:
-          m_String: Stop-Look-At-Phone
+          m_String: Close-Phone
     - rid: 8399875682953068556
       type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -7530,7 +7564,7 @@ GameObject:
   - component: {fileID: 5345661009551937510}
   - component: {fileID: 8725652039916551621}
   m_Layer: 0
-  m_Name: TriggerSignalLookAtPhone
+  m_Name: TriggerOpenPhone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7566,11 +7600,55 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 3574107150702608421
+    - rid: 1442244927301091390
+    - rid: 1442244927301091393
   m_TriggerEvent:
-    rid: 8399875665273028705
+    rid: 1442244927301091389
   references:
     version: 2
     RefIds:
+    - rid: 1442244927301091389
+      type: {class: EventOnEnable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091390
+      type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 1442244927301091391
+        m_Active:
+          m_Property:
+            rid: 1442244927301091392
+    - rid: 1442244927301091391
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 6134774835088309835}
+    - rid: 1442244927301091392
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
+    - rid: 1442244927301091393
+      type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_CanvasGroup:
+          m_Property:
+            rid: 1442244927301091394
+        m_Interactable:
+          m_Property:
+            rid: 1442244927301091395
+    - rid: 1442244927301091394
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 6134774835088309835}
+    - rid: 1442244927301091395
+      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
     - rid: 3574107150702608421
       type: {class: InstructionLogicRunConditions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -7585,11 +7663,6 @@ MonoBehaviour:
       type: {class: GetGameObjectConditions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Conditions: {fileID: 4072267836477585477}
-    - rid: 8399875665273028705
-      type: {class: EventOnReceiveSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Signal:
-          m_String: Look-At-Phone
 --- !u!1 &7714281767463381875
 GameObject:
   m_ObjectHideFlags: 0
@@ -9382,6 +9455,85 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8678289991633772211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2300573918878640224}
+  - component: {fileID: 5616202279376392252}
+  m_Layer: 0
+  m_Name: TriggerClosePhone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2300573918878640224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8678289991633772211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 92115639705200975}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5616202279376392252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8678289991633772211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 1442244927301091381
+  m_TriggerEvent:
+    rid: 1442244927301091377
+  references:
+    version: 2
+    RefIds:
+    - rid: 1442244927301091377
+      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Button:
+          m_Input:
+            rid: 1442244927301091380
+        m_MinDistance:
+          m_MinDistance: 0
+          m_To:
+            m_Property:
+              rid: 1442244927301091379
+          m_Radius: 2
+          m_Offset: {x: 0, y: 0, z: 0}
+    - rid: 1442244927301091379
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091380
+      type: {class: InputButtonMousePress, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Button: 1
+    - rid: 1442244927301091381
+      type: {class: InstructionLogicRaiseSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Signal:
+          m_String: Close-Phone
 --- !u!1 &8751995306497533184
 GameObject:
   m_ObjectHideFlags: 0
@@ -9595,6 +9747,7 @@ Transform:
   - {fileID: 6249839197719581447}
   - {fileID: 3334399474203475069}
   - {fileID: 4729654778792958094}
+  - {fileID: 2300573918878640224}
   m_Father: {fileID: 2695862784171181690}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

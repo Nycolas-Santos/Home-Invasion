@@ -4220,8 +4220,8 @@ MonoBehaviour:
             m_IsEnabled: 0
             m_Value: 0
           m_FieldOfView:
-            m_IsEnabled: 0
-            m_Value: 60
+            m_IsEnabled: 1
+            m_Value: 40
           m_OrthographicSize:
             m_IsEnabled: 0
             m_Value: 5
@@ -4234,7 +4234,7 @@ MonoBehaviour:
             m_Property:
               rid: 1442244886136619108
         m_ShotSystemAnimation:
-          m_Duration: 5
+          m_Duration: 3
           m_Easing: 3
           m_Path:
             m_PointA: {x: 0.4366774, y: -0.00000023841858, z: -0.5789241}
@@ -24130,7 +24130,7 @@ MonoBehaviour:
           m_Property:
             rid: 9161455631301083196
         m_Delay: 0
-        m_Transition: 0.1
+        m_Transition: 0.25
     - rid: 9161455631301083195
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 9161455631301083196
@@ -24180,7 +24180,7 @@ MonoBehaviour:
     - rid: 9161455631301083186
       type: {class: InstructionCharacterEnterState, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 0
+        m_IsExpanded: 1
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Character:
@@ -24199,7 +24199,7 @@ MonoBehaviour:
         m_Delay: 0
         m_Speed: 1
         m_Weight: 1
-        m_Transition: 0.1
+        m_Transition: 0.25
     - rid: 9161455631301083187
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 9161455631301083188
@@ -51270,7 +51270,7 @@ GameObject:
   - component: {fileID: 1625549434}
   - component: {fileID: 1625549435}
   m_Layer: 3
-  m_Name: LookAtPhone
+  m_Name: OpenPhone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51315,7 +51315,6 @@ MonoBehaviour:
     - rid: 1442244883829227810
     - rid: 9161455669159919697
     - rid: 1442244886136619053
-    - rid: 1442244886136619054
     - rid: 1442244886136619055
     - rid: 1442244886136619058
     - rid: 1442244886136619064
@@ -51354,14 +51353,6 @@ MonoBehaviour:
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_WaitToClose: 1
-    - rid: 1442244886136619054
-      type: {class: InstructionLogicRaiseSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Signal:
-          m_String: Stop-Look-At-Phone
     - rid: 1442244886136619055
       type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -51526,7 +51517,7 @@ MonoBehaviour:
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Signal:
-          m_String: Look-At-Phone
+          m_String: Open-Phone
     - rid: 9161455669159919626
       type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:

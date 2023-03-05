@@ -25,7 +25,7 @@ namespace Game.Scripts.Phone
         }
         public bool IsOpen()
         {
-            return gameObject.activeSelf;
+            return UI.gameObject.activeSelf;
         }
         public enum Contact
         {

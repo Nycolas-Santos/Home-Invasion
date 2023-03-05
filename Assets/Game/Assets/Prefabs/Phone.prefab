@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2875937959663515673}
   - component: {fileID: 2753162935993367773}
   - component: {fileID: 1454902704492914210}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 645605639029079983}
   - component: {fileID: 2370158640808355533}
   - component: {fileID: 4851324668718460311}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 5944744509855937829}
   - component: {fileID: 877682452269881422}
   - component: {fileID: 7794359700680336765}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 4596606419469702706}
   - component: {fileID: 1409062327818167880}
   - component: {fileID: 6319402455615373263}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Phone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 155743750935445853}
   - component: {fileID: 8854399688010397879}
   - component: {fileID: 5751512292262378810}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: FlickeringBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 4561010837790949855}
   - component: {fileID: 4285823875912147025}
   - component: {fileID: 5478531010668733477}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: UIPhone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
