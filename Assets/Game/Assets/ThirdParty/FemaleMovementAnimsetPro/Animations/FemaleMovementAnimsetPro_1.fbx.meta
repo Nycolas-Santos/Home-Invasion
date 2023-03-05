@@ -5,275 +5,765 @@ labels:
 - Female
 - Animation
 - Human
-timeCreated: 1445609583
-licenseType: Store
 ModelImporter:
-  serializedVersion: 18
-  fileIDToRecycleName:
-    100000: DummyMESH
-    100002: //RootNode
-    100004: Head
-    100006: Hips
-    100008: LeftArm
-    100010: LeftArmRoll
-    100012: LeftFoot
-    100014: LeftForeArm
-    100016: LeftForeArmRoll
-    100018: LeftHand
-    100020: LeftHandIndex1
-    100022: LeftHandIndex2
-    100024: LeftHandIndex3
-    100026: LeftHandIndex4
-    100028: LeftHandMiddle1
-    100030: LeftHandMiddle2
-    100032: LeftHandMiddle3
-    100034: LeftHandMiddle4
-    100036: LeftHandPinky1
-    100038: LeftHandPinky2
-    100040: LeftHandPinky3
-    100042: LeftHandPinky4
-    100044: LeftHandProp
-    100046: LeftHandRing1
-    100048: LeftHandRing2
-    100050: LeftHandRing3
-    100052: LeftHandRing4
-    100054: LeftHandThumb1
-    100056: LeftHandThumb2
-    100058: LeftHandThumb3
-    100060: LeftHandThumb4
-    100062: LeftLeg
-    100064: LeftLegRoll
-    100066: LeftShoulder
-    100068: LeftToeBase
-    100070: LeftToeBase_END
-    100072: LeftUpLeg
-    100074: LeftUpLegRoll
-    100076: Neck
-    100078: RightArm
-    100080: RightArmRoll
-    100082: RightFoot
-    100084: RightForeArm
-    100086: RightForeArmRoll
-    100088: RightHand
-    100090: RightHandIndex1
-    100092: RightHandIndex2
-    100094: RightHandIndex3
-    100096: RightHandIndex4
-    100098: RightHandMiddle1
-    100100: RightHandMiddle2
-    100102: RightHandMiddle3
-    100104: RightHandMiddle4
-    100106: RightHandPinky1
-    100108: RightHandPinky2
-    100110: RightHandPinky3
-    100112: RightHandPinky4
-    100114: RightHandProp
-    100116: RightHandRing1
-    100118: RightHandRing2
-    100120: RightHandRing3
-    100122: RightHandRing4
-    100124: RightHandThumb1
-    100126: RightHandThumb2
-    100128: RightHandThumb3
-    100130: RightHandThumb4
-    100132: RightLeg
-    100134: RightLegRoll
-    100136: RightShoulder
-    100138: RightToeBase
-    100140: RightToeBase_END
-    100142: RightUpLeg
-    100144: RightUpLegRoll
-    100146: Root
-    100148: Spine
-    100150: Spine1
-    400000: DummyMESH
-    400002: //RootNode
-    400004: Head
-    400006: Hips
-    400008: LeftArm
-    400010: LeftArmRoll
-    400012: LeftFoot
-    400014: LeftForeArm
-    400016: LeftForeArmRoll
-    400018: LeftHand
-    400020: LeftHandIndex1
-    400022: LeftHandIndex2
-    400024: LeftHandIndex3
-    400026: LeftHandIndex4
-    400028: LeftHandMiddle1
-    400030: LeftHandMiddle2
-    400032: LeftHandMiddle3
-    400034: LeftHandMiddle4
-    400036: LeftHandPinky1
-    400038: LeftHandPinky2
-    400040: LeftHandPinky3
-    400042: LeftHandPinky4
-    400044: LeftHandProp
-    400046: LeftHandRing1
-    400048: LeftHandRing2
-    400050: LeftHandRing3
-    400052: LeftHandRing4
-    400054: LeftHandThumb1
-    400056: LeftHandThumb2
-    400058: LeftHandThumb3
-    400060: LeftHandThumb4
-    400062: LeftLeg
-    400064: LeftLegRoll
-    400066: LeftShoulder
-    400068: LeftToeBase
-    400070: LeftToeBase_END
-    400072: LeftUpLeg
-    400074: LeftUpLegRoll
-    400076: Neck
-    400078: RightArm
-    400080: RightArmRoll
-    400082: RightFoot
-    400084: RightForeArm
-    400086: RightForeArmRoll
-    400088: RightHand
-    400090: RightHandIndex1
-    400092: RightHandIndex2
-    400094: RightHandIndex3
-    400096: RightHandIndex4
-    400098: RightHandMiddle1
-    400100: RightHandMiddle2
-    400102: RightHandMiddle3
-    400104: RightHandMiddle4
-    400106: RightHandPinky1
-    400108: RightHandPinky2
-    400110: RightHandPinky3
-    400112: RightHandPinky4
-    400114: RightHandProp
-    400116: RightHandRing1
-    400118: RightHandRing2
-    400120: RightHandRing3
-    400122: RightHandRing4
-    400124: RightHandThumb1
-    400126: RightHandThumb2
-    400128: RightHandThumb3
-    400130: RightHandThumb4
-    400132: RightLeg
-    400134: RightLegRoll
-    400136: RightShoulder
-    400138: RightToeBase
-    400140: RightToeBase_END
-    400142: RightUpLeg
-    400144: RightUpLegRoll
-    400146: Root
-    400148: Spine
-    400150: Spine1
-    4300000: DummyMESH
-    7400000: bind
-    7400002: Idle
-    7400004: Idle3
-    7400006: Idle2
-    7400008: Idle_Additive_RC
-    7400010: Idle_Additive_LC
-    7400012: WalkFwdLU
-    7400014: WalkCenter
-    7400016: WalkFwd
-    7400018: WalkBwd
-    7400020: WalkRight
-    7400022: WalkLeft
-    7400024: WalkLeft135
-    7400026: WalkRight45
-    7400028: WalkTurnL135
-    7400030: WalkTurnR135
-    7400032: WalkFwdArchRight180
-    7400034: WalkFwdArchLeft180
-    7400036: RotateLeft90
-    7400038: RotateRight90
-    7400040: RotateLeft180
-    7400042: RotateRight180
-    7400044: WalkFwdStart
-    7400046: WalkBwdStart
-    7400048: WalkRightStart
-    7400050: WalkLeftStart
-    7400052: WalkFwdStop_LU
-    7400054: WalkFwdStop_RU
-    7400056: WalkBwdStop_LU
-    7400058: WalkBwdStop_RU
-    7400060: WalkLeftStop_LU
-    7400062: WalkLeftStop_RU
-    7400064: WalkRightStop_LU
-    7400066: WalkRightStop_RU
-    7400068: WalkFwdStart_R90
-    7400070: WalkFwdStart_R180
-    7400072: WalkFwdStart_L180
-    7400074: WalkFwdStart_L90
-    7400076: WalkFwdStart_L45
-    7400078: WalkFwdStart_R45
-    7400080: WalkFwdStart_R135
-    7400082: WalkFwdStart_L135
-    7400084: WalkLeft45
-    7400086: WalkRight135
-    7400088: WalkLeft44
-    7400090: WalkRight_91
-    7400092: WalkLeft_89
-    7400094: WalkRight136
-    7400096: RunFwd_long
-    7400098: RunFwd
-    7400100: RunBwd
-    7400102: RunRight
-    7400104: RunLeft
-    7400106: RunRt45
-    7400108: RunLt45
-    7400110: RunLt135
-    7400112: RunRt135
-    7400114: RunLeft_original
-    7400116: RunBwd_original
-    7400118: RunRight_original
-    7400120: RunFwdStart
-    7400122: RunArchLoop_R
-    7400124: SprintFwdLoop
-    7400126: RunArchLoop_L
-    7400128: RunFwdStart_R180
-    7400130: RunFwdStart_L180
-    7400132: RunFwdStart_L90
-    7400134: RunFwdStart_R90
-    7400136: RunFwdStart_R135
-    7400138: RunFwdStart_L135
-    7400140: RunFwdStop_LU
-    7400142: RunFwdStop_RU
-    7400144: WalkUpstairs35_Slow
-    7400146: RunDownstairs35_Fast
-    7400148: RunUpstairs35_Slow
-    7400150: FallingLoop
-    7400152: RunBwdStart
-    7400154: RunBwdStop_RU
-    7400156: RunBwdStop_LU
-    7400158: RunRtStart
-    7400160: RunRtStop_LU
-    7400162: RunRtStop_RU
-    7400164: RunLtStart
-    7400166: RunLtStop_RU
-    7400168: RunLtStop_LU
-    7400170: Run2Wall
-    9500000: //RootNode
-    13700000: DummyMESH
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: DummyMESH
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      1: 100004
+    second: Head
+  - first:
+      1: 100006
+    second: Hips
+  - first:
+      1: 100008
+    second: LeftArm
+  - first:
+      1: 100010
+    second: LeftArmRoll
+  - first:
+      1: 100012
+    second: LeftFoot
+  - first:
+      1: 100014
+    second: LeftForeArm
+  - first:
+      1: 100016
+    second: LeftForeArmRoll
+  - first:
+      1: 100018
+    second: LeftHand
+  - first:
+      1: 100020
+    second: LeftHandIndex1
+  - first:
+      1: 100022
+    second: LeftHandIndex2
+  - first:
+      1: 100024
+    second: LeftHandIndex3
+  - first:
+      1: 100026
+    second: LeftHandIndex4
+  - first:
+      1: 100028
+    second: LeftHandMiddle1
+  - first:
+      1: 100030
+    second: LeftHandMiddle2
+  - first:
+      1: 100032
+    second: LeftHandMiddle3
+  - first:
+      1: 100034
+    second: LeftHandMiddle4
+  - first:
+      1: 100036
+    second: LeftHandPinky1
+  - first:
+      1: 100038
+    second: LeftHandPinky2
+  - first:
+      1: 100040
+    second: LeftHandPinky3
+  - first:
+      1: 100042
+    second: LeftHandPinky4
+  - first:
+      1: 100044
+    second: LeftHandProp
+  - first:
+      1: 100046
+    second: LeftHandRing1
+  - first:
+      1: 100048
+    second: LeftHandRing2
+  - first:
+      1: 100050
+    second: LeftHandRing3
+  - first:
+      1: 100052
+    second: LeftHandRing4
+  - first:
+      1: 100054
+    second: LeftHandThumb1
+  - first:
+      1: 100056
+    second: LeftHandThumb2
+  - first:
+      1: 100058
+    second: LeftHandThumb3
+  - first:
+      1: 100060
+    second: LeftHandThumb4
+  - first:
+      1: 100062
+    second: LeftLeg
+  - first:
+      1: 100064
+    second: LeftLegRoll
+  - first:
+      1: 100066
+    second: LeftShoulder
+  - first:
+      1: 100068
+    second: LeftToeBase
+  - first:
+      1: 100070
+    second: LeftToeBase_END
+  - first:
+      1: 100072
+    second: LeftUpLeg
+  - first:
+      1: 100074
+    second: LeftUpLegRoll
+  - first:
+      1: 100076
+    second: Neck
+  - first:
+      1: 100078
+    second: RightArm
+  - first:
+      1: 100080
+    second: RightArmRoll
+  - first:
+      1: 100082
+    second: RightFoot
+  - first:
+      1: 100084
+    second: RightForeArm
+  - first:
+      1: 100086
+    second: RightForeArmRoll
+  - first:
+      1: 100088
+    second: RightHand
+  - first:
+      1: 100090
+    second: RightHandIndex1
+  - first:
+      1: 100092
+    second: RightHandIndex2
+  - first:
+      1: 100094
+    second: RightHandIndex3
+  - first:
+      1: 100096
+    second: RightHandIndex4
+  - first:
+      1: 100098
+    second: RightHandMiddle1
+  - first:
+      1: 100100
+    second: RightHandMiddle2
+  - first:
+      1: 100102
+    second: RightHandMiddle3
+  - first:
+      1: 100104
+    second: RightHandMiddle4
+  - first:
+      1: 100106
+    second: RightHandPinky1
+  - first:
+      1: 100108
+    second: RightHandPinky2
+  - first:
+      1: 100110
+    second: RightHandPinky3
+  - first:
+      1: 100112
+    second: RightHandPinky4
+  - first:
+      1: 100114
+    second: RightHandProp
+  - first:
+      1: 100116
+    second: RightHandRing1
+  - first:
+      1: 100118
+    second: RightHandRing2
+  - first:
+      1: 100120
+    second: RightHandRing3
+  - first:
+      1: 100122
+    second: RightHandRing4
+  - first:
+      1: 100124
+    second: RightHandThumb1
+  - first:
+      1: 100126
+    second: RightHandThumb2
+  - first:
+      1: 100128
+    second: RightHandThumb3
+  - first:
+      1: 100130
+    second: RightHandThumb4
+  - first:
+      1: 100132
+    second: RightLeg
+  - first:
+      1: 100134
+    second: RightLegRoll
+  - first:
+      1: 100136
+    second: RightShoulder
+  - first:
+      1: 100138
+    second: RightToeBase
+  - first:
+      1: 100140
+    second: RightToeBase_END
+  - first:
+      1: 100142
+    second: RightUpLeg
+  - first:
+      1: 100144
+    second: RightUpLegRoll
+  - first:
+      1: 100146
+    second: Root
+  - first:
+      1: 100148
+    second: Spine
+  - first:
+      1: 100150
+    second: Spine1
+  - first:
+      4: 400000
+    second: DummyMESH
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: Head
+  - first:
+      4: 400006
+    second: Hips
+  - first:
+      4: 400008
+    second: LeftArm
+  - first:
+      4: 400010
+    second: LeftArmRoll
+  - first:
+      4: 400012
+    second: LeftFoot
+  - first:
+      4: 400014
+    second: LeftForeArm
+  - first:
+      4: 400016
+    second: LeftForeArmRoll
+  - first:
+      4: 400018
+    second: LeftHand
+  - first:
+      4: 400020
+    second: LeftHandIndex1
+  - first:
+      4: 400022
+    second: LeftHandIndex2
+  - first:
+      4: 400024
+    second: LeftHandIndex3
+  - first:
+      4: 400026
+    second: LeftHandIndex4
+  - first:
+      4: 400028
+    second: LeftHandMiddle1
+  - first:
+      4: 400030
+    second: LeftHandMiddle2
+  - first:
+      4: 400032
+    second: LeftHandMiddle3
+  - first:
+      4: 400034
+    second: LeftHandMiddle4
+  - first:
+      4: 400036
+    second: LeftHandPinky1
+  - first:
+      4: 400038
+    second: LeftHandPinky2
+  - first:
+      4: 400040
+    second: LeftHandPinky3
+  - first:
+      4: 400042
+    second: LeftHandPinky4
+  - first:
+      4: 400044
+    second: LeftHandProp
+  - first:
+      4: 400046
+    second: LeftHandRing1
+  - first:
+      4: 400048
+    second: LeftHandRing2
+  - first:
+      4: 400050
+    second: LeftHandRing3
+  - first:
+      4: 400052
+    second: LeftHandRing4
+  - first:
+      4: 400054
+    second: LeftHandThumb1
+  - first:
+      4: 400056
+    second: LeftHandThumb2
+  - first:
+      4: 400058
+    second: LeftHandThumb3
+  - first:
+      4: 400060
+    second: LeftHandThumb4
+  - first:
+      4: 400062
+    second: LeftLeg
+  - first:
+      4: 400064
+    second: LeftLegRoll
+  - first:
+      4: 400066
+    second: LeftShoulder
+  - first:
+      4: 400068
+    second: LeftToeBase
+  - first:
+      4: 400070
+    second: LeftToeBase_END
+  - first:
+      4: 400072
+    second: LeftUpLeg
+  - first:
+      4: 400074
+    second: LeftUpLegRoll
+  - first:
+      4: 400076
+    second: Neck
+  - first:
+      4: 400078
+    second: RightArm
+  - first:
+      4: 400080
+    second: RightArmRoll
+  - first:
+      4: 400082
+    second: RightFoot
+  - first:
+      4: 400084
+    second: RightForeArm
+  - first:
+      4: 400086
+    second: RightForeArmRoll
+  - first:
+      4: 400088
+    second: RightHand
+  - first:
+      4: 400090
+    second: RightHandIndex1
+  - first:
+      4: 400092
+    second: RightHandIndex2
+  - first:
+      4: 400094
+    second: RightHandIndex3
+  - first:
+      4: 400096
+    second: RightHandIndex4
+  - first:
+      4: 400098
+    second: RightHandMiddle1
+  - first:
+      4: 400100
+    second: RightHandMiddle2
+  - first:
+      4: 400102
+    second: RightHandMiddle3
+  - first:
+      4: 400104
+    second: RightHandMiddle4
+  - first:
+      4: 400106
+    second: RightHandPinky1
+  - first:
+      4: 400108
+    second: RightHandPinky2
+  - first:
+      4: 400110
+    second: RightHandPinky3
+  - first:
+      4: 400112
+    second: RightHandPinky4
+  - first:
+      4: 400114
+    second: RightHandProp
+  - first:
+      4: 400116
+    second: RightHandRing1
+  - first:
+      4: 400118
+    second: RightHandRing2
+  - first:
+      4: 400120
+    second: RightHandRing3
+  - first:
+      4: 400122
+    second: RightHandRing4
+  - first:
+      4: 400124
+    second: RightHandThumb1
+  - first:
+      4: 400126
+    second: RightHandThumb2
+  - first:
+      4: 400128
+    second: RightHandThumb3
+  - first:
+      4: 400130
+    second: RightHandThumb4
+  - first:
+      4: 400132
+    second: RightLeg
+  - first:
+      4: 400134
+    second: RightLegRoll
+  - first:
+      4: 400136
+    second: RightShoulder
+  - first:
+      4: 400138
+    second: RightToeBase
+  - first:
+      4: 400140
+    second: RightToeBase_END
+  - first:
+      4: 400142
+    second: RightUpLeg
+  - first:
+      4: 400144
+    second: RightUpLegRoll
+  - first:
+      4: 400146
+    second: Root
+  - first:
+      4: 400148
+    second: Spine
+  - first:
+      4: 400150
+    second: Spine1
+  - first:
+      43: 4300000
+    second: DummyMESH
+  - first:
+      74: 7400000
+    second: bind
+  - first:
+      74: 7400002
+    second: Idle
+  - first:
+      74: 7400004
+    second: Idle3
+  - first:
+      74: 7400006
+    second: Idle2
+  - first:
+      74: 7400008
+    second: Idle_Additive_RC
+  - first:
+      74: 7400010
+    second: Idle_Additive_LC
+  - first:
+      74: 7400012
+    second: WalkFwdLU
+  - first:
+      74: 7400014
+    second: WalkCenter
+  - first:
+      74: 7400016
+    second: WalkFwd
+  - first:
+      74: 7400018
+    second: WalkBwd
+  - first:
+      74: 7400020
+    second: WalkRight
+  - first:
+      74: 7400022
+    second: WalkLeft
+  - first:
+      74: 7400024
+    second: WalkLeft135
+  - first:
+      74: 7400026
+    second: WalkRight45
+  - first:
+      74: 7400028
+    second: WalkTurnL135
+  - first:
+      74: 7400030
+    second: WalkTurnR135
+  - first:
+      74: 7400032
+    second: WalkFwdArchRight180
+  - first:
+      74: 7400034
+    second: WalkFwdArchLeft180
+  - first:
+      74: 7400036
+    second: RotateLeft90
+  - first:
+      74: 7400038
+    second: RotateRight90
+  - first:
+      74: 7400040
+    second: RotateLeft180
+  - first:
+      74: 7400042
+    second: RotateRight180
+  - first:
+      74: 7400044
+    second: WalkFwdStart
+  - first:
+      74: 7400046
+    second: WalkBwdStart
+  - first:
+      74: 7400048
+    second: WalkRightStart
+  - first:
+      74: 7400050
+    second: WalkLeftStart
+  - first:
+      74: 7400052
+    second: WalkFwdStop_LU
+  - first:
+      74: 7400054
+    second: WalkFwdStop_RU
+  - first:
+      74: 7400056
+    second: WalkBwdStop_LU
+  - first:
+      74: 7400058
+    second: WalkBwdStop_RU
+  - first:
+      74: 7400060
+    second: WalkLeftStop_LU
+  - first:
+      74: 7400062
+    second: WalkLeftStop_RU
+  - first:
+      74: 7400064
+    second: WalkRightStop_LU
+  - first:
+      74: 7400066
+    second: WalkRightStop_RU
+  - first:
+      74: 7400068
+    second: WalkFwdStart_R90
+  - first:
+      74: 7400070
+    second: WalkFwdStart_R180
+  - first:
+      74: 7400072
+    second: WalkFwdStart_L180
+  - first:
+      74: 7400074
+    second: WalkFwdStart_L90
+  - first:
+      74: 7400076
+    second: WalkFwdStart_L45
+  - first:
+      74: 7400078
+    second: WalkFwdStart_R45
+  - first:
+      74: 7400080
+    second: WalkFwdStart_R135
+  - first:
+      74: 7400082
+    second: WalkFwdStart_L135
+  - first:
+      74: 7400084
+    second: WalkLeft45
+  - first:
+      74: 7400086
+    second: WalkRight135
+  - first:
+      74: 7400088
+    second: WalkLeft44
+  - first:
+      74: 7400090
+    second: WalkRight_91
+  - first:
+      74: 7400092
+    second: WalkLeft_89
+  - first:
+      74: 7400094
+    second: WalkRight136
+  - first:
+      74: 7400096
+    second: RunFwd_long
+  - first:
+      74: 7400098
+    second: RunFwd
+  - first:
+      74: 7400100
+    second: RunBwd
+  - first:
+      74: 7400102
+    second: RunRight
+  - first:
+      74: 7400104
+    second: RunLeft
+  - first:
+      74: 7400106
+    second: RunRt45
+  - first:
+      74: 7400108
+    second: RunLt45
+  - first:
+      74: 7400110
+    second: RunLt135
+  - first:
+      74: 7400112
+    second: RunRt135
+  - first:
+      74: 7400114
+    second: RunLeft_original
+  - first:
+      74: 7400116
+    second: RunBwd_original
+  - first:
+      74: 7400118
+    second: RunRight_original
+  - first:
+      74: 7400120
+    second: RunFwdStart
+  - first:
+      74: 7400122
+    second: RunArchLoop_R
+  - first:
+      74: 7400124
+    second: SprintFwdLoop
+  - first:
+      74: 7400126
+    second: RunArchLoop_L
+  - first:
+      74: 7400128
+    second: RunFwdStart_R180
+  - first:
+      74: 7400130
+    second: RunFwdStart_L180
+  - first:
+      74: 7400132
+    second: RunFwdStart_L90
+  - first:
+      74: 7400134
+    second: RunFwdStart_R90
+  - first:
+      74: 7400136
+    second: RunFwdStart_R135
+  - first:
+      74: 7400138
+    second: RunFwdStart_L135
+  - first:
+      74: 7400140
+    second: RunFwdStop_LU
+  - first:
+      74: 7400142
+    second: RunFwdStop_RU
+  - first:
+      74: 7400144
+    second: WalkUpstairs35_Slow
+  - first:
+      74: 7400146
+    second: RunDownstairs35_Fast
+  - first:
+      74: 7400148
+    second: RunUpstairs35_Slow
+  - first:
+      74: 7400150
+    second: FallingLoop
+  - first:
+      74: 7400152
+    second: RunBwdStart
+  - first:
+      74: 7400154
+    second: RunBwdStop_RU
+  - first:
+      74: 7400156
+    second: RunBwdStop_LU
+  - first:
+      74: 7400158
+    second: RunRtStart
+  - first:
+      74: 7400160
+    second: RunRtStop_LU
+  - first:
+      74: 7400162
+    second: RunRtStop_RU
+  - first:
+      74: 7400164
+    second: RunLtStart
+  - first:
+      74: 7400166
+    second: RunLtStop_RU
+  - first:
+      74: 7400168
+    second: RunLtStop_LU
+  - first:
+      74: 7400170
+    second: Run2Wall
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: DummyMESH
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: Root
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
-    animationRotationError: .200000003
-    animationPositionError: .200000003
-    animationScaleError: .200000003
+    animationRotationError: 0.2
+    animationPositionError: 0.2
+    animationScaleError: 0.2
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: bind
       takeName: bind
+      internalID: 0
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -281,6 +771,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -449,9 +940,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Idle
       takeName: Idle
+      internalID: 0
       firstFrame: 0
       lastFrame: 600
       wrapMode: 0
@@ -459,6 +952,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -470,7 +964,138 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5049342
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.5263158
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.5444079
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.112005934
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.1350038
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.20448503
+            value: 0.99968684
+            inSlope: -0.0285334
+            outSlope: -0.0285334
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.089712664
+          - serializedVersion: 3
+            time: 0.6924342
+            value: 0.99776906
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7072369
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7319079
+            value: 0.9978276
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0.008103224
+            outSlope: 0.008103224
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -627,9 +1252,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Idle3
       takeName: Idle3
+      internalID: 0
       firstFrame: 0
       lastFrame: 281
       wrapMode: 0
@@ -637,6 +1264,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -805,9 +1433,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Idle2
       takeName: Idle2
+      internalID: 0
       firstFrame: 0
       lastFrame: 821
       wrapMode: 0
@@ -815,6 +1445,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -983,9 +1614,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Idle_Additive_RC
       takeName: Idle_Additive_RC
+      internalID: 0
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -993,6 +1626,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -1161,9 +1795,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Idle_Additive_LC
       takeName: Idle_Additive_LC
+      internalID: 0
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -1171,6 +1807,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -1339,9 +1976,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdLU
       takeName: WalkFwdLU
+      internalID: 0
       firstFrame: 0
       lastFrame: 64
       wrapMode: 0
@@ -1349,6 +1988,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -1517,9 +2157,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkCenter
       takeName: WalkCenter
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -1527,6 +2169,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -1695,9 +2338,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwd
       takeName: WalkFwd
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -1705,6 +2350,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -1716,7 +2362,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.29769737
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.3486842
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7121711
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.72039473
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24671052
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.2532895
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6611842
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8240132
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -1873,9 +2641,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkBwd
       takeName: WalkBwd
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -1883,6 +2653,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -1894,7 +2665,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.29769737
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.3486842
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7121711
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.72039473
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24671052
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.2532895
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6611842
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8240132
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -2051,9 +2944,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkRight
       takeName: WalkRight
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -2061,6 +2956,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -2072,7 +2968,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.29769737
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.3486842
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7121711
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.72039473
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24671052
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.2532895
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6611842
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8240132
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -2229,9 +3247,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkLeft
       takeName: WalkLeft
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -2239,6 +3259,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -2250,7 +3271,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.29769737
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.3486842
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7121711
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.72039473
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24671052
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.2532895
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6611842
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8240132
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -2407,9 +3550,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkLeft135
       takeName: WalkLeft135
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -2417,6 +3562,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -2428,7 +3574,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.29769737
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.3486842
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7121711
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.72039473
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24671052
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.2532895
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6611842
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8240132
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -2585,9 +3853,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkRight45
       takeName: WalkRight45
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -2595,6 +3865,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -2606,7 +3877,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.29769737
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.3486842
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7121711
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.72039473
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Curve
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24671052
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.2532895
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6611842
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8240132
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -2763,9 +4156,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkTurnL135
       takeName: WalkTurnL135
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -2773,6 +4168,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -2941,9 +4337,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkTurnR135
       takeName: WalkTurnR135
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -2951,6 +4349,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -3119,9 +4518,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdArchRight180
       takeName: WalkFwdArchRight180
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -3129,6 +4530,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -3297,9 +4699,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdArchLeft180
       takeName: WalkFwdArchLeft180
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -3307,6 +4711,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -3475,9 +4880,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RotateLeft90
       takeName: RotateLeft90
+      internalID: 0
       firstFrame: 0
       lastFrame: 152
       wrapMode: 0
@@ -3485,6 +4892,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -3653,9 +5061,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RotateRight90
       takeName: RotateRight90
+      internalID: 0
       firstFrame: 0
       lastFrame: 152
       wrapMode: 0
@@ -3663,6 +5073,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -3831,9 +5242,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RotateLeft180
       takeName: RotateLeft180
+      internalID: 0
       firstFrame: 0
       lastFrame: 152
       wrapMode: 0
@@ -3841,6 +5254,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -4009,9 +5423,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RotateRight180
       takeName: RotateRight180
+      internalID: 0
       firstFrame: 0
       lastFrame: 152
       wrapMode: 0
@@ -4019,6 +5435,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -4187,9 +5604,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStart
       takeName: WalkFwdStart
+      internalID: 0
       firstFrame: 0
       lastFrame: 104
       wrapMode: 0
@@ -4197,6 +5616,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -4365,9 +5785,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkBwdStart
       takeName: WalkBwdStart
+      internalID: 0
       firstFrame: 0
       lastFrame: 80
       wrapMode: 0
@@ -4375,6 +5797,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -4543,9 +5966,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkRightStart
       takeName: WalkRightStart
+      internalID: 0
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -4553,6 +5978,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -4721,9 +6147,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkLeftStart
       takeName: WalkLeftStart
+      internalID: 0
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -4731,6 +6159,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -4899,9 +6328,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStop_LU
       takeName: WalkFwdStop_LU
+      internalID: 0
       firstFrame: 2018
       lastFrame: 2132
       wrapMode: 0
@@ -4909,6 +6340,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -5077,9 +6509,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStop_RU
       takeName: WalkFwdStop_RU
+      internalID: 0
       firstFrame: 3698
       lastFrame: 3822
       wrapMode: 0
@@ -5087,6 +6521,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -5255,9 +6690,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkBwdStop_LU
       takeName: WalkBwdStop_LU
+      internalID: 0
       firstFrame: 3982
       lastFrame: 4110
       wrapMode: 0
@@ -5265,6 +6702,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -5433,9 +6871,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkBwdStop_RU
       takeName: WalkBwdStop_RU
+      internalID: 0
       firstFrame: 4016
       lastFrame: 4104
       wrapMode: 0
@@ -5443,6 +6883,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -5611,9 +7052,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkLeftStop_LU
       takeName: WalkLeftStop_LU
+      internalID: 0
       firstFrame: 668
       lastFrame: 760
       wrapMode: 0
@@ -5621,6 +7064,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -5789,9 +7233,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkLeftStop_RU
       takeName: WalkLeftStop_RU
+      internalID: 0
       firstFrame: 0
       lastFrame: 146
       wrapMode: 0
@@ -5799,6 +7245,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -5967,9 +7414,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkRightStop_LU
       takeName: WalkRightStop_LU
+      internalID: 0
       firstFrame: 0
       lastFrame: 116
       wrapMode: 0
@@ -5977,6 +7426,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -6145,9 +7595,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkRightStop_RU
       takeName: WalkRightStop_RU
+      internalID: 0
       firstFrame: 0
       lastFrame: 96
       wrapMode: 0
@@ -6155,6 +7607,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -6323,9 +7776,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStart_R90
       takeName: WalkFwdStart_R90
+      internalID: 0
       firstFrame: 0
       lastFrame: 90
       wrapMode: 0
@@ -6333,6 +7788,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -6501,9 +7957,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStart_R180
       takeName: WalkFwdStart_R180
+      internalID: 0
       firstFrame: 0
       lastFrame: 92
       wrapMode: 0
@@ -6511,6 +7969,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -6679,9 +8138,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStart_L180
       takeName: WalkFwdStart_L180
+      internalID: 0
       firstFrame: 0
       lastFrame: 80
       wrapMode: 0
@@ -6689,6 +8150,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -6857,9 +8319,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStart_L90
       takeName: WalkFwdStart_L90
+      internalID: 0
       firstFrame: 0
       lastFrame: 120
       wrapMode: 0
@@ -6867,6 +8331,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -7035,9 +8500,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStart_L45
       takeName: WalkFwdStart_L45
+      internalID: 0
       firstFrame: 0
       lastFrame: 108
       wrapMode: 0
@@ -7045,6 +8512,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -7213,9 +8681,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStart_R45
       takeName: WalkFwdStart_R45
+      internalID: 0
       firstFrame: 0
       lastFrame: 82
       wrapMode: 0
@@ -7223,6 +8693,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -7391,9 +8862,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStart_R135
       takeName: WalkFwdStart_R135
+      internalID: 0
       firstFrame: 0
       lastFrame: 102
       wrapMode: 0
@@ -7401,6 +8874,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -7569,9 +9043,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkFwdStart_L135
       takeName: WalkFwdStart_L135
+      internalID: 0
       firstFrame: 0
       lastFrame: 112
       wrapMode: 0
@@ -7579,6 +9055,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -7747,9 +9224,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkLeft45
       takeName: WalkLeft45
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -7757,6 +9236,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -7925,9 +9405,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkRight135
       takeName: WalkRight135
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -7935,6 +9417,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -8103,9 +9586,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkLeft44
       takeName: WalkLeft44
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -8113,6 +9598,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -8124,7 +9610,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.29769737
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.3486842
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7121711
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.72039473
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24671052
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.2532895
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6611842
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8240132
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -8281,9 +9889,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkRight_91
       takeName: WalkRight_91
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -8291,6 +9901,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -8459,9 +10070,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkLeft_89
       takeName: WalkLeft_89
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -8469,6 +10082,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -8637,9 +10251,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkRight136
       takeName: WalkRight136
+      internalID: 0
       firstFrame: 0
       lastFrame: 72
       wrapMode: 0
@@ -8647,6 +10263,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -8658,7 +10275,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.29769737
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.3486842
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.7121711
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.72039473
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24671052
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.2532895
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.6611842
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8240132
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -8815,9 +10554,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwd_long
       takeName: RunFwd_long
+      internalID: 0
       firstFrame: 0
       lastFrame: 50
       wrapMode: 0
@@ -8825,6 +10566,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -8993,9 +10735,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwd
       takeName: RunFwd
+      internalID: 0
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
@@ -9003,6 +10747,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -9014,7 +10759,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.09822577
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.1492126
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8006783
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.80890197
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24107143
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.25760105
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.57142854
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.65178573
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -9171,9 +11038,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunBwd
       takeName: RunBwd
+      internalID: 0
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
@@ -9181,6 +11050,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -9192,7 +11062,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.28870913
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.29595423
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8519239
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8862071
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.43130276
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.44783238
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.79072785
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.87108505
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -9349,9 +11341,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunRight
       takeName: RunRight
+      internalID: 0
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
@@ -9359,6 +11353,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -9370,7 +11365,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.09822577
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.1492126
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8006783
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.80890197
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24107143
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.25760105
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.57142854
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.65178573
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -9527,9 +11644,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunLeft
       takeName: RunLeft
+      internalID: 0
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
@@ -9537,6 +11656,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -9548,7 +11668,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.09822577
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.1492126
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8006783
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.80890197
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24107143
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.25760105
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.57142854
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.65178573
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -9705,9 +11947,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunRt45
       takeName: RunRt45
+      internalID: 0
       firstFrame: 0
       lastFrame: 50
       wrapMode: 0
@@ -9715,6 +11959,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -9726,7 +11971,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.09822577
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.1492126
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8006783
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.80890197
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24107143
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.25760105
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.57142854
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.65178573
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -9883,9 +12250,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunLt45
       takeName: RunLt45
+      internalID: 0
       firstFrame: 0
       lastFrame: 50
       wrapMode: 0
@@ -9893,6 +12262,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -9904,7 +12274,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.09822577
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.1492126
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8006783
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.80890197
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24107143
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.25760105
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.57142854
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.65178573
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -10061,9 +12553,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunLt135
       takeName: RunLt135
+      internalID: 0
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
@@ -10071,6 +12565,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -10082,7 +12577,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.09822577
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.1492126
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8006783
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.80890197
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24107143
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.25760105
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.57142854
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.65178573
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -10239,9 +12856,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunRt135
       takeName: RunRt135
+      internalID: 0
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
@@ -10249,6 +12868,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -10260,7 +12880,129 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Phase-0
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.09822577
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.1492126
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.8006783
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.80890197
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
+      - name: Phase-1
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.24107143
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.25760105
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.57142854
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.65178573
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events: []
       transformMask:
       - path: 
@@ -10417,9 +13159,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunLeft_original
       takeName: RunLeft_original
+      internalID: 0
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
@@ -10427,6 +13171,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -10595,9 +13340,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunBwd_original
       takeName: RunBwd_original
+      internalID: 0
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
@@ -10605,6 +13352,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -10773,9 +13521,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunRight_original
       takeName: RunRight_original
+      internalID: 0
       firstFrame: 0
       lastFrame: 44
       wrapMode: 0
@@ -10783,6 +13533,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -10951,9 +13702,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwdStart
       takeName: RunFwdStart
+      internalID: 0
       firstFrame: 0
       lastFrame: 68
       wrapMode: 0
@@ -10961,6 +13714,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -11129,9 +13883,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunArchLoop_R
       takeName: RunArchLoop_R
+      internalID: 0
       firstFrame: 0
       lastFrame: 46
       wrapMode: 0
@@ -11139,6 +13895,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -11307,9 +14064,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: SprintFwdLoop
       takeName: SprintFwdLoop
+      internalID: 0
       firstFrame: 0
       lastFrame: 38
       wrapMode: 0
@@ -11317,6 +14076,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -11485,9 +14245,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunArchLoop_L
       takeName: RunArchLoop_L
+      internalID: 0
       firstFrame: 0
       lastFrame: 46
       wrapMode: 0
@@ -11495,6 +14257,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -11663,9 +14426,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwdStart_R180
       takeName: RunFwdStart_R180
+      internalID: 0
       firstFrame: 0
       lastFrame: 66
       wrapMode: 0
@@ -11673,6 +14438,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -11841,9 +14607,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwdStart_L180
       takeName: RunFwdStart_L180
+      internalID: 0
       firstFrame: 0
       lastFrame: 62
       wrapMode: 0
@@ -11851,6 +14619,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -12019,9 +14788,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwdStart_L90
       takeName: RunFwdStart_L90
+      internalID: 0
       firstFrame: 0
       lastFrame: 42
       wrapMode: 0
@@ -12029,6 +14800,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -12197,9 +14969,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwdStart_R90
       takeName: RunFwdStart_R90
+      internalID: 0
       firstFrame: 0
       lastFrame: 66
       wrapMode: 0
@@ -12207,6 +14981,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -12375,9 +15150,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwdStart_R135
       takeName: RunFwdStart_R135
+      internalID: 0
       firstFrame: 0
       lastFrame: 66
       wrapMode: 0
@@ -12385,6 +15162,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -12553,9 +15331,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwdStart_L135
       takeName: RunFwdStart_L135
+      internalID: 0
       firstFrame: 0
       lastFrame: 62
       wrapMode: 0
@@ -12563,6 +15343,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -12731,9 +15512,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwdStop_LU
       takeName: RunFwdStop_LU
+      internalID: 0
       firstFrame: 0
       lastFrame: 98
       wrapMode: 0
@@ -12741,6 +15524,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -12909,9 +15693,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunFwdStop_RU
       takeName: RunFwdStop_RU
+      internalID: 0
       firstFrame: 0
       lastFrame: 90
       wrapMode: 0
@@ -12919,6 +15705,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -13087,9 +15874,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: WalkUpstairs35_Slow
       takeName: WalkUpstairs35_Slow
+      internalID: 0
       firstFrame: 0
       lastFrame: 70
       wrapMode: 0
@@ -13097,6 +15886,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -13265,9 +16055,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunDownstairs35_Fast
       takeName: RunDownstairs35_Fast
+      internalID: 0
       firstFrame: 0
       lastFrame: 21
       wrapMode: 0
@@ -13275,6 +16067,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -13443,9 +16236,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunUpstairs35_Slow
       takeName: RunUpstairs35_Slow
+      internalID: 0
       firstFrame: 0
       lastFrame: 36
       wrapMode: 0
@@ -13453,6 +16248,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -13621,9 +16417,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: FallingLoop
       takeName: FallingLoop
+      internalID: 0
       firstFrame: 140
       lastFrame: 340
       wrapMode: 0
@@ -13631,6 +16429,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
@@ -13799,9 +16598,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunBwdStart
       takeName: RunBwdStart
+      internalID: 0
       firstFrame: 0
       lastFrame: 59
       wrapMode: 0
@@ -13809,6 +16610,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -13977,9 +16779,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunBwdStop_RU
       takeName: RunBwdStop_RU
+      internalID: 0
       firstFrame: 0
       lastFrame: 73
       wrapMode: 0
@@ -13987,6 +16791,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -14155,9 +16960,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunBwdStop_LU
       takeName: RunBwdStop_LU
+      internalID: 0
       firstFrame: 0
       lastFrame: 107
       wrapMode: 0
@@ -14165,6 +16972,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -14333,9 +17141,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunRtStart
       takeName: RunRtStart
+      internalID: 0
       firstFrame: 0
       lastFrame: 62
       wrapMode: 0
@@ -14343,6 +17153,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -14511,9 +17322,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunRtStop_LU
       takeName: RunRtStop_LU
+      internalID: 0
       firstFrame: 0
       lastFrame: 74
       wrapMode: 0
@@ -14521,6 +17334,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -14689,9 +17503,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunRtStop_RU
       takeName: RunRtStop_RU
+      internalID: 0
       firstFrame: 0
       lastFrame: 86
       wrapMode: 0
@@ -14699,6 +17515,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -14867,9 +17684,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunLtStart
       takeName: RunLtStart
+      internalID: 0
       firstFrame: 0
       lastFrame: 43
       wrapMode: 0
@@ -14877,6 +17696,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -15045,9 +17865,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunLtStop_RU
       takeName: RunLtStop_RU
+      internalID: 0
       firstFrame: 0
       lastFrame: 105
       wrapMode: 0
@@ -15055,6 +17877,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -15223,9 +18046,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: RunLtStop_LU
       takeName: RunLtStop_LU
+      internalID: 0
       firstFrame: 0
       lastFrame: 71
       wrapMode: 0
@@ -15233,6 +18058,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -15401,9 +18227,11 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Run2Wall
       takeName: Run2Wall
+      internalID: 0
       firstFrame: 0
       lastFrame: 105
       wrapMode: 0
@@ -15411,6 +18239,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -15579,32 +18408,55 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human:
     - boneName: Hips
       humanName: Hips
@@ -16016,397 +18868,405 @@ ModelImporter:
         modified: 0
     skeleton:
     - name: FemaleMovementAnimsetPro_1(Clone)
+      parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: DummyMESH
+      parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Root
+      parentName: 
       position: {x: 0, y: 0, z: 0}
-      rotation: {x: -1.91068568e-15, y: -4.37113918e-08, z: -4.37113883e-08, w: 1}
+      rotation: {x: -1.9106857e-15, y: -0.000000043711392, z: -0.00000004371139, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Hips
-      position: {x: -9.05254609e-08, y: .923423648, z: 7.39687954e-15}
+      parentName: 
+      position: {x: -0.00000009052546, y: 0.92342365, z: 7.3968795e-15}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: .99999994, z: 1}
-      transformModified: 1
+      scale: {x: 1, y: 0.99999994, z: 1}
     - name: Spine
-      position: {x: 1.94840961e-08, y: .117241897, z: 1.3518631e-15}
-      rotation: {x: -.0281833354, y: 4.73898254e-08, z: -3.99982376e-08, w: .999602795}
-      scale: {x: 1.00000036, y: 1.00000024, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.000000019484096, y: 0.1172419, z: 1.3518631e-15}
+      rotation: {x: -0.028183335, y: 0.000000047389825, z: -0.000000039998238, w: 0.9996028}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1}
     - name: Spine1
-      position: {x: -5.50148949e-09, y: .171855345, z: .00396719528}
-      rotation: {x: -.057572376, y: -3.57541907e-08, z: -1.3925856e-09, w: .998341382}
-      scale: {x: .999999344, y: .999999881, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.0000000055014895, y: 0.17185535, z: 0.0039671953}
+      rotation: {x: -0.057572376, y: -0.00000003575419, z: -0.0000000013925856, w: 0.9983414}
+      scale: {x: 0.99999934, y: 0.9999999, z: 1}
     - name: LeftShoulder
-      position: {x: -.0354674384, y: .190589219, z: .00268512266}
-      rotation: {x: .00598268351, y: -.101748221, z: .0583918355, w: .99307698}
-      scale: {x: 1.00000095, y: 1.00000024, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.03546744, y: 0.19058922, z: 0.0026851227}
+      rotation: {x: 0.0059826835, y: -0.10174822, z: 0.058391836, w: 0.993077}
+      scale: {x: 1.000001, y: 1.0000002, z: 1.0000002}
     - name: LeftArm
-      position: {x: -.112815596, y: 1.52587887e-07, z: -2.86102289e-08}
-      rotation: {x: -.0167643763, y: .0981000066, z: -.0336154923, w: .994467437}
-      scale: {x: .99999994, y: .99999994, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.112815596, y: 0.00000015258789, z: -0.000000028610229}
+      rotation: {x: -0.016764376, y: 0.09810001, z: -0.033615492, w: 0.99446744}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
     - name: LeftArmRoll
-      position: {x: -.120997138, y: -3.96728501e-06, z: -9.14539669e-07}
-      rotation: {x: -1.49452532e-07, y: 6.6174449e-24, z: 9.88993897e-31, w: 1}
-      scale: {x: 1.00000012, y: 1, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.12099714, y: -0.000003967285, z: -0.00000091453967}
+      rotation: {x: -0.00000014945253, y: 6.617445e-24, z: 9.889939e-31, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
     - name: LeftForeArm
-      position: {x: -.271041393, y: -2.2737367e-15, z: 2.07744684e-08}
-      rotation: {x: -.00580779742, y: .0302191731, z: -.0227605104, w: .99926722}
-      scale: {x: 1.00000024, y: 1, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.2710414, y: -2.2737367e-15, z: 0.000000020774468}
+      rotation: {x: -0.0058077974, y: 0.030219173, z: -0.02276051, w: 0.9992672}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
     - name: LeftForeArmRoll
-      position: {x: -.148919687, y: 2.13623048e-06, z: 2.24113455e-06}
-      rotation: {x: 1.86264479e-08, y: 2.77555703e-16, z: 1.49011612e-08, w: 1}
-      scale: {x: 1, y: 1.00000012, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.14891969, y: 0.0000021362305, z: 0.0000022411346}
+      rotation: {x: 0.000000018626448, y: 2.775557e-16, z: 0.000000014901161, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
     - name: LeftHand
-      position: {x: -.234829426, y: -1.56617602e-07, z: 1.14440581e-07}
-      rotation: {x: -.0585546903, y: .00576516381, z: .0181050282, w: .99810338}
-      scale: {x: .999999881, y: 1, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.23482943, y: -0.0000001566176, z: 0.00000011444058}
+      rotation: {x: -0.05855469, y: 0.005765164, z: 0.018105028, w: 0.9981034}
+      scale: {x: 0.9999999, y: 1, z: 1.0000002}
     - name: LeftHandProp
-      position: {x: -.0724981278, y: -.0202203356, z: .00379997236}
+      parentName: 
+      position: {x: -0.07249813, y: -0.020220336, z: 0.0037999724}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1.00000024, z: 1}
-      transformModified: 1
+      scale: {x: 1, y: 1.0000002, z: 1}
     - name: LeftHandIndex1
-      position: {x: -.091047734, y: .0132694133, z: .0225241426}
-      rotation: {x: -.0132567808, y: .0688997954, z: -.0237128176, w: .997253597}
-      scale: {x: .99999994, y: 1, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.091047734, y: 0.013269413, z: 0.022524143}
+      rotation: {x: -0.013256781, y: 0.068899795, z: -0.023712818, w: 0.9972536}
+      scale: {x: 0.99999994, y: 1, z: 0.9999999}
     - name: LeftHandIndex2
-      position: {x: -.0328071378, y: 1.42108518e-16, z: 1.52587887e-07}
-      rotation: {x: -3.92436078e-07, y: 3.37464758e-06, z: .0314429589, w: .999505579}
-      scale: {x: 1, y: 1, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.032807138, y: 1.4210852e-16, z: 0.00000015258789}
+      rotation: {x: -0.00000039243608, y: 0.0000033746476, z: 0.03144296, w: 0.9995056}
+      scale: {x: 1, y: 1, z: 0.99999994}
     - name: LeftHandIndex3
-      position: {x: -.0227260236, y: -1.42108504e-16, z: 1.42108504e-16}
-      rotation: {x: 5.14555651e-08, y: -1.31689001e-06, z: .0319679491, w: .99948895}
-      scale: {x: 1.00000012, y: 1, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.022726024, y: -1.421085e-16, z: 1.421085e-16}
+      rotation: {x: 0.000000051455565, y: -0.00000131689, z: 0.03196795, w: 0.99948895}
+      scale: {x: 1.0000001, y: 1, z: 0.9999999}
     - name: LeftHandIndex4
-      position: {x: -.0231916867, y: -3.81469718e-08, z: 4.61852497e-16}
+      parentName: 
+      position: {x: -0.023191687, y: -0.000000038146972, z: 4.618525e-16}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1.00000012}
-      transformModified: 1
+      scale: {x: 1, y: 1, z: 1.0000001}
     - name: LeftHandMiddle1
-      position: {x: -.0927781761, y: .0160303228, z: .00372453663}
-      rotation: {x: .0027967114, y: .0115907276, z: -.00539786601, w: .999914348}
-      scale: {x: 1, y: 1.00000012, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.092778176, y: 0.016030323, z: 0.0037245366}
+      rotation: {x: 0.0027967114, y: 0.011590728, z: -0.005397866, w: 0.99991435}
+      scale: {x: 1, y: 1.0000001, z: 1}
     - name: LeftHandMiddle2
-      position: {x: -.0337569825, y: -9.53674295e-09, z: 1.52587887e-07}
-      rotation: {x: -3.62837312e-07, y: 1.43889281e-06, z: .033596281, w: .999435484}
-      scale: {x: .99999994, y: .999999881, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.033756983, y: -0.000000009536743, z: 0.00000015258789}
+      rotation: {x: -0.0000003628373, y: 0.0000014388928, z: 0.03359628, w: 0.9994355}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.9999999}
     - name: LeftHandMiddle3
-      position: {x: -.0250548758, y: -1.52587887e-07, z: 2.84217009e-16}
-      rotation: {x: -2.10478873e-07, y: -5.1967794e-07, z: .0291924831, w: .999573827}
-      scale: {x: .99999994, y: 1, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.025054876, y: -0.00000015258789, z: 2.84217e-16}
+      rotation: {x: -0.00000021047887, y: -0.00000051967794, z: 0.029192483, w: 0.9995738}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
     - name: LeftHandMiddle4
-      position: {x: -.0219948422, y: 7.10542918e-17, z: 5.24025191e-16}
+      parentName: 
+      position: {x: -0.021994842, y: 7.105429e-17, z: 5.240252e-16}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.00000012, y: 1, z: 1.00000012}
-      transformModified: 1
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
     - name: LeftHandPinky1
-      position: {x: -.0840953514, y: .0108627398, z: -.0304790065}
-      rotation: {x: .0378274433, y: -.055663906, z: -.0593104474, w: .995968282}
-      scale: {x: 1, y: 1, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.08409535, y: 0.01086274, z: -0.030479006}
+      rotation: {x: 0.037827443, y: -0.055663906, z: -0.059310447, w: 0.9959683}
+      scale: {x: 1, y: 1, z: 1.0000001}
     - name: LeftHandPinky2
-      position: {x: -.0265656617, y: 7.62939436e-08, z: -7.62939436e-08}
-      rotation: {x: -1.19907767e-07, y: -2.84011162e-06, z: .0321342647, w: .999483585}
-      scale: {x: 1.00000012, y: .999999881, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.026565662, y: 0.000000076293944, z: -0.000000076293944}
+      rotation: {x: -0.00000011990777, y: -0.0000028401116, z: 0.032134265, w: 0.9994836}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1}
     - name: LeftHandPinky3
-      position: {x: -.0172404423, y: -2.84216956e-16, z: 7.62939436e-08}
-      rotation: {x: -4.57675924e-07, y: 1.86776742e-06, z: .0315934308, w: .999500871}
-      scale: {x: 1, y: .99999994, z: .999999821}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.017240442, y: -2.8421696e-16, z: 0.000000076293944}
+      rotation: {x: -0.00000045767592, y: 0.0000018677674, z: 0.03159343, w: 0.9995009}
+      scale: {x: 1, y: 0.99999994, z: 0.9999998}
     - name: LeftHandPinky4
-      position: {x: -.0149323111, y: 1.43051139e-07, z: -5.32906775e-17}
+      parentName: 
+      position: {x: -0.014932311, y: 0.00000014305114, z: -5.3290678e-17}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: .999999702, y: .999999702, z: .999999702}
-      transformModified: 1
+      scale: {x: 0.9999997, y: 0.9999997, z: 0.9999997}
     - name: LeftHandRing1
-      position: {x: -.0900276005, y: .0144197708, z: -.0143067837}
-      rotation: {x: .0320052132, y: -.0406675823, z: -.0313747413, w: .998167038}
-      scale: {x: 1, y: .99999994, z: .999999821}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.0900276, y: 0.014419771, z: -0.014306784}
+      rotation: {x: 0.032005213, y: -0.040667582, z: -0.03137474, w: 0.99816704}
+      scale: {x: 1, y: 0.99999994, z: 0.9999998}
     - name: LeftHandRing2
-      position: {x: -.0295063108, y: -8.58306848e-08, z: -7.62939436e-08}
-      rotation: {x: 9.63984007e-07, y: 2.99024282e-06, z: .0331103504, w: .999451697}
-      scale: {x: 1.00000024, y: .99999994, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.02950631, y: -0.000000085830685, z: -0.000000076293944}
+      rotation: {x: 0.000000963984, y: 0.0000029902428, z: 0.03311035, w: 0.9994517}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000001}
     - name: LeftHandRing3
-      position: {x: -.0205359925, y: -7.62939436e-08, z: -1.52587887e-07}
-      rotation: {x: 3.84534275e-07, y: -5.52181018e-06, z: .0315313339, w: .999502778}
-      scale: {x: .999999523, y: .999999821, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.020535992, y: -0.000000076293944, z: -0.00000015258789}
+      rotation: {x: 0.00000038453427, y: -0.00000552181, z: 0.031531334, w: 0.9995028}
+      scale: {x: 0.9999995, y: 0.9999998, z: 0.99999994}
     - name: LeftHandRing4
-      position: {x: -.0201742388, y: -9.53674295e-09, z: 7.62939436e-08}
+      parentName: 
+      position: {x: -0.020174239, y: -0.000000009536743, z: 0.000000076293944}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.00000024, y: .999999821, z: .999999821}
-      transformModified: 1
+      scale: {x: 1.0000002, y: 0.9999998, z: 0.9999998}
     - name: LeftHandThumb1
-      position: {x: -.0118385786, y: -.00885835849, z: .0219882932}
-      rotation: {x: .738396883, y: .257721663, z: -.195787027, w: .591622412}
-      scale: {x: 1.00000024, y: 1, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.011838579, y: -0.0088583585, z: 0.021988293}
+      rotation: {x: 0.7383969, y: 0.25772166, z: -0.19578703, w: 0.5916224}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
     - name: LeftHandThumb2
-      position: {x: -.0352125205, y: -3.5527093e-17, z: -2.48689826e-16}
-      rotation: {x: -.0123669337, y: .0136527251, z: -.0283144079, w: .999429405}
-      scale: {x: 1, y: 1, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.03521252, y: -3.5527093e-17, z: -2.4868983e-16}
+      rotation: {x: -0.012366934, y: 0.013652725, z: -0.028314408, w: 0.9994294}
+      scale: {x: 1, y: 1, z: 0.9999999}
     - name: LeftHandThumb3
-      position: {x: -.0394532494, y: -2.13162578e-16, z: 3.37507478e-16}
-      rotation: {x: 0, y: 0, z: .0165749453, w: .999862671}
-      scale: {x: .99999994, y: 1.00000012, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.03945325, y: -2.1316258e-16, z: 3.3750748e-16}
+      rotation: {x: 0, y: 0, z: 0.016574945, w: 0.9998627}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
     - name: LeftHandThumb4
-      position: {x: -.0250432156, y: 1.33514405e-07, z: -2.84216876e-16}
+      parentName: 
+      position: {x: -0.025043216, y: 0.0000001335144, z: -2.8421688e-16}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: .99999994, y: 1.00000012, z: 1.00000012}
-      transformModified: 1
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
     - name: Neck
-      position: {x: 1.12900423e-07, y: .244568437, z: .00137423747}
-      rotation: {x: .217727751, y: -5.4086108e-08, z: 2.18043361e-08, w: .976009548}
-      scale: {x: 1.00000119, y: 1.00000012, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.00000011290042, y: 0.24456844, z: 0.0013742375}
+      rotation: {x: 0.21772775, y: -0.000000054086108, z: 0.000000021804336, w: 0.97600955}
+      scale: {x: 1.0000012, y: 1.0000001, z: 1}
     - name: Head
-      position: {x: 5.42677069e-15, y: .106134497, z: -6.03961226e-16}
-      rotation: {x: -.184927016, y: -6.6749169e-07, z: -4.85668039e-09, w: .982752264}
+      parentName: 
+      position: {x: 5.4267707e-15, y: 0.1061345, z: -6.039612e-16}
+      rotation: {x: -0.18492702, y: -0.0000006674917, z: -0.0000000048566804, w: 0.98275226}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: RightShoulder
-      position: {x: .0354674272, y: .190588683, z: .00268507423}
-      rotation: {x: .99307698, y: -.0583917983, z: -.101748295, w: -.00598255312}
-      scale: {x: 1.00000095, y: 1.00000024, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.035467427, y: 0.19058868, z: 0.0026850742}
+      rotation: {x: 0.993077, y: -0.0583918, z: -0.101748295, w: -0.005982553}
+      scale: {x: 1.000001, y: 1.0000002, z: 1.0000002}
     - name: RightArm
-      position: {x: .112815343, y: -2.47362004e-06, z: -3.28671632e-07}
-      rotation: {x: -.0167648066, y: .098101154, z: -.033620812, w: .994467139}
-      scale: {x: .99999994, y: .99999994, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.11281534, y: -0.00000247362, z: -0.00000032867163}
+      rotation: {x: -0.016764807, y: 0.098101154, z: -0.033620812, w: 0.99446714}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
     - name: RightArmRoll
-      position: {x: .121001758, y: 8.566627e-06, z: 1.87635101e-06}
-      rotation: {x: -1.49452532e-07, y: 6.6174449e-24, z: 9.88993897e-31, w: 1}
-      scale: {x: 1.00000012, y: 1, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.12100176, y: 0.000008566627, z: 0.000001876351}
+      rotation: {x: -0.00000014945253, y: 6.617445e-24, z: 9.889939e-31, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
     - name: RightForeArm
-      position: {x: .271043897, y: 2.63776565e-06, z: 5.74309354e-07}
-      rotation: {x: -.00580958277, y: .0302101541, z: -.0227467157, w: .999267817}
-      scale: {x: 1.00000024, y: 1, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.2710439, y: 0.0000026377656, z: 0.00000057430935}
+      rotation: {x: -0.005809583, y: 0.030210154, z: -0.022746716, w: 0.9992678}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
     - name: RightForeArmRoll
-      position: {x: .148921311, y: -3.42746716e-07, z: -3.03335923e-07}
-      rotation: {x: 1.86264479e-08, y: 2.77555703e-16, z: 1.49011612e-08, w: 1}
-      scale: {x: 1, y: 1.00000012, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.14892131, y: -0.00000034274672, z: -0.00000030333592}
+      rotation: {x: 0.000000018626448, y: 2.775557e-16, z: 0.000000014901161, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
     - name: RightHand
-      position: {x: .234826997, y: -4.42856026e-06, z: -3.60055287e-06}
-      rotation: {x: -.058554709, y: .00576516381, z: .0181050505, w: .99810338}
-      scale: {x: .999999881, y: 1, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.234827, y: -0.0000044285603, z: -0.0000036005529}
+      rotation: {x: -0.05855471, y: 0.005765164, z: 0.01810505, w: 0.9981034}
+      scale: {x: 0.9999999, y: 1, z: 1.0000002}
     - name: RightHandProp
-      position: {x: .0724978969, y: .0202210788, z: -.00379956025}
+      parentName: 
+      position: {x: 0.0724979, y: 0.020221079, z: -0.0037995602}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1.00000024, z: 1}
-      transformModified: 1
+      scale: {x: 1, y: 1.0000002, z: 1}
     - name: RightHandIndex1
-      position: {x: .0910509974, y: -.0132650239, z: -.0225182865}
-      rotation: {x: -.00692314841, y: .0606368408, z: -.0200491101, w: .99793452}
-      scale: {x: .99999994, y: 1, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.091051, y: -0.013265024, z: -0.022518286}
+      rotation: {x: -0.0069231484, y: 0.06063684, z: -0.02004911, w: 0.9979345}
+      scale: {x: 0.99999994, y: 1, z: 0.9999999}
     - name: RightHandIndex2
-      position: {x: .032804545, y: -3.53247151e-06, z: -6.02652017e-06}
-      rotation: {x: -2.33271749e-05, y: 6.48051209e-05, z: .0313995145, w: .99950695}
-      scale: {x: 1, y: 1, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.032804545, y: -0.0000035324715, z: -0.00000602652}
+      rotation: {x: -0.000023327175, y: 0.00006480512, z: 0.031399515, w: 0.99950695}
+      scale: {x: 1, y: 1, z: 0.99999994}
     - name: RightHandIndex3
-      position: {x: .0227263588, y: -5.04109209e-07, z: -8.47172316e-07}
-      rotation: {x: 9.71369082e-06, y: 7.23376579e-05, z: .0319058113, w: .999490976}
-      scale: {x: 1.00000012, y: 1, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.022726359, y: -0.0000005041092, z: -0.0000008471723}
+      rotation: {x: 0.000009713691, y: 0.00007233766, z: 0.03190581, w: 0.999491}
+      scale: {x: 1.0000001, y: 1, z: 0.9999999}
     - name: RightHandIndex4
-      position: {x: .0231923927, y: 2.13901194e-06, z: 3.04175978e-06}
+      parentName: 
+      position: {x: 0.023192393, y: 0.000002139012, z: 0.0000030417598}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1.00000012}
-      transformModified: 1
+      scale: {x: 1, y: 1, z: 1.0000001}
     - name: RightHandMiddle1
-      position: {x: .0927783176, y: -.0160295814, z: -.00372461695}
-      rotation: {x: .00196963898, y: .0148122031, z: -.00910666771, w: .999846935}
-      scale: {x: 1, y: 1.00000012, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.09277832, y: -0.016029581, z: -0.003724617}
+      rotation: {x: 0.001969639, y: 0.014812203, z: -0.009106668, w: 0.99984694}
+      scale: {x: 1, y: 1.0000001, z: 1}
     - name: RightHandMiddle2
-      position: {x: .0337577872, y: 1.7077673e-06, z: 2.80016684e-06}
-      rotation: {x: -2.12958457e-06, y: -8.12895232e-05, z: .0336660333, w: .99943316}
-      scale: {x: .99999994, y: .999999881, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.033757787, y: 0.0000017077673, z: 0.0000028001668}
+      rotation: {x: -0.0000021295846, y: -0.00008128952, z: 0.033666033, w: 0.99943316}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.9999999}
     - name: RightHandMiddle3
-      position: {x: .0250546094, y: -2.07214907e-06, z: -2.77643949e-06}
-      rotation: {x: 2.5611368e-07, y: 3.11359727e-05, z: .0407207124, w: .999170601}
-      scale: {x: .99999994, y: 1, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.02505461, y: -0.000002072149, z: -0.0000027764395}
+      rotation: {x: 0.00000025611368, y: 0.000031135973, z: 0.040720712, w: 0.9991706}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
     - name: RightHandMiddle4
-      position: {x: .0219957959, y: 1.94744803e-06, z: 2.48575111e-06}
-      rotation: {x: 5.10296786e-07, y: -0, z: -0, w: 1}
-      scale: {x: 1.00000012, y: 1, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.021995796, y: 0.000001947448, z: 0.000002485751}
+      rotation: {x: 0.0000005102968, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
     - name: RightHandPinky1
-      position: {x: .0840972438, y: -.0108602699, z: .0304823387}
-      rotation: {x: .0389299281, y: -.0565277934, z: -.0639830753, w: .995587945}
-      scale: {x: 1, y: 1, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.084097244, y: -0.01086027, z: 0.030482339}
+      rotation: {x: 0.038929928, y: -0.056527793, z: -0.063983075, w: 0.99558794}
+      scale: {x: 1, y: 1, z: 1.0000001}
     - name: RightHandPinky2
-      position: {x: .0265638959, y: -9.48688182e-07, z: -1.57527768e-06}
-      rotation: {x: 3.12698671e-06, y: 6.42928935e-05, z: .0321067385, w: .999484479}
-      scale: {x: 1.00000012, y: .999999881, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.026563896, y: -0.0000009486882, z: -0.0000015752777}
+      rotation: {x: 0.0000031269867, y: 0.00006429289, z: 0.03210674, w: 0.9994845}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1}
     - name: RightHandPinky3
-      position: {x: .0172415376, y: 3.29201555e-07, z: 1.54857901e-06}
-      rotation: {x: 9.84139479e-06, y: -3.81432219e-05, z: .0315885954, w: .99950093}
-      scale: {x: 1, y: .99999994, z: .999999821}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.017241538, y: 0.00000032920155, z: 0.000001548579}
+      rotation: {x: 0.000009841395, y: -0.000038143222, z: 0.031588595, w: 0.99950093}
+      scale: {x: 1, y: 0.99999994, z: 0.9999998}
     - name: RightHandPinky4
-      position: {x: .0149329873, y: 2.9668729e-07, z: 1.29629312e-08}
+      parentName: 
+      position: {x: 0.014932987, y: 0.0000002966873, z: 0.000000012962931}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: .999999702, y: .999999702, z: .999999702}
-      transformModified: 1
+      scale: {x: 0.9999997, y: 0.9999997, z: 0.9999997}
     - name: RightHandRing1
-      position: {x: .0900286734, y: -.0144174499, z: .014309885}
-      rotation: {x: .0374630727, y: -.0541305169, z: -.047386989, w: .996705055}
-      scale: {x: 1, y: .99999994, z: .999999821}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.09002867, y: -0.01441745, z: 0.014309885}
+      rotation: {x: 0.037463073, y: -0.054130517, z: -0.04738699, w: 0.99670506}
+      scale: {x: 1, y: 0.99999994, z: 0.9999998}
     - name: RightHandRing2
-      position: {x: .0295050368, y: -1.90480841e-06, z: -1.79015581e-06}
-      rotation: {x: 7.10013865e-06, y: 8.40872235e-05, z: .0329982229, w: .999455392}
-      scale: {x: 1.00000024, y: .99999994, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.029505037, y: -0.0000019048084, z: -0.0000017901558}
+      rotation: {x: 0.0000071001386, y: 0.00008408722, z: 0.032998223, w: 0.9994554}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000001}
     - name: RightHandRing3
-      position: {x: .0205379967, y: 3.25239102e-06, z: 2.85180067e-06}
-      rotation: {x: 1.06649795e-05, y: -7.75605222e-05, z: .0316062383, w: .999500453}
-      scale: {x: .999999523, y: .999999821, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.020537997, y: 0.000003252391, z: 0.0000028518007}
+      rotation: {x: 0.0000106649795, y: -0.00007756052, z: 0.03160624, w: 0.99950045}
+      scale: {x: 0.9999995, y: 0.9999998, z: 0.99999994}
     - name: RightHandRing4
-      position: {x: .0201744847, y: 1.39082843e-07, z: -8.25172606e-07}
+      parentName: 
+      position: {x: 0.020174485, y: 0.00000013908284, z: -0.0000008251726}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.00000024, y: .999999821, z: .999999821}
-      transformModified: 1
+      scale: {x: 1.0000002, y: 0.9999998, z: 0.9999998}
     - name: RightHandThumb1
-      position: {x: .011841082, y: .00886204652, z: -.021983372}
-      rotation: {x: .738423407, y: .25767684, z: -.195704803, w: .591636062}
-      scale: {x: 1.00000024, y: 1, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.011841082, y: 0.0088620465, z: -0.021983372}
+      rotation: {x: 0.7384234, y: 0.25767684, z: -0.1957048, w: 0.59163606}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
     - name: RightHandThumb2
-      position: {x: .0352130197, y: -6.2512504e-06, z: 2.1926287e-06}
-      rotation: {x: -.0123767657, y: .0136269582, z: -.0284288283, w: .999426305}
-      scale: {x: 1, y: 1, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.03521302, y: -0.0000062512504, z: 0.0000021926287}
+      rotation: {x: -0.012376766, y: 0.013626958, z: -0.028428828, w: 0.9994263}
+      scale: {x: 1, y: 1, z: 0.9999999}
     - name: RightHandThumb3
-      position: {x: .039453283, y: 1.88213664e-06, z: -6.46774026e-07}
-      rotation: {x: 0, y: 0, z: .0165749453, w: .999862671}
-      scale: {x: .99999994, y: 1.00000012, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.039453283, y: 0.0000018821366, z: -0.000000646774}
+      rotation: {x: 0, y: 0, z: 0.016574945, w: 0.9998627}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
     - name: RightHandThumb4
-      position: {x: .0250439215, y: 5.16629461e-06, z: -1.83865711e-06}
+      parentName: 
+      position: {x: 0.025043922, y: 0.0000051662946, z: -0.0000018386571}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: .99999994, y: 1.00000012, z: 1.00000012}
-      transformModified: 1
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
     - name: LeftUpLeg
-      position: {x: -.0992433727, y: -1.80933479e-09, z: -1.80933379e-09}
-      rotation: {x: -.466850698, y: -.52406466, z: .505217195, w: .502157569}
-      scale: {x: 1.00000012, y: .999999881, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.09924337, y: -0.0000000018093348, z: -0.0000000018093338}
+      rotation: {x: -0.4668507, y: -0.52406466, z: 0.5052172, w: 0.50215757}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1}
     - name: LeftUpLegRoll
-      position: {x: -.212614059, y: 4.440892e-18, z: -1.7763568e-17}
-      rotation: {x: -8.94568046e-08, y: 0, z: -0, w: 1}
+      parentName: 
+      position: {x: -0.21261406, y: 4.440892e-18, z: -1.7763568e-17}
+      rotation: {x: -0.000000089456805, y: 0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: LeftLeg
-      position: {x: -.407047063, y: 7.15255544e-09, z: 1.9073477e-08}
-      rotation: {x: -1.78475812e-08, y: 9.99938354e-09, z: -.0216344539, w: .999765933}
-      scale: {x: .999999881, y: .999999881, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.40704706, y: 0.0000000071525554, z: 0.000000019073477}
+      rotation: {x: -0.000000017847581, y: 0.0000000099993835, z: -0.021634454, w: 0.99976593}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1.0000001}
     - name: LeftLegRoll
-      position: {x: -.255618542, y: 8.88178367e-17, z: 1.77635746e-17}
+      parentName: 
+      position: {x: -0.25561854, y: 8.8817837e-17, z: 1.7763575e-17}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: LeftFoot
-      position: {x: -.432699621, y: 1.06973799e-08, z: -1.05342517e-08}
-      rotation: {x: -.00238521956, y: .0480436124, z: .565030396, w: .823666692}
-      scale: {x: 1.00000012, y: 1.00000036, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.43269962, y: 0.00000001069738, z: -0.000000010534252}
+      rotation: {x: -0.0023852196, y: 0.048043612, z: 0.5650304, w: 0.8236667}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000002}
     - name: LeftToeBase
-      position: {x: -.147148475, y: -1.77635663e-17, z: -2.6645352e-17}
-      rotation: {x: 0, y: 0, z: .212903589, w: .977073193}
-      scale: {x: 1.00000012, y: .999999881, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.14714848, y: -1.7763566e-17, z: -2.6645352e-17}
+      rotation: {x: 0, y: 0, z: 0.21290359, w: 0.9770732}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1.0000001}
     - name: LeftToeBase_END
-      position: {x: -.0678676814, y: -9.53674295e-09, z: -9.53674295e-09}
-      rotation: {x: -9.95034749e-11, y: -1.27662068e-08, z: -1.27028193e-18, w: 1}
-      scale: {x: .999999881, y: .999999881, z: .999999762}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.06786768, y: -0.000000009536743, z: -0.000000009536743}
+      rotation: {x: -9.9503475e-11, y: -0.000000012766207, z: -1.2702819e-18, w: 1}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.99999976}
     - name: RightUpLeg
-      position: {x: .0992434099, y: 2.68558779e-07, z: -1.91616341e-08}
-      rotation: {x: -.50215745, y: .505217254, z: .524064779, w: -.466850668}
-      scale: {x: 1.00000012, y: .999999881, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.09924341, y: 0.00000026855878, z: -0.000000019161634}
+      rotation: {x: -0.50215745, y: 0.50521725, z: 0.5240648, w: -0.46685067}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1}
     - name: RightUpLegRoll
-      position: {x: .212613955, y: -7.62508279e-09, z: 7.35467793e-08}
-      rotation: {x: -8.94568046e-08, y: 0, z: -0, w: 1}
+      parentName: 
+      position: {x: 0.21261396, y: -0.000000007625083, z: 0.00000007354678}
+      rotation: {x: -0.000000089456805, y: 0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: RightLeg
-      position: {x: .407047212, y: 3.33073586e-08, z: 2.48508947e-08}
-      rotation: {x: 7.60938974e-08, y: 7.94451172e-09, z: -.0216344614, w: .999765933}
-      scale: {x: .999999881, y: .999999881, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.4070472, y: 0.00000003330736, z: 0.000000024850895}
+      rotation: {x: 0.0000000760939, y: 0.000000007944512, z: -0.021634461, w: 0.99976593}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1.0000001}
     - name: RightLegRoll
-      position: {x: .255618513, y: -3.04113428e-08, z: 1.61889719e-08}
+      parentName: 
+      position: {x: 0.2556185, y: -0.000000030411343, z: 0.000000016188972}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: RightFoot
-      position: {x: .43269977, y: 1.77378983e-08, z: 3.10794546e-09}
-      rotation: {x: .132486418, y: .124726407, z: .549833477, w: .815214038}
-      scale: {x: 1.00000012, y: 1.00000036, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.43269977, y: 0.000000017737898, z: 0.0000000031079455}
+      rotation: {x: 0.13248642, y: 0.12472641, z: 0.5498335, w: 0.81521404}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000002}
     - name: RightToeBase
-      position: {x: .147101328, y: -.000261919398, z: -.0037131845}
-      rotation: {x: .144769132, y: .121098913, z: .185736105, w: .964302361}
-      scale: {x: 1.00000012, y: .999999881, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.14710133, y: -0.0002619194, z: -0.0037131845}
+      rotation: {x: 0.14476913, y: 0.12109891, z: 0.1857361, w: 0.96430236}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1.0000001}
     - name: RightToeBase_END
-      position: {x: .0678375661, y: .000606740883, z: .00192592433}
-      rotation: {x: .300439835, y: -.0121909129, z: .00852729566, w: .953684747}
-      scale: {x: .999999881, y: .999999881, z: .999999762}
-      transformModified: 1
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+      parentName: 
+      position: {x: 0.067837566, y: 0.0006067409, z: 0.0019259243}
+      rotation: {x: 0.30043983, y: -0.012190913, z: 0.008527296, w: 0.95368475}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.99999976}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
