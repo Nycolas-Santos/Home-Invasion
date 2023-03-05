@@ -156,4 +156,4 @@ MonoBehaviour:
     - rid: 4505834252451184659
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 2
+        m_Value: 1.5
