@@ -1740,7 +1740,6 @@ GameObject:
   - component: {fileID: 4144478060038670992}
   - component: {fileID: 6032977667045932787}
   - component: {fileID: 2891364387545334542}
-  - component: {fileID: 1534448840888380460}
   m_Layer: 0
   m_Name: CacheMessages
   m_TagString: Untagged
@@ -1854,46 +1853,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1534448840888380460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2430771438889543290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Instructions:
-    m_Instructions:
-    - rid: 8399875685382619192
-  m_TriggerEvent:
-    rid: 8399875685382619191
-  references:
-    version: 2
-    RefIds:
-    - rid: 8399875685382619191
-      type: {class: EventOnDisable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-    - rid: 8399875685382619192
-      type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_CanvasGroup:
-          m_Property:
-            rid: 8399875685382619195
-        m_Interactable:
-          m_Property:
-            rid: 8399875685382619194
-    - rid: 8399875685382619194
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 0
-    - rid: 8399875685382619195
-      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
 --- !u!1 &2617875944918863940
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,7 +3121,6 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 8406859581305913460
-    - rid: 8399875685382619186
     - rid: 3574107128921325665
   m_TriggerEvent:
     rid: 8406859581305913459
@@ -3195,24 +3153,6 @@ MonoBehaviour:
       type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 0
-    - rid: 8399875685382619186
-      type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_CanvasGroup:
-          m_Property:
-            rid: 8399875685382619189
-        m_Interactable:
-          m_Property:
-            rid: 8399875685382619188
-    - rid: 8399875685382619188
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 1
-    - rid: 8399875685382619189
-      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 8406859581305913459
       type: {class: EventOnEnable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 8406859581305913460
@@ -3254,7 +3194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
-    - rid: 8399875685382619192
     - rid: 3574107128921325668
   m_TriggerEvent:
     rid: 8399875685382619191
@@ -3289,24 +3228,6 @@ MonoBehaviour:
         m_Value: 1
     - rid: 8399875685382619191
       type: {class: EventOnDisable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-    - rid: 8399875685382619192
-      type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_CanvasGroup:
-          m_Property:
-            rid: 8399875685382619195
-        m_Interactable:
-          m_Property:
-            rid: 8399875685382619194
-    - rid: 8399875685382619194
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 0
-    - rid: 8399875685382619195
-      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
 --- !u!1 &3741842680873669112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3812,9 +3733,7 @@ GameObject:
   - component: {fileID: 1496533620647769873}
   - component: {fileID: 6996260631061550723}
   - component: {fileID: 4196588740458552727}
-  - component: {fileID: 2680337892024420272}
   - component: {fileID: 2508272309846341452}
-  - component: {fileID: 298271810397789525}
   - component: {fileID: 6589945174802612854}
   m_Layer: 0
   m_Name: Inventory
@@ -3882,46 +3801,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2680337892024420272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4445882674041666436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Instructions:
-    m_Instructions:
-    - rid: 8399875685382619192
-  m_TriggerEvent:
-    rid: 8399875685382619191
-  references:
-    version: 2
-    RefIds:
-    - rid: 8399875685382619191
-      type: {class: EventOnDisable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-    - rid: 8399875685382619192
-      type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_CanvasGroup:
-          m_Property:
-            rid: 8399875685382619195
-        m_Interactable:
-          m_Property:
-            rid: 8399875685382619194
-    - rid: 8399875685382619194
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 0
-    - rid: 8399875685382619195
-      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
 --- !u!225 &2508272309846341452
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3934,46 +3813,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &298271810397789525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4445882674041666436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Instructions:
-    m_Instructions:
-    - rid: 3574107128655773712
-  m_TriggerEvent:
-    rid: 3574107128655773711
-  references:
-    version: 2
-    RefIds:
-    - rid: 3574107128655773711
-      type: {class: EventOnEnable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-    - rid: 3574107128655773712
-      type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_CanvasGroup:
-          m_Property:
-            rid: 3574107128655773715
-        m_Interactable:
-          m_Property:
-            rid: 3574107128655773714
-    - rid: 3574107128655773714
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 1
-    - rid: 3574107128655773715
-      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
 --- !u!114 &6589945174802612854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5914,7 +5753,7 @@ CanvasGroup:
   m_GameObject: {fileID: 6134774835088309835}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 0
+  m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &8114156825769301784

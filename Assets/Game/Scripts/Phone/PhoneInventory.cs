@@ -4,11 +4,12 @@ public class PhoneInventory : MonoBehaviour
 {
     public void SetupPhoneUI(GameObject inventoryUI)
     {
-        inventoryUI.transform.parent = transform;
-        inventoryUI.transform.localPosition = Vector3.zero;
         
         var rectTransform = inventoryUI.GetComponent<RectTransform>();
         if (rectTransform == null) return;
+        
+        rectTransform.SetParent(transform,false);
+        inventoryUI.transform.localPosition = Vector3.zero;
 
         rectTransform.localScale = Vector3.one;
         rectTransform.localRotation = Quaternion.identity;

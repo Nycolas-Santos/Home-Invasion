@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1243249314534045854}
   - component: {fileID: 7277445058839986107}
   - component: {fileID: 8889994542611477017}
+  - component: {fileID: 6012264153726296232}
   m_Layer: 5
   m_Name: UI_Inventory
   m_TagString: Untagged
@@ -178,9 +179,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
-    - rid: 1442244955299643400
-    - rid: 1442244955299643436
+    - rid: 1442244957539139588
     - rid: 1442244955299643424
+    - rid: 1442244957539139616
   m_TriggerEvent:
     rid: 1442244955299643399
   references:
@@ -188,17 +189,6 @@ MonoBehaviour:
     RefIds:
     - rid: 1442244955299643399
       type: {class: EventOnEnable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-    - rid: 1442244955299643400
-      type: {class: InstructionOneTimeSetupInventoryUI, ns: , asm: Assembly-CSharp}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_InventoryUI:
-          m_Property:
-            rid: 1442244955299643402
-    - rid: 1442244955299643402
-      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 1442244955299643424
       type: {class: InstructionUIFocus, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -225,19 +215,80 @@ MonoBehaviour:
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_GameObject: {fileID: 7876945590182824419}
-    - rid: 1442244955299643436
-      type: {class: InstructionCommonTimeFrame, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 1442244957539139588
+      type: {class: InstructionCommonTimeWait, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
-        m_Frames:
+        m_Seconds:
           m_Property:
-            rid: 1442244955299643437
-    - rid: 1442244955299643437
+            rid: 1442244957539139589
+        m_Mode:
+          m_UpdateTime: 0
+    - rid: 1442244957539139589
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
+    - rid: 1442244957539139616
+      type: {class: InstructionUISetSelectedGameObject, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 1442244957539139618
+    - rid: 1442244957539139618
+      type: {class: GetGameObjectChildByIndex, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Transform:
+          m_Property:
+            rid: 1442244957539139621
+        m_Index:
+          m_Property:
+            rid: 1442244957539139620
+    - rid: 1442244957539139620
       type: {class: GetDecimalInteger, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Value: 5
+        m_Value: 0
+    - rid: 1442244957539139621
+      type: {class: GetGameObjectTransform, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Transform: {fileID: 7876945590182824420}
+--- !u!114 &6012264153726296232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517342757605786431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 1442244957539139591
+  m_TriggerEvent:
+    rid: 1442244957539139590
+  references:
+    version: 2
+    RefIds:
+    - rid: 1442244957539139590
+      type: {class: EventOnStart, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 1442244957539139591
+      type: {class: InstructionOneTimeSetupInventoryUI, ns: , asm: Assembly-CSharp}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_InventoryUI:
+          m_Property:
+            rid: 1442244957539139592
+    - rid: 1442244957539139592
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
 --- !u!1 &594470828011161819
 GameObject:
   m_ObjectHideFlags: 0
