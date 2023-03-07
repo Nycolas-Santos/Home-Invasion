@@ -236,6 +236,7 @@ MonoBehaviour:
         m_InstructionList:
           m_Instructions:
           - rid: 1442244913748770835
+          - rid: 1442244927301091562
     - rid: 1442244913748770835
       type: {class: InstructionCharacterGesture, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -251,8 +252,8 @@ MonoBehaviour:
         m_Delay: 0
         m_Speed: 2
         m_UseRootMotion: 0
-        m_TransitionIn: 0.1
-        m_TransitionOut: 0.1
+        m_TransitionIn: 0.25
+        m_TransitionOut: 0.25
         m_WaitToComplete: 1
     - rid: 1442244913748770836
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
@@ -293,6 +294,7 @@ MonoBehaviour:
         m_InstructionList:
           m_Instructions:
           - rid: 1442244913748770845
+          - rid: 1442244927301091558
     - rid: 1442244913748770845
       type: {class: InstructionCharacterGesture, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -308,8 +310,8 @@ MonoBehaviour:
         m_Delay: 0
         m_Speed: 2
         m_UseRootMotion: 0
-        m_TransitionIn: 0.1
-        m_TransitionOut: 0.1
+        m_TransitionIn: 0.25
+        m_TransitionOut: 0.25
         m_WaitToComplete: 1
     - rid: 1442244913748770849
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
@@ -351,10 +353,11 @@ MonoBehaviour:
         m_InstructionList:
           m_Instructions:
           - rid: 1442244913748770858
+          - rid: 1442244927301091552
     - rid: 1442244913748770858
       type: {class: InstructionCharacterGesture, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 1
+        m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Character:
@@ -366,8 +369,8 @@ MonoBehaviour:
         m_Delay: 0
         m_Speed: 2
         m_UseRootMotion: 0
-        m_TransitionIn: 0.1
-        m_TransitionOut: 0.1
+        m_TransitionIn: 0.25
+        m_TransitionOut: 0.25
         m_WaitToComplete: 1
     - rid: 1442244913748770862
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
@@ -395,6 +398,75 @@ MonoBehaviour:
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 1442244913748770868
       type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091552
+      type: {class: InstructionCharacterNavigationFacing, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 1442244927301091553
+        m_Rotation:
+          m_Facing:
+            rid: 1442244927301091556
+    - rid: 1442244927301091553
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091556
+      type: {class: UnitFacingObjectDirection, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_UpdateRotation: 1
+        m_DirectionOf:
+          m_Property:
+            rid: 1442244927301091557
+    - rid: 1442244927301091557
+      type: {class: GetGameObjectMainCamera, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091558
+      type: {class: InstructionCharacterNavigationFacing, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 1442244927301091559
+        m_Rotation:
+          m_Facing:
+            rid: 1442244927301091560
+    - rid: 1442244927301091559
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091560
+      type: {class: UnitFacingObjectDirection, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_UpdateRotation: 1
+        m_DirectionOf:
+          m_Property:
+            rid: 1442244927301091561
+    - rid: 1442244927301091561
+      type: {class: GetGameObjectMainCamera, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091562
+      type: {class: InstructionCharacterNavigationFacing, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 1442244927301091563
+        m_Rotation:
+          m_Facing:
+            rid: 1442244927301091564
+    - rid: 1442244927301091563
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091564
+      type: {class: UnitFacingObjectDirection, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_UpdateRotation: 1
+        m_DirectionOf:
+          m_Property:
+            rid: 1442244927301091565
+    - rid: 1442244927301091565
+      type: {class: GetGameObjectMainCamera, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
 --- !u!1 &5068376280260847982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,15 +1116,63 @@ MonoBehaviour:
     - rid: 9161455879377912216
     - rid: 1542768364414304324
     - rid: 9161455879377912349
+    - rid: 1442244927301091540
     - rid: 9161455879377912343
     - rid: 1542767844054270289
     - rid: 9161455879377912346
     - rid: 9161455879377912353
+    - rid: 1442244927301091546
   m_TriggerEvent:
     rid: 9161455879377911817
   references:
     version: 2
     RefIds:
+    - rid: 1442244927301091540
+      type: {class: InstructionCharacterNavigationFacing, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 1442244927301091541
+        m_Rotation:
+          m_Facing:
+            rid: 1442244927301091543
+    - rid: 1442244927301091541
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091543
+      type: {class: UnitFacingTarget, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_UpdateRotation: 1
+        target:
+          m_Property:
+            rid: 1442244927301091545
+    - rid: 1442244927301091545
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091546
+      type: {class: InstructionCharacterNavigationFacing, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 1442244927301091547
+        m_Rotation:
+          m_Facing:
+            rid: 1442244927301091550
+    - rid: 1442244927301091547
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091550
+      type: {class: UnitFacingObjectDirection, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_UpdateRotation: 1
+        m_DirectionOf:
+          m_Property:
+            rid: 1442244927301091551
+    - rid: 1442244927301091551
+      type: {class: GetGameObjectMainCamera, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 1542767844054270289
       type: {class: InstructionDialoguePlay, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
       data:

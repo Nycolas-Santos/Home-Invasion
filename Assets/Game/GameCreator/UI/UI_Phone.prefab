@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 4800214570171556028}
   - component: {fileID: 8380339795621636654}
   m_Layer: 0
-  m_Name: TriggerSignalClosePhone
+  m_Name: TriggerClosePhone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1081,6 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Instructions:
     m_Instructions:
+    - rid: 1442244927301091401
     - rid: 3574107128921325624
     - rid: 8399875682953068556
     - rid: 3574107128921325605
@@ -1091,7 +1092,7 @@ MonoBehaviour:
     - rid: 3574107128921325620
     - rid: 1442244927301091388
   m_TriggerEvent:
-    rid: 8399875665273028705
+    rid: 1442244927301091402
   references:
     version: 2
     RefIds:
@@ -1127,6 +1128,33 @@ MonoBehaviour:
         m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
+    - rid: 1442244927301091401
+      type: {class: InstructionLogicRaiseSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Signal:
+          m_String: Close-Phone
+    - rid: 1442244927301091402
+      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_Button:
+          m_Input:
+            rid: 1442244927301091405
+        m_MinDistance:
+          m_MinDistance: 0
+          m_To:
+            m_Property:
+              rid: 1442244927301091404
+          m_Radius: 2
+          m_Offset: {x: 0, y: 0, z: 0}
+    - rid: 1442244927301091404
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442244927301091405
+      type: {class: InputButtonMousePress, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Button: 1
     - rid: 3574107128921325605
       type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -1233,11 +1261,6 @@ MonoBehaviour:
       type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 0
-    - rid: 8399875665273028705
-      type: {class: EventOnReceiveSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Signal:
-          m_String: Close-Phone
     - rid: 8399875682953068556
       type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -1526,7 +1549,7 @@ Canvas:
   m_GameObject: {fileID: 2167341204241370156}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1799,38 +1822,11 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 8406859581305913460
-    - rid: 3574107128921325651
   m_TriggerEvent:
     rid: 8406859581305913459
   references:
     version: 2
     RefIds:
-    - rid: 3574107128921325651
-      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Set:
-          m_Property:
-            rid: 3574107128921325652
-        m_From:
-          m_Property:
-            rid: 3574107128921325653
-    - rid: 3574107128921325652
-      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Variable:
-          m_TypeID:
-            m_String: boolean
-          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
-          m_Name:
-            m_String: Can-Stop-Look-At-Phone
-            m_ID: -1020729994
-    - rid: 3574107128921325653
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 0
     - rid: 8406859581305913459
       type: {class: EventOnEnable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 8406859581305913460
@@ -1873,38 +1869,11 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 8399875685382619192
-    - rid: 3574107128921325654
   m_TriggerEvent:
     rid: 8399875685382619191
   references:
     version: 2
     RefIds:
-    - rid: 3574107128921325654
-      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Set:
-          m_Property:
-            rid: 3574107128921325655
-        m_From:
-          m_Property:
-            rid: 3574107128921325656
-    - rid: 3574107128921325655
-      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Variable:
-          m_TypeID:
-            m_String: boolean
-          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
-          m_Name:
-            m_String: Can-Stop-Look-At-Phone
-            m_ID: -1020729994
-    - rid: 3574107128921325656
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 1
     - rid: 8399875685382619191
       type: {class: EventOnDisable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 8399875685382619192
@@ -2503,7 +2472,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 97.97, y: 8.970001}
+  m_SizeDelta: {x: 133.71, y: 13.8826}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2223007556366658112
 CanvasRenderer:
@@ -3846,6 +3815,7 @@ GameObject:
   - component: {fileID: 2680337892024420272}
   - component: {fileID: 2508272309846341452}
   - component: {fileID: 298271810397789525}
+  - component: {fileID: 6589945174802612854}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -3895,7 +3865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.20299488, g: 0.20299488, b: 0.20299488, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3927,38 +3897,11 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 8399875685382619192
-    - rid: 3574107128921325648
   m_TriggerEvent:
     rid: 8399875685382619191
   references:
     version: 2
     RefIds:
-    - rid: 3574107128921325648
-      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Set:
-          m_Property:
-            rid: 3574107128921325649
-        m_From:
-          m_Property:
-            rid: 3574107128921325650
-    - rid: 3574107128921325649
-      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Variable:
-          m_TypeID:
-            m_String: boolean
-          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
-          m_Name:
-            m_String: Can-Stop-Look-At-Phone
-            m_ID: -1020729994
-    - rid: 3574107128921325650
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 1
     - rid: 8399875685382619191
       type: {class: EventOnDisable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 8399875685382619192
@@ -4006,7 +3949,6 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 3574107128655773712
-    - rid: 3574107128921325644
   m_TriggerEvent:
     rid: 3574107128655773711
   references:
@@ -4032,32 +3974,18 @@ MonoBehaviour:
         m_Value: 1
     - rid: 3574107128655773715
       type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 3574107128921325644
-      type: {class: InstructionBooleanSetBool, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Set:
-          m_Property:
-            rid: 3574107128921325647
-        m_From:
-          m_Property:
-            rid: 3574107128921325646
-    - rid: 3574107128921325646
-      type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 0
-    - rid: 3574107128921325647
-      type: {class: SetBoolGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
-      data:
-        m_Variable:
-          m_TypeID:
-            m_String: boolean
-          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
-          m_Name:
-            m_String: Can-Stop-Look-At-Phone
-            m_ID: -1020729994
+--- !u!114 &6589945174802612854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445882674041666436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8da3e5cfa80824abc6a31f008d3a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4454428617737352167
 GameObject:
   m_ObjectHideFlags: 0
@@ -4805,8 +4733,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000034332275, y: 0}
-  m_SizeDelta: {x: 10.77, y: 7.26}
+  m_AnchoredPosition: {x: -0.000034332275, y: -0.0000076293945}
+  m_SizeDelta: {x: 21.1313, y: 13.883}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6197030476235187343
 CanvasRenderer:
@@ -9455,85 +9383,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &8678289991633772211
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2300573918878640224}
-  - component: {fileID: 5616202279376392252}
-  m_Layer: 0
-  m_Name: TriggerClosePhone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2300573918878640224
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8678289991633772211}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 92115639705200975}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5616202279376392252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8678289991633772211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Instructions:
-    m_Instructions:
-    - rid: 1442244927301091381
-  m_TriggerEvent:
-    rid: 1442244927301091377
-  references:
-    version: 2
-    RefIds:
-    - rid: 1442244927301091377
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_Button:
-          m_Input:
-            rid: 1442244927301091380
-        m_MinDistance:
-          m_MinDistance: 0
-          m_To:
-            m_Property:
-              rid: 1442244927301091379
-          m_Radius: 2
-          m_Offset: {x: 0, y: 0, z: 0}
-    - rid: 1442244927301091379
-      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 1442244927301091380
-      type: {class: InputButtonMousePress, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Button: 1
-    - rid: 1442244927301091381
-      type: {class: InstructionLogicRaiseSignal, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 0
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Signal:
-          m_String: Close-Phone
 --- !u!1 &8751995306497533184
 GameObject:
   m_ObjectHideFlags: 0
@@ -9747,7 +9596,6 @@ Transform:
   - {fileID: 6249839197719581447}
   - {fileID: 3334399474203475069}
   - {fileID: 4729654778792958094}
-  - {fileID: 2300573918878640224}
   m_Father: {fileID: 2695862784171181690}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
