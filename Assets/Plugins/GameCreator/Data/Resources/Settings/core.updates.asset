@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: core.updates
   m_EditorClassIdentifier: 
   m_Repository:
-    rid: 1442244883829227524
+    rid: 1442244979486883844
   references:
     version: 2
     RefIds:
-    - rid: 1442244883829227524
+    - rid: 1442244979486883844
       type: {class: UpdatesRepository, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
