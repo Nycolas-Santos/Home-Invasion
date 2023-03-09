@@ -281,7 +281,7 @@ MonoBehaviour:
     - rid: 1442244957539139591
       type: {class: InstructionOneTimeSetupInventoryUI, ns: , asm: Assembly-CSharp}
       data:
-        m_IsExpanded: 0
+        m_IsExpanded: 1
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_InventoryUI:
