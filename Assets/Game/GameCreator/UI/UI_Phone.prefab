@@ -4021,7 +4021,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 7277738210346444004}
   m_OnClick:
     m_PersistentCalls:
@@ -6714,12 +6714,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Branches:
     m_Branches:
-    - rid: 9161455715800318166
-    - rid: 3574107150702608423
     - rid: 3574107150702608426
+    - rid: 3574107150702608423
+    - rid: 9161455715800318166
   references:
     version: 2
     RefIds:
+    - rid: 1442245062053330978
+      type: {class: ConditionGameObjectExists, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Sign: 0
+        m_GameObject:
+          m_Property:
+            rid: 1442245062053330980
+    - rid: 1442245062053330980
+      type: {class: GetGameObjectGlobalName, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
+      data:
+        m_Variable:
+          m_TypeID:
+            m_String: game-object
+          m_Variable: {fileID: 11400000, guid: db378f09f7d4a4f4a857a91615048482, type: 2}
+          m_Name:
+            m_String: Current-Message
+            m_ID: -1245895659
     - rid: 3574107150702608423
       type: {class: Branch, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -6762,7 +6782,8 @@ MonoBehaviour:
         m_IsEnabled: 1
         m_Description: 
         m_ConditionList:
-          m_Conditions: []
+          m_Conditions:
+          - rid: 1442245062053330978
         m_InstructionList:
           m_Instructions:
           - rid: 3574107150702608433
@@ -6770,7 +6791,7 @@ MonoBehaviour:
     - rid: 3574107150702608427
       type: {class: InstructionUICanvasGroupInteractable, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 0
+        m_IsExpanded: 1
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_CanvasGroup:
@@ -7379,7 +7400,7 @@ MonoBehaviour:
     - rid: 1442244927301091390
       type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 0
+        m_IsExpanded: 1
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_GameObject:
@@ -7419,7 +7440,7 @@ MonoBehaviour:
     - rid: 3574107150702608421
       type: {class: InstructionLogicRunConditions, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 0
+        m_IsExpanded: 1
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Conditions:
