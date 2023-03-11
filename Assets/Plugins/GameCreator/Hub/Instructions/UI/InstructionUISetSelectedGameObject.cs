@@ -40,14 +40,17 @@ public class InstructionUISetSelectedGameObject : Instruction
 
 	protected override Task Run(Args args)
 	{
-			if ( EventSystem.current == null )
-			{
-				Debug.Log("Set Selected UI GameObject missing GameObject");
-			}
-
+		if ( EventSystem.current == null )
+		{
+			Debug.Log("Set Selected UI GameObject missing Event System");
+		}
 		GameObject gameObject = this.m_GameObject.Get(args);
 
-		if (gameObject == null) return DefaultResult;
+		if (gameObject == null)
+		{
+			EventSystem.current.SetSelectedGameObject(null);
+			return DefaultResult;
+		}
 
 		EventSystem.current.SetSelectedGameObject(gameObject);
 

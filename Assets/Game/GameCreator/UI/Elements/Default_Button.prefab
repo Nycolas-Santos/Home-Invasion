@@ -305,7 +305,7 @@ MonoBehaviour:
     - rid: 1542768364414304290
       type: {class: InstructionLogicRunTrigger, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 1
+        m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_Trigger:
@@ -333,11 +333,23 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 1542768364414304265
+    - rid: 1442245062053331048
   m_TriggerEvent:
     rid: 1542768364414304262
   references:
     version: 2
     RefIds:
+    - rid: 1442245062053331048
+      type: {class: InstructionUISetSelectedGameObject, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 1442245062053331050
+    - rid: 1442245062053331050
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 1542768364414304262
       type: {class: EventUIOnHoverEnter, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 1542768364414304265
@@ -375,11 +387,23 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 1542768364414304268
+    - rid: 1442245062053331051
   m_TriggerEvent:
     rid: 1542768364414304264
   references:
     version: 2
     RefIds:
+    - rid: 1442245062053331051
+      type: {class: InstructionUISetSelectedGameObject, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 1442245062053331053
+    - rid: 1442245062053331053
+      type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 1542768364414304264
       type: {class: EventUIOnHoverExit, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 1542768364414304268

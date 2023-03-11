@@ -48,6 +48,5 @@ public class EventUIOnButtonClick : Event
     protected void OnButtonClick()
     {
         this.m_Trigger.Execute(this.Self);
-        EventSystem.current.SetSelectedGameObject(null);
     }
 }

@@ -221,17 +221,6 @@
                 },
                 {
                     "name": "",
-                    "id": "4bbd051a-464a-4ae3-bd75-215ee074c047",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "1fecb86a-cac3-4a57-b596-131808a9d1b2",
                     "path": "<Touchscreen>/primaryTouch/tap",
                     "interactions": "",
@@ -329,12 +318,12 @@
                 },
                 {
                     "name": "Click",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "fb2c5aba-420a-46c2-90ac-bb5faa44b5ec",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ScrollWheel",
@@ -781,17 +770,6 @@
                 },
                 {
                     "name": "",
-                    "id": "5b653b5d-be89-4bb8-98f4-fc5bb2b1319c",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "9dd10f89-c068-4b9a-8c0b-8e4520783a87",
                     "path": "<Pen>/tip",
                     "interactions": "",
@@ -842,17 +820,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "MiddleClick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7e9d842c-b3a5-4b7c-a97f-2e91458ca5df",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "RightClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

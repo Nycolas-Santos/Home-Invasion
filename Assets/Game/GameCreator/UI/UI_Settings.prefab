@@ -834,17 +834,29 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 9161455907997483401
+    - rid: 1442245062053331057
   m_TriggerEvent:
     rid: 9161455907997483399
   references:
     version: 2
     RefIds:
+    - rid: 1442245062053331057
+      type: {class: InstructionUISetSelectedGameObject, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 1442245062053331059
+    - rid: 1442245062053331059
+      type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 9161455907997483399
       type: {class: EventUIOnHoverEnter, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 9161455907997483401
       type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 1
+        m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_GameObject:
@@ -876,17 +888,29 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 9161455907997483404
+    - rid: 1442245062053331060
   m_TriggerEvent:
     rid: 9161455907997483400
   references:
     version: 2
     RefIds:
+    - rid: 1442245062053331060
+      type: {class: InstructionUISetSelectedGameObject, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 1442245062053331062
+    - rid: 1442245062053331062
+      type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 9161455907997483400
       type: {class: EventUIOnHoverExit, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 9161455907997483404
       type: {class: InstructionGameObjectSetActive, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 1
+        m_IsExpanded: 0
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_GameObject:
