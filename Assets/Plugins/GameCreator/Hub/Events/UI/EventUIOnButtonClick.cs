@@ -1,6 +1,7 @@
 using System;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.VisualScripting;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [Version(1, 0, 1)]
@@ -47,5 +48,6 @@ public class EventUIOnButtonClick : Event
     protected void OnButtonClick()
     {
         this.m_Trigger.Execute(this.Self);
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }
