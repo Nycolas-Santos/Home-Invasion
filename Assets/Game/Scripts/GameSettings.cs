@@ -3,6 +3,7 @@ using GameCreator.Runtime.Cameras;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -59,6 +60,58 @@ namespace Game.Scripts
         {
             UpdateVFXMode();
             UpdateSensitivityMode();
+            UpdateQualityMode();
+        }
+
+        public void UpdateQualityMode()
+        {
+            var postProcessingVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
+            var postProcessingLayer = Camera.main.gameObject.GetComponent<PostProcessLayer>();
+            
+            if (postProcessingVolume == null) return;
+            if (postProcessingLayer == null) return;
+            
+            AmbientOcclusion ambientOcclusion;
+            ChromaticAberration chromaticAberration;
+            ColorGrading colorGrading;
+            MotionBlur motionBlur;
+
+            postProcessingVolume.profile.TryGetSettings(out ambientOcclusion);
+            postProcessingVolume.profile.TryGetSettings(out chromaticAberration);
+            postProcessingVolume.profile.TryGetSettings(out colorGrading);
+            postProcessingVolume.profile.TryGetSettings(out motionBlur);
+
+            switch (QualitySettings.GetQualityLevel())
+            {
+                case 0: // LOW QUALITY
+                    
+
+                    ambientOcclusion.active = false;
+                    chromaticAberration.active = false;
+                    colorGrading.active = true;
+                    motionBlur.active = false;
+
+                    postProcessingLayer.antialiasingMode =
+                        postProcessingLayer.antialiasingMode = PostProcessLayer.Antialiasing.None;
+                    break;
+                case 1: // MEDIUM QUALITY
+                    ambientOcclusion.active = true;
+                    chromaticAberration.active = true;
+                    colorGrading.active = true;
+                    motionBlur.active = false;
+
+                    postProcessingLayer.antialiasingMode = postProcessingLayer.antialiasingMode =
+                        PostProcessLayer.Antialiasing.FastApproximateAntialiasing;
+                    break;
+                case 2: // HIGH QUALITY
+                    ambientOcclusion.active = true;
+                    chromaticAberration.active = true;
+                    colorGrading.active = true;
+                    motionBlur.active = true;
+
+                    postProcessingLayer.antialiasingMode = PostProcessLayer.Antialiasing.TemporalAntialiasing;
+                    break;
+            }
         }
 
         public void UpdateVFXMode()

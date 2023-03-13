@@ -1541,6 +1541,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 44381295652141640}
     m_Modifications:
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787828]
+      value: Assembly-CSharp InstructionUpdateQualityMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304444]
       value: Assembly-CSharp-firstpass InstructionQualityLevel
       objectReference: {fileID: 0}
@@ -1554,7 +1558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.data[0]
@@ -1562,11 +1566,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.data[1]
-      value: 1542768364414304448
+      value: 1442245093573787828
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.data[2]
+      value: 1542768364414304448
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: m_Instructions.m_Instructions.Array.data[3]
       value: 1542768364414304290
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787828].m_IsEnabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304444].m_IsEnabled
@@ -1579,6 +1591,14 @@ PrefabInstance:
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304448].m_IsEnabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787828].m_Breakpoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787828].m_IsExpanded
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304290].m_IsExpanded
@@ -2577,6 +2597,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 44381295652141640}
     m_Modifications:
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787830]
+      value: Assembly-CSharp InstructionUpdateQualityMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304444]
       value: Assembly-CSharp-firstpass InstructionQualityLevel
       objectReference: {fileID: 0}
@@ -2590,7 +2614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.data[0]
@@ -2598,11 +2622,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.data[1]
-      value: 1542768364414304452
+      value: 1442245093573787830
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.data[2]
+      value: 1542768364414304452
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: m_Instructions.m_Instructions.Array.data[3]
       value: 1542768364414304290
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787830].m_IsEnabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304444].m_IsEnabled
@@ -2615,6 +2647,14 @@ PrefabInstance:
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304452].m_IsEnabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787830].m_Breakpoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787830].m_IsExpanded
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304290].m_IsExpanded
@@ -3895,6 +3935,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 44381295652141640}
     m_Modifications:
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787829]
+      value: Assembly-CSharp InstructionUpdateQualityMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304444]
       value: Assembly-CSharp-firstpass InstructionQualityLevel
       objectReference: {fileID: 0}
@@ -3908,7 +3952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.data[0]
@@ -3916,11 +3960,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.data[1]
-      value: 1542768364414304450
+      value: 1442245093573787829
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: m_Instructions.m_Instructions.Array.data[2]
+      value: 1542768364414304450
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: m_Instructions.m_Instructions.Array.data[3]
       value: 1542768364414304290
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787829].m_IsEnabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304444].m_IsEnabled
@@ -3935,6 +3987,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787829].m_Breakpoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
+      propertyPath: managedReferences[1442245093573787829].m_IsExpanded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304290].m_IsExpanded
       value: 0
       objectReference: {fileID: 0}
@@ -3944,7 +4004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304444].m_IsExpanded
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2777883197708536160, guid: eed93b17f282d5048ac76c8e2d0670a0, type: 3}
       propertyPath: managedReferences[1542768364414304450].m_Breakpoint
