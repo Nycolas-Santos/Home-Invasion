@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3121978493774762448}
   - component: {fileID: 3121978493774762449}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3121978493897878399}
   - component: {fileID: 3121978493897878396}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TRG_Act_1_Start
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

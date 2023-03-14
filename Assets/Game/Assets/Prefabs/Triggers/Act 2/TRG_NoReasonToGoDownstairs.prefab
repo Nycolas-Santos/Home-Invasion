@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3541594947352617014}
   - component: {fileID: 2156597104460696390}
   - component: {fileID: 511869333700252153}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TRG_NoReasonToGoDownstairs
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -237,9 +237,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116524934141842466}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 3.1445417, y: 2.3764033, z: 1.4935136}
   m_Center: {x: -0.20701647, y: 1.2179606, z: -0.24675679}
 --- !u!114 &511869333700252153
@@ -267,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7338616409244332115}
   - component: {fileID: 7338616409244332114}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7338616410090640090}
   - component: {fileID: 7338616410090640069}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
