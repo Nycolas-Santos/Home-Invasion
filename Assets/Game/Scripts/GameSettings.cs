@@ -74,12 +74,10 @@ namespace Game.Scripts
             AmbientOcclusion ambientOcclusion;
             ChromaticAberration chromaticAberration;
             ColorGrading colorGrading;
-            MotionBlur motionBlur;
 
             postProcessingVolume.profile.TryGetSettings(out ambientOcclusion);
             postProcessingVolume.profile.TryGetSettings(out chromaticAberration);
             postProcessingVolume.profile.TryGetSettings(out colorGrading);
-            postProcessingVolume.profile.TryGetSettings(out motionBlur);
 
             switch (QualitySettings.GetQualityLevel())
             {
@@ -89,7 +87,6 @@ namespace Game.Scripts
                     ambientOcclusion.active = false;
                     chromaticAberration.active = false;
                     colorGrading.active = true;
-                    motionBlur.active = false;
 
                     postProcessingLayer.antialiasingMode =
                         postProcessingLayer.antialiasingMode = PostProcessLayer.Antialiasing.None;
@@ -98,7 +95,6 @@ namespace Game.Scripts
                     ambientOcclusion.active = true;
                     chromaticAberration.active = true;
                     colorGrading.active = true;
-                    motionBlur.active = false;
 
                     postProcessingLayer.antialiasingMode = postProcessingLayer.antialiasingMode =
                         PostProcessLayer.Antialiasing.FastApproximateAntialiasing;
@@ -107,7 +103,6 @@ namespace Game.Scripts
                     ambientOcclusion.active = true;
                     chromaticAberration.active = true;
                     colorGrading.active = true;
-                    motionBlur.active = true;
 
                     postProcessingLayer.antialiasingMode = PostProcessLayer.Antialiasing.TemporalAntialiasing;
                     break;
