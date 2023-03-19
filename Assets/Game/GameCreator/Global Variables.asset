@@ -68,7 +68,7 @@ MonoBehaviour:
         m_IsExpanded: 1
         m_Breakpoint: 0
         m_IsEnabled: 1
-        m_Value: 0
+        m_Value: 1
     - rid: 3574107173720686701
       type: {class: NameVariable, ns: GameCreator.Runtime.Variables, asm: GameCreator.Runtime.Core}
       data:
