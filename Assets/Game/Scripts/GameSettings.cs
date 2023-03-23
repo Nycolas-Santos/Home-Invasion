@@ -98,13 +98,15 @@ namespace Game.Scripts
 
                     postProcessingLayer.antialiasingMode = postProcessingLayer.antialiasingMode =
                         PostProcessLayer.Antialiasing.FastApproximateAntialiasing;
+                    postProcessingLayer.fastApproximateAntialiasing.fastMode = true;
                     break;
                 case 2: // HIGH QUALITY
                     ambientOcclusion.active = true;
                     chromaticAberration.active = true;
                     colorGrading.active = true;
 
-                    postProcessingLayer.antialiasingMode = PostProcessLayer.Antialiasing.TemporalAntialiasing;
+                    postProcessingLayer.antialiasingMode = PostProcessLayer.Antialiasing.FastApproximateAntialiasing;
+                    postProcessingLayer.fastApproximateAntialiasing.fastMode = false;
                     break;
             }
         }
