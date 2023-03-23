@@ -8,10 +8,14 @@ public class PhoneCacheMessagesTab : MonoBehaviour
     public void OpenCacheMessages(PhoneContact contact)
     {
         var messageLogs = GetComponentInChildren<PhoneCacheMessagesLogs>();
+        var contactPicture = GetComponentInChildren<PhoneContactPicture>();
         
         if (messageLogs == null) return;
         
+        contactPicture.SetContact(contact);
+        
         messageLogs.AddMessages(contact.MessageLogs.ToArray());
+        
     }
 
     public void CloseCacheMessages()

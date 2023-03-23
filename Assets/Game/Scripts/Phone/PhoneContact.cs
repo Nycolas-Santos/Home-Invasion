@@ -13,6 +13,8 @@ namespace Game.Scripts.Phone
         
         private PhoneMessageLogs _phoneMessageLogs;
         private PhoneMessageTab _phoneMessageTab;
+        private PhoneCacheMessagesTab _phoneCacheMessagesTab;
+        private PhoneCacheMessagesLogs _phoneCacheMessagesLogs;
 
         private Button _button;
         // PROPERTIES
@@ -33,6 +35,7 @@ namespace Game.Scripts.Phone
         {
             if (_phoneMessageLogs == null) _phoneMessageLogs = FindObjectOfType<PhoneMessageLogs>(true);
             if (_phoneMessageTab == null) _phoneMessageTab = FindObjectOfType<PhoneMessageTab>(true);
+            if (_phoneCacheMessagesTab == null) _phoneCacheMessagesTab = FindObjectOfType<PhoneCacheMessagesTab>(true);
             if (_button == null) _button = GetComponent<Button>();
         }
 
@@ -48,10 +51,10 @@ namespace Game.Scripts.Phone
 
         public void EnterContactMessages()
         {
-            _phoneMessageLogs.UpdateContact(this);
-            _phoneMessageLogs.SetupMessages();
-            _phoneMessageLogs.gameObject.SetActive(true);
-            _phoneMessageTab.SetCurrentMessagingContact(this);
+            //_phoneMessageLogs.UpdateContact(this); #OLD METHOD
+            //_phoneMessageLogs.SetupMessages(); #OLD METHOD
+            //_phoneMessageLogs.gameObject.SetActive(true); #OLD METHOD
+            _phoneCacheMessagesTab.OpenCacheMessages(this);
         }
 
         public void AddMessageLog(GameObject[] messages)
