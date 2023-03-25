@@ -15,15 +15,12 @@ MonoBehaviour:
   m_MaterialSounds:
     m_LayerMask:
       serializedVersion: 2
-      m_Bits: 16321
-    m_MaterialSounds:
-    - rid: 9161455761160667186
+      m_Bits: 4294967295
+    m_MaterialSounds: []
     m_DefaultSounds:
-      m_Volume: 0.5
+      m_Volume: 0.25
       m_Variations:
-      - {fileID: 8300000, guid: 23181e2cdc20766469a31eb9e7b7fcfb, type: 3}
-      - {fileID: 8300000, guid: 86df684dfe3955e49977c8e519b5dec6, type: 3}
-      - {fileID: 8300000, guid: 71f8df1b92dae0d45b95e51094543120, type: 3}
+      - {fileID: 8300000, guid: 1308243b72a5441f2abf527819e250e9, type: 3}
       m_Impact:
         m_Prefab: {fileID: 0}
         m_UsePooling: 0
@@ -32,23 +29,4 @@ MonoBehaviour:
         m_Duration: 10
   references:
     version: 2
-    RefIds:
-    - rid: 9161455761160667186
-      type: {class: MaterialSoundTexture, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 1
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Name: Wood
-        m_Texture: {fileID: 2800000, guid: ea7d74a30df444de1af1da5e5030fafa, type: 3}
-        m_Impact:
-          m_Prefab: {fileID: 6108325258994811630, guid: 31a56ead8dd9b024995479a906d927d6, type: 3}
-          m_UsePooling: 0
-          m_Size: 5
-          m_HasDuration: 0
-          m_Duration: 5
-        m_Volume: 0.2
-        m_Variations:
-        - {fileID: 8300000, guid: 23181e2cdc20766469a31eb9e7b7fcfb, type: 3}
-        - {fileID: 8300000, guid: 86df684dfe3955e49977c8e519b5dec6, type: 3}
-        - {fileID: 8300000, guid: 71f8df1b92dae0d45b95e51094543120, type: 3}
+    RefIds: []

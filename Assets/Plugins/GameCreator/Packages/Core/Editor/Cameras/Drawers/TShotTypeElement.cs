@@ -17,7 +17,7 @@ namespace GameCreator.Editor.Cameras
         private const string NAME_HEAD_BUTTON_LABEL = "GC-Cameras-ShotType-Head-BtnLabel";
         private const string NAME_HEAD_BUTTON_ARROW = "GC-Cameras-ShotType-Head-BtnArrow";
 
-        private static readonly IIcon ICON_CHEVRON_DOWN = new IconChevronDown(ColorTheme.Type.TextLight);
+        private static readonly IIcon ICON_ARROW = new IconDropdown(ColorTheme.Type.TextLight);
         
         // MEMBERS: -------------------------------------------------------------------------------
         
@@ -55,7 +55,7 @@ namespace GameCreator.Editor.Cameras
             this.m_Button.Add(this.m_ButtonLabel);
             this.m_Button.Add(new Image
             {
-                image = ICON_CHEVRON_DOWN.Texture,
+                image = ICON_ARROW.Texture,
                 name = NAME_HEAD_BUTTON_ARROW
             });
             

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -17,11 +18,14 @@ namespace GameCreator.Runtime.Characters
 
         // MEMBERS: -------------------------------------------------------------------------------
 
-        private System m_System;
-        private Vector3 m_Direction;
-        private Transform m_Target;
+        [NonSerialized] private System m_System;
+        [NonSerialized] private Vector3 m_Direction;
+        [NonSerialized] private Transform m_Target;
 
-        private readonly bool m_AutoDestroyOnReach;
+        [NonSerialized] private readonly bool m_AutoDestroyOnReach;
+        [NonSerialized] private readonly float m_AutoDestroyOnTimeout;
+
+        [NonSerialized] private readonly float m_StartTime;
 
         // PROPERTIES: ----------------------------------------------------------------------------
 
@@ -34,7 +38,21 @@ namespace GameCreator.Runtime.Characters
             this.m_System = System.Direction;
             this.m_Direction = character.transform.TransformDirection(Vector3.forward);
 
+            this.m_StartTime = character.Time.Time;
+            
             this.m_AutoDestroyOnReach = autoDestroyOnReach;
+            this.m_AutoDestroyOnTimeout = -1f;
+        }
+        
+        public FacingLayer(Character character, float autoDestroyOnTimeout)
+        {
+            this.m_System = System.Direction;
+            this.m_Direction = character.transform.TransformDirection(Vector3.forward);
+
+            this.m_StartTime = character.Time.Time;
+            
+            this.m_AutoDestroyOnReach = false;
+            this.m_AutoDestroyOnTimeout = autoDestroyOnTimeout;
         }
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
@@ -65,7 +83,21 @@ namespace GameCreator.Runtime.Characters
             }
 
             float angle = Vector3.Angle(this.m_Direction, character.Facing.WorldFaceDirection);
-            return this.m_AutoDestroyOnReach && angle <= MAX_ANGLE_ERROR;
+
+            if (this.m_AutoDestroyOnReach && angle <= MAX_ANGLE_ERROR)
+            {
+                return true;
+            }
+            
+            if (this.m_AutoDestroyOnTimeout >= 0f)
+            {
+                if (this.m_StartTime + this.m_AutoDestroyOnTimeout < character.Time.Time)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

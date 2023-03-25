@@ -142,23 +142,24 @@ namespace GameCreator.Runtime.Variables
 
         public Task OnLoad(object value)
         {
-            this.Values = new Dictionary<IdString, NameVariableRuntime>();
-            this.SaveValues = new HashSet<IdString>();
-
             if (value is not SaveGroupNameVariables saveData) return Task.FromResult(false);
-
+        
             int numGroups = saveData.Count();
             for (int i = 0; i < numGroups; ++i)
             {
                 IdString uniqueID = new IdString(saveData.GetID(i));
+                List<NameVariable> candidates = saveData.GetData(i).Variables;
 
-                NameVariable[] variables = saveData.GetData(i).Variables.ToArray();
-                NameVariableRuntime data = new NameVariableRuntime(variables);
-
-                this.SaveValues.Add(uniqueID);
-                this.Values.Add(uniqueID, data);
+                if (!this.Values.TryGetValue(uniqueID, out NameVariableRuntime variables))
+                {
+                    continue;
+                }
                 
-                data.OnStartup();
+                foreach (NameVariable candidate in candidates)
+                {
+                    if (!variables.Exists(candidate.Name)) continue;
+                    variables.Set(candidate.Name, candidate.Value);
+                }
             }
             
             return Task.FromResult(true);

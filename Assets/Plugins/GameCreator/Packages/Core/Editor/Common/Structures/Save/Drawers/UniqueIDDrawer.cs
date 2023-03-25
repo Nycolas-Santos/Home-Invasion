@@ -82,7 +82,7 @@ namespace GameCreator.Editor.Common
             head.Add(buttonHeadEdit);
             head.Add(buttonHeadCopy);
 
-            PropertyTool fieldEditProperty = new PropertyTool(id, "Unique ID")
+            PropertyField fieldEditProperty = new PropertyField(idString, string.Empty)
             {
                 name = NAME_BODY_TEXTFIELD_ID
             };
@@ -93,10 +93,10 @@ namespace GameCreator.Editor.Common
                 name = NAME_BODY_BUTTON_REGEN
             };
 
-            fieldEditProperty.EventChange += _ =>
+            fieldEditProperty.RegisterValueChangeCallback(_ =>
             {
                 buttonHeadEdit.text = idString.stringValue;
-            };
+            });
 
             buttonEditRegen.clicked += () =>
             {

@@ -23,8 +23,8 @@ namespace GameCreator.Editor.Quests
             SerializedProperty type = property.FindPropertyRelative("m_Completion");
             SerializedProperty isHidden = property.FindPropertyRelative("m_IsHidden");
 
-            PropertyTool fieldType = new PropertyTool(type);
-            PropertyTool fieldIsHidden = new PropertyTool(isHidden);
+            PropertyField fieldType = new PropertyField(type);
+            PropertyField fieldIsHidden = new PropertyField(isHidden);
             
             root.Add(fieldType);
             root.Add(fieldIsHidden);
@@ -34,10 +34,10 @@ namespace GameCreator.Editor.Quests
             SerializedProperty color = property.FindPropertyRelative("m_Color");
             SerializedProperty sprite = property.FindPropertyRelative("m_Sprite");
             
-            PropertyTool fieldName = new PropertyTool(name);
-            PropertyTool fieldDesc = new PropertyTool(desc);
-            PropertyTool fieldColor = new PropertyTool(color);
-            PropertyTool fieldSprite = new PropertyTool(sprite);
+            PropertyField fieldName = new PropertyField(name);
+            PropertyField fieldDesc = new PropertyField(desc);
+            PropertyField fieldColor = new PropertyField(color);
+            PropertyField fieldSprite = new PropertyField(sprite);
             
             root.Add(new SpaceSmall());
             root.Add(fieldName);
@@ -54,11 +54,11 @@ namespace GameCreator.Editor.Quests
             SerializedProperty valueFrom = property.FindPropertyRelative("m_ValueFrom");
 
             VisualElement counterContent = new VisualElement { name = NAME_COUNTER };
-            PropertyTool fieldUseCounter = new PropertyTool(useCounter);
+            PropertyField fieldUseCounter = new PropertyField(useCounter);
             VisualElement contentCountTo = new VisualElement();
             VisualElement contentProperty = new VisualElement();
 
-            fieldUseCounter.EventChange += change =>
+            fieldUseCounter.RegisterValueChangeCallback(change =>
             {
                 contentCountTo.style.display =
                     change.changedProperty.enumValueIndex == (int) ProgressType.Value ||
@@ -70,7 +70,7 @@ namespace GameCreator.Editor.Quests
                     change.changedProperty.enumValueIndex == (int) ProgressType.Property
                         ? DisplayStyle.Flex
                         : DisplayStyle.None;
-            };
+            });
             
             contentCountTo.style.display =
                 useCounter.enumValueIndex == (int) ProgressType.Value ||

@@ -29,15 +29,15 @@ namespace GameCreator.Editor.Common
             }
             
             SerializedProperty inputAsset = property.FindPropertyRelative("m_InputAsset");
-            PropertyTool fieldInputAsset = new PropertyTool(inputAsset);
+            PropertyField fieldInputAsset = new PropertyField(inputAsset);
 
             head.Add(fieldInputAsset);
 
             this.RefreshCustomBody(property, body);
-            fieldInputAsset.EventChange += _ =>
+            fieldInputAsset.RegisterValueChangeCallback(_ =>
             {
                 this.RefreshCustomBody(property, body);
-            };
+            });
         
             return root;
         }

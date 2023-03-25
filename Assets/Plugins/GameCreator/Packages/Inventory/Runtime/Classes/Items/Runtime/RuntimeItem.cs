@@ -10,6 +10,10 @@ namespace GameCreator.Runtime.Inventory
     [Serializable]
     public class RuntimeItem
     {
+        public static RuntimeItem Bag_LastItemAttemptedUse     { get; internal set; }
+        public static RuntimeItem Bag_LastItemAttemptedAdd     { get; internal set; }
+        public static RuntimeItem Bag_LastItemAttemptedRemove  { get; internal set; }
+
         public static RuntimeItem Bag_LastItemUsed    { get; internal set; }
         public static RuntimeItem Bag_LastItemAdded   { get; internal set; }
         public static RuntimeItem Bag_LastItemRemoved { get; internal set; }
@@ -18,8 +22,8 @@ namespace GameCreator.Runtime.Inventory
         public static RuntimeItem Bag_LastItemUnequipped { get; internal set; }
 
         public static RuntimeItem Socket_LastParentAttached { get; internal set; }
-        public static RuntimeItem Socket_LastAttachmentAttached { get; internal set; }
         public static RuntimeItem Socket_LastParentDetached { get; internal set; }
+        public static RuntimeItem Socket_LastAttachmentAttached { get; internal set; }
         public static RuntimeItem Socket_LastAttachmentDetached { get; internal set; }
 
         public static RuntimeItem UI_LastItemHovered { get; internal set; }
@@ -34,13 +38,19 @@ namespace GameCreator.Runtime.Inventory
         [UnityEditor.InitializeOnEnterPlayMode]
         private static void InitializeOnEnterPlayMode()
         {
+            Bag_LastItemAttemptedUse = null;
+            Bag_LastItemAttemptedAdd = null;
+            Bag_LastItemAttemptedRemove = null;
+
             Bag_LastItemUsed = null;
             Bag_LastItemAdded = null;
             Bag_LastItemRemoved = null;
 
             Bag_LastItemEquipped = null;
             Bag_LastItemUnequipped = null;
-            
+
+            Socket_LastParentAttached = null;
+            Socket_LastParentDetached = null;
             Socket_LastAttachmentAttached = null;
             Socket_LastAttachmentDetached = null;
             
@@ -232,6 +242,7 @@ namespace GameCreator.Runtime.Inventory
         
         internal async Task<bool> Use()
         {
+            Bag_LastItemAttemptedUse = this;
             if (!this.CanUse()) return false;
             
             Args args = new Args(this.Bag.gameObject, this.Bag.Wearer);

@@ -4,8 +4,8 @@ using UnityEngine;
 namespace GameCreator.Runtime.Common
 {
     [Serializable]
-    public abstract class TPropertyGet<TType, TValue> 
-        : IProperty where TType : TPropertyTypeGet<TValue>
+    public abstract class TPropertyGet<TType, TValue> : IProperty
+        where TType : TPropertyTypeGet<TValue>
     {
         [SerializeReference]
         protected TType m_Property;
@@ -19,12 +19,17 @@ namespace GameCreator.Runtime.Common
         
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
-        public virtual TValue Get(Args args) => this.m_Property.Get(args);
-        public virtual TValue Get(GameObject target) => this.m_Property.Get(target);
+        public virtual TValue Get(Args args) => this.m_Property != null 
+            ? this.m_Property.Get(args) 
+            : default;
+
+        public virtual TValue Get(GameObject target) => this.m_Property != null
+            ? this.m_Property.Get(target)
+            : default;
 
         public virtual TValue Get(Component component)
         {
-            return this.Get(component ? component.gameObject : null);
+            return this.Get(component != null ? component.gameObject : null);
         }
 
         public override string ToString()

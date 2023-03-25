@@ -50,6 +50,8 @@ namespace GameCreator.Runtime.Stats
 
         private async Task RunOnStart()
         {
+            StatusEffect.LastAdded = this.m_StatusEffect;
+            
             if (this.m_OnStart == null)
             {
                 this.m_OnStart = RunInstructionsList.CreateTemplate(
@@ -72,6 +74,8 @@ namespace GameCreator.Runtime.Stats
         
         private async Task RunOnEnd()
         {
+            StatusEffect.LastRemoved = this.m_StatusEffect;
+            
             if (this.m_OnEnd == null)
             {
                 this.m_OnEnd = RunInstructionsList.CreateTemplate(

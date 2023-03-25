@@ -16,8 +16,7 @@ namespace GameCreator.Runtime.Variables
         [SerializeField]
         protected FieldGetLocalName m_Variable = new FieldGetLocalName(ValueNumber.TYPE_ID);
 
-        public override double Get(Args args) => this.m_Variable.Get<double>();
-        public override double Get(GameObject gameObject) => this.m_Variable.Get<double>();
+        public override double Get(Args args) => this.m_Variable.Get<double>(args);
 
         public static PropertyGetDecimal Create => new PropertyGetDecimal(
             new GetDecimalLocalName()

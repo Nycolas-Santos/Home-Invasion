@@ -46,6 +46,8 @@ namespace GameCreator.Editor.Variables
                 this.styleSheets.Add(styleSheet);
             }
             
+            asset.AddToClassList(AlignLabel.CLASS_UNITY_ALIGN_LABEL);
+            
             this.m_Property = property;
             this.m_Property.serializedObject.Update();
             

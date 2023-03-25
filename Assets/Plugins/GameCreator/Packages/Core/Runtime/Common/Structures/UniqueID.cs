@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography;
-using System.Text;
 using UnityEngine;
 
 namespace GameCreator.Runtime.Common
@@ -15,6 +13,11 @@ namespace GameCreator.Runtime.Common
         // PROPERTIES: ----------------------------------------------------------------------------
 
         public IdString Get => this.m_SerializedID;
+
+        public IdString Set
+        {
+            set => this.m_SerializedID = value;
+        }
 
         // CONSTRUCTOR: ---------------------------------------------------------------------------
 

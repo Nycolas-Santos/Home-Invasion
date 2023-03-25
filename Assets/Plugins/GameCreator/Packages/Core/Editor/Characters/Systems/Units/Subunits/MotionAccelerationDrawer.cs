@@ -19,17 +19,17 @@ namespace GameCreator.Editor.Characters
             SerializedProperty acceleration = property.FindPropertyRelative("m_Acceleration");
             SerializedProperty deceleration = property.FindPropertyRelative("m_Deceleration");
 
-            PropertyTool fieldUseAcceleration = new PropertyTool(useAcceleration);
-            PropertyTool fieldAcceleration = new PropertyTool(acceleration);
-            PropertyTool fieldDeceleration = new PropertyTool(deceleration);
+            PropertyField fieldUseAcceleration = new PropertyField(useAcceleration);
+            PropertyField fieldAcceleration = new PropertyField(acceleration);
+            PropertyField fieldDeceleration = new PropertyField(deceleration);
             
-            fieldUseAcceleration.EventChange += _ =>
+            fieldUseAcceleration.RegisterValueChangeCallback(_ =>
             {
                 property.serializedObject.ApplyModifiedProperties();
                 property.serializedObject.Update();
                 
                 Refresh(container, useAcceleration.boolValue, fieldAcceleration, fieldDeceleration);
-            };
+            });
             
             container.Add(fieldUseAcceleration);
             Refresh(container, useAcceleration.boolValue, fieldAcceleration, fieldDeceleration);
@@ -39,9 +39,9 @@ namespace GameCreator.Editor.Characters
             fieldDeceleration.Bind(property.serializedObject);
         }
 
-        private static void Refresh(VisualElement container, bool isActive, params PropertyTool[] fields)
+        private static void Refresh(VisualElement container, bool isActive, params PropertyField[] fields)
         {
-            foreach (PropertyTool field in fields)
+            foreach (PropertyField field in fields)
             {
                 if (!container.Contains(field)) continue;
                 container.Remove(field);
@@ -49,7 +49,7 @@ namespace GameCreator.Editor.Characters
 
             if (!isActive) return;
             
-            foreach (PropertyTool field in fields)
+            foreach (PropertyField field in fields)
             {
                 container.Add(field);
             }

@@ -22,7 +22,7 @@ namespace GameCreator.Editor.Inventory
         {
             SerializedProperty inheritFromParent = property.FindPropertyRelative("m_InheritFromParent");
             
-            var fieldInheritFromParent = new GameCreator.Editor.Common.PropertyTool(inheritFromParent);
+            PropertyField fieldInheritFromParent = new PropertyField(inheritFromParent);
             PropertiesTool fieldProperties = new PropertiesTool(property, PROP_LIST);
 
             VisualElement contentOverrides = new VisualElement();
@@ -35,12 +35,12 @@ namespace GameCreator.Editor.Inventory
             container.Add(fieldProperties);
 
             this.RefreshContentOverrides(contentOverrides, property);
-            fieldInheritFromParent.EventChange += changeEvent =>
+            fieldInheritFromParent.RegisterValueChangeCallback(changeEvent =>
             {
                 contentOverrides.Clear();
                 if (!changeEvent.changedProperty.boolValue) return;
                 this.RefreshContentOverrides(contentOverrides, property);
-            };
+            });
         }
 
         private void RefreshContentOverrides(VisualElement content, SerializedProperty property)
@@ -63,7 +63,7 @@ namespace GameCreator.Editor.Inventory
                     bindingPath = value.FindPropertyRelative("m_Override").propertyPath
                 };
 
-                var fieldNumber = new GameCreator.Editor.Common.PropertyTool(
+                PropertyField fieldNumber = new PropertyField(
                     value.FindPropertyRelative("m_Number"), 
                     name
                 );

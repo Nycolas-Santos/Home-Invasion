@@ -13,8 +13,8 @@ namespace GameCreator.Editor.Common
             SerializedProperty operation = property.FindPropertyRelative("m_Operation");
             SerializedProperty value = property.FindPropertyRelative("m_Value");
                 
-            PropertyTool fieldOperation = new PropertyTool(operation, property.displayName);
-            PropertyTool fieldValue = new PropertyTool(value, " ");
+            PropertyField fieldOperation = new PropertyField(operation, property.displayName);
+            PropertyField fieldValue = new PropertyField(value, " ");
 
             root.Add(fieldOperation);
             root.Add(fieldValue);

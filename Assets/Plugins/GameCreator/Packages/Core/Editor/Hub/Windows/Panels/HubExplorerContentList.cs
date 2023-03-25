@@ -77,8 +77,14 @@ namespace GameCreator.Editor.Hub
         {
             Collection.EventIsFetching -= this.OnIsFetching;
 
+            // TODO: [15/03/2023] Remove when Unity 2022.3 LTS is released
+            #if UNITY_2022_2_OR_NEWER
+            this.m_ListView.selectionChanged -= OnContentSelectItem;
+            this.m_ListView.itemsChosen -= OnContentChooseItem;
+            #else
             this.m_ListView.onSelectionChange -= OnContentSelectItem;
             this.m_ListView.onItemsChosen -= OnContentChooseItem;
+            #endif
             
             GameCreatorHub.EventChangeData -= this.OnChangeData;
             Upload.EventAfterUpload -= this.OnUploadPackage;
@@ -115,8 +121,14 @@ namespace GameCreator.Editor.Hub
                 selectionType = SelectionType.Single,
             };
             
+            // TODO: [15/03/2023] Remove when Unity 2022.3 LTS is released
+            #if UNITY_2022_2_OR_NEWER
+            this.m_ListView.selectionChanged += OnContentSelectItem;
+            this.m_ListView.itemsChosen += OnContentChooseItem;
+            #else
             this.m_ListView.onSelectionChange += OnContentSelectItem;
             this.m_ListView.onItemsChosen += OnContentChooseItem;
+            #endif
             
             this.Add(this.m_ListView);
         }

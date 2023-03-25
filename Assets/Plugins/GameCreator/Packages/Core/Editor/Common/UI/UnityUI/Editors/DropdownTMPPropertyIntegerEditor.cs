@@ -38,8 +38,8 @@ namespace GameCreator.Editor.Common.UnityUI
             SerializedProperty fromSource = this.serializedObject.FindProperty("m_SetFromSource");
             SerializedProperty onChangeSet = this.serializedObject.FindProperty("m_OnChangeSet");
 
-            PropertyTool fieldFromSource = new PropertyTool(fromSource);
-            PropertyTool fieldOnChangeSet = new PropertyTool(onChangeSet);
+            PropertyField fieldFromSource = new PropertyField(fromSource);
+            PropertyField fieldOnChangeSet = new PropertyField(onChangeSet);
             
             body.Add(fieldFromSource);
             body.Add(fieldOnChangeSet);

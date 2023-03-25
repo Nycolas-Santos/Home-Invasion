@@ -48,7 +48,7 @@ namespace GameCreator.Runtime.Cameras
         // EVENTS: --------------------------------------------------------------------------------
 
         public event Action<ShotCamera> EventCut;
-        public event Action<ShotCamera> EventTransition;
+        public event Action<ShotCamera, float, Easing.Type> EventTransition;
 
         // INITIALIZERS: --------------------------------------------------------------------------
 
@@ -186,7 +186,7 @@ namespace GameCreator.Runtime.Cameras
             this.m_ChangeTime = this.m_Camera.Time.Time;
 
             if (duration <= EPSILON) this.EventCut?.Invoke(this.m_CurrentShotCamera);
-            else this.EventTransition?.Invoke(this.m_CurrentShotCamera);
+            else this.EventTransition?.Invoke(this.m_CurrentShotCamera, duration, easing);
         }
 
         public void ChangeToPreviousShot(float duration = 0f)

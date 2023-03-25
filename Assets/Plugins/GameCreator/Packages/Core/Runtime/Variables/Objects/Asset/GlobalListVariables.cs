@@ -28,14 +28,14 @@ namespace GameCreator.Runtime.Variables
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
-        public object Get(IListGetPick pick)
+        public object Get(IListGetPick pick, Args args)
         {
-            return GlobalListVariablesManager.Instance.Get(this, pick);
+            return GlobalListVariablesManager.Instance.Get(this, pick, args);
         }
         
-        public object Get(IListSetPick pick)
+        public object Get(IListSetPick pick, Args args)
         {
-            return GlobalListVariablesManager.Instance.Get(this, pick);
+            return GlobalListVariablesManager.Instance.Get(this, pick, args);
         }
 
         public object Get(int index)
@@ -43,9 +43,9 @@ namespace GameCreator.Runtime.Variables
             return GlobalListVariablesManager.Instance.Get(this, index);
         }
 
-        public void Set(IListSetPick pick, object value)
+        public void Set(IListSetPick pick, object value, Args args)
         {
-            GlobalListVariablesManager.Instance.Set(this, pick, value);
+            GlobalListVariablesManager.Instance.Set(this, pick, value, args);
         }
 
         public void Set(int index, object value)
@@ -53,9 +53,9 @@ namespace GameCreator.Runtime.Variables
             GlobalListVariablesManager.Instance.Set(this, index, value);
         }
         
-        public void Insert(IListGetPick pick, object value)
+        public void Insert(IListGetPick pick, object value, Args args)
         {
-            GlobalListVariablesManager.Instance.Insert(this, pick, value);
+            GlobalListVariablesManager.Instance.Insert(this, pick, value, args);
         }
 
         public void Insert(int index, object value)
@@ -68,9 +68,9 @@ namespace GameCreator.Runtime.Variables
             GlobalListVariablesManager.Instance.Push(this, value);
         }
 
-        public void Remove(IListGetPick pick)
+        public void Remove(IListGetPick pick, Args args)
         {
-            GlobalListVariablesManager.Instance.Remove(this, pick);
+            GlobalListVariablesManager.Instance.Remove(this, pick, args);
         }
         
         public void Remove(int index)
@@ -83,9 +83,9 @@ namespace GameCreator.Runtime.Variables
             GlobalListVariablesManager.Instance.Clear(this);
         }
 
-        public void Move(IListGetPick pickSource, IListGetPick pickDestination)
+        public void Move(IListGetPick pickSource, IListGetPick pickDestination, Args args)
         {
-            GlobalListVariablesManager.Instance.Move(this, pickSource, pickDestination);
+            GlobalListVariablesManager.Instance.Move(this, pickSource, pickDestination, args);
         }
         
         public void Move(int source, int destination)

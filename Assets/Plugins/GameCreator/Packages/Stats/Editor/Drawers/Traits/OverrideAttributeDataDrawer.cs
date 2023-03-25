@@ -18,17 +18,17 @@ namespace GameCreator.Editor.Stats
             SerializedProperty changePercent = property.FindPropertyRelative("m_ChangeStartPercent");
             SerializedProperty percent = property.FindPropertyRelative("m_StartPercent");
 
-            PropertyTool fieldChangePercent = new PropertyTool(changePercent);
-            PropertyTool fieldPercent = new PropertyTool(percent);
+            PropertyField fieldChangePercent = new PropertyField(changePercent);
+            PropertyField fieldPercent = new PropertyField(percent);
             
-            fieldChangePercent.EventChange += changeEvent =>
+            fieldChangePercent.RegisterValueChangeCallback(changeEvent =>
             {
                 body.Clear();
                 if (!changeEvent.changedProperty.boolValue) return;
                 
                 body.Add(fieldPercent);
                 fieldPercent.Bind(percent.serializedObject);
-            };
+            });
             
             head.Add(fieldChangePercent);
             if (changePercent.boolValue) body.Add(fieldPercent);

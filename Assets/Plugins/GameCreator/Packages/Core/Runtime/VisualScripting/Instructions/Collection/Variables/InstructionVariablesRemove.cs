@@ -33,7 +33,7 @@ namespace GameCreator.Runtime.VisualScripting
         
         protected override Task Run(Args args)
         {
-            this.m_ListVariable.Remove(this.m_Select);
+            this.m_ListVariable.Remove(this.m_Select, args);
             return DefaultResult;
         }
     }

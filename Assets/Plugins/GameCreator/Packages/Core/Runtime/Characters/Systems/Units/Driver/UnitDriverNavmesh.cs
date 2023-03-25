@@ -235,6 +235,11 @@ namespace GameCreator.Runtime.Characters
         {
             this.m_Agent.height = height;
         }
+        
+        // GRAVITY METHODS: -----------------------------------------------------------------------
+
+        public override void ResetVerticalVelocity()
+        { }
 
         // GIZMOS: --------------------------------------------------------------------------------
 

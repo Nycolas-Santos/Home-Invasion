@@ -1,4 +1,5 @@
 using System;
+using GameCreator.Runtime.Common;
 using UnityEngine;
 
 namespace GameCreator.Runtime.Variables
@@ -23,6 +24,10 @@ namespace GameCreator.Runtime.Variables
         [SerializeField] private Detection m_When = Detection.AnyChange;
         [SerializeReference] private TListGetPick m_Index = new GetPickFirst();
         
+        // MEMBERS: -------------------------------------------------------------------------------
+
+        [NonSerialized] private Args m_Args;
+        
         // PROPERTIES: ----------------------------------------------------------------------------
 
         private int ListenersCount => this.EventOnChange?.GetInvocationList().Length ?? 0;
@@ -33,9 +38,11 @@ namespace GameCreator.Runtime.Variables
         
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
-        public void StartListening(Action callback)
+        public void StartListening(Action callback, Args args)
         {
+            this.m_Args = args;
             if (this.m_Variable == null) return;
+            
             if (this.ListenersCount == 0)
             {
                 this.m_Variable.Register(this.OnChange);
@@ -44,9 +51,11 @@ namespace GameCreator.Runtime.Variables
             this.EventOnChange += callback;
         }
 
-        public void StopListening(Action callback)
+        public void StopListening(Action callback, Args args)
         {
+            this.m_Args = args;
             if (this.m_Variable == null) return;
+            
             if (this.ListenersCount == 1)
             {
                 this.m_Variable.Unregister(this.OnChange);
@@ -70,7 +79,10 @@ namespace GameCreator.Runtime.Variables
                 
                 case Detection.SetIndex:
                     if (change != ListVariableRuntime.Change.Set) return;
-                    if (index == this.m_Index.GetIndex(count)) this.EventOnChange?.Invoke();
+                    if (index == this.m_Index.GetIndex(count, this.m_Args))
+                    {
+                        this.EventOnChange?.Invoke();
+                    }
                     break;
                 
                 case Detection.SetAny:

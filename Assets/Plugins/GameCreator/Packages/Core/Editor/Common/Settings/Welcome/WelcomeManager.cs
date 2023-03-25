@@ -106,13 +106,17 @@ namespace GameCreator.Editor.Common
                 )
             );
         }
-        
+
         [InitializeOnLoadMethod]
-        private static void InitializeOnLoad() => EditorApplication.delayCall += () =>
+        private static void InitializeOnLoad()
         {
             InitializeDataFetch();
-            InitializeWelcomeScreen();
-        };
+            SettingsWindow.InitRunners.Add(new InitRunner(
+                SettingsWindow.INIT_PRIORITY_HIGH,
+                CanInitializeWelcomeScreen,
+                InitializeWelcomeScreen
+            ));
+        }
 
         private static void InitializeDataFetch()
         {
@@ -131,9 +135,16 @@ namespace GameCreator.Editor.Common
             EditorApplication.delayCall += UpdateWelcomeData;
         }
 
+        private static bool CanInitializeWelcomeScreen()
+        {
+            return !SessionState.GetBool(KEY_EDITOR_OPEN, false) && 
+                   Settings.From<WelcomeRepository>().OpenOnStartup;
+        }
+        
         private static void InitializeWelcomeScreen()
         {
-            EditorApplication.delayCall += UpdateWelcomeWindow;
+            SessionState.SetBool(KEY_EDITOR_OPEN, true);
+            SettingsWindow.OpenWindow(WelcomeRepository.REPOSITORY_ID);
         }
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
@@ -149,6 +160,7 @@ namespace GameCreator.Editor.Common
             {
                 sb.Append(hash.ToString("X2"));
             }
+            
             return sb.ToString();
         }
 
@@ -232,17 +244,6 @@ namespace GameCreator.Editor.Common
                 textures[imageID] = Convert.ToBase64String(handle.data);
                 Textures = textures;
             };
-        }
-
-        // WELCOME WINDOW: ------------------------------------------------------------------------
-
-        private static void UpdateWelcomeWindow()
-        {
-            if (SessionState.GetBool(KEY_EDITOR_OPEN, false)) return;
-            if (!Settings.From<WelcomeRepository>().OpenOnStartup) return;
-            
-            SessionState.SetBool(KEY_EDITOR_OPEN, true);
-            SettingsWindow.OpenWindow(WelcomeRepository.REPOSITORY_ID);
         }
     }
 }

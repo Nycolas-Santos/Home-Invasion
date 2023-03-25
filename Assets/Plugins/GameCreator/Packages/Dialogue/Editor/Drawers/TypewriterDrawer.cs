@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -17,10 +18,10 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty gibberish = property.FindPropertyRelative("m_Gibberish");
             SerializedProperty pitch = property.FindPropertyRelative("m_Pitch");
 
-            PropertyTool fieldUseTypewriter = new PropertyTool(useTypewriter);
-            PropertyTool fieldFrequency = new PropertyTool(frequency);
-            PropertyTool fieldGibberish = new PropertyTool(gibberish);
-            PropertyTool fieldPitch = new PropertyTool(pitch);
+            PropertyField fieldUseTypewriter = new PropertyField(useTypewriter);
+            PropertyField fieldFrequency = new PropertyField(frequency);
+            PropertyField fieldGibberish = new PropertyField(gibberish);
+            PropertyField fieldPitch = new PropertyField(pitch);
 
             VisualElement content = new VisualElement();
 
@@ -32,10 +33,10 @@ namespace GameCreator.Editor.Dialogue
             content.Add(fieldGibberish);
             content.Add(fieldPitch);
 
-            fieldUseTypewriter.EventChange += eventChange =>
+            fieldUseTypewriter.RegisterValueChangeCallback(eventChange =>
             {
                 content.SetEnabled(eventChange.changedProperty.boolValue);
-            };
+            });
             
             content.SetEnabled(useTypewriter.boolValue);
         }

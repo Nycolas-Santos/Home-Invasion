@@ -16,14 +16,20 @@ namespace GameCreator.Runtime.Inventory
             EventCraft = null;
             EventDismantle = null;
 
+            LastItemAttemptedCraft = null;
+            LastItemAttemptedDismantle = null;
+            
             LastItemCrafted = null;
             LastItemDismantled = null;
         }
         
         #endif
 
-        public static RuntimeItem LastItemCrafted;
-        public static RuntimeItem LastItemDismantled;
+        public static Item LastItemAttemptedCraft     { get; internal set; }
+        public static Item LastItemAttemptedDismantle { get; internal set; }
+        
+        public static RuntimeItem LastItemCrafted    { get; internal set; }
+        public static RuntimeItem LastItemDismantled { get; internal set; }
         
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
 
@@ -100,6 +106,7 @@ namespace GameCreator.Runtime.Inventory
         
         public static RuntimeItem Craft(Item item, Bag inputBag, Bag outputBag)
         {
+            LastItemAttemptedCraft = item;
             if (!CanCraft(item, inputBag, outputBag)) return null;
 
             int ingredientsLength = item.Crafting.Ingredients.Length;
@@ -203,6 +210,7 @@ namespace GameCreator.Runtime.Inventory
         
         public static RuntimeItem[] Dismantle(Item item, Bag inputBag, Bag outputBag, float chance)
         {
+            LastItemAttemptedDismantle = item;
             if (!CanDismantle(item, inputBag, outputBag)) return null;
             
             RuntimeItem removeRuntimeItem = inputBag.Content.RemoveType(item);
@@ -213,7 +221,8 @@ namespace GameCreator.Runtime.Inventory
         
         public static RuntimeItem[] Dismantle(RuntimeItem runtimeItem, Bag inputBag, Bag outputBag, float chance)
         {
-            if (!CanDismantle(runtimeItem.Item, inputBag, outputBag)) return null;
+            LastItemAttemptedDismantle = runtimeItem?.Item;
+            if (!CanDismantle(runtimeItem?.Item, inputBag, outputBag)) return null;
             
             RuntimeItem removeRuntimeItem = inputBag.Content.Remove(runtimeItem);
             return ProcessDismantle(removeRuntimeItem, inputBag, outputBag, chance);

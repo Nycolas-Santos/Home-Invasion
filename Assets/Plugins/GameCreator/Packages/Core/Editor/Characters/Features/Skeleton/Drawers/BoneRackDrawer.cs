@@ -11,8 +11,7 @@ namespace GameCreator.Editor.Characters
     public class BoneRackDrawer : PropertyDrawer
     {
         private const string USS_PATH = EditorPaths.CHARACTERS + "StyleSheets/BoneRack";
-        private const string NAME_BUTTON = "GC-Characters-BoneRack-Button";
-        
+
         // PAINT METHOD: --------------------------------------------------------------------------
         
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
@@ -26,7 +25,7 @@ namespace GameCreator.Editor.Characters
             }
             
             SerializedProperty skeleton = property.FindPropertyRelative("m_Skeleton");
-            PropertyTool fieldSkeleton = new PropertyTool(skeleton);
+            PropertyField fieldSkeleton = new PropertyField(skeleton);
             
             root.Add(fieldSkeleton);
             return root;

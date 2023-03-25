@@ -59,7 +59,6 @@ namespace GameCreator.Runtime.VisualScripting
             
             Character character = this.m_Character.Get<Character>(args);
             if (character == null) return;
-            if (character.Busy.AreLegsBusy) return;
 
             Location location = this.m_Location.Get(args);
             character.Motion.MoveToLocation(
@@ -76,7 +75,6 @@ namespace GameCreator.Runtime.VisualScripting
 
         private void OnFinish(Character character)
         {
-            if (character != null) character.Busy.RemoveLegsBusy();
             this.m_MovementComplete = true;
         }
     }

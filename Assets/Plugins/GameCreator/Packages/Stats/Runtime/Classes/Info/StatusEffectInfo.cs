@@ -10,9 +10,9 @@ namespace GameCreator.Runtime.Stats
 
         public StatusEffectInfo() : base()
         {
-            this.acronym = new PropertyGetString("SE");
-            this.name = new PropertyGetString("Status Effect Name");
-            this.description = new PropertyGetString("Description...");
+            this.m_Acronym = new PropertyGetString("SE");
+            this.m_Name = new PropertyGetString("Status Effect Name");
+            this.m_Description = new PropertyGetString("Description...");
         }
     }
 }

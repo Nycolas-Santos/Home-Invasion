@@ -16,8 +16,7 @@ namespace GameCreator.Runtime.Variables
         [SerializeField]
         protected FieldGetGlobalName m_Variable = new FieldGetGlobalName(ValueGameObject.TYPE_ID);
 
-        public override GameObject Get(Args args) => this.m_Variable.Get<GameObject>();
-        public override GameObject Get(GameObject gameObject) => this.m_Variable.Get<GameObject>();
+        public override GameObject Get(Args args) => this.m_Variable.Get<GameObject>(args);
 
         public override string String => this.m_Variable.ToString();
     }

@@ -9,6 +9,7 @@ namespace GameCreator.Runtime.Cameras
     public class CameraAvoidClip
     {
         private static readonly Color GIZMOS_COLOR = new Color(0f, 1f, 0f, 0.5f);
+        
         private const int GIZMOS_DIVISIONS = 5;
         private const int RAYCAST_BUFFER_SIZE = 50;
         
@@ -24,10 +25,10 @@ namespace GameCreator.Runtime.Cameras
         
         // MEMBERS: -------------------------------------------------------------------------------
         
-        private readonly RaycastHit[] m_HitBuffer;
+        [NonSerialized] private readonly RaycastHit[] m_HitBuffer;
 
-        private float m_CurrentDistance = 0f;
-        private float m_Velocity = 0f;
+        [NonSerialized] private float m_CurrentDistance;
+        [NonSerialized] private float m_Velocity;
 
         // PROPERTIES: ----------------------------------------------------------------------------
 

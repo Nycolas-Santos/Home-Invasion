@@ -23,8 +23,8 @@ namespace GameCreator.Editor.Inventory.UnityUI
             SerializedProperty prefabCoin = this.serializedObject.FindProperty("m_PrefabCoin");
             SerializedProperty coinsContent = this.serializedObject.FindProperty("m_CoinsContent");
 
-            var fieldTitle = new GameCreator.Editor.Common.PropertyTool(prefabCoin);
-            var fieldAmount = new GameCreator.Editor.Common.PropertyTool(coinsContent);
+            PropertyField fieldTitle = new PropertyField(prefabCoin);
+            PropertyField fieldAmount = new PropertyField(coinsContent);
 
             this.m_Root.Add(fieldTitle);
             this.m_Root.Add(fieldAmount);

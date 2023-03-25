@@ -1,4 +1,5 @@
 using System;
+using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 
@@ -30,7 +31,7 @@ namespace GameCreator.Runtime.VisualScripting
     public class InstructionPhysics3DOverlapBox : TInstructionPhysics3DOverlap
     {
         [SerializeField] 
-        private PropertyGetPosition m_Center = GetPositionCharactersPlayer.Create;
+        private PropertyGetPosition m_Center = GetPositionCharacter.Create;
 
         [SerializeField] 
         private PropertyGetOffset m_HalfExtents = GetOffsetVector3.Create();

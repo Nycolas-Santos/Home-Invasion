@@ -57,6 +57,12 @@ namespace GameCreator.Editor.VisualScripting
         }
 
         public int SelectedTrack { get; private set; } = -1;
+
+        public bool IsEnabled
+        {
+            get => this.PlaybackTool.enabledSelf;
+            set => this.PlaybackTool.SetEnabled(value);
+        }
         
         // EVENTS: --------------------------------------------------------------------------------
 

@@ -2,12 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GameCreator.Runtime.Common;
+using UnityEngine;
 
 namespace GameCreator.Runtime.Dialogue
 {
     [Title("Node Type")]
+    
+    [Serializable]
     public abstract class TNodeType : TPolymorphicItem<TNodeType>
     {
+        // EXPOSED MEMBERS: -----------------------------------------------------------------------
+        
+        [SerializeField] protected NodeTypeData m_Options = NodeTypeData.FromSkin;
+        
         // EVENTS: --------------------------------------------------------------------------------
         
         public event Action<int> EventStartChoice;

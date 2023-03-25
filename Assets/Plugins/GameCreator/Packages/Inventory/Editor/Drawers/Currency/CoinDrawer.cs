@@ -23,10 +23,10 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty icon = property.FindPropertyRelative(PROP_ICON);
             SerializedProperty tint = property.FindPropertyRelative(PROP_TINT);
 
-            var fieldValue = new GameCreator.Editor.Common.PropertyTool(value);
-            var fieldName = new GameCreator.Editor.Common.PropertyTool(name);
-            var fieldIcon = new GameCreator.Editor.Common.PropertyTool(icon);
-            var fieldTint = new GameCreator.Editor.Common.PropertyTool(tint);
+            PropertyField fieldValue = new PropertyField(value);
+            PropertyField fieldName = new PropertyField(name);
+            PropertyField fieldIcon = new PropertyField(icon);
+            PropertyField fieldTint = new PropertyField(tint);
 
             root.Add(fieldValue);
             root.Add(new SpaceSmall());

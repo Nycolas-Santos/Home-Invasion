@@ -25,18 +25,18 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty propertyBase = property.FindPropertyRelative(PROP_BASE);
             SerializedProperty propertyBone = property.FindPropertyRelative(PROP_BONE);
             
-            var fieldBase = new GameCreator.Editor.Common.PropertyTool(propertyBase, label);
+            var fieldBase = new PropertyField(propertyBase, label);
             VisualElement fieldBone = BoneDrawer.CreatePropertyGUI(propertyBone, " ");
             
             root.Add(fieldBase);
             root.Add(fieldBone);
 
-            fieldBase.EventChange += changeEvent =>
+            fieldBase.RegisterValueChangeCallback(changeEvent =>
             {
                 fieldBone.style.display = changeEvent.changedProperty.boolValue
                     ? DisplayStyle.Flex
                     : DisplayStyle.None;
-            };
+            });
             
             fieldBone.style.display = propertyBase.boolValue
                 ? DisplayStyle.Flex

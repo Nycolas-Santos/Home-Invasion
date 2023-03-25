@@ -29,19 +29,19 @@ namespace GameCreator.Editor.Variables
                 bindingPath = variables.propertyPath
             };
 
-            PropertyTool fieldWhen = new PropertyTool(when);
+            PropertyField fieldWhen = new PropertyField(when);
             
             head.Add(fieldVariable);
             head.Add(fieldWhen);
             
-            fieldWhen.EventChange += _ =>
+            fieldWhen.RegisterValueChangeCallback(_ =>
             {
                 body.Clear();
                 if (when.enumValueIndex == 1) // When.Name
                 {
                     body.Add(this.Tool(fieldVariable, property));
                 }
-            };
+            });
 
             if (when.enumValueIndex == 1) // When.Name
             {

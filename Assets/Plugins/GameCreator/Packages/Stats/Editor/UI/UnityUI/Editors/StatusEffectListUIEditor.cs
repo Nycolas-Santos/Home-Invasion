@@ -29,11 +29,11 @@ namespace GameCreator.Editor.Stats.UnityUI
             SerializedProperty prefab = this.serializedObject.FindProperty("m_PrefabStatusEffect");
 
             this.m_Root.Add(new PropertyField(statusEffectTarget));
-            this.m_Root.Add(new PropertyTool(types));
+            this.m_Root.Add(new PropertyField(types));
             
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(container));
-            this.m_Root.Add(new PropertyTool(prefab));
+            this.m_Root.Add(new PropertyField(container));
+            this.m_Root.Add(new PropertyField(prefab));
 
             return this.m_Root;
         }

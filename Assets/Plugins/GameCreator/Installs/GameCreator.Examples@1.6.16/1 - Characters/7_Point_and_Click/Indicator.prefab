@@ -50,7 +50,6 @@ MonoBehaviour:
     - rid: 3808071717946916872
     - rid: 3808071717946916880
     - rid: 3808071717946916875
-  m_InBackground: 1
   m_TriggerEvent:
     rid: 3808071717946916871
   references:
@@ -75,6 +74,7 @@ MonoBehaviour:
         m_Transition:
           m_Duration: 0
           m_Easing: 3
+          m_Time: 0
           m_WaitToComplete: 1
     - rid: 3808071717946916873
       type: {class: GetGameObjectTransform, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
@@ -101,6 +101,7 @@ MonoBehaviour:
         m_Transition:
           m_Duration: 0.25
           m_Easing: 1
+          m_Time: 0
           m_WaitToComplete: 0
     - rid: 3808071717946916876
       type: {class: GetGameObjectTransform, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
@@ -127,6 +128,7 @@ MonoBehaviour:
         m_Transition:
           m_Duration: 0.25
           m_Easing: 3
+          m_Time: 0
           m_WaitToComplete: 1
     - rid: 3808071717946916881
       type: {class: GetGameObjectTransform, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}

@@ -19,11 +19,10 @@ namespace GameCreator.Editor.Inventory.UnityUI
         private SerializedProperty m_PrefabCell;
         private SerializedProperty m_CanDropOutside;
         private SerializedProperty m_MaxDropDistance;
-        private SerializedProperty m_DropAmount;
 
-        private GameCreator.Editor.Common.PropertyTool m_FieldCanDropOutside;
-        private GameCreator.Editor.Common.PropertyTool m_FieldMaxDropDistance;
-        private GameCreator.Editor.Common.PropertyTool m_FieldDropAmount;
+        private PropertyField m_FieldCanDropOutside;
+        private PropertyField m_FieldMaxDropDistance;
+        private PropertyField m_FieldDropAmount;
         
         // PAINT METHODS: -------------------------------------------------------------------------
         
@@ -37,7 +36,7 @@ namespace GameCreator.Editor.Inventory.UnityUI
             this.m_Root.Add(new SpaceSmall());
             
             this.m_PrefabCell = this.serializedObject.FindProperty("m_PrefabCell");
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(this.m_PrefabCell));
+            this.m_Root.Add(new PropertyField(this.m_PrefabCell));
             
             this.CreateSpecificInspectorGUI();
             
@@ -51,20 +50,18 @@ namespace GameCreator.Editor.Inventory.UnityUI
         {
             this.m_CanDropOutside = this.serializedObject.FindProperty("m_CanDropOutside");
             this.m_MaxDropDistance = this.serializedObject.FindProperty("m_MaxDropDistance");
-            this.m_DropAmount = this.serializedObject.FindProperty("m_DropAmount");
-            
-            this.m_FieldCanDropOutside = new GameCreator.Editor.Common.PropertyTool(this.m_CanDropOutside);
-            this.m_FieldMaxDropDistance = new GameCreator.Editor.Common.PropertyTool(this.m_MaxDropDistance);
-            this.m_FieldDropAmount = new GameCreator.Editor.Common.PropertyTool(this.m_DropAmount);
-            
+
+            this.m_FieldCanDropOutside = new PropertyField(this.m_CanDropOutside);
+            this.m_FieldMaxDropDistance = new PropertyField(this.m_MaxDropDistance);
+
             this.m_Root.Add(this.m_FieldCanDropOutside);
             this.m_Root.Add(this.m_ContentDropOutside);
             
             this.RefreshDropOutsideContent();
-            this.m_FieldCanDropOutside.EventChange += _ =>
+            this.m_FieldCanDropOutside.RegisterValueChangeCallback(_ =>
             {
                 this.RefreshDropOutsideContent();
-            };
+            });
         }
 
         // REFRESH METHODS: -----------------------------------------------------------------------

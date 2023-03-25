@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue.UnityUI;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -21,14 +22,14 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty portrait = this.serializedObject.FindProperty("m_Portrait");
             SerializedProperty text = this.serializedObject.FindProperty("m_Text");
             
-            this.m_Root.Add(new PropertyTool(actor));
-            this.m_Root.Add(new PropertyTool(actorName));
-            this.m_Root.Add(new PropertyTool(actorDesc));
+            this.m_Root.Add(new PropertyField(actor));
+            this.m_Root.Add(new PropertyField(actorName));
+            this.m_Root.Add(new PropertyField(actorDesc));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(activePortrait));
-            this.m_Root.Add(new PropertyTool(portrait));
+            this.m_Root.Add(new PropertyField(activePortrait));
+            this.m_Root.Add(new PropertyField(portrait));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(text));
+            this.m_Root.Add(new PropertyField(text));
 
             return this.m_Root;
         }

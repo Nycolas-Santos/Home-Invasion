@@ -17,6 +17,7 @@ namespace GameCreator.Runtime.Quests.UnityUI
         [SerializeField] private TextReference m_Text;
         [SerializeField] private Image m_Sprite;
         [SerializeField] private Graphic m_Color;
+        [SerializeField] private CanvasGroup m_Opacity;
 
         [SerializeField] private GameObject m_ActiveIfOnscreen;
         [SerializeField] private GameObject m_ActiveIfOffscreen;
@@ -33,6 +34,7 @@ namespace GameCreator.Runtime.Quests.UnityUI
             
             if (this.m_Sprite != null) this.m_Sprite.overrideSprite = spot.GetSprite;
             if (this.m_Color != null) this.m_Color.color = spot.GetColor;
+            if (this.m_Opacity != null) this.m_Opacity.alpha = spot.Alpha;
 
             if (this.m_RotateTo != null)
             {

@@ -20,19 +20,19 @@ namespace GameCreator.Editor.Stats
             SerializedProperty option = property.FindPropertyRelative("m_Option");
             SerializedProperty statusEffect = property.FindPropertyRelative("m_StatusEffect");
             
-            PropertyTool fieldOption = new PropertyTool(option, property.displayName);
-            PropertyTool fieldStatusEffect = new PropertyTool(statusEffect, EMPTY_LABEL);
+            PropertyField fieldOption = new PropertyField(option, property.displayName);
+            PropertyField fieldStatusEffect = new PropertyField(statusEffect, EMPTY_LABEL);
             
             head.Add(fieldOption);
             
-            fieldOption.EventChange += changeEvent =>
+            fieldOption.RegisterValueChangeCallback(changeEvent =>
             {
                 body.Clear();
                 if (changeEvent.changedProperty.intValue != 1) return;
                 
                 body.Add(fieldStatusEffect);
                 body.Bind(changeEvent.changedProperty.serializedObject);
-            };
+            });
 
             if (option.intValue == 1)
             {

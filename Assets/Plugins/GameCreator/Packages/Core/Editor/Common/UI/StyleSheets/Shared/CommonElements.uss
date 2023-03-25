@@ -103,6 +103,6 @@
     margin-bottom: 2px;
 }
 
-.gc-inline-toggle-field PropertyTool {
+.gc-inline-toggle-field PropertyField {
     flex-grow: 1;
 }

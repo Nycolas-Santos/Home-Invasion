@@ -139,10 +139,8 @@ namespace GameCreator.Runtime.Characters
             this.EventBeforeStartRagdoll?.Invoke();
             
             this.m_Character.Busy.SetBusy();
-            this.m_Character.Gestures.Stop(0f, 0f);
-            
-            await Task.Yield();
-            
+            this.m_Character.Gestures.Stop(0f, 0.1f);
+
             this.m_Character.Animim.Animator.transform.SetParent(null);
 
             foreach (GameObject bone in this.m_Bones)
@@ -153,6 +151,7 @@ namespace GameCreator.Runtime.Characters
             }
 
             this.IsRagdoll = true;
+            await Task.Yield();
             
             this.EventAfterStartRagdoll?.Invoke();
         }

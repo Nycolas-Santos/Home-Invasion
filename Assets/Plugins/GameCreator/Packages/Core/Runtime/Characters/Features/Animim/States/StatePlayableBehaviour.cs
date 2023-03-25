@@ -7,8 +7,6 @@ namespace GameCreator.Runtime.Characters.Animim
 {
     public sealed class StatePlayableBehaviour : TAnimimPlayableBehaviour
     {
-        private const float TRANSITION_FAST = 0.15f;
-        
         // PROPERTIES: ----------------------------------------------------------------------------
 
         [field: NonSerialized] public int Layer { get; }
@@ -31,7 +29,7 @@ namespace GameCreator.Runtime.Characters.Animim
             this.IsEntryClipComplete = true;
             this.IsExitClipComplete = false;
             
-            this.Playable = AnimatorControllerPlayable.Create(
+            this.AnimatorPlayable = AnimatorControllerPlayable.Create(
                 animimGraph.Graph, 
                 CreateController(animationClip)
             );
@@ -47,7 +45,7 @@ namespace GameCreator.Runtime.Characters.Animim
             this.IsEntryClipComplete = true;
             this.IsExitClipComplete = false;
             
-            this.Playable = AnimatorControllerPlayable.Create(
+            this.AnimatorPlayable = AnimatorControllerPlayable.Create(
                 animimGraph.Graph, 
                 rtc
             );
@@ -67,13 +65,13 @@ namespace GameCreator.Runtime.Characters.Animim
                 _ = this.PlayEntryClip(animimGraph, state, config);
                 
                 this.m_Config.TransitionIn = 0f;
-                this.m_Config.DelayIn += config.TransitionIn;
+                this.m_Config.DelayIn += config.TransitionIn + AnimimGraph.SAFE_TIME_OFFSET;
             }
             
             this.State = state;
             this.Layer = layer;
             
-            this.Playable = AnimatorControllerPlayable.Create(
+            this.AnimatorPlayable = AnimatorControllerPlayable.Create(
                 animimGraph.Graph, 
                 state.StateController
             );
@@ -97,11 +95,11 @@ namespace GameCreator.Runtime.Characters.Animim
             if (this.State != null && this.State.HasExitClip)
             {
                 _ = this.PlayExitClip(new ConfigGesture(
-                    delay, this.State.ExitClip.length, 1f, false,
-                    TRANSITION_FAST, transitionOut
+                    delay, this.State.ExitClip.length, 1f, this.State.ExitRootMotion,
+                    transitionOut, transitionOut
                 ));
 
-                delay += TRANSITION_FAST + transitionOut;
+                delay += transitionOut + AnimimGraph.SAFE_TIME_OFFSET;
                 transitionOut = 0f;
             }
             
@@ -116,8 +114,8 @@ namespace GameCreator.Runtime.Characters.Animim
                 state.EntryClip, state.EntryMask, this.m_BlendMode,
                 new ConfigGesture(
                     config.DelayIn, state.EntryClip.length,
-                    1f, config.RootMotion,
-                    config.TransitionIn, TRANSITION_FAST
+                    1f, state.EntryRootMotion,
+                    config.TransitionIn, config.TransitionIn
                 ),
                 false
             );

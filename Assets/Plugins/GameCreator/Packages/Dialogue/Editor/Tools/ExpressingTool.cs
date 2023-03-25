@@ -3,6 +3,7 @@ using GameCreator.Editor.Common;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -13,10 +14,10 @@ namespace GameCreator.Editor.Dialogue
         
         // MEMBERS: -------------------------------------------------------------------------------
 
-        private SerializedProperty m_Actor;
-        private SerializedProperty m_Expression;
+        private readonly SerializedProperty m_Actor;
+        private readonly SerializedProperty m_Expression;
         
-        private readonly PropertyTool m_FieldActor;
+        private readonly PropertyField m_FieldActor;
         private readonly PopupField<int> m_FieldExpression;
         
         // CONSTRUCTOR: ---------------------------------------------------------------------------
@@ -26,7 +27,7 @@ namespace GameCreator.Editor.Dialogue
             this.m_Actor = property.FindPropertyRelative(ExpressingDrawer.PROPERTY_ACTOR);
             this.m_Expression = property.FindPropertyRelative(ExpressingDrawer.PROPERTY_EXPRESSION);
 
-            this.m_FieldActor = new PropertyTool(this.m_Actor);
+            this.m_FieldActor = new PropertyField(this.m_Actor);
             this.m_FieldExpression = new PopupField<int>(
                 SPACE,
                 GetChoices(this.m_Actor.objectReferenceValue as Actor),
@@ -34,8 +35,10 @@ namespace GameCreator.Editor.Dialogue
                 this.PrintSelection,
                 this.PrintListItem
             );
+
+            _ = new AlignLabel(this.m_FieldExpression);
             
-            this.m_FieldActor.EventChange += changeEvent =>
+            this.m_FieldActor.RegisterValueChangeCallback(changeEvent =>
             {
                 Actor actorAsset = changeEvent.changedProperty.objectReferenceValue as Actor;
                 
@@ -43,7 +46,7 @@ namespace GameCreator.Editor.Dialogue
                 this.m_FieldExpression.style.display = actorAsset != null 
                     ? DisplayStyle.Flex
                     : DisplayStyle.None;
-            }; 
+            }); 
 
             this.m_FieldExpression.RegisterValueChangedCallback(changeEvent =>
             {

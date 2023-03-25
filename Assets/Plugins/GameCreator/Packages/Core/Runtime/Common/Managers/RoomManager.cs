@@ -23,7 +23,7 @@ namespace GameCreator.Runtime.Common
             SceneManager.sceneLoaded += this.OnLoadScene;
         }
 
-        private void OnLoadScene(Scene scene, LoadSceneMode mode)
+        private void OnLoadScene(Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
         {
             int index = scene.buildIndex;
             if (!this.m_Events.TryGetValue(index, out List<Action> events)) return;

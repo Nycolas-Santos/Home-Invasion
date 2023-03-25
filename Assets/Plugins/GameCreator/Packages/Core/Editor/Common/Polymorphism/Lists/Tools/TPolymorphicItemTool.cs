@@ -140,7 +140,7 @@ namespace GameCreator.Editor.Common
         {
             this.m_Head.AddToClassList(CLASS_HEAD);
             this.m_Body.AddToClassList(CLASS_BODY);
-            
+
             this.DropAbove.AddToClassList(CLASS_DROP_ABOVE);
             this.DropBelow.AddToClassList(CLASS_DROP_BELOW);
             
@@ -155,6 +155,7 @@ namespace GameCreator.Editor.Common
                 USS_BODY_PATH,
                 USS_DROP_PATH
             };
+            
             styleSheetsPaths.AddRange(this.CustomStyleSheetPaths);
 
             StyleSheet[] sheets = StyleSheetUtils.Load(styleSheetsPaths.ToArray());
@@ -468,6 +469,22 @@ namespace GameCreator.Editor.Common
                         this.IsEnabled = !this.IsEnabled;
                         this.UpdateHead();
                     }
+                );
+            }
+
+            if (this.ParentTool.AllowGroupCollapse)
+            {
+                menu.menu.AppendAction(
+                    "Collapse", 
+                    action => this.ParentTool.Collapse()
+                );
+            }
+            
+            if (this.ParentTool.AllowGroupExpand)
+            {
+                menu.menu.AppendAction(
+                    "Expand", 
+                    action => this.ParentTool.Expand()
                 );
             }
 

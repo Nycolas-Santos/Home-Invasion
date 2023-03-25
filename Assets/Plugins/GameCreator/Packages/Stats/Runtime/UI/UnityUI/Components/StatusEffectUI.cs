@@ -96,7 +96,7 @@ namespace GameCreator.Runtime.Stats.UnityUI
 
             if (statusEffect == null) return;
 
-            if (this.m_Common.Icon != null) this.m_Common.Icon.overrideSprite = statusEffect.Icon;
+            if (this.m_Common.Icon != null) this.m_Common.Icon.overrideSprite = statusEffect.GetIcon(this.m_Args);
             if (this.m_Common.Color != null) this.m_Common.Color.color = statusEffect.Color;
 
             this.m_Common.Name.Text = statusEffect.GetName(this.m_Args);

@@ -21,7 +21,7 @@ namespace GameCreator.Runtime.Characters.IK
 
         public override int Length => this.m_Rigs.Length;
 
-        private Character Character;
+        [field: NonSerialized] private Character Character { get; set; }
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 

@@ -36,6 +36,7 @@ namespace GameCreator.Runtime.Common
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
+            if (AssemblyUtils.IsReloading) return;
             this.m_Value = Mathf.Clamp01(this.m_Value);
         }
 

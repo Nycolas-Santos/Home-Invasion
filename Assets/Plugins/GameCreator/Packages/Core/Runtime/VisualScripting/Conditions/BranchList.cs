@@ -22,7 +22,7 @@ namespace GameCreator.Runtime.VisualScripting
         public bool IsCancelled => this.IsStopped || (Cancellable?.IsCancelled ?? false);
 
         public override int Length => this.m_Branches.Length;
-        
+
         // EVENTS: --------------------------------------------------------------------------------
 
         public event Action EventStartRunning;

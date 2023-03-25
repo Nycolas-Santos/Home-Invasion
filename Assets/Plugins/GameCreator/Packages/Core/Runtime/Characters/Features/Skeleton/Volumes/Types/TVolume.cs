@@ -11,24 +11,26 @@ namespace GameCreator.Runtime.Characters
     {
         // MEMBERS: -------------------------------------------------------------------------------
 
-        [SerializeField]
-        private Bone m_Bone = new Bone();
-
-        [SerializeReference] 
-        private IJoint m_Joint = new JointNone();
+        [SerializeField] private Bone m_Bone = new Bone();
+        [SerializeField] private float m_Weight = 1f;
         
+        [SerializeReference] private IJoint m_Joint = new JointNone();
+
         // PROPERTIES: ----------------------------------------------------------------------------
 
         public override string Title => $"Bone {this.m_Bone} with {this.m_Joint}";
+
+        public float Weight => this.m_Weight;
         
         // CONSTRUCTORS: --------------------------------------------------------------------------
 
-        protected TVolume()
+        protected TVolume() : base(false)
         { }
 
-        protected TVolume(HumanBodyBones humanBone, IJoint joint) : this()
+        protected TVolume(HumanBodyBones humanBone, float weight, IJoint joint) : this()
         {
             this.m_Bone = new Bone(humanBone);
+            this.m_Weight = weight;
             this.m_Joint = joint;
         }
 
@@ -39,7 +41,7 @@ namespace GameCreator.Runtime.Characters
             Transform bone = this.m_Bone.GetTransform(animator);
             if (bone == null) return null;
 
-            this.UpdateCollider(bone.gameObject, mass, skeleton);
+            this.UpdateCollider(bone.gameObject, skeleton);
             this.UpdateRigidbody(bone.gameObject, mass, skeleton);
 
             return bone.gameObject;
@@ -52,7 +54,7 @@ namespace GameCreator.Runtime.Characters
         
         // PRIVATE METHODS: -----------------------------------------------------------------------
 
-        private void UpdateCollider(GameObject bone, float mass, Skeleton skeleton)
+        private void UpdateCollider(GameObject bone, Skeleton skeleton)
         {
             Collider collider = this.SetupCollider(bone, skeleton);
             if (collider == null) return;
@@ -63,11 +65,11 @@ namespace GameCreator.Runtime.Characters
         private void UpdateRigidbody(GameObject bone, float mass, Skeleton skeleton)
         {
             Rigidbody rigidbody = bone.Get<Rigidbody>();
-            if (rigidbody == null) bone.Add<Rigidbody>();
+            if (rigidbody == null) rigidbody = bone.Add<Rigidbody>();
             
             if (rigidbody == null) return;
             
-            rigidbody.mass = mass / skeleton.VolumesLength;
+            rigidbody.mass = mass;
             rigidbody.collisionDetectionMode = skeleton.CollisionDetection;
         }
 

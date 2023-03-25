@@ -1,4 +1,3 @@
-using System;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.VisualScripting;
 using UnityEngine;
@@ -15,6 +14,20 @@ namespace GameCreator.Runtime.Stats
     
     public class StatusEffect : ScriptableObject
     {
+        #if UNITY_EDITOR
+
+        [UnityEditor.InitializeOnEnterPlayMode]
+        private static void OnEnterPlayMode()
+        {
+            LastAdded = null;
+            LastRemoved = null;
+        }
+        
+        #endif
+        
+        public static StatusEffect LastAdded { get; internal set; }
+        public static StatusEffect LastRemoved { get; internal set; }
+        
         // MEMBERS: -------------------------------------------------------------------------------
         
         [SerializeField] private IdString m_ID = new IdString("status-effect-id");
@@ -36,9 +49,7 @@ namespace GameCreator.Runtime.Stats
         // PROPERTIES: ----------------------------------------------------------------------------
 
         public IdString ID => m_ID;
-
-        public Sprite Icon => this.m_Info.icon;
-        public Color Color => this.m_Info.color;
+        public Color Color => this.m_Info.Color;
 
         public StatusEffectType Type => this.m_Data.Type;
         public bool Save => this.m_Data.Save;
@@ -50,9 +61,10 @@ namespace GameCreator.Runtime.Stats
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
-        public string GetAcronym(Args args) => this.m_Info.acronym.Get(args);
-        public string GetName(Args args) => this.m_Info.name.Get(args);
-        public string GetDescription(Args args) => this.m_Info.description.Get(args);
+        public string GetAcronym(Args args) => this.m_Info.m_Acronym.Get(args);
+        public string GetName(Args args) => this.m_Info.m_Name.Get(args);
+        public string GetDescription(Args args) => this.m_Info.m_Description.Get(args);
+        public Sprite GetIcon(Args args) => this.m_Info.GetIcon(args);
 
         public float GetDuration(Args args) => (float) this.m_Data.GetDuration(args);
         public int GetMaxStack(Args args) => this.m_Data.GetMaxStack(args);

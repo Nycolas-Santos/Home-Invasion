@@ -86,7 +86,9 @@ namespace GameCreator.Runtime.Dialogue.UnityUI
             if (!this.m_IsActive) return;
             
             Node node = this.m_Story?.Content.Get(this.m_NodeId);
-            if (node?.NodeType is not NodeTypeChoice { TimedChoice: true } nodeTypeChoice) return;
+            
+            if (node?.NodeType is not NodeTypeChoice nodeTypeChoice) return;
+            if (!nodeTypeChoice.GetTimedChoice(this.m_Story.Content.DialogueSkin)) return;
 
             this.Refresh(nodeTypeChoice);
         }
@@ -96,9 +98,10 @@ namespace GameCreator.Runtime.Dialogue.UnityUI
         private void OnStartChoice(int nodeId)
         {
             if (ApplicationManager.IsExiting) return;
-            
             Node node = this.m_Story?.Content.Get(nodeId);
-            if (node?.NodeType is not NodeTypeChoice { TimedChoice: true } nodeTypeChoice) return;
+            
+            if (node?.NodeType is not NodeTypeChoice nodeTypeChoice) return;
+            if (!nodeTypeChoice.GetTimedChoice(this.m_Story.Content.DialogueSkin)) return;
 
             this.m_IsActive = true;
             if (this.m_Active != null) this.m_Active.SetActive(true);
@@ -111,7 +114,7 @@ namespace GameCreator.Runtime.Dialogue.UnityUI
             if (ApplicationManager.IsExiting) return;
             
             this.m_IsActive = false;
-            if (this.m_Active != null) this.m_Active.SetActive(true);
+            if (this.m_Active != null) this.m_Active.SetActive(false);
         }
         
         private void Refresh(NodeTypeChoice nodeChoice)

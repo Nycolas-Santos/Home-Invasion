@@ -34,8 +34,8 @@ MonoBehaviour:
     m_Author: Catsoft Works
     m_Version:
       major: 1
-      minor: 1
-      patch: 2
+      minor: 2
+      patch: 3
     m_Complexity: 100
     m_Dependencies:
     - m_ID: GameCreator.Blockout

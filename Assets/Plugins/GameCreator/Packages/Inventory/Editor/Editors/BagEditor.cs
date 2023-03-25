@@ -51,8 +51,8 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty wearer = this.serializedObject.FindProperty("m_Wearer");
 
             PropertyField fieldStock = new PropertyField(stock);
-            var fieldSkinUI = new GameCreator.Editor.Common.PropertyTool(skinUI);
-            var fieldWearer = new GameCreator.Editor.Common.PropertyTool(wearer);
+            PropertyField fieldSkinUI = new PropertyField(skinUI);
+            PropertyField fieldWearer = new PropertyField(wearer);
 
             this.m_Root.Add(this.m_Content);
             

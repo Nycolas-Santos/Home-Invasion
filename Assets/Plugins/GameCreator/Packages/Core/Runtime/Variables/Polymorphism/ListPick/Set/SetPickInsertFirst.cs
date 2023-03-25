@@ -12,13 +12,13 @@ namespace GameCreator.Runtime.Variables
     [Serializable]
     public class SetPickInsertFirst : TListSetPick
     {
-        public override int GetIndex(ListVariableRuntime list, int count)
+        public override int GetIndex(ListVariableRuntime list, int count, Args args)
         {
             list.Insert(0, default);
             return 0;
         }
         
-        public override int GetIndex(int count) => -1;
+        public override int GetIndex(int count, Args args) => -1;
 
         public override string ToString() => "Insert First";
     }

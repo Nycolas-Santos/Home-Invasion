@@ -51,9 +51,9 @@ namespace GameCreator.Editor.Inventory.UnityUI
             this.m_Root.Add(new PropertyField(itemEquipUI));
             
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(onSubmit));
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(onClick));
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(onDrop));
+            this.m_Root.Add(new PropertyField(onSubmit));
+            this.m_Root.Add(new PropertyField(onClick));
+            this.m_Root.Add(new PropertyField(onDrop));
             
             this.m_Root.Add(new SpaceSmall());
             this.m_Root.Add(new PropertyField(input));

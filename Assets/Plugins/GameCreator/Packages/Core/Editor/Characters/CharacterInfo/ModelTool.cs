@@ -98,8 +98,8 @@ namespace GameCreator.Editor.Characters
             Animator animator = model.GetComponent<Animator>();
             
             if (animator == null) animator = model.AddComponent<Animator>();
-            if (animator.avatar != null) animator.avatar = avatar;
-
+            if (animator.avatar == null) animator.avatar = avatar;
+            
             if (animator != null && animator.runtimeAnimatorController == null)
             {
                 RuntimeAnimatorController rtc = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(PATH_DEFAULT_RTC);

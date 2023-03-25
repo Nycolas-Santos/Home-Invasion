@@ -37,6 +37,7 @@ namespace GameCreator.Runtime.Dialogue
         public override List<int> GetNext(int id, Story story, Args args)
         {
             List<int> children = story.Content.Children(id);
+            DialogueSkin skin = story.Content.DialogueSkin;
 
             for (int i = children.Count - 1; i >= 0; --i)
             {
@@ -47,13 +48,19 @@ namespace GameCreator.Runtime.Dialogue
             }
 
             if (children.Count == 0) return new List<int>();
+            bool allowRepeat = this.m_Options switch
+            {
+                NodeTypeData.FromSkin => skin != null && skin.ValuesRandom.AllowRepeat,
+                NodeTypeData.FromNode => this.m_AllowRepeat,
+                _ => throw new ArgumentOutOfRangeException()
+            };
 
-            int randomLength = this.m_AllowRepeat || this.m_LastIndex < 0
+            int randomLength = allowRepeat || this.m_LastIndex < 0
                 ? children.Count - 0
                 : children.Count - 1;
 
             int randomIndex = UnityEngine.Random.Range(0, randomLength);
-            if (!this.m_AllowRepeat && randomIndex == this.m_LastIndex) randomIndex += 1;
+            if (!allowRepeat && randomIndex == this.m_LastIndex) randomIndex += 1;
 
             this.m_LastIndex = randomIndex;
             int randomId = children[randomIndex];

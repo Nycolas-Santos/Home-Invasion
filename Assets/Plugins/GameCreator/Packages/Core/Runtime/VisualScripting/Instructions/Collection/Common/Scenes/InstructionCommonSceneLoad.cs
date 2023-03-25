@@ -5,6 +5,7 @@ using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode;
 
 namespace GameCreator.Runtime.VisualScripting 
 {

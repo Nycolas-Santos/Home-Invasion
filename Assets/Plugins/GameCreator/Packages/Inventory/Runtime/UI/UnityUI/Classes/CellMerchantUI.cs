@@ -36,7 +36,7 @@ namespace GameCreator.Runtime.Inventory.UnityUI
 
             if (this.m_ButtonBuy != null)
             {
-                bool canBuy = bagUI.MerchantUI.Merchant.CanBuy(
+                bool canBuy = bagUI.MerchantUI.Merchant.CanSellToClient(
                     bagUI.MerchantUI.ClientBag,
                     cell.Peek()
                 );
@@ -48,7 +48,7 @@ namespace GameCreator.Runtime.Inventory.UnityUI
 
             if (this.m_ButtonSell != null)
             {
-                bool canSell = bagUI.MerchantUI.Merchant.CanSell(
+                bool canSell = bagUI.MerchantUI.Merchant.CanBuyFromClient(
                     bagUI.MerchantUI.ClientBag,
                     cell.Peek()
                 );
@@ -88,7 +88,7 @@ namespace GameCreator.Runtime.Inventory.UnityUI
 
         private void Buy()
         {
-            this.m_MerchantUI.Merchant.Buy(
+            this.m_MerchantUI.Merchant.SellToClient(
                 this.m_MerchantUI.ClientBag,
                 this.m_RuntimeItem
             );
@@ -96,7 +96,7 @@ namespace GameCreator.Runtime.Inventory.UnityUI
 
         private void Sell()
         {
-            this.m_MerchantUI.Merchant.Sell(
+            this.m_MerchantUI.Merchant.BuyFromClient(
                 this.m_MerchantUI.ClientBag,
                 this.m_RuntimeItem
             );

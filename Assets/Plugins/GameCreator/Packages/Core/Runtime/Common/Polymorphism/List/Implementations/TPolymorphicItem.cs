@@ -31,5 +31,15 @@ namespace GameCreator.Runtime.Common
 
         public virtual Color Color => ColorTheme.Get(ColorTheme.Type.TextNormal); 
         public virtual string Title => TextUtils.Humanize(this.GetType().ToString());
+        
+        // CONSTRUCTOR: ---------------------------------------------------------------------------
+        
+        protected TPolymorphicItem()
+        { }
+
+        protected TPolymorphicItem(bool isExpanded)
+        {
+            this.m_IsExpanded = isExpanded;
+        }
     }
 }

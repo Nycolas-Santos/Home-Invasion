@@ -15,13 +15,13 @@ namespace GameCreator.Runtime.Variables
     {
         [SerializeField] private int m_Index = 0;
 
-        public override int GetIndex(ListVariableRuntime list, int count)
+        public override int GetIndex(ListVariableRuntime list, int count, Args args)
         {
             list.Insert(this.m_Index, default);
             return this.m_Index;
         }
         
-        public override int GetIndex(int count) => -1;
+        public override int GetIndex(int count, Args args) => -1;
 
         public override string ToString() => this.m_Index.ToString();
     }

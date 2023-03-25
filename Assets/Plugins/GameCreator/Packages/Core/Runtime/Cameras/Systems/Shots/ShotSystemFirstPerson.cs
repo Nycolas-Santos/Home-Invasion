@@ -90,7 +90,7 @@ namespace GameCreator.Runtime.Cameras
         public ShotSystemFirstPerson()
         {
             this.m_Target = GetGameObjectPlayer.Create();
-            this.m_Offset = GetOffsetLocalTarget.Create(new Vector3(0f, 0.25f, 0.1f));
+            this.m_Offset = GetOffsetLocalTarget.Create(new Vector3(0f, 0.75f, 0f));
 
             this.m_InputRotate = InputValueVector2MotionSecondary.Create();
         }

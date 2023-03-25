@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -15,7 +16,7 @@ namespace GameCreator.Editor.Dialogue
         private SerializedProperty m_Jump;
         private SerializedProperty m_JumpTo;
         
-        private readonly PropertyTool m_FieldJump;
+        private readonly PropertyField m_FieldJump;
         private readonly PopupField<string> m_FieldJumpTo;
 
         // PROPERTIES: ----------------------------------------------------------------------------
@@ -40,7 +41,7 @@ namespace GameCreator.Editor.Dialogue
             List<string> choices = this.GetChoices();
             if (!choices.Contains(choice)) choice = string.Empty;
 
-            this.m_FieldJump = new PropertyTool(this.m_Jump);
+            this.m_FieldJump = new PropertyField(this.m_Jump);
             this.m_FieldJumpTo =  new PopupField<string>(
                 SPACE,
                 this.GetChoices(),
@@ -54,7 +55,7 @@ namespace GameCreator.Editor.Dialogue
 
             this.ContentTool.Tree.EventChangeTag += this.ResetChoices;
             
-            this.m_FieldJump.EventChange += changeEvent =>
+            this.m_FieldJump.RegisterValueChangeCallback(changeEvent =>
             {
                 int option = changeEvent.changedProperty.enumValueIndex;
                 bool jumpTo = option == (int) JumpType.Jump;
@@ -62,7 +63,7 @@ namespace GameCreator.Editor.Dialogue
                 this.m_FieldJumpTo.style.display = jumpTo 
                     ? DisplayStyle.Flex
                     : DisplayStyle.None;
-            };
+            });
 
             this.m_FieldJumpTo.RegisterValueChangedCallback(changeEvent =>
             {

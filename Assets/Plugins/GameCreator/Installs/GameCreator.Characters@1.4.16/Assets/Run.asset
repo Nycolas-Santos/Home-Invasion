@@ -109,16 +109,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f12c8ee1044290830842cb79e35e5b, type: 3}
   m_Name: Run
   m_EditorClassIdentifier: 
-  m_StateMask: {fileID: 31900000, guid: 32b29b984c98ee749b9b968d0f78374a, type: 2}
+  m_StateMask: {fileID: 0}
   m_Entry:
     m_EntryClip: {fileID: 0}
     m_EntryMask: {fileID: 0}
+    m_RootMotion: 0
   m_Exit:
     m_ExitClip: {fileID: 0}
     m_ExitMask: {fileID: 0}
+    m_RootMotion: 0
+  m_Properties:
+    m_Speed:
+      m_IsEnabled: 1
+      m_Value: 4
+    m_Rotation:
+      m_IsEnabled: 0
+      m_Value: 1800
+    m_Mass:
+      m_IsEnabled: 0
+      m_Value: 80
+    m_Height:
+      m_IsEnabled: 0
+      m_Value: 2
+    m_Radius:
+      m_IsEnabled: 0
+      m_Value: 0.2
+    m_GravityUpwards:
+      m_IsEnabled: 0
+      m_Value: -9.81
+    m_GravityDownwards:
+      m_IsEnabled: 0
+      m_Value: -9.81
+    m_TerminalVelocity:
+      m_IsEnabled: 0
+      m_Value: -53
+    m_UseAcceleration:
+      m_IsEnabled: 0
+      m_Value: 1
+    m_Acceleration:
+      m_IsEnabled: 0
+      m_Value: 10
+    m_Deceleration:
+      m_IsEnabled: 0
+      m_Value: 4
+    m_CanJump:
+      m_IsEnabled: 0
+      m_Value: 1
+    m_AirJumps:
+      m_IsEnabled: 0
+      m_Value: 0
+    m_JumpForce:
+      m_IsEnabled: 0
+      m_Value: 5
+    m_JumpCooldown:
+      m_IsEnabled: 0
+      m_Value: 0.5
+    m_DashInSuccession:
+      m_IsEnabled: 0
+      m_Value: 0
+    m_DashInAir:
+      m_IsEnabled: 0
+      m_Value: 0
+    m_DashCooldown:
+      m_IsEnabled: 0
+      m_Value: 1
   m_OnChange:
-    m_Instructions:
-    - rid: 1542767680138772577
+    m_Instructions: []
   m_Controller: {fileID: -2683789934764434665}
   m_AirborneMode: 0
   m_UseBreathing: 0
@@ -179,29 +235,4 @@ MonoBehaviour:
     m_DownRight: {fileID: 0}
   references:
     version: 2
-    RefIds:
-    - rid: 1542767680138772577
-      type: {class: InstructionCharacterPropertyMoveSpeed, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 1
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_Character:
-          m_Property:
-            rid: 1542767680138772580
-        m_Speed:
-          m_Operation: 0
-          m_Value:
-            m_Property:
-              rid: 1542767680138772579
-        m_Transition:
-          m_Duration: 0.2
-          m_Easing: 3
-          m_Time: 0
-          m_WaitToComplete: 1
-    - rid: 1542767680138772579
-      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 4
-    - rid: 1542767680138772580
-      type: {class: GetGameObjectTarget, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    RefIds: []

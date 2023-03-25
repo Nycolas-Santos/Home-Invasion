@@ -19,9 +19,9 @@ namespace GameCreator.Editor.Inventory.UnityUI
         private SerializedProperty m_WeightCurrent;
         private SerializedProperty m_WeightMax;
         
-        private GameCreator.Editor.Common.PropertyTool m_FieldFromBag;
-        private GameCreator.Editor.Common.PropertyTool m_FieldWeightCurrent;
-        private GameCreator.Editor.Common.PropertyTool m_FieldWeightMax;
+        private PropertyField m_FieldFromBag;
+        private PropertyField m_FieldWeightCurrent;
+        private PropertyField m_FieldWeightMax;
 
         public override VisualElement CreateInspectorGUI()
         {
@@ -31,9 +31,9 @@ namespace GameCreator.Editor.Inventory.UnityUI
             this.m_WeightCurrent = this.serializedObject.FindProperty("m_WeightCurrent");
             this.m_WeightMax = this.serializedObject.FindProperty("m_WeightMax");
 
-            this.m_FieldFromBag = new GameCreator.Editor.Common.PropertyTool(this.m_FromBag);
-            this.m_FieldWeightCurrent = new GameCreator.Editor.Common.PropertyTool(this.m_WeightCurrent);
-            this.m_FieldWeightMax = new GameCreator.Editor.Common.PropertyTool(this.m_WeightMax);
+            this.m_FieldFromBag = new PropertyField(this.m_FromBag);
+            this.m_FieldWeightCurrent = new PropertyField(this.m_WeightCurrent);
+            this.m_FieldWeightMax = new PropertyField(this.m_WeightMax);
 
             this.m_Root.Add(new SpaceSmall());
             this.m_Root.Add(this.m_FieldFromBag);

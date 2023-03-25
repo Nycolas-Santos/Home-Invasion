@@ -22,13 +22,13 @@ namespace GameCreator.Editor.Stats
             VisualElement contentValue = new VisualElement();
             VisualElement contentFormula = new VisualElement();
             
-            PropertyTool fieldStat = new PropertyTool(stat);
-            PropertyTool fieldChangeValue = new PropertyTool(changeValue);
-            PropertyTool fieldValue = new PropertyTool(value, " ");
-            PropertyTool fieldChangeFormula = new PropertyTool(changeFormula);
-            PropertyTool fieldFormula = new PropertyTool(formula, " ");
+            PropertyField fieldStat = new PropertyField(stat);
+            PropertyField fieldChangeValue = new PropertyField(changeValue);
+            PropertyField fieldValue = new PropertyField(value, " ");
+            PropertyField fieldChangeFormula = new PropertyField(changeFormula);
+            PropertyField fieldFormula = new PropertyField(formula, " ");
 
-            fieldChangeValue.EventChange += changeEvent =>
+            fieldChangeValue.RegisterValueChangeCallback(changeEvent =>
             {
                 contentValue.Clear();
                 if (changeEvent.changedProperty.boolValue)
@@ -36,9 +36,9 @@ namespace GameCreator.Editor.Stats
                     contentValue.Add(fieldValue);
                     fieldValue.Bind(changeEvent.changedProperty.serializedObject);
                 }
-            };
+            });
             
-            fieldChangeFormula.EventChange += changeEvent =>
+            fieldChangeFormula.RegisterValueChangeCallback(changeEvent =>
             {
                 contentFormula.Clear();
                 if (changeEvent.changedProperty.boolValue)
@@ -46,7 +46,7 @@ namespace GameCreator.Editor.Stats
                     contentFormula.Add(fieldFormula);
                     fieldFormula.Bind(changeEvent.changedProperty.serializedObject);
                 }
-            };
+            });
             
             root.Add(fieldStat);
             

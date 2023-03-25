@@ -44,6 +44,6 @@
     -unity-text-align: middle-left;
 }
 
-.gc-stats-table-manual-body-element PropertyTool {
+.gc-stats-table-manual-body-element PropertyField {
     flex-grow: 1;
 }

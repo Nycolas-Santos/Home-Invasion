@@ -1,8 +1,11 @@
+using System;
+using System.Threading.Tasks;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 
 namespace GameCreator.Runtime.Characters
 {
+    [Serializable]
     public abstract class Reaction : ScriptableObject, IReaction
     {
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
@@ -14,7 +17,10 @@ namespace GameCreator.Runtime.Characters
         [SerializeField] private PropertyGetDecimal m_Speed = GetDecimalConstantOne.Create;
 
         [SerializeField] private ReactionList m_ReactionList = new ReactionList();
-        
+
+        [SerializeField] private RunInstructionsList m_OnEnter = new RunInstructionsList();
+        [SerializeField] private RunInstructionsList m_OnExit = new RunInstructionsList();
+
         // PROPERTIES: ----------------------------------------------------------------------------
 
         public float TransitionIn => this.m_TransitionIn;
@@ -24,28 +30,45 @@ namespace GameCreator.Runtime.Characters
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
-        public bool CanRun(Character character, Args args, ReactionInput input)
+        public ReactionItem CanRun(Character character, Args args, ReactionInput input)
         {
-            if (character == null) return false;
-
-            ReactionItem reaction = this.m_ReactionList.Get(args, input.Direction, input.Power);
-            return reaction != null;
+            return character != null 
+                ? this.m_ReactionList.Get(args, input.Direction, input.Power) 
+                : null;
         }
 
-        public virtual ReactionOutput Run(Character character, Args args, ReactionInput input)
+        public ReactionOutput Run(Character character, Args args, ReactionInput input)
+        {
+            ReactionItem reaction = character != null 
+                ? this.m_ReactionList.Get(args, input.Direction, input.Power) 
+                : null;
+
+            return this.Run(character, args, input, reaction);
+        }
+
+        public ReactionOutput Run(Character character, Args args, ReactionInput input, ReactionItem reaction)
         {
             if (character == null) return new ReactionOutput();
-
-            ReactionItem reaction = this.m_ReactionList.Get(args, input.Direction, input.Power);
             if (reaction == null) return new ReactionOutput();
 
+            this.RotateCharacter(character, input.Direction, reaction.Rotation);
+            
             AnimationClip animationClip = reaction.AnimationClip;
             AvatarMask avatarMask = reaction.AvatarMask;
+            
+            float cancelTime = reaction.CancelTime;
+            float gravity = reaction.Gravity;
             float speed = (float) this.m_Speed.Get(args);
             
             if (animationClip == null) return new ReactionOutput();
 
-            ReactionOutput output = new ReactionOutput(animationClip.length, speed, this);
+            ReactionOutput output = new ReactionOutput(
+                animationClip.length,
+                speed,
+                cancelTime, 
+                gravity,
+                this
+            );
             
             ConfigGesture config = new ConfigGesture(
                 0f, animationClip != null ? animationClip.length : 0f, speed,
@@ -54,14 +77,60 @@ namespace GameCreator.Runtime.Characters
                 this.m_TransitionOut
             );
             
-            _ =  character.Gestures.CrossFade(
+            Task gestureTask = character.Gestures.CrossFade(
                 animationClip, avatarMask, 
                 BlendMode.Blend, 
                 config, 
                 true
             );
 
+            _ = OnRun(this, gestureTask, args);
+
             return output;
+        }
+        
+        // PRIVATE METHODS: -----------------------------------------------------------------------
+
+        private void RotateCharacter(Character character, Vector3 direction, ReactionRotation mode)
+        {
+            Vector3 flatDirection = Vector3.Scale(direction, Vector3Plane.NormalUp);
+            if (flatDirection.sqrMagnitude <= 0f) return;
+            
+            switch (mode)
+            {
+                case ReactionRotation.None: return;
+
+                case ReactionRotation.FollowDirection:
+                    direction = flatDirection.normalized;
+                    break;
+                
+                case ReactionRotation.AgainstDirection:
+                    direction = -flatDirection.normalized;
+                    break;
+                
+                default: throw new ArgumentOutOfRangeException();
+            }
+
+            Quaternion rotation = Quaternion.LookRotation(
+                character.transform.TransformDirection(direction),
+                Vector3.up
+            );
+            
+            character.Driver.SetRotation(rotation);
+        }
+        
+        // PRIVATE STATIC METHODS: ----------------------------------------------------------------
+
+        private static async Task OnRun(Reaction reaction, Task task, Args args)
+        {
+            if (reaction == null) return;
+            _ = reaction.m_OnEnter.Run(args);
+            
+            await task;
+            if (ApplicationManager.IsExiting) return;
+            
+            if (reaction == null) return;
+            _ = reaction.m_OnExit.Run(args);
         }
     }
 }

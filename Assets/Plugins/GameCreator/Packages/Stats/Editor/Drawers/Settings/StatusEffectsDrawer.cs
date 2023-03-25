@@ -79,7 +79,7 @@ namespace GameCreator.Editor.Stats
                 StatusEffect value = statusEffect.objectReferenceValue as StatusEffect;
                 if (value == null) continue;
 
-                PropertyTool fieldStatusEffect = new PropertyTool(
+                PropertyField fieldStatusEffect = new PropertyField(
                     statusEffect,
                     value.ID.String
                 );

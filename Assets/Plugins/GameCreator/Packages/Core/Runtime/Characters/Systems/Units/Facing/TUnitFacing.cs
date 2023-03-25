@@ -167,6 +167,16 @@ namespace GameCreator.Runtime.Characters
 
             return key;
         }
+        
+        private int CreateLayer(float autoDestroyOnTimeout)
+        {
+            int key = IntegerCounter.Generate();
+
+            this.m_LayersQueue.Add(key);
+            this.m_LayersData.Add(key, new FacingLayer(this.Character, autoDestroyOnTimeout));
+
+            return key;
+        }
 
         public void DeleteLayer(int key)
         {
@@ -188,6 +198,23 @@ namespace GameCreator.Runtime.Characters
                     key = this.CreateLayer(autoDestroyOnReach);
                     this.m_LayersData[key].SetDirection(direction);
                 }
+            }
+
+            return key;
+        }
+        
+        public int SetLayerDirection(int key, Vector3 direction, float autoDestroyOnTimeout)
+        {
+            if (this.m_LayersData.TryGetValue(key, out FacingLayer layer))
+            {
+                layer.SetDirection(direction);
+            }
+            else
+            {
+                float angle = Vector3.Angle(direction, this.WorldFaceDirection);
+                
+                key = this.CreateLayer(autoDestroyOnTimeout);
+                this.m_LayersData[key].SetDirection(direction);
             }
 
             return key;

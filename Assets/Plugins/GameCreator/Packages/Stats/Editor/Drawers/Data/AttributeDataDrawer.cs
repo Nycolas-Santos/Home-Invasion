@@ -17,9 +17,9 @@ namespace GameCreator.Editor.Stats
             SerializedProperty maxValue = property.FindPropertyRelative("m_MaxValue");
             SerializedProperty startPercent = property.FindPropertyRelative("m_StartPercent");
             
-            PropertyTool fieldMinValue = new PropertyTool(minValue);
-            PropertyTool fieldMaxValue = new PropertyTool(maxValue);
-            PropertyTool fieldStartPercent = new PropertyTool(startPercent);
+            PropertyField fieldMinValue = new PropertyField(minValue);
+            PropertyField fieldMaxValue = new PropertyField(maxValue);
+            PropertyField fieldStartPercent = new PropertyField(startPercent);
             
             root.Add(fieldMinValue);
             root.Add(fieldMaxValue);

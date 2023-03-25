@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using GameCreator.Runtime.Common;
 using UnityEngine;
@@ -19,12 +20,18 @@ namespace GameCreator.Runtime.Variables
         // PROPERTIES: ----------------------------------------------------------------------------
 
         internal NameVariableRuntime Runtime => this.m_Runtime;
+        
+        // EVENTS: --------------------------------------------------------------------------------
+        
+        private event Action<string> EventChange;
 
         // INITIALIZERS: --------------------------------------------------------------------------
 
         protected override void Awake()
         {
             this.m_Runtime.OnStartup();
+            this.m_Runtime.EventChange += this.OnRuntimeChange;
+            
             base.Awake();
         }
         
@@ -33,7 +40,8 @@ namespace GameCreator.Runtime.Variables
             LocalNameVariables instance = target.Add<LocalNameVariables>();
             instance.m_Runtime = variables;
             instance.m_Runtime.OnStartup();
-
+            
+            instance.m_Runtime.EventChange += instance.OnRuntimeChange;
             return instance;
         }
 
@@ -56,12 +64,19 @@ namespace GameCreator.Runtime.Variables
         
         public void Register(Action<string> callback)
         {
-            this.m_Runtime.EventChange += callback;
+            this.EventChange += callback;
         }
         
         public void Unregister(Action<string> callback)
         {
-            this.m_Runtime.EventChange -= callback;
+            this.EventChange -= callback;
+        }
+        
+        // PRIVATE METHODS: -----------------------------------------------------------------------
+        
+        private void OnRuntimeChange(string name)
+        {
+            this.EventChange?.Invoke(name);
         }
 
         // IGAMESAVE: -----------------------------------------------------------------------------
@@ -77,11 +92,14 @@ namespace GameCreator.Runtime.Variables
             SaveSingleNameVariables saveData = value as SaveSingleNameVariables;
             if (saveData != null && this.m_SaveUniqueID.SaveValue)
             {
-                NameVariable[] variables = saveData.Variables.ToArray();
-                this.m_Runtime = new NameVariableRuntime(variables);
+                NameVariable[] candidates = saveData.Variables.ToArray();
+                foreach (NameVariable candidate in candidates)
+                {
+                    if (!this.m_Runtime.Exists(candidate.Name)) continue;
+                    this.m_Runtime.Set(candidate.Name, candidate.Value);
+                }
             }
-
-            this.m_Runtime.OnStartup();
+            
             return Task.FromResult(saveData != null || !this.m_SaveUniqueID.SaveValue);
         }
     }

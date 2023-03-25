@@ -17,12 +17,9 @@ namespace GameCreator.Runtime.Quests
         [SerializeField]
         protected FieldSetGlobalName m_Variable = new FieldSetGlobalName(ValueQuest.TYPE_ID);
 
-        public override void Set(Quest value, Args args) => this.m_Variable.Set(value);
-        public override void Set(Quest value, GameObject gameObject) => this.m_Variable.Set(value);
+        public override void Set(Quest value, Args args) => this.m_Variable.Set(value, args);
+        public override Quest Get(Args args) => this.m_Variable.Get(args) as Quest;
 
-        public override Quest Get(Args args) => this.m_Variable.Get() as Quest;
-        public override Quest Get(GameObject gameObject) => this.m_Variable.Get() as Quest;
-        
         public static PropertySetQuest Create => new PropertySetQuest(
             new SetQuestGlobalName()
         );

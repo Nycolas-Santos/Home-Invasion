@@ -1,4 +1,3 @@
-using GameCreator.Editor.Common;
 using GameCreator.Runtime.Stats;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -16,8 +15,8 @@ namespace GameCreator.Editor.Stats
             SerializedProperty value = property.FindPropertyRelative("m_Base");
             SerializedProperty formula = property.FindPropertyRelative("m_Formula");
             
-            PropertyTool fieldValue = new PropertyTool(value, "Base (value)");
-            PropertyTool fieldFormula = new PropertyTool(formula);
+            PropertyField fieldValue = new PropertyField(value, "Base (value)");
+            PropertyField fieldFormula = new PropertyField(formula);
             
             root.Add(fieldValue);
             root.Add(fieldFormula);

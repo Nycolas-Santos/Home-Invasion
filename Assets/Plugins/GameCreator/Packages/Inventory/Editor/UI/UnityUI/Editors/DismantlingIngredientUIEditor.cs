@@ -22,10 +22,10 @@ namespace GameCreator.Editor.Inventory.UnityUI
             SerializedProperty amountToRetrieve = this.serializedObject.FindProperty("m_AmountToRetrieve");
             SerializedProperty amountInBag = this.serializedObject.FindProperty("m_AmountInBag");
             
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(ingredientUI));
+            this.m_Root.Add(new PropertyField(ingredientUI));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(amountToRetrieve));
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(amountInBag));
+            this.m_Root.Add(new PropertyField(amountToRetrieve));
+            this.m_Root.Add(new PropertyField(amountInBag));
 
             return this.m_Root;
         }

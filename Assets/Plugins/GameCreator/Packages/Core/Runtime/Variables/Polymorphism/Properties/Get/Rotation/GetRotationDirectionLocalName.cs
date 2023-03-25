@@ -18,12 +18,7 @@ namespace GameCreator.Runtime.Variables
 
         public override Quaternion Get(Args args)
         {
-            return Quaternion.LookRotation(this.m_Variable.Get<Vector3>());
-        }
-
-        public override Quaternion Get(GameObject gameObject)
-        {
-            return Quaternion.LookRotation(this.m_Variable.Get<Vector3>());
+            return Quaternion.LookRotation(this.m_Variable.Get<Vector3>(args));
         }
 
         public override string String => this.m_Variable.ToString();

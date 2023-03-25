@@ -837,7 +837,6 @@ MonoBehaviour:
     - rid: 5735539812845749105
     - rid: 5735539812845749107
     - rid: 5735539812845749114
-  m_InBackground: 1
   m_TriggerEvent:
     rid: 5735539812845749101
   references:
@@ -925,7 +924,6 @@ MonoBehaviour:
     - rid: 5735539812845749103
     - rid: 5735539812845749109
     - rid: 5735539812845749111
-  m_InBackground: 1
   m_TriggerEvent:
     rid: 5735539812845749099
   references:
@@ -1842,6 +1840,22 @@ MonoBehaviour:
     - rid: 5735539812845749092
       type: {class: ShotTypeFollow, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data:
+        m_ShotSystemViewport:
+          m_Projection:
+            m_IsEnabled: 0
+            m_Value: 0
+          m_FieldOfView:
+            m_IsEnabled: 0
+            m_Value: 60
+          m_OrthographicSize:
+            m_IsEnabled: 0
+            m_Value: 5
+          m_ClipPlaneNear:
+            m_IsEnabled: 0
+            m_Value: 0.3
+          m_ClipPlaneFar:
+            m_IsEnabled: 0
+            m_Value: 1000
         m_ShotSystemLook:
           m_IsActive: 1
           m_LookTarget:
@@ -1851,7 +1865,6 @@ MonoBehaviour:
             m_Property:
               rid: 5735539812845749094
         m_ShotSystemFollow:
-          m_IsActive: 1
           m_Follow:
             m_Property:
               rid: 5735539812845749095

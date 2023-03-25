@@ -20,7 +20,8 @@ namespace GameCreator.Editor.Common
                 objectType = typeof(SceneAsset),
                 bindingPath = propertyAsset.propertyPath
             };
-            
+
+            _ = new AlignLabel(fieldAsset);
             root.Add(fieldAsset);
 
             return root;

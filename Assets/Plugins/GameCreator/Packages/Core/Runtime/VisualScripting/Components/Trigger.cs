@@ -309,11 +309,19 @@ namespace GameCreator.Runtime.VisualScripting
 
         protected virtual void OnDrawGizmos()
         {
+            #if UNITY_EDITOR
+            if (UnityEditor.PrefabUtility.IsPartOfPrefabAsset(this.gameObject)) return;
+            #endif
+            
             this.m_TriggerEvent?.OnDrawGizmos(this);
         }
 
         protected virtual void OnDrawGizmosSelected()
         {
+            #if UNITY_EDITOR
+            if (UnityEditor.PrefabUtility.IsPartOfPrefabAsset(this.gameObject)) return;
+            #endif
+            
             this.m_TriggerEvent?.OnDrawGizmosSelected(this);
         }
         

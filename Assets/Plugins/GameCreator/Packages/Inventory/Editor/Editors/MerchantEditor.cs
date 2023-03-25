@@ -26,15 +26,15 @@ namespace GameCreator.Editor.Inventory
         private SerializedProperty m_SkinUI;
 
         private PropertyField m_FieldInfo;
-        private GameCreator.Editor.Common.PropertyTool m_FieldInfiniteCurrency;
-        private GameCreator.Editor.Common.PropertyTool m_FieldInfiniteStock;
-        private GameCreator.Editor.Common.PropertyTool m_FieldAllowBuyBack;
-        private GameCreator.Editor.Common.PropertyTool m_FieldSellNicheType;
-        private GameCreator.Editor.Common.PropertyTool m_FieldSellType;
-        private GameCreator.Editor.Common.PropertyTool m_FieldBuyRate;
-        private GameCreator.Editor.Common.PropertyTool m_FieldSellRate;
-        private GameCreator.Editor.Common.PropertyTool m_FieldMerchantBag;
-        private GameCreator.Editor.Common.PropertyTool m_FieldMerchantSkin;
+        private PropertyField m_FieldInfiniteCurrency;
+        private PropertyField m_FieldInfiniteStock;
+        private PropertyField m_FieldAllowBuyBack;
+        private PropertyField m_FieldSellNicheType;
+        private PropertyField m_FieldSellType;
+        private PropertyField m_FieldBuyRate;
+        private PropertyField m_FieldSellRate;
+        private PropertyField m_FieldMerchantBag;
+        private PropertyField m_FieldMerchantSkin;
         
         public override VisualElement CreateInspectorGUI()
         {
@@ -52,15 +52,15 @@ namespace GameCreator.Editor.Inventory
             this.m_SkinUI = this.serializedObject.FindProperty("m_SkinUI");
 
             this.m_FieldInfo = new PropertyField(this.m_Info);
-            this.m_FieldInfiniteCurrency = new GameCreator.Editor.Common.PropertyTool(this.m_InfiniteCurrency);
-            this.m_FieldInfiniteStock = new GameCreator.Editor.Common.PropertyTool(this.m_InfiniteStock);
-            this.m_FieldAllowBuyBack = new GameCreator.Editor.Common.PropertyTool(this.m_AllowBuyBack);
-            this.m_FieldSellNicheType = new GameCreator.Editor.Common.PropertyTool(this.m_SellNicheType);
-            this.m_FieldSellType = new GameCreator.Editor.Common.PropertyTool(this.m_SellType);
-            this.m_FieldBuyRate = new GameCreator.Editor.Common.PropertyTool(this.m_BuyRate);
-            this.m_FieldSellRate = new GameCreator.Editor.Common.PropertyTool(this.m_SellRate);
-            this.m_FieldMerchantBag = new GameCreator.Editor.Common.PropertyTool(this.m_Bag);
-            this.m_FieldMerchantSkin = new GameCreator.Editor.Common.PropertyTool(this.m_SkinUI);
+            this.m_FieldInfiniteCurrency = new PropertyField(this.m_InfiniteCurrency);
+            this.m_FieldInfiniteStock = new PropertyField(this.m_InfiniteStock);
+            this.m_FieldAllowBuyBack = new PropertyField(this.m_AllowBuyBack);
+            this.m_FieldSellNicheType = new PropertyField(this.m_SellNicheType);
+            this.m_FieldSellType = new PropertyField(this.m_SellType);
+            this.m_FieldBuyRate = new PropertyField(this.m_BuyRate);
+            this.m_FieldSellRate = new PropertyField(this.m_SellRate);
+            this.m_FieldMerchantBag = new PropertyField(this.m_Bag);
+            this.m_FieldMerchantSkin = new PropertyField(this.m_SkinUI);
 
             this.m_ContentBuyType = new VisualElement();
 
@@ -82,10 +82,10 @@ namespace GameCreator.Editor.Inventory
             this.m_Root.Add(this.m_FieldMerchantSkin);
 
             this.RefreshContentBuyType();
-            this.m_FieldSellNicheType.EventChange += _ =>
+            this.m_FieldSellNicheType.RegisterValueChangeCallback(_ =>
             {
                 this.RefreshContentBuyType();
-            };
+            });
             
             return this.m_Root;
         }

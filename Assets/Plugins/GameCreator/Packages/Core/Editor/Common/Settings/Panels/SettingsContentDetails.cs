@@ -29,6 +29,8 @@ namespace GameCreator.Editor.Common
         public SettingsContentDetails(SettingsWindow window)
         {
             this.m_Window = window;
+            this.AddToClassList(AlignLabel.CLASS_UNITY_INSPECTOR_ELEMENT);
+            this.AddToClassList(AlignLabel.CLASS_UNITY_MAIN_CONTAINER);
         }
 
         public void OnEnable()
@@ -93,21 +95,25 @@ namespace GameCreator.Editor.Common
             {
                 this.m_ScrollView = new ScrollView(ScrollViewMode.Vertical)
                 {
-                    name = NAME_SCROLLVIEW
+                    name = NAME_SCROLLVIEW,
+                    contentContainer =
+                    {
+                        name = NAME_SCROLLVIEW_CONTENT
+                    }
                 };
 
-                this.m_ScrollView.contentContainer.name = NAME_SCROLLVIEW_CONTENT;
                 this.m_Content = this.m_ScrollView.contentContainer;
-                
                 this.Add(this.m_ScrollView);
             }
-            
+
             SerializedObject assetSerialized = new SerializedObject(asset);
             SerializedProperty assetProperty = assetSerialized.FindProperty(
                 TAssetRepositoryEditor.NAMEOF_MEMBER
             );
+
+            PropertyField fieldAsset = new PropertyField(assetProperty);
+            fieldAsset.Bind(assetSerialized);
             
-            PropertyTool fieldAsset = new PropertyTool(assetProperty);
             if (asset.IsFullScreen) fieldAsset.AddToClassList(CLASS_FULLSCREEN);
             
             this.m_Content.Add(fieldAsset);

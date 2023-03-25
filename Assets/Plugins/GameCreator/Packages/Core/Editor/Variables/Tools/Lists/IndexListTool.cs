@@ -18,7 +18,7 @@ namespace GameCreator.Editor.Variables
         private const string CLASS_HEAD_BUTTON = "gc-variables-index-button";
         private const string CLASS_HEAD_DROPDOWN = "gc-variables-index-dropdown";
 
-        private static readonly IIcon ICON_CHEVRON_DOWN = new IconChevronDown(ColorTheme.Type.TextLight);
+        private static readonly IIcon ICON_CHEVRON_DOWN = new IconDropdown(ColorTheme.Type.TextLight);
         private static readonly IIcon ICON_COLLAPSE = new IconCollapse(ColorTheme.Type.TextNormal);
         private static readonly IIcon ICON_ADD = new IconPlus(ColorTheme.Type.TextNormal);
 
@@ -71,7 +71,7 @@ namespace GameCreator.Editor.Variables
             Button btnToggle = new Button();
             btnToggle.AddToClassList(CLASS_HEAD_BUTTON);
             btnToggle.Add(new Image { image = ICON_COLLAPSE.Texture });
-            btnToggle.clicked += this.CollapseItems;
+            btnToggle.clicked += this.Collapse;
 
             this.m_ChangeTypeButton = new Button();
             this.m_ChangeTypeButton.AddToClassList(CLASS_HEAD_DROPDOWN);

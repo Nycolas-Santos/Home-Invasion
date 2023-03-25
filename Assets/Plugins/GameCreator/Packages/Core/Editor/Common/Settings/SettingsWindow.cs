@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using GameCreator.Runtime.Common;
 using UnityEditor;
 using UnityEngine;
@@ -6,9 +7,10 @@ using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Common
 {
-    internal class SettingsWindow : EditorWindow
+    public class SettingsWindow : EditorWindow
     {
-        private const string MENU_ITEM = "Game Creator/Settings #%k";
+        private const string MENU_ITEM_CLEAR_EDITOR_PREFS = "Edit/Clear All EditorPrefs";
+        private const string MENU_ITEM_OPEN = "Game Creator/Settings #%k";
         private const string MENU_TITLE = "Game Creator Settings";
 
         private const int MIN_WIDTH = 800;
@@ -23,6 +25,12 @@ namespace GameCreator.Editor.Common
 
         private static IIcon ICON_WINDOW;
         private static SettingsWindow WINDOW;
+
+        public const int INIT_PRIORITY_HIGH = 0;
+        public const int INIT_PRIORITY_DEFAULT = 1;
+        public const int INIT_PRIORITY_LOW = 2;
+        
+        public static readonly List<InitRunner> InitRunners = new List<InitRunner>();
 
         // PROPERTIES: ----------------------------------------------------------------------------
 
@@ -40,8 +48,38 @@ namespace GameCreator.Editor.Common
         public event Action<int> EventChangeSelection;
 
         // INITIALIZERS: --------------------------------------------------------------------------
+
+        [InitializeOnLoadMethod]
+        private static void InitializeOnLoad()
+        {
+            EditorApplication.delayCall += DeferredInitializeOnLoad;
+        }
+
+        private static void DeferredInitializeOnLoad()
+        {
+            InitRunners.Sort((a, b) => a.Order.CompareTo(b.Order));
+            foreach (InitRunner initRunner in InitRunners)
+            {
+                if (!initRunner.CanRun()) continue;
+                
+                initRunner.Run();
+                return;
+            }
+        }
         
-        [MenuItem(MENU_ITEM, priority = 10)]
+        [MenuItem(MENU_ITEM_CLEAR_EDITOR_PREFS, false, 270)]
+        private static void RevealPersistentDataFolder()
+        {
+            bool confirmation = EditorUtility.DisplayDialog(
+                "Clear All EditorPrefs",
+                "Are you sure you want to clear all PlayerPrefs? This action cannot be undone.",
+                "Yes", "Cancel"
+            );
+            
+            if (confirmation) EditorPrefs.DeleteAll();
+        }
+
+        [MenuItem(MENU_ITEM_OPEN, priority = 10)]
         public static void OpenWindow()
         {
             SetupWindow();

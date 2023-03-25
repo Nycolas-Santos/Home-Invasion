@@ -16,9 +16,9 @@ namespace GameCreator.Editor.Inventory.UnityUI
             SerializedProperty activeEquipped = property.FindPropertyRelative("m_ActiveEquipped");
             SerializedProperty activeNotEquipped = property.FindPropertyRelative("m_ActiveNotEquipped");
             
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeContent));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeEquipped));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeNotEquipped));
+            root.Add(new PropertyField(activeContent));
+            root.Add(new PropertyField(activeEquipped));
+            root.Add(new PropertyField(activeNotEquipped));
             root.Add(new SpaceSmall());
         }
     }

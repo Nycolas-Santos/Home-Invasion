@@ -39,20 +39,24 @@ namespace GameCreator.Editor.Characters
             if (this.HasEntry)
             {
                 SerializedProperty entry = this.serializedObject.FindProperty("m_Entry");
-                PropertyTool fieldEntry = new PropertyTool(entry);
+                PropertyField fieldEntry = new PropertyField(entry);
                 this.m_Root.Add(fieldEntry);
             }
             
             if (this.HasExit)
             {
                 SerializedProperty exit = this.serializedObject.FindProperty("m_Exit");
-                PropertyTool fieldExit = new PropertyTool(exit);
+                PropertyField fieldExit = new PropertyField(exit);
                 this.m_Root.Add(fieldExit);
             }
             
-            SerializedProperty onChange = this.serializedObject.FindProperty("m_OnChange");
-            PropertyTool fieldOnChange = new PropertyTool(onChange);
+            SerializedProperty motion = this.serializedObject.FindProperty("m_Properties");
+            PropertyField fieldMotion = new PropertyField(motion);
+            this.m_Root.Add(fieldMotion);
             
+            SerializedProperty onChange = this.serializedObject.FindProperty("m_OnChange");
+            PropertyField fieldOnChange = new PropertyField(onChange);
+
             this.m_Root.Add(new SpaceSmall());
             this.m_Root.Add(new LabelTitle("On Refresh:"));
             this.m_Root.Add(new SpaceSmaller());
@@ -66,7 +70,7 @@ namespace GameCreator.Editor.Characters
             this.CreateContent();
             
             SerializedProperty avatarMask = this.serializedObject.FindProperty("m_StateMask");
-            PropertyTool fieldAvatarMask = new PropertyTool(avatarMask);
+            PropertyField fieldAvatarMask = new PropertyField(avatarMask);
 
             VisualElement fieldSpacer = new VisualElement();
             fieldSpacer.AddToClassList("gc-space-smaller");

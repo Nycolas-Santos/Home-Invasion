@@ -18,10 +18,10 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty weight = property.FindPropertyRelative("m_Weight");
             SerializedProperty maxStack = property.FindPropertyRelative("m_MaxStack");
 
-            var fieldWidth = new GameCreator.Editor.Common.PropertyTool(width);
-            var fieldHeight = new GameCreator.Editor.Common.PropertyTool(height);
-            var fieldWeight = new GameCreator.Editor.Common.PropertyTool(weight);
-            var fieldMaxStack = new GameCreator.Editor.Common.PropertyTool(maxStack);
+            PropertyField fieldWidth = new PropertyField(width);
+            PropertyField fieldHeight = new PropertyField(height);
+            PropertyField fieldWeight = new PropertyField(weight);
+            PropertyField fieldMaxStack = new PropertyField(maxStack);
 
             container.Add(fieldWidth);
             container.Add(fieldHeight);

@@ -4,13 +4,13 @@ using UnityEngine.UI;
 
 namespace GameCreator.Runtime.Common.UnityUI
 {
-    [Title("Text")]
-    [Category("UI/Text")]
+    [Title("Image")]
+    [Category("UI/Image")]
     
     [Description("Sets the Image's sprite value")]
     [Image(typeof(IconUIImage), ColorTheme.Type.TextLight)]
 
-    [Serializable] [HideLabelsInEditor]
+    [Serializable]
     public class SetSpriteUIImage : PropertyTypeSetSprite
     {
         [SerializeField] protected bool m_OverrideSprite = true;

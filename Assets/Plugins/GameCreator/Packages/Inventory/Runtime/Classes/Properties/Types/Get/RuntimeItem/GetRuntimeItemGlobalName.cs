@@ -17,8 +17,7 @@ namespace GameCreator.Runtime.Inventory
         [SerializeField]
         protected FieldGetGlobalName m_Variable = new FieldGetGlobalName(ValueRuntimeItem.TYPE_ID);
 
-        public override RuntimeItem Get(Args args) => this.m_Variable.Get<RuntimeItem>();
-        public override RuntimeItem Get(GameObject gameObject) => this.m_Variable.Get<RuntimeItem>();
+        public override RuntimeItem Get(Args args) => this.m_Variable.Get<RuntimeItem>(args);
 
         public override string String => this.m_Variable.ToString();
     }

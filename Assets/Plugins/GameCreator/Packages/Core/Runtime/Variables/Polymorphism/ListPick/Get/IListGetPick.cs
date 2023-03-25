@@ -6,7 +6,7 @@ namespace GameCreator.Runtime.Variables
     
     public interface IListGetPick
     {
-        int GetIndex(int count);
+        int GetIndex(int count, Args args);
         string ToString();
     }
 }

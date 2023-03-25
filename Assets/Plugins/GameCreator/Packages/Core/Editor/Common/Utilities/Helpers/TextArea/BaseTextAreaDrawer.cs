@@ -20,6 +20,8 @@ namespace GameCreator.Editor.Common
                 name = "GC-TextArea",
                 bindingPath = property.FindPropertyRelative("m_Text").propertyPath
             };
+            
+            textArea.AddToClassList(AlignLabel.CLASS_UNITY_ALIGN_LABEL);
 
             StyleSheet[] sheets = StyleSheetUtils.Load(USS_PATH);
             foreach (StyleSheet sheet in sheets) root.styleSheets.Add(sheet);

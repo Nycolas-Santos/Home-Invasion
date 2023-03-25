@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Common;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Core
@@ -51,9 +52,9 @@ namespace GameCreator.Editor.Core
         private void PaintBody()
         {
             SerializedProperty value = this.serializedObject.FindProperty("m_Value");
-            PropertyTool fieldValue = new PropertyTool(value);
+            PropertyField fieldValue = new PropertyField(value);
             
-            fieldValue.EventChange += _ => this.PaintHead();
+            fieldValue.RegisterValueChangeCallback(_ => this.PaintHead());
             this.m_Body.Add(fieldValue);
         }
     }

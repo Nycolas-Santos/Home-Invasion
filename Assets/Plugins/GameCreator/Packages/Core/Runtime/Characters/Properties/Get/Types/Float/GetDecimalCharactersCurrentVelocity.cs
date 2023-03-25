@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameCreator.Runtime.Characters
 {
     [Title("Current Velocity")]
-    [Category("Characters/Current Velocity")]
+    [Category("Characters/Navigation/Current Velocity")]
     
     [Image(typeof(IconCharacterRun), ColorTheme.Type.Blue, typeof(OverlayArrowRight))]
     [Description("The current velocity at which the Character is moving")]

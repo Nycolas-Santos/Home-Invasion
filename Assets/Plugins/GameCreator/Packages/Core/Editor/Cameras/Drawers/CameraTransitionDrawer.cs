@@ -26,9 +26,9 @@ namespace GameCreator.Editor.Cameras
             SerializedProperty smoothPosition = property.FindPropertyRelative("m_SmoothTimePosition");
             SerializedProperty smoothRotation = property.FindPropertyRelative("m_SmoothTimeRotation");
             
-            PropertyTool fieldCurrentShot = new PropertyTool(currentShot);
-            PropertyTool fieldSmoothPosition = new PropertyTool(smoothPosition);
-            PropertyTool fieldSmoothRotation = new PropertyTool(smoothRotation);
+            PropertyField fieldCurrentShot = new PropertyField(currentShot);
+            PropertyField fieldSmoothPosition = new PropertyField(smoothPosition);
+            PropertyField fieldSmoothRotation = new PropertyField(smoothRotation);
             
             Label labelTitle = new Label("Shot");
             labelTitle.AddToClassList("gc-label-title");

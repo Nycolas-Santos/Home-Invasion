@@ -16,8 +16,7 @@ namespace GameCreator.Runtime.Variables
         [SerializeField]
         protected FieldGetGlobalList m_Variable = new FieldGetGlobalList(ValueTexture.TYPE_ID);
 
-        public override Texture Get(Args args) => this.m_Variable.Get<Texture>();
-        public override Texture Get(GameObject gameObject) => this.m_Variable.Get<Texture>();
+        public override Texture Get(Args args) => this.m_Variable.Get<Texture>(args);
 
         public override string String => this.m_Variable.ToString();
     }

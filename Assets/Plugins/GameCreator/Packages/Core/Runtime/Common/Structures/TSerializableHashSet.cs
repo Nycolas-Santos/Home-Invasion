@@ -66,6 +66,8 @@ namespace GameCreator.Runtime.Common
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
+            if (AssemblyUtils.IsReloading) return;
+            
             if (this.m_HashSet == null)
             {
                 this.m_Values = Array.Empty<T>();
@@ -84,6 +86,8 @@ namespace GameCreator.Runtime.Common
 
         void ISerializationCallbackReceiver.OnAfterDeserialize()
         {
+            if (AssemblyUtils.IsReloading) return;
+            
             this.m_HashSet = new HashSet<T>();
             foreach (T value in this.m_Values)
             {

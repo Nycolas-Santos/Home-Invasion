@@ -13,8 +13,8 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty width = property.FindPropertyRelative("m_Width");
             SerializedProperty height = property.FindPropertyRelative("m_Height");
 
-            var fieldWidth = new GameCreator.Editor.Common.PropertyTool(width);
-            var fieldHeight = new GameCreator.Editor.Common.PropertyTool(height);
+            PropertyField fieldWidth = new PropertyField(width);
+            PropertyField fieldHeight = new PropertyField(height);
             
             root.Add(fieldWidth);
             root.Add(fieldHeight);

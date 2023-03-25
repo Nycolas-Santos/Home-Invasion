@@ -6,7 +6,7 @@ namespace GameCreator.Runtime.Characters
         
         int Id { get; }
         Character Character { get; set; }
-        
+
         // METHODS: -------------------------------------------------------------------------------
 
         void OnEnable(Character character);

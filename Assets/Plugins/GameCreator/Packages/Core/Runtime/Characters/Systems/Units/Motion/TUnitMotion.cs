@@ -56,12 +56,16 @@ namespace GameCreator.Runtime.Characters
         
         public abstract float JumpForce { get; set; }
         public abstract float JumpCooldown { get; set; }
+        
+        public abstract int DashInSuccession { get; set; }
+        public abstract bool DashInAir { get; set; }
+        public abstract float DashCooldown { get; set; }
 
         public abstract float Mass   { get; set; }
         public abstract float Height { get; set; }
         public abstract float Radius { get; set; }
         
-        public abstract bool UseAcceleration { get; }
+        public abstract bool UseAcceleration { get; set; }
         public abstract float Acceleration { get; set; }
         public abstract float Deceleration { get; set; }
         

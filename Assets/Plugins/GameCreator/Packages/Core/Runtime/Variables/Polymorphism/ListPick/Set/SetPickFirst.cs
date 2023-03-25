@@ -12,8 +12,8 @@ namespace GameCreator.Runtime.Variables
     [Serializable]
     public class SetPickFirst : TListSetPick
     {
-        public override int GetIndex(ListVariableRuntime list, int count) => 0;
-        public override int GetIndex(int count) => 0;
+        public override int GetIndex(ListVariableRuntime list, int count, Args args) => 0;
+        public override int GetIndex(int count, Args args) => 0;
 
         public override string ToString() => "First";
     }

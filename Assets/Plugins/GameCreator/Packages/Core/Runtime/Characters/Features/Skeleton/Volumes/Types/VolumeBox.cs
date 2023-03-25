@@ -23,8 +23,13 @@ namespace GameCreator.Runtime.Characters
         public VolumeBox() : base()
         { }
 
-        public VolumeBox(HumanBodyBones humanBone, IJoint joint, Vector3 center, Vector3 size) 
-            : base(humanBone, joint)
+        public VolumeBox(
+            HumanBodyBones humanBone,
+            float weight,
+            IJoint joint,
+            Vector3 center,
+            Vector3 size) 
+            : base(humanBone, weight, joint)
         {
             this.m_Center = center;
             this.m_Size = size;

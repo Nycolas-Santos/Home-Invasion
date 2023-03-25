@@ -22,7 +22,7 @@ namespace GameCreator.Runtime.Characters
         // PROPERTIES: ----------------------------------------------------------------------------
 
         public override int Length => this.m_Volumes.Length;
-        
+
         // CONSTRUCTOR: ---------------------------------------------------------------------------
 
         public Volumes()
@@ -47,9 +47,12 @@ namespace GameCreator.Runtime.Characters
         public GameObject[] Update(Animator animator, float mass, Skeleton skeleton)
         {
             GameObject[] targets = new GameObject[this.m_Volumes.Length];
+            float weightDistribution = this.GetWeightDistribution();
+            
             for (int i = 0; i < this.m_Volumes.Length; ++i)
             {
-                targets[i] = this.m_Volumes[i].UpdatePass1Physics(animator, mass, skeleton);
+                float boneMass = mass * (this.m_Volumes[i].Weight / weightDistribution);
+                targets[i] = this.m_Volumes[i].UpdatePass1Physics(animator, boneMass, skeleton);
             }
             
             for (int i = 0; i < this.m_Volumes.Length; ++i)
@@ -60,10 +63,23 @@ namespace GameCreator.Runtime.Characters
 
             return targets;
         }
+        
+        // PRIVATE METHODS: -----------------------------------------------------------------------
+
+        private float GetWeightDistribution()
+        {
+            float distribution = 0f;
+            foreach (IVolume volume in this.m_Volumes)
+            {
+                distribution += volume.Weight;
+            }
+
+            return distribution;
+        }
 
         // DRAW GIZMOS: ---------------------------------------------------------------------------
 
-        public void DrawGizmos(Animator animator, Volumes.Display display)
+        public void DrawGizmos(Animator animator, Display display)
         {
             Gizmos.color = new Color(1, 0f, 0f, 0.5f);
             foreach (IVolume volume in this.m_Volumes)

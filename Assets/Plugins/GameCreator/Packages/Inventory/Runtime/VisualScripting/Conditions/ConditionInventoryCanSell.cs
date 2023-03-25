@@ -51,7 +51,7 @@ namespace GameCreator.Runtime.Inventory
             foreach (Cell cell in cells)
             {
                 RuntimeItem runtimeItem = cell.Peek();
-                if (toMerchant.CanBuy(fromBag, runtimeItem)) return true;
+                if (toMerchant.CanBuyFromClient(fromBag, runtimeItem)) return true;
             }
 
             return false;

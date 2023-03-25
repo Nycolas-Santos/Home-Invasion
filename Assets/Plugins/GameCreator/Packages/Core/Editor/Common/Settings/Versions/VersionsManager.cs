@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using GameCreator.Runtime.Common;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -8,6 +10,8 @@ namespace GameCreator.Editor.Common.Versions
 {
     internal static class VersionsManager
     {
+        private static readonly TextInfo TXT = CultureInfo.InvariantCulture.TextInfo;
+        
         // CONSTANTS: -----------------------------------------------------------------------------
         
         private const string URI = "https://docs.gamecreator.io/assets/public/releases.json";
@@ -23,15 +27,17 @@ namespace GameCreator.Editor.Common.Versions
 
         // PROPERTIES: ----------------------------------------------------------------------------
 
-        private static bool IsInitialized { get; set; } = false;
+        private static bool IsInitialized { get; set; }
         
         public static LatestData Latest { get; private set; }
         public static Dictionary<string, AssetEntry> LatestEntries { get; private set; }
-        public static Dictionary<string, string> CurrentEntries { get; private set; }
+
+        private static int FetchCount = 0;
 
         // EVENTS: --------------------------------------------------------------------------------
 
         public static event Action EventChange;
+        public static event Action EventDone;
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
         
@@ -60,9 +66,18 @@ namespace GameCreator.Editor.Common.Versions
                 }
                 
                 Latest.State = State.Ready;
+                EventDone?.Invoke();
             }
             
             FetchLatest();
+        }
+
+        public static AssetVersion GetInstalledVersion(string id)
+        {
+            string path = RuntimePaths.PACKAGES + TXT.ToTitleCase(id) + "/Editor/Version.txt";
+            
+            TextAsset version = AssetDatabase.LoadAssetAtPath<TextAsset>(path);
+            return version != null ? new AssetVersion(version.text) : AssetVersion.None;
         }
         
         // FETCH METHODS: -------------------------------------------------------------------------
@@ -70,7 +85,7 @@ namespace GameCreator.Editor.Common.Versions
         private static void FetchLatest()
         {
             if (Application.internetReachability == NetworkReachability.NotReachable) return;
-            
+
             Latest.State = State.Loading;
             
             RequestLatest = UnityWebRequest.Get(URI);
@@ -82,7 +97,11 @@ namespace GameCreator.Editor.Common.Versions
         
         private static void FetchAsset(string id, string uri)
         {
-            if (Application.internetReachability == NetworkReachability.NotReachable) return;
+            if (Application.internetReachability == NetworkReachability.NotReachable)
+            {
+                FetchCount += 1;
+                return;
+            }
 
             UnityWebRequest request = UnityWebRequest.Get(uri);
             request.SetRequestHeader("ContentType", "application/json");
@@ -94,8 +113,15 @@ namespace GameCreator.Editor.Common.Versions
                 {
                     Debug.LogError(request.error);
                     LatestEntries[id] = null;
-                    
+
                     EventChange?.Invoke();
+
+                    FetchCount += 1;
+                    if (FetchCount >= LatestEntries.Count)
+                    {
+                        EventDone?.Invoke();
+                    }
+
                     return;
                 }
 
@@ -148,7 +174,8 @@ namespace GameCreator.Editor.Common.Versions
             }
             
             EventChange?.Invoke();
-            
+            FetchCount = 0;
+
             foreach (LatestEntry entry in data.List)
             {
                 FetchAsset(entry.Id, entry.Path);

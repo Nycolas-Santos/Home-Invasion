@@ -26,6 +26,7 @@ namespace GameCreator.Runtime.Common
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
+            if (AssemblyUtils.IsReloading) return;
             if (string.IsNullOrEmpty(this.m_String)) return;
             
             this.m_String = TextUtils.ProcessID(this.m_String, true);

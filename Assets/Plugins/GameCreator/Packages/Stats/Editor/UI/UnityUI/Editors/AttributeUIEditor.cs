@@ -56,7 +56,7 @@ namespace GameCreator.Editor.Stats.UnityUI
             this.m_TransitionDuration = this.serializedObject.FindProperty("m_TransitionDuration");
 
             PropertyField fieldTarget = new PropertyField(attrTarget);
-            PropertyTool fieldAttribute = new PropertyTool(attrAsset);
+            PropertyField fieldAttribute = new PropertyField(attrAsset);
             
             this.m_Head.Add(fieldTarget);
             this.m_Head.Add(fieldAttribute);
@@ -73,15 +73,15 @@ namespace GameCreator.Editor.Stats.UnityUI
             
             this.m_Body.Add(new SpaceSmall());
             this.m_Body.Add(new LabelTitle("Progress:"));
-            this.m_Body.Add(new PropertyTool(attrImageFill));
-            this.m_Body.Add(new PropertyTool(attrImageScaleX));
-            this.m_Body.Add(new PropertyTool(attrImageScaleY));
+            this.m_Body.Add(new PropertyField(attrImageFill));
+            this.m_Body.Add(new PropertyField(attrImageScaleX));
+            this.m_Body.Add(new PropertyField(attrImageScaleY));
 
             this.m_Body.Add(new SpaceSmall());
             this.m_Body.Add(new LabelTitle("Transitions:"));
 
-            PropertyTool fieldWhenIncrement = new PropertyTool(this.m_WhenIncrement);
-            PropertyTool fieldWhenDecrement = new PropertyTool(this.m_WhenDecrement);
+            PropertyField fieldWhenIncrement = new PropertyField(this.m_WhenIncrement);
+            PropertyField fieldWhenDecrement = new PropertyField(this.m_WhenDecrement);
             
             this.m_Body.Add(fieldWhenIncrement);
             this.m_Body.Add(fieldWhenDecrement);
@@ -89,17 +89,17 @@ namespace GameCreator.Editor.Stats.UnityUI
             this.m_TransitionOptions = new VisualElement();
             this.m_Body.Add(this.m_TransitionOptions);
             
-            fieldWhenIncrement.EventChange += _ => this.UpdateTransitionOptions();
-            fieldWhenDecrement.EventChange += _ => this.UpdateTransitionOptions();
+            fieldWhenIncrement.RegisterValueChangeCallback(_ => this.UpdateTransitionOptions());
+            fieldWhenDecrement.RegisterValueChangeCallback(_ => this.UpdateTransitionOptions());
 
             this.UpdateTransitionOptions();
 
             this.m_Body.SetEnabled(attrAsset.objectReferenceValue != null);
-            fieldAttribute.EventChange += changeEvent =>
+            fieldAttribute.RegisterValueChangeCallback(changeEvent =>
             {
                 bool exists = changeEvent.changedProperty.objectReferenceValue != null;
                 this.m_Body.SetEnabled(exists);
-            };
+            });
             
             return this.m_Root;
         }
@@ -111,8 +111,8 @@ namespace GameCreator.Editor.Stats.UnityUI
                 
             if (!this.m_WhenIncrement.boolValue && !this.m_WhenDecrement.boolValue) return;
 
-            PropertyTool fieldStallDuration = new PropertyTool(this.m_StallDuration);
-            PropertyTool fieldTransitionDuration = new PropertyTool(this.m_TransitionDuration);
+            PropertyField fieldStallDuration = new PropertyField(this.m_StallDuration);
+            PropertyField fieldTransitionDuration = new PropertyField(this.m_TransitionDuration);
 
             this.m_TransitionOptions.Add(fieldStallDuration);
             this.m_TransitionOptions.Add(fieldTransitionDuration);

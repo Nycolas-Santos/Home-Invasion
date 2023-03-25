@@ -11,18 +11,22 @@ namespace GameCreator.Runtime.Characters.IK
     {
         // MEMBERS: -------------------------------------------------------------------------------
 
-        private bool m_IsActive = true;
+        [NonSerialized] private bool m_IsActive = true;
 
         // PROPERTIES: ----------------------------------------------------------------------------
 
-        protected Args Args { get; private set; }
+        [field: NonSerialized] protected Args Args { get; private set; }
 
-        public Character Character { get; private set; }
-        public Animator Animator { get; private set; }
+        [field: NonSerialized] public Character Character { get; private set; }
+        [field: NonSerialized] public Animator Animator { get; private set; }
 
         public bool IsActive
         {
-            get => m_IsActive && this.IsEnabled && !this.Character.IsDead;
+            get
+            {
+                if (this.DisableOnBusy && this.Character.Busy.IsBusy) return false;
+                return m_IsActive && this.IsEnabled && !this.Character.IsDead;
+            }
             set => m_IsActive = value;
         }
 
@@ -32,6 +36,7 @@ namespace GameCreator.Runtime.Characters.IK
         public abstract string Name { get; }
         
         public abstract bool RequiresHuman { get; }
+        public abstract bool DisableOnBusy { get; }
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 

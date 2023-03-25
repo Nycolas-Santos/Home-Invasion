@@ -28,11 +28,11 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty onUse = property.FindPropertyRelative("m_InstructionsOnUse");
             SerializedProperty inherit = property.FindPropertyRelative("m_ExecuteFromParent");
 
-            var fieldCanUse = new GameCreator.Editor.Common.PropertyTool(canUse);
-            var fieldConsumeWhenUse = new GameCreator.Editor.Common.PropertyTool(consumeWhenUse);
+            PropertyField fieldCanUse = new PropertyField(canUse);
+            PropertyField fieldConsumeWhenUse = new PropertyField(consumeWhenUse);
             PropertyField fieldIsUse = new PropertyField(isUse);
             PropertyField fieldOnUse = new PropertyField(onUse);
-            var fieldInherit = new GameCreator.Editor.Common.PropertyTool(inherit);
+            PropertyField fieldInherit = new PropertyField(inherit);
 
             head.Add(fieldCanUse);
             body.Add(fieldConsumeWhenUse);
@@ -49,10 +49,10 @@ namespace GameCreator.Editor.Inventory
             foot.Add(fieldInherit);
             
             body.SetEnabled(canUse.boolValue);
-            fieldCanUse.EventChange += changeEvent =>
+            fieldCanUse.RegisterValueChangeCallback(changeEvent =>
             {
                 body.SetEnabled(changeEvent.changedProperty.boolValue);
-            };
+            });
         }
     }
 }

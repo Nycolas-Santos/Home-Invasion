@@ -16,8 +16,12 @@ namespace GameCreator.Runtime.Inventory.UnityUI
         private static void OnEnterPlayMode()
         {
             IsOpen = false;
+            
             LastBagOpened = null;
             LastBagUIOpened = null;
+            
+            TransferAmount = EnumTransferAmount.One;
+            
             EventOpen = null;
             EventClose = null;
         }
@@ -30,8 +34,17 @@ namespace GameCreator.Runtime.Inventory.UnityUI
             Stack
         }
         
+        public enum EnumTransferAmount
+        {
+            One,
+            Stack
+        }
+        
         public static Bag LastBagOpened;
         public static TBagUI LastBagUIOpened;
+
+        public static EnumTransferAmount TransferAmount { get; set; } = EnumTransferAmount.One;
+        public static EnumDropAmount DropAmount { get; set; } = EnumDropAmount.One;
         
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
 
@@ -40,8 +53,7 @@ namespace GameCreator.Runtime.Inventory.UnityUI
         [SerializeField] private GameObject m_PrefabCell;
         [SerializeField] private bool m_CanDropOutside = true;
         [SerializeField] private float m_MaxDropDistance = 1f;
-        [SerializeField] private EnumDropAmount m_DropAmount = EnumDropAmount.One;
-        
+
         // PROPERTIES: ----------------------------------------------------------------------------
         
         [field: NonSerialized] public static bool IsOpen { get; private set; }
@@ -63,12 +75,6 @@ namespace GameCreator.Runtime.Inventory.UnityUI
         {
             get => this.m_MaxDropDistance;
             set => this.m_MaxDropDistance = value;
-        }
-
-        public EnumDropAmount DropAmount
-        {
-            get => this.m_DropAmount;
-            set => this.m_DropAmount = value;
         }
 
         public virtual Item FilterByParent

@@ -222,6 +222,8 @@ namespace GameCreator.Runtime.Characters
                 ? motion.GravityUpwards 
                 : motion.GravityDownwards;
             
+            gravity *= this.GravityInfluence;
+            
             this.m_Rigidbody.AddForce(
                 mass * gravity, 
                 ForceMode.Force
@@ -385,6 +387,17 @@ namespace GameCreator.Runtime.Characters
             this.m_Capsule.enabled = true;
             this.m_Rigidbody.isKinematic = false;
             this.m_Rigidbody.velocity = Vector3.zero;
+        }
+        
+        // GRAVITY METHODS: -----------------------------------------------------------------------
+
+        public override void ResetVerticalVelocity()
+        {
+            this.m_Rigidbody.velocity = new Vector3(
+                this.m_Rigidbody.velocity.x,
+                0f,
+                this.m_Rigidbody.velocity.z
+            );
         }
 
         // GIZMOS: --------------------------------------------------------------------------------

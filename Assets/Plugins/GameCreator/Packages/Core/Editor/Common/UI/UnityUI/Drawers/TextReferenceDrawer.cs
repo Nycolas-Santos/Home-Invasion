@@ -27,9 +27,9 @@ namespace GameCreator.Editor.Common.UnityUI
             foreach (StyleSheet sheet in sheets) root.styleSheets.Add(sheet);
 
             SerializedProperty propertyType = property.FindPropertyRelative(PROP_TYPE);
-
             Label fieldLabel = new Label(property.displayName);
-            PropertyTool fieldSelector = new PropertyTool(propertyType, string.Empty)
+
+            PropertyField fieldSelector = new PropertyField(propertyType, string.Empty)
             {
                 name = NAME_SELECTOR
             };
@@ -39,16 +39,18 @@ namespace GameCreator.Editor.Common.UnityUI
                 name = NAME_CONTENT
             };
 
-            fieldSelector.EventChange += _ =>
+            fieldSelector.RegisterValueChangeCallback(_ =>
             {
                 Refresh(property, content);
-            };
+            });
             
             Refresh(property, content);
             
             root.Add(fieldLabel);
             root.Add(fieldSelector);
             root.Add(content);
+
+            _ = new AlignLabel(root);
 
             return root;
         }
@@ -64,14 +66,14 @@ namespace GameCreator.Editor.Common.UnityUI
             {
                 case 0: // TextReference.Type.Text
                     SerializedProperty propertyText = property.FindPropertyRelative(PROP_TEXT);
-                    PropertyTool fieldText = new PropertyTool(propertyText, string.Empty);
+                    PropertyField fieldText = new PropertyField(propertyText, string.Empty);
                     content.Add(fieldText);
                     fieldText.Bind(property.serializedObject);
                     break;
                     
                 case 1: // TextReference.Type.TMP
                     SerializedProperty propertyTMP = property.FindPropertyRelative(PROP_TMP);
-                    PropertyTool fieldTMP = new PropertyTool(propertyTMP, string.Empty);
+                    PropertyField fieldTMP = new PropertyField(propertyTMP, string.Empty);
                     content.Add(fieldTMP);
                     fieldTMP.Bind(property.serializedObject);
                     break;

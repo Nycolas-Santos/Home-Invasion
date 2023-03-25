@@ -74,7 +74,14 @@ namespace GameCreator.Editor.Dialogue
             this.m_TreeView.showAlternatingRowBackgrounds = AlternatingRowBackground.All;
 
             this.m_TreeView.itemIndexChanged += this.ReorderItems;
+            
+            // TODO: [21/03/2023] Remove once Unity 2022.3 LTS is released
+            
+            #if UNITY_2022_2_OR_NEWER
+            this.m_TreeView.selectionChanged += this.SelectionChange;
+            #else
             this.m_TreeView.onSelectionChange += this.SelectionChange;
+            #endif
             
             this.m_TreeView.RegisterCallback<KeyDownEvent>(keyEvent =>
             {
@@ -163,16 +170,13 @@ namespace GameCreator.Editor.Dialogue
                 this.CreateAsSelectionSibling(value);
                 return;
             }
-            
-            SerializationUtils.ApplyUnregisteredSerialization(this.ContentTool.SerializedObject);
-            
+
             int parentId = this.m_TreeView.GetIdForIndex(this.m_TreeView.selectedIndex);
             
             Content content = this.ContentTool.Content;
-            
             int newId = content.AddChild(valueNode, parentId);
             
-            SerializationUtils.ApplyUnregisteredSerialization(this.ContentTool.SerializedObject);
+            this.ContentTool.Content = content;
 
             TreeViewItemData<Node> itemData = new TreeViewItemData<Node>(newId, valueNode);
             this.m_TreeView.AddItem(itemData, parentId);
@@ -183,8 +187,6 @@ namespace GameCreator.Editor.Dialogue
         
         public void CreateAsSelectionSibling(object value)
         {
-            SerializationUtils.ApplyUnregisteredSerialization(this.ContentTool.SerializedObject);
-
             if (value is not Node valueNode) return;
 
             Content content = this.ContentTool.Content;
@@ -200,7 +202,7 @@ namespace GameCreator.Editor.Dialogue
                 ? content.AddAfterSibling(valueNode, selectedId)
                 : content.AddToRoot(valueNode);
 
-            SerializationUtils.ApplyUnregisteredSerialization(this.ContentTool.SerializedObject);
+            this.ContentTool.Content = content;
 
             int parentId = this.m_TreeView.GetParentIdForIndex(this.m_TreeView.selectedIndex);
             int selectedIndex = this.m_TreeView.viewController.GetChildIndexForId(selectedId);
@@ -224,9 +226,7 @@ namespace GameCreator.Editor.Dialogue
                 
                 if (!delete) return;
             }
-            
-            SerializationUtils.ApplyUnregisteredSerialization(this.ContentTool.SerializedObject);
-            
+
             if (this.m_TreeView.selectedIndex == -1) return;
             int selectedIndex = this.m_TreeView.selectedIndex;
 
@@ -236,9 +236,10 @@ namespace GameCreator.Editor.Dialogue
             Content content = this.ContentTool.Content;
             
             bool success = content.Remove(selectedId);
+            this.ContentTool.Content = content;
+            
             if (!success) return;
             
-            SerializationUtils.ApplyUnregisteredSerialization(this.ContentTool.SerializedObject);
             this.m_TreeView.TryRemoveItem(selectedId);
             
             this.EventChange?.Invoke();
@@ -260,14 +261,12 @@ namespace GameCreator.Editor.Dialogue
         {
             this.m_TreeView.ExpandAll();
             
-            SerializationUtils.ApplyUnregisteredSerialization(this.ContentTool.SerializedObject);
             Content content = this.ContentTool.Content;
 
             this.SynchronizeRoots(content);
             this.SynchronizeNodes(content);
             
-            this.ContentTool.SerializedObject.Update();
-            // this.DebugPrintTree();
+            this.ContentTool.Content = content;
         }
         
         private void SynchronizeRoots(Content content)

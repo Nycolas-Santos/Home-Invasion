@@ -15,7 +15,8 @@ namespace GameCreator.Runtime.Common.Audio
         
         private readonly Queue<AudioBuffer> m_AvailableBuffers = new Queue<AudioBuffer>();
         private readonly List<AudioBuffer> m_ActiveBuffers = new List<AudioBuffer>();
-        
+        private readonly Dictionary<int, int> m_AudioFrame = new Dictionary<int, int>();
+
         // PROPERTIES: ----------------------------------------------------------------------------
         
         protected abstract float Volume { get; }
@@ -62,11 +63,16 @@ namespace GameCreator.Runtime.Common.Audio
         public async Task Play(AudioClip audioClip, IAudioConfig audioConfig, Args args)
         {
             if (audioClip == null) return;
+            if (this.m_AudioFrame.TryGetValue(audioClip.GetHashCode(), out int frame))
+            {
+                if (frame == Time.frameCount) return;
+            }
             
             if (this.m_AvailableBuffers.Count == 0) this.AllocateAudioBuffers();
 
             AudioBuffer audioBuffer = this.m_AvailableBuffers.Dequeue();
             this.m_ActiveBuffers.Add(audioBuffer);
+            this.m_AudioFrame[audioBuffer.GetHashCode()] = Time.frameCount;
 
             await audioBuffer.Play(audioClip, audioConfig, args);
         }

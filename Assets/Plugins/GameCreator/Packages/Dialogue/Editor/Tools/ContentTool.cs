@@ -31,7 +31,23 @@ namespace GameCreator.Editor.Dialogue
         
         [field: NonSerialized] public SerializedProperty Property { get; }
 
-        public Content Content => this.Property.managedReferenceValue as Content;
+        public Content Content
+        {
+            get
+            {
+                this.Property.serializedObject.Update();
+                return this.Property.managedReferenceValue as Content;
+            }
+            set
+            {
+                this.SerializedObject.Update();
+                this.Property.managedReferenceValue = value;
+
+                int random = UnityEngine.Random.Range(1, 99999);
+                this.Property.FindPropertyRelative("m_Dirty").intValue = random;
+                this.SerializedObject.ApplyModifiedPropertiesWithoutUndo();
+            }
+        }
         
         public SerializedObject SerializedObject => this.Property.serializedObject;
 

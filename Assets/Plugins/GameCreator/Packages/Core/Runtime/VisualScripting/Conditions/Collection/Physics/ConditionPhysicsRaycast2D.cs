@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameCreator.Runtime.VisualScripting
 {
     [Title("Raycast 2D")]
-    [Description("Returns true if there's a clear line of sight between two positions in 2D space")]
+    [Description("Returns true if there any object between two positions in 2D space")]
 
     [Category("Physics/Raycast 2D")]
     
@@ -34,7 +34,7 @@ namespace GameCreator.Runtime.VisualScripting
 
         // PROPERTIES: ----------------------------------------------------------------------------
         
-        protected override string Summary => $"check Raycast {this.m_Source} and {this.m_Target}";
+        protected override string Summary => $"raycast {this.m_Source} and {this.m_Target}";
         
         // RUN METHOD: ----------------------------------------------------------------------------
 
@@ -46,12 +46,13 @@ namespace GameCreator.Runtime.VisualScripting
             if (target == null) return false;
 
             RaycastHit2D hit = Physics2D.Raycast(
-                source, target.transform.position - source, 
-                Vector3.Distance(source, target.transform.position), 
+                source,
+                target.transform.position - source,
+                Vector3.Distance(source, target.transform.position),
                 this.m_LayerMask
             );
 
-            return hit.collider == null || hit.collider.gameObject == target;
+            return hit.collider != null && hit.collider.gameObject != target;
         }
     }
 }

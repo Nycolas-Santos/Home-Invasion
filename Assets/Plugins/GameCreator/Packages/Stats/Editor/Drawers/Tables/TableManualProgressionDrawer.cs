@@ -68,7 +68,7 @@ namespace GameCreator.Editor.Stats
                 VisualElement content = new VisualElement();
                 content.AddToClassList(CLASS_BODY_ELEMENT);
                 
-                PropertyTool fieldElement = new PropertyTool(
+                PropertyField fieldElement = new PropertyField(
                     experience.GetArrayElementAtIndex(i), 
                     $"Level {i + 1}"
                 );

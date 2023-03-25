@@ -23,8 +23,8 @@ namespace GameCreator.Editor.Common
             SerializedProperty propertySave = property.FindPropertyRelative(PROP_SAVE);
             SerializedProperty propertyUniqueID = property.FindPropertyRelative(PROP_UNIQUE_ID);
 
-            PropertyTool fieldSave = new PropertyTool(propertySave);
-            PropertyTool fieldUniqueID = new PropertyTool(propertyUniqueID);
+            PropertyField fieldSave = new PropertyField(propertySave);
+            PropertyField fieldUniqueID = new PropertyField(propertyUniqueID);
             
             root.AddToClassList("gc-saveuniqueid-root");
             fieldSave.AddToClassList("gc-saveuniqueid-save");

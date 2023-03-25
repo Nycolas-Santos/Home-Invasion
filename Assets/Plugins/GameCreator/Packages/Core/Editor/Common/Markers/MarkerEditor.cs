@@ -33,9 +33,9 @@ namespace GameCreator.Editor.Common
             SerializedProperty markerType = this.serializedObject.FindProperty("m_MarkerType");
             SerializedProperty uniqueID = this.serializedObject.FindProperty("m_UniqueID");
             
-            PropertyTool fieldStopDistance = new PropertyTool(stopDistance);
+            PropertyField fieldStopDistance = new PropertyField(stopDistance);
             PropertyElement fieldMarkerType = new PropertyElement(markerType, "Type", false);
-            PropertyTool fieldUniqueID = new PropertyTool(uniqueID);
+            PropertyField fieldUniqueID = new PropertyField(uniqueID);
 
             body.Add(fieldStopDistance);
             body.Add(fieldMarkerType);

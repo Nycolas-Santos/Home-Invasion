@@ -38,6 +38,8 @@ namespace GameCreator.Runtime.Characters
             this.m_Type = Type.Path;
             this.m_Path = bonePath;
         }
+
+        public static Bone CreateNone() => new Bone { m_Type = Type.None };
         
         // PUBLIC METHODS: ------------------------------------------------------------------------
 

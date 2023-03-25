@@ -10,12 +10,12 @@ namespace GameCreator.Editor.Common
         private const string USS_PATH =
             EditorPaths.COMMON + "Polymorphism/Properties/Styles/PropertyElement";
 
-        private static readonly IIcon ICON_DROP = new IconChevronDown(ColorTheme.Type.TextLight); 
+        private static readonly IIcon ICON_DROP = new IconDropdown(ColorTheme.Type.TextLight); 
         
         // MEMBERS: -------------------------------------------------------------------------------
 
-        private Button m_Button;
-        private Label m_Label;
+        [NonSerialized] private Button m_Button;
+        [NonSerialized] private Label m_Label;
 
         // PROPERTIES: ----------------------------------------------------------------------------
         
@@ -35,6 +35,8 @@ namespace GameCreator.Editor.Common
         public PropertyElement(SerializedProperty property, string label, bool hideLabels) 
             : base(property, hideLabels)
         {
+            _ = new AlignLabel(this);
+            
             this.TypeSelector = new TypeSelectorFancyProperty(this.m_Property, this.m_Button);
             this.TypeSelector.EventChange += this.OnChange;
             
@@ -58,8 +60,8 @@ namespace GameCreator.Editor.Common
             this.m_Label = new Label();
             this.m_Label.AddToClassList("unity-base-field__label");
             this.m_Label.AddToClassList("unity-label");
-            this.m_Label.AddToClassList("unity-inspector-element");
             this.m_Label.AddToClassList("unity-property-field__label");
+            this.m_Label.AddToClassList(AlignLabel.CLASS_UNITY_INSPECTOR_ELEMENT);
             
             this.m_Head.Add(this.m_Label);
             this.m_Head.Add(this.m_Button);

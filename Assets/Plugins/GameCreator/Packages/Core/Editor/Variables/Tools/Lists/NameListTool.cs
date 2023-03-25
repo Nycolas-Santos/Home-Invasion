@@ -70,7 +70,7 @@ namespace GameCreator.Editor.Variables
             Button btnToggle = new Button();
             btnToggle.AddToClassList(CLASS_HEAD_BUTTON);
             btnToggle.Add(new Image { image = ICON_COLLAPSE.Texture });
-            btnToggle.clicked += this.CollapseItems;
+            btnToggle.clicked += this.Collapse;
 
             this.m_TextFieldAdd = new TextField { value = DEFAULT_INPUT_TEXT };
             this.m_TextFieldAdd.AddToClassList(CLASS_HEAD_TEXTFIELD);

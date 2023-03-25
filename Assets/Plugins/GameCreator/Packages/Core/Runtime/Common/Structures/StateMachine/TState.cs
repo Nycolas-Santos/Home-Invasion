@@ -13,7 +13,7 @@ namespace GameCreator.Runtime.Common
         [field: NonSerialized] public bool IsActive { get; private set; }
             
         // PUBLIC METHODS: ------------------------------------------------------------------------
-            
+        
         public void OnEnter(IStateMachine stateMachine)
         {
             this.IsActive = true;
@@ -41,7 +41,7 @@ namespace GameCreator.Runtime.Common
             
         protected virtual void WhenExit(IStateMachine stateMachine)
         { }
-            
+        
         protected virtual void WhenUpdate(IStateMachine stateMachine)
         { }
     }

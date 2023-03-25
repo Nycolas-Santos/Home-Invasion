@@ -24,17 +24,17 @@ namespace GameCreator.Editor.Inventory.UnityUI
 
             this.AddBefore(root, property);
             
-            root.Add(new GameCreator.Editor.Common.PropertyTool(name));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(description));
+            root.Add(new PropertyField(name));
+            root.Add(new PropertyField(description));
             root.Add(new SpaceSmall());
-            root.Add(new GameCreator.Editor.Common.PropertyTool(image));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(color));
+            root.Add(new PropertyField(image));
+            root.Add(new PropertyField(color));
             root.Add(new SpaceSmall());
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeCanUse));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeCanCraft));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeCanDismantle));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeCanDrop));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeCanEquip));
+            root.Add(new PropertyField(activeCanUse));
+            root.Add(new PropertyField(activeCanCraft));
+            root.Add(new PropertyField(activeCanDismantle));
+            root.Add(new PropertyField(activeCanDrop));
+            root.Add(new PropertyField(activeCanEquip));
             
             SerializedProperty width = property.FindPropertyRelative("m_Width");
             SerializedProperty height = property.FindPropertyRelative("m_Height");
@@ -49,19 +49,19 @@ namespace GameCreator.Editor.Inventory.UnityUI
             SerializedProperty socketsContent = property.FindPropertyRelative("m_SocketsContent");
             
             root.Add(new SpaceSmall());
-            root.Add(new GameCreator.Editor.Common.PropertyTool(weight));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(width));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(height));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(price));
+            root.Add(new PropertyField(weight));
+            root.Add(new PropertyField(width));
+            root.Add(new PropertyField(height));
+            root.Add(new PropertyField(price));
             root.Add(new SpaceSmall());
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeHasProperties));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(prefabProperty));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(propertiesContent));
+            root.Add(new PropertyField(activeHasProperties));
+            root.Add(new PropertyField(prefabProperty));
+            root.Add(new PropertyField(propertiesContent));
             root.Add(new SpaceSmall());
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeHasSockets));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(socketsCount));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(prefabSocket));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(socketsContent));
+            root.Add(new PropertyField(activeHasSockets));
+            root.Add(new PropertyField(socketsCount));
+            root.Add(new PropertyField(prefabSocket));
+            root.Add(new PropertyField(socketsContent));
             
             this.AddAfter(root, property);
         }

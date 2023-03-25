@@ -12,7 +12,7 @@ namespace GameCreator.Runtime.Characters
 
         [field: NonSerialized] public IWeapon Asset { get; }
         [field: NonSerialized] public GameObject Instance { get; }
-        
+
         // CONSTRUCTOR: ---------------------------------------------------------------------------
 
         public Weapon(IWeapon weapon, GameObject instance)

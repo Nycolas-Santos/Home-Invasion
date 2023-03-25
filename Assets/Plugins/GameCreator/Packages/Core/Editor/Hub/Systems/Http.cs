@@ -52,10 +52,19 @@ namespace GameCreator.Editor.Hub
             IsRequesting = true;
             string post = $"{{ \"data\": {EditorJsonUtility.ToJson(data)} }}";
 
+            // TODO: [18/03/2023] Remove once Unity 2022.3 LTS is released
+            
+            #if UNITY_2022_2_OR_NEWER
             UnityWebRequest request = UnityWebRequest.PostWwwForm(
                 GameCreatorHub.URI_CF + gate,
                 string.Empty
             );
+            #else
+            UnityWebRequest request = UnityWebRequest.Post(
+                GameCreatorHub.URI_CF + gate,
+                string.Empty
+            );
+            #endif
 
             request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(post))
             {

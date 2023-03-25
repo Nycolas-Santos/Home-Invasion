@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameCreator.Runtime.Characters
 {
     [Title("Linear Speed")]
-    [Category("Characters/Linear Speed")]
+    [Category("Characters/Navigation/Linear Speed")]
     
     [Image(typeof(IconCharacterWalk), ColorTheme.Type.Yellow)]
     [Description("The Character's Linear Speed value")]

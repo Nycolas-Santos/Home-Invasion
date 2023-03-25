@@ -3,6 +3,7 @@ using GameCreator.Editor.Common;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Quests;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Quests
@@ -95,7 +96,7 @@ namespace GameCreator.Editor.Quests
         private void PaintInspector(bool enabled)
         {
             SerializedProperty trackMode = this.serializedObject.FindProperty("m_TrackMode");
-            PropertyTool fieldTrackMode = new PropertyTool(trackMode, "Track");
+            PropertyField fieldTrackMode = new PropertyField(trackMode, "Track");
             fieldTrackMode.SetEnabled(enabled);
             
             this.m_Body.Add(fieldTrackMode);

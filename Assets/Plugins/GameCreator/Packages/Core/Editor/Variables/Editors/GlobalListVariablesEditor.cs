@@ -2,6 +2,7 @@ using GameCreator.Editor.Common;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Variables;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Variables
@@ -21,15 +22,15 @@ namespace GameCreator.Editor.Variables
             SerializedProperty indexList = this.serializedObject.FindProperty("m_IndexList");
             SerializedProperty saveUniqueID = this.serializedObject.FindProperty(PROP_SAVE_UNIQUE_ID);
 
-            PropertyTool indexListRuntime = new PropertyTool(indexList);
-            PropertyTool fieldSaveUniqueID = new PropertyTool(saveUniqueID);
+            PropertyField indexListRuntime = new PropertyField(indexList);
+            PropertyField fieldSaveUniqueID = new PropertyField(saveUniqueID);
 
             this.m_Body.Add(indexListRuntime);
             this.m_Body.Add(this.m_MessageID);
             this.m_Body.Add(fieldSaveUniqueID);
             
             this.RefreshErrorID();
-            fieldSaveUniqueID.EventChange += _ => this.RefreshErrorID();
+            fieldSaveUniqueID.RegisterValueChangeCallback(_ => this.RefreshErrorID());
         }
         
         // PAINT RUNTIME: -------------------------------------------------------------------------

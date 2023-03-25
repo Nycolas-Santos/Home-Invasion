@@ -23,9 +23,9 @@ namespace GameCreator.Editor.Inventory
 
         private VisualElement m_ContentMsgID;
         private PropertyField m_FieldID;
-        private Common.PropertyTool m_FieldParent;
-        private Common.PropertyTool m_FieldPrefab;
-        private Common.PropertyTool m_FieldCanDrop;
+        private PropertyField m_FieldParent;
+        private PropertyField m_FieldPrefab;
+        private PropertyField m_FieldCanDrop;
         
         private PropertyField m_FieldInfo;
         private PropertyField m_FieldShape;
@@ -63,13 +63,13 @@ namespace GameCreator.Editor.Inventory
                 this.CreateBody();
             });
             
-            this.m_FieldParent.EventChange += _ =>
+            this.m_FieldParent.RegisterValueChangeCallback(_ =>
             {
                 this.m_Body.Clear();
                 this.m_Foot.Clear();
                 this.CreateBody();
                 this.CreateFoot();
-            };
+            });
 
             return this.m_Root;
         }
@@ -83,9 +83,9 @@ namespace GameCreator.Editor.Inventory
 
             this.m_ContentMsgID = new VisualElement();
             this.m_FieldID = new PropertyField(id);
-            this.m_FieldParent = new Common.PropertyTool(parent);
-            this.m_FieldPrefab = new Common.PropertyTool(prefab);
-            this.m_FieldCanDrop = new Common.PropertyTool(canDrop);
+            this.m_FieldParent = new PropertyField(parent);
+            this.m_FieldPrefab = new PropertyField(prefab);
+            this.m_FieldCanDrop = new PropertyField(canDrop);
             
             this.m_Head.Add(new SpaceSmall());
             this.m_Head.Add(this.m_ContentMsgID);

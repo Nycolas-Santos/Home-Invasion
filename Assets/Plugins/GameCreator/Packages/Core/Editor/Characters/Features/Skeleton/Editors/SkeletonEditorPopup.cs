@@ -44,10 +44,15 @@ namespace GameCreator.Editor.Characters
             UnityEditor.Editor skeletonEditor = UnityEditor.Editor.CreateEditor(skeleton);
             VisualElement content = skeletonEditor.CreateInspectorGUI();
             content.Bind(new SerializedObject(skeleton));
-            
-            ScrollView scrollView = new ScrollView(ScrollViewMode.Vertical);
-            scrollView.contentContainer.name = NAME_CONTENT;
-            
+
+            ScrollView scrollView = new ScrollView(ScrollViewMode.Vertical)
+            {
+                contentContainer =
+                {
+                    name = NAME_CONTENT
+                }
+            };
+
             scrollView.Add(content);
             Window.rootVisualElement.Add(scrollView);
             

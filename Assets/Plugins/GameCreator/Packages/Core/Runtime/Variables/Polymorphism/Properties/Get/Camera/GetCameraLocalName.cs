@@ -19,7 +19,7 @@ namespace GameCreator.Runtime.Variables
 
         public override TCamera Get(Args args)
         {
-            GameObject camera = this.m_Variable.Get<GameObject>();
+            GameObject camera = this.m_Variable.Get<GameObject>(args);
             return camera != null ? camera.Get<TCamera>() : null;
         }
 

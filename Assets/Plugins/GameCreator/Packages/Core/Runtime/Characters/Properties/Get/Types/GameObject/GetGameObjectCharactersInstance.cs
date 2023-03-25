@@ -15,6 +15,14 @@ namespace GameCreator.Runtime.Characters
     {
         [SerializeField] protected Character m_Character;
 
+        public GetGameObjectCharactersInstance()
+        { }
+
+        public GetGameObjectCharactersInstance(Character character)
+        {
+            this.m_Character = character;
+        }
+
         public override GameObject Get(Args args)
         {
             return this.m_Character != null ? this.m_Character.gameObject : null;
@@ -28,6 +36,13 @@ namespace GameCreator.Runtime.Characters
         public static PropertyGetGameObject Create => new PropertyGetGameObject(
             new GetGameObjectCharactersInstance()
         );
+
+        public static PropertyGetGameObject CreateWith(Character character)
+        {
+            return new PropertyGetGameObject(
+                new GetGameObjectCharactersInstance(character)
+            );
+        }
 
         public override string String => this.m_Character != null
             ? this.m_Character.gameObject.name

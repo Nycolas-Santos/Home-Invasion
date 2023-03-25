@@ -14,8 +14,7 @@
 }
 
 #GC-Settings-Details-ScrollView #GC-Settings-Details-ScrollView-Content {
-    margin: var(--gc-common-space-smaller);
-    margin-left: var(--gc-common-space-small);
+    margin: var(--gc-common-space-smaller) var(--gc-common-space-small);
     height: auto;
 }
 

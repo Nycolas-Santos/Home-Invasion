@@ -30,7 +30,7 @@ namespace GameCreator.Runtime.Common
             this.Initialize();
         }
 
-        private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+        private void OnSceneLoad(Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
         {
             this.Initialize();
         }

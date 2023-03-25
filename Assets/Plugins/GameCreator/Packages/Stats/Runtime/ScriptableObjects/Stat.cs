@@ -22,17 +22,17 @@ namespace GameCreator.Runtime.Stats
         // PROPERTIES: ----------------------------------------------------------------------------
 
         public IdString ID => m_ID;
-
-        public Sprite Icon => this.m_Info.icon;
-        public Color Color => this.m_Info.color;
+        public Color Color => this.m_Info.Color;
 
         public double Value => this.m_Data.Base;
         public Formula Formula => this.m_Data.Formula;
 
         // METHODS: -------------------------------------------------------------------------------
 
-        public string GetAcronym(Args args) => this.m_Info.acronym.Get(args);
-        public string GetName(Args args) => this.m_Info.name.Get(args);
-        public string GetDescription(Args args) => this.m_Info.description.Get(args);
+        public string GetAcronym(Args args) => this.m_Info.m_Acronym.Get(args);
+        public string GetName(Args args) => this.m_Info.m_Name.Get(args);
+        public string GetDescription(Args args) => this.m_Info.m_Description.Get(args);
+        
+        public Sprite GetIcon(Args args) => this.m_Info.GetIcon(args);
     }
 }

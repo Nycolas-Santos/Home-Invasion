@@ -26,11 +26,11 @@ namespace GameCreator.Editor.Cameras
             SerializedProperty distance = property.FindPropertyRelative("m_MinDistance");
             SerializedProperty smoothTime = property.FindPropertyRelative("m_SmoothTime");
             
-            PropertyTool fieldEnabled = new PropertyTool(enabled);
-            PropertyTool fieldLayerMask = new PropertyTool(layerMask);
-            PropertyTool fieldRadius = new PropertyTool(radius);
-            PropertyTool fieldDistance = new PropertyTool(distance);
-            PropertyTool fieldSmoothTime = new PropertyTool(smoothTime);
+            PropertyField fieldEnabled = new PropertyField(enabled);
+            PropertyField fieldLayerMask = new PropertyField(layerMask);
+            PropertyField fieldRadius = new PropertyField(radius);
+            PropertyField fieldDistance = new PropertyField(distance);
+            PropertyField fieldSmoothTime = new PropertyField(smoothTime);
             
             Label labelTitle = new Label("Avoid Clipping");
             labelTitle.AddToClassList("gc-label-title");
@@ -46,11 +46,11 @@ namespace GameCreator.Editor.Cameras
             content.Add(fieldDistance);
             content.Add(fieldSmoothTime);
 
-            fieldEnabled.EventChange += _ =>
+            fieldEnabled.RegisterValueChangeCallback(_ =>
             {
                 enabled.serializedObject.Update();
                 content.SetEnabled(enabled.boolValue); 
-            };
+            });
             
             content.SetEnabled(enabled.boolValue);
             return root;

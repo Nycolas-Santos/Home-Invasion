@@ -88,7 +88,7 @@ namespace GameCreator.Runtime.Cameras
             
             Transform value = this.GetLookTarget(shotType);
             if (value == null || value == shotType.ShotCamera.transform) return;
-
+            
             Vector3 direction = this.GetLookPosition(shotType) - shotType.Position; 
             shotType.Rotation = Quaternion.LookRotation(direction);
         }

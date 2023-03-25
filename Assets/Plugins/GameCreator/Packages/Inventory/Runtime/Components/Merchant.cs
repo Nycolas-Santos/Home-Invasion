@@ -26,8 +26,8 @@ namespace GameCreator.Runtime.Inventory
         
         #endif
 
-        public static RuntimeItem LastItemBought = null;
-        public static RuntimeItem LastItemSold = null;
+        public static RuntimeItem LastItemBought;
+        public static RuntimeItem LastItemSold;
         
         private const string ERR_NULL_SKIN = "Merchant UI skin could not be found";
         private const string ERR_NO_MERCHANT_UI = "No Merchant UI component could be found";
@@ -95,14 +95,14 @@ namespace GameCreator.Runtime.Inventory
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
         /// <summary>
-        /// Returns true if the Merchant can sell an item to the client
+        /// Returns true if the Merchant can buy an item from the client
         /// </summary>
         /// <param name="clientBag"></param>
         /// <param name="runtimeItem"></param>
         /// <returns></returns>
-        public bool CanSell(Bag clientBag, RuntimeItem runtimeItem)
+        public bool CanBuyFromClient(Bag clientBag, RuntimeItem runtimeItem)
         {
-            if (runtimeItem is not { CanBuyFromMerchant: true }) return false;
+            if (runtimeItem is { CanSellToMerchant: false }) return false;
             Bag merchantBag = this.Bag;
             
             if (merchantBag == null) return false;
@@ -130,14 +130,14 @@ namespace GameCreator.Runtime.Inventory
         }
 
         /// <summary>
-        /// Returns true if the Merchant can purchase an item from the client
+        /// Returns true if the Merchant can sell an item to the client
         /// </summary>
         /// <param name="clientBag"></param>
         /// <param name="runtimeItem"></param>
         /// <returns></returns>
-        public bool CanBuy(Bag clientBag, RuntimeItem runtimeItem)
+        public bool CanSellToClient(Bag clientBag, RuntimeItem runtimeItem)
         {
-            if (runtimeItem is not { CanSellToMerchant: true }) return false;
+            if (runtimeItem is { CanBuyFromMerchant: false }) return false;
             Bag merchantBag = this.Bag;
             
             if (merchantBag == null) return false;
@@ -154,14 +154,14 @@ namespace GameCreator.Runtime.Inventory
         }
 
         /// <summary>
-        /// The Merchant sells an item to the client
+        /// The Merchant purchases an item from the client
         /// </summary>
         /// <param name="clientBag"></param>
         /// <param name="runtimeItem"></param>
         /// <returns></returns>
-        public bool Sell(Bag clientBag, RuntimeItem runtimeItem)
+        public bool BuyFromClient(Bag clientBag, RuntimeItem runtimeItem)
         {
-            if (!this.CanSell(clientBag, runtimeItem)) return false;
+            if (!this.CanBuyFromClient(clientBag, runtimeItem)) return false;
 
             runtimeItem = clientBag.Content.Remove(runtimeItem);
             if (runtimeItem == null) return false;
@@ -174,7 +174,7 @@ namespace GameCreator.Runtime.Inventory
             if (!this.m_InfiniteCurrency) merchantBag.Wealth.Subtract(currencyID, price);
             clientBag.Wealth.Add(currencyID, price);
 
-            if (!this.m_AllowBuyBack || merchantBag.Content.Add(runtimeItem, true))
+            if (!this.m_AllowBuyBack || merchantBag.Content.Add(runtimeItem, true) != TBagContent.INVALID)
             {
                 LastItemSold = runtimeItem;
                 this.EventSell?.Invoke();
@@ -186,14 +186,14 @@ namespace GameCreator.Runtime.Inventory
         }
 
         /// <summary>
-        /// The Merchant purchases an item from the client
+        /// The Merchant sells an item to the client
         /// </summary>
         /// <param name="clientBag"></param>
         /// <param name="runtimeItem"></param>
         /// <returns></returns>
-        public bool Buy(Bag clientBag, RuntimeItem runtimeItem)
+        public bool SellToClient(Bag clientBag, RuntimeItem runtimeItem)
         {
-            if (!this.CanBuy(clientBag, runtimeItem)) return false;
+            if (!this.CanSellToClient(clientBag, runtimeItem)) return false;
 
             Bag merchantBag = this.Bag;
 
@@ -216,7 +216,7 @@ namespace GameCreator.Runtime.Inventory
             }
 
             merchantBag.Content.Remove(runtimeItem);
-            if (clientBag.Content.Add(runtimeItem, true))
+            if (clientBag.Content.Add(runtimeItem, true) != TBagContent.INVALID)
             {
                 LastItemBought = runtimeItem;
                 this.EventBuy?.Invoke();

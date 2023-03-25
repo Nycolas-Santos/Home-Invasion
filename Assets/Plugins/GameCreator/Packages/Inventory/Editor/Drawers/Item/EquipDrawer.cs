@@ -28,12 +28,12 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty onUnequip = property.FindPropertyRelative("m_InstructionsOnUnequip");
             SerializedProperty inherit = property.FindPropertyRelative("m_ExecuteFromParent");
 
-            var fieldIsEquippable = new GameCreator.Editor.Common.PropertyTool(isEquippable);
-            var fieldPrefab = new GameCreator.Editor.Common.PropertyTool(prefab);
+            PropertyField fieldIsEquippable = new PropertyField(isEquippable);
+            PropertyField fieldPrefab = new PropertyField(prefab);
             PropertyField fieldDoEquip = new PropertyField(doEquip);
             PropertyField fieldOnEquip = new PropertyField(onEquip);
             PropertyField fieldOnUnequip = new PropertyField(onUnequip);
-            var fieldInherit = new GameCreator.Editor.Common.PropertyTool(inherit);
+            PropertyField fieldInherit = new PropertyField(inherit);
 
             head.Add(fieldIsEquippable);
             body.Add(fieldPrefab);
@@ -54,10 +54,10 @@ namespace GameCreator.Editor.Inventory
             foot.Add(fieldInherit);
             
             body.SetEnabled(isEquippable.boolValue);
-            fieldIsEquippable.EventChange += changeEvent =>
+            fieldIsEquippable.RegisterValueChangeCallback(changeEvent =>
             {
                 body.SetEnabled(changeEvent.changedProperty.boolValue);
-            };
+            });
         }
     }
 }

@@ -5,6 +5,7 @@ using GameCreator.Editor.Core;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -31,6 +32,10 @@ namespace GameCreator.Editor.Dialogue
         private const string PROP_SELECT = "m_Select";
         private const string PROP_SUBMIT = "m_Submit";
         
+        private const string PROP_VALUES_TEXTS = "m_ValuesTexts";
+        private const string PROP_VALUES_CHOICES = "m_ValuesChoices";
+        private const string PROP_VALUES_RANDOM = "m_ValuesRandom";
+        
         // PAINT METHOD: --------------------------------------------------------------------------
         
         public override VisualElement CreateInspectorGUI()
@@ -43,9 +48,9 @@ namespace GameCreator.Editor.Dialogue
             
             root.Add(new SpaceSmall());
             root.Add(new LabelTitle("Animations"));
-            root.Add(new PropertyTool(idle));
-            root.Add(new PropertyTool(open));
-            root.Add(new PropertyTool(close));
+            root.Add(new PropertyField(idle));
+            root.Add(new PropertyField(open));
+            root.Add(new PropertyField(close));
             
             SerializedProperty start = this.serializedObject.FindProperty(PROP_START);
             SerializedProperty finish = this.serializedObject.FindProperty(PROP_FINISH);
@@ -54,11 +59,21 @@ namespace GameCreator.Editor.Dialogue
             
             root.Add(new SpaceSmall());
             root.Add(new LabelTitle("Sound Effects"));
-            root.Add(new PropertyTool(start));
-            root.Add(new PropertyTool(finish));
-            root.Add(new PropertyTool(select));
-            root.Add(new PropertyTool(submit));
+            root.Add(new PropertyField(start));
+            root.Add(new PropertyField(finish));
+            root.Add(new PropertyField(select));
+            root.Add(new PropertyField(submit));
             
+            SerializedProperty valuesTexts = this.serializedObject.FindProperty(PROP_VALUES_TEXTS);
+            SerializedProperty valuesChoices = this.serializedObject.FindProperty(PROP_VALUES_CHOICES);
+            SerializedProperty valuesRandom = this.serializedObject.FindProperty(PROP_VALUES_RANDOM);
+            
+            root.Add(new SpaceSmall());
+            root.Add(new LabelTitle("Nodes"));
+            root.Add(new PropertyField(valuesTexts));
+            root.Add(new PropertyField(valuesChoices));
+            root.Add(new PropertyField(valuesRandom));
+
             return root;
         }
         

@@ -13,16 +13,14 @@ namespace GameCreator.Runtime.Characters
     [Serializable]
     public class GetPositionCharacterOffset : PropertyTypeGetPosition
     {
-        [SerializeField] protected Character m_Character;
-        
-        [SerializeField]
-        private Vector3 m_LocalOffset = Vector3.forward;
+        [SerializeField] private PropertyGetGameObject m_Character = GetGameObjectPlayer.Create();
+        [SerializeField] private Vector3 m_LocalOffset = Vector3.forward;
         
         public override Vector3 Get(Args args)
         {
             if (this.m_Character == null) return default;
 
-            Transform transform = this.m_Character.transform;
+            Transform transform = this.m_Character.Get<Transform>(args);
             return transform.position + transform.TransformDirection(this.m_LocalOffset);
         }
 
@@ -30,8 +28,6 @@ namespace GameCreator.Runtime.Characters
             new GetPositionCharacterOffset()
         );
 
-        public override string String => this.m_Character != null
-            ? this.m_Character.gameObject.name
-            : "(none)";
+        public override string String => this.m_Character.ToString();
     }
 }

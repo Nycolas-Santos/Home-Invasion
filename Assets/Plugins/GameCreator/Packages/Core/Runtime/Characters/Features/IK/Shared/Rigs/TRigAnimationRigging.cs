@@ -1,3 +1,4 @@
+using System;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -12,7 +13,7 @@ namespace GameCreator.Runtime.Characters.IK
         
         // PROPERTIES: ----------------------------------------------------------------------------
 
-        protected RigLayer RigLayer { get; private set; }
+        [field: NonSerialized] protected RigLayer RigLayer { get; private set; }
         
         // ABSTRACT PROPERTIES: -------------------------------------------------------------------
         

@@ -9,6 +9,7 @@ namespace GameCreator.Runtime.Inventory.UnityUI
     
     public class BagListUITab : MonoBehaviour,
         IPointerClickHandler,
+        ISelectHandler,
         ISubmitHandler
     {
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
@@ -16,6 +17,10 @@ namespace GameCreator.Runtime.Inventory.UnityUI
         [SerializeField] private BagListUI m_BagListUI;
         [SerializeField] private Item m_FilterByParent;
         [SerializeField] private GameObject m_ActiveFilter;
+        
+        // PROPERTIES: ----------------------------------------------------------------------------
+
+        public bool IsActive { get; private set; } = false;
         
         // INITIALIZERS: --------------------------------------------------------------------------
 
@@ -37,6 +42,7 @@ namespace GameCreator.Runtime.Inventory.UnityUI
         // CALLBACKS: -----------------------------------------------------------------------------
         
         public void OnPointerClick(PointerEventData data) => this.Filter();
+        public void OnSelect(BaseEventData eventData) => this.Filter();
         public void OnSubmit(BaseEventData data) => this.Filter();
 
         private void RefreshUI()
@@ -46,7 +52,9 @@ namespace GameCreator.Runtime.Inventory.UnityUI
             if (this.m_ActiveFilter != null)
             {
                 Item currentFilter = this.m_BagListUI.FilterByParent;
-                this.m_ActiveFilter.SetActive(this.m_FilterByParent == currentFilter);
+                
+                this.IsActive = this.m_FilterByParent == currentFilter;
+                this.m_ActiveFilter.SetActive(this.IsActive);
             }
         }
         

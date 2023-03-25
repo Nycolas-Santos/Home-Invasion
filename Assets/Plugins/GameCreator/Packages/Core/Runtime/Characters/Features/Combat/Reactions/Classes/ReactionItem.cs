@@ -9,7 +9,7 @@ namespace GameCreator.Runtime.Characters
     [Serializable]
     public class ReactionItem : TPolymorphicItem<ReactionItem>
     {
-        private const float MIN_MAGNITUDE = 0.1f;
+        private const float INFINITE = 9999f;
         
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
 
@@ -18,13 +18,25 @@ namespace GameCreator.Runtime.Characters
         
         [SerializeField] private RunConditionsList m_Conditions = new RunConditionsList();
 
-        [SerializeField] private ReactionAnimations m_Animations = new ReactionAnimations();
         [SerializeField] private AvatarMask m_AvatarMask;
+        [SerializeField] private EnablerFloat m_CancelTime = new EnablerFloat(false, 0.5f);
+        [SerializeField] private ReactionRotation m_Rotation = ReactionRotation.None; 
+        [SerializeField] [Range(0f, 1f)] private float m_Gravity = 1f;
+        
+        [SerializeField] private ReactionAnimations m_Animations = new ReactionAnimations();
         
         // PROPERTIES: ----------------------------------------------------------------------------
 
         public AnimationClip AnimationClip => this.m_Animations.AnimationClip;
         public AvatarMask AvatarMask => this.m_AvatarMask;
+        
+        public float CancelTime => this.m_CancelTime.IsEnabled
+            ? this.m_CancelTime.Value
+            : INFINITE;
+
+        public ReactionRotation Rotation => this.m_Rotation;
+        
+        public float Gravity => this.m_Gravity;
 
         public override string Title
         {
@@ -36,7 +48,7 @@ namespace GameCreator.Runtime.Characters
                     : $"{char.ToUpper(direction[0])}{direction[1..]}";
 
                 string power = this.m_MinPower.IsEnabled
-                    ? $" with Power > {this.m_MinPower.Value}"
+                    ? $" with Power ≥ {this.m_MinPower.Value}"
                     : "";
 
                 string conditions = this.m_Conditions.ToString();
@@ -50,17 +62,25 @@ namespace GameCreator.Runtime.Characters
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
-        public bool CheckPower(float power) => !this.m_MinPower.IsEnabled || this.m_MinPower.Value >= power;
+        public bool CheckPower(float power)
+        {
+            if (this.m_MinPower.IsEnabled) return this.m_MinPower.Value <= power;
+            return true;
+        }
 
         public bool CheckDirection(Vector3 direction)
         {
+            Vector3 flatDirection = Vector3.Scale(direction, Vector3Plane.NormalUp);
+            
             return this.m_Direction switch
             {
                 ReactionDirection.FromAny => true,
-                ReactionDirection.FromLeft => direction.x >= 0.5f,
-                ReactionDirection.FromRight => direction.x <= -0.5f,
-                ReactionDirection.FromFront => direction.z <= -0.5f,
-                ReactionDirection.FromBack => direction.z >= 0.5f,
+                ReactionDirection.FromTop => direction.y <= -0.5f,
+                ReactionDirection.FromBottom => direction.y >= 0.5f,
+                ReactionDirection.FromLeft => flatDirection.x >= 0.5f,
+                ReactionDirection.FromRight => flatDirection.x <= -0.5f,
+                ReactionDirection.FromFront => flatDirection.z <= -0.5f,
+                ReactionDirection.FromBack => flatDirection.z >= 0.5f,
                 _ => throw new ArgumentOutOfRangeException()
             };
         }

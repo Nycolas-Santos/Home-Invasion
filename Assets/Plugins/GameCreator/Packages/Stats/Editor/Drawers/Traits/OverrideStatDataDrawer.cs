@@ -18,17 +18,17 @@ namespace GameCreator.Editor.Stats
             SerializedProperty changeBase = property.FindPropertyRelative("m_ChangeBase");
             SerializedProperty baseValue = property.FindPropertyRelative("m_Base");
 
-            PropertyTool fieldChangeBase = new PropertyTool(changeBase);
-            PropertyTool fieldBase = new PropertyTool(baseValue);
+            PropertyField fieldChangeBase = new PropertyField(changeBase);
+            PropertyField fieldBase = new PropertyField(baseValue);
             
-            fieldChangeBase.EventChange += changeEvent =>
+            fieldChangeBase.RegisterValueChangeCallback(changeEvent =>
             {
                 body.Clear();
                 if (!changeEvent.changedProperty.boolValue) return;
                 
                 body.Add(fieldBase);
                 fieldBase.Bind(baseValue.serializedObject);
-            };
+            });
             
             head.Add(fieldChangeBase);
             if (changeBase.boolValue) body.Add(fieldBase);

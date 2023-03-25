@@ -40,27 +40,27 @@ MonoBehaviour:
     m_Author: Catsoft Works
     m_Version:
       major: 1
-      minor: 3
-      patch: 5
+      minor: 4
+      patch: 6
     m_Complexity: 0
     m_Dependencies:
     - m_ID: GameCreator.Blockout
       m_MinVersion:
         major: 1
-        minor: 3
-        patch: 9
+        minor: 4
+        patch: 10
     - m_ID: GameCreator.Characters
       m_MinVersion:
         major: 1
-        minor: 3
-        patch: 14
+        minor: 6
+        patch: 19
     - m_ID: Inventory.Items
       m_MinVersion:
         major: 1
         minor: 1
-        patch: 5
+        patch: 6
     - m_ID: Inventory.UI
       m_MinVersion:
         major: 1
         minor: 1
-        patch: 3
+        patch: 5

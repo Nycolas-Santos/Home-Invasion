@@ -1,11 +1,14 @@
 ﻿using System;
 using UnityEngine;
 using GameCreator.Runtime.Common;
-using UnityEngine.Serialization;
 
 namespace GameCreator.Runtime.Cameras
 {
     [AddComponentMenu("")]
+    
+    [DefaultExecutionOrder(EXECUTION_ORDER)]
+    
+    [Serializable]
     public abstract class TCamera : MonoBehaviour
     {
         private enum RunMode
@@ -13,13 +16,15 @@ namespace GameCreator.Runtime.Cameras
             MainUpdate,
             FixedUpdate
         }
+
+        internal const int EXECUTION_ORDER = 1;
         
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
         
         [SerializeField] private TimeMode m_TimeMode;
         [SerializeField] private RunMode m_RunIn = RunMode.MainUpdate;
-
-        [FormerlySerializedAs("m_Settings")] [SerializeField] private CameraViewport m_Viewport = new CameraViewport();
+        
+        [SerializeField] private CameraViewport m_Viewport = new CameraViewport();
         [SerializeField] private CameraTransition m_Transition = new CameraTransition();
         [SerializeField] private CameraAvoidClip m_AvoidClip = new CameraAvoidClip();
 
@@ -39,7 +44,7 @@ namespace GameCreator.Runtime.Cameras
         // EVENTS: --------------------------------------------------------------------------------
         
         public event Action<ShotCamera> EventCut;
-        public event Action<ShotCamera> EventTransition;
+        public event Action<ShotCamera, float, Easing.Type> EventTransition;
         
         public event Action EventBeforeUpdate;
         public event Action EventAfterUpdate;
@@ -77,7 +82,6 @@ namespace GameCreator.Runtime.Cameras
 
             if (this.m_RunIn == RunMode.MainUpdate)
             {
-                this.Viewport.NormalUpdate();
                 this.Transition.NormalUpdate();
                 Transform cameraTransform = this.transform;
             
@@ -90,12 +94,11 @@ namespace GameCreator.Runtime.Cameras
 
             this.EventAfterUpdate?.Invoke();
         }
-
+        
         private void FixedUpdate()
         {
             if (this.m_RunIn == RunMode.FixedUpdate)
             {
-                this.Viewport.FixedUpdate();
                 this.Transition.FixedUpdate();
                 Transform cameraTransform = this.transform;
             
@@ -158,11 +161,19 @@ namespace GameCreator.Runtime.Cameras
 
         private void OnDrawGizmos()
         {
+            #if UNITY_EDITOR
+            if (UnityEditor.PrefabUtility.IsPartOfPrefabAsset(this.gameObject)) return;
+            #endif
+            
             this.m_AvoidClip?.OnDrawGizmos(this);
         }
 
         private void OnDrawGizmosSelected()
         {
+            #if UNITY_EDITOR
+            if (UnityEditor.PrefabUtility.IsPartOfPrefabAsset(this.gameObject)) return;
+            #endif
+            
             this.m_AvoidClip?.OnDrawGizmosSelected(this);
         }
     }   

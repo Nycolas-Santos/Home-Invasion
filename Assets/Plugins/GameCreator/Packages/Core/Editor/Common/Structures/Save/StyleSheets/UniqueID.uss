@@ -66,8 +66,10 @@
     margin: var(--gc-common-border-inverse-width) 2px 0 2px;
 }
 
+#GC-UniqueID-Body-Property {
+    margin-right: var(--gc-common-space-smaller);
+}
+
 #GC-UniqueID-Body-BtnRegen {
-    margin-left: 153px;
-    -unity-text-align: middle-center;
     white-space: nowrap;
 }

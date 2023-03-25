@@ -23,8 +23,8 @@ namespace GameCreator.Editor.Inventory
                 property.serializedObject.Update();
             }
 
-            Common.PropertyTool fieldCurrency = new Common.PropertyTool(currency);
-            Common.PropertyTool fieldPrice = new Common.PropertyTool(value);
+            PropertyField fieldCurrency = new PropertyField(currency);
+            PropertyField fieldPrice = new PropertyField(value);
 
             container.Add(fieldCurrency);
             container.Add(fieldPrice);
@@ -33,8 +33,8 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty canSell = property.FindPropertyRelative("m_CanSellToMerchant");
             
             container.Add(new SpaceSmall());
-            container.Add(new Common.PropertyTool(canBuy));
-            container.Add(new Common.PropertyTool(canSell));
+            container.Add(new PropertyField(canBuy));
+            container.Add(new PropertyField(canSell));
         }
     }
 }

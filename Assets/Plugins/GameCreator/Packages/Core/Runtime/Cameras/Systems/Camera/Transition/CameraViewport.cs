@@ -7,27 +7,49 @@ namespace GameCreator.Runtime.Cameras
     [Serializable]
     public class CameraViewport
     {
-        [NonSerialized] private TCamera m_Camera;
+        private const float EPSILON = 0.001f;
         
-        [NonSerialized] private bool m_Projection;
-        [NonSerialized] private AnimFloat m_FieldOfView;
-        [NonSerialized] private AnimFloat m_OrthographicSize;
+        // MEMBERS: -------------------------------------------------------------------------------
+        
+        [NonSerialized] private TCamera m_Camera;
         
         // PROPERTIES: ----------------------------------------------------------------------------
 
-        public bool Projection => this.m_Projection;
-        public float FieldOfView => this.m_FieldOfView.Current;
-        public float OrthographicSize => this.m_OrthographicSize.Current;
+        public bool Projection
+        {
+            get => this.m_Camera.Get<Camera>().orthographic;
+            private set => this.m_Camera.Get<Camera>().orthographic = value;
+        }
+
+        public float FieldOfView
+        {
+            get => this.m_Camera.Get<Camera>().fieldOfView;
+            private set => this.m_Camera.Get<Camera>().fieldOfView = value;
+        }
+        
+        public float OrthographicSize
+        {
+            get => this.m_Camera.Get<Camera>().orthographicSize;
+            private set => this.m_Camera.Get<Camera>().orthographicSize = value;
+        }
+        
+        public float ClipPlaneNear
+        {
+            get => this.m_Camera.Get<Camera>().nearClipPlane;
+            private set => this.m_Camera.Get<Camera>().nearClipPlane = Math.Max(value, 0.001f);
+        }
+        
+        public float ClipPlaneFar
+        {
+            get => this.m_Camera.Get<Camera>().farClipPlane;
+            private set => this.m_Camera.Get<Camera>().farClipPlane = Math.Max(value, 0.001f);
+        }
 
         // INITIALIZERS: --------------------------------------------------------------------------
 
         internal void OnEnable(TCamera camera)
         {
             this.m_Camera = camera;
-            
-            this.m_Projection = camera.Get<Camera>().orthographic;
-            this.m_FieldOfView = new AnimFloat(camera.Get<Camera>().fieldOfView, 0f);
-            this.m_OrthographicSize = new AnimFloat(camera.Get<Camera>().orthographicSize, 0f);
 
             camera.Transition.EventCut -= this.OnChangeShot;
             camera.Transition.EventTransition -= this.OnChangeShot;
@@ -46,62 +68,101 @@ namespace GameCreator.Runtime.Cameras
         
         public void SetProjection(bool isOrthographic)
         {
-            this.m_Projection = isOrthographic;
-            this.m_Camera.Get<Camera>().orthographic = isOrthographic;
+            this.Projection = isOrthographic;
         }
         
-        public void SetFieldOfView(float value, float smooth = 0f)
+        public void SetFieldOfView(float value, float duration, Easing.Type easing)
         {
-            this.m_FieldOfView.Smooth = smooth;
-            this.m_FieldOfView.Target = value;
+            if (duration <= EPSILON)
+            {
+                this.FieldOfView = value;
+                return;
+            }
 
-            if (smooth >= float.Epsilon) return;
+            ITweenInput tween = new TweenInput<float>(
+                this.FieldOfView,
+                value,
+                duration,
+                (a, b, t) => this.FieldOfView = Mathf.Lerp(a, b, t),
+                Tween.GetHash(typeof(TCamera), "projection"),
+                easing,
+                this.m_Camera.Time.UpdateTime
+            );
             
-            this.m_FieldOfView.Current = value;
-            this.m_Camera.Get<Camera>().fieldOfView = value;
+            Tween.To(this.m_Camera.gameObject, tween);
         }
         
-        public void SetOrthographicSize(float value, float smooth = 0f)
+        public void SetOrthographicSize(float value, float duration, Easing.Type easing)
         {
-            this.m_OrthographicSize.Smooth = smooth;
-            this.m_OrthographicSize.Target = value;
+            if (duration <= EPSILON)
+            {
+                this.OrthographicSize = value;
+                return;
+            }
 
-            if (smooth >= float.Epsilon) return;
+            ITweenInput tween = new TweenInput<float>(
+                this.OrthographicSize,
+                value,
+                duration,
+                (a, b, t) => this.OrthographicSize = Mathf.Lerp(a, b, t),
+                Tween.GetHash(typeof(TCamera), "orthographicSize"),
+                easing,
+                this.m_Camera.Time.UpdateTime
+            );
             
-            this.m_OrthographicSize.Current = value;
-            this.m_Camera.Get<Camera>().orthographicSize = value;
+            Tween.To(this.m_Camera.gameObject, tween);
         }
         
-        // UPDATE METHOD: -------------------------------------------------------------------------
-
-        internal void NormalUpdate()
+        public void SetClipPlaneNear(float value, float duration, Easing.Type easing)
         {
-            this.OnUpdateValues(this.m_Camera.Time.DeltaTime);
-            this.OnUpdateCamera();
+            if (duration <= EPSILON)
+            {
+                this.ClipPlaneNear = value;
+                return;
+            }
+
+            ITweenInput tween = new TweenInput<float>(
+                this.ClipPlaneNear,
+                value,
+                duration,
+                (a, b, t) => this.ClipPlaneNear = Mathf.Lerp(a, b, t),
+                Tween.GetHash(typeof(TCamera), "clip-plane-near"),
+                easing,
+                this.m_Camera.Time.UpdateTime
+            );
+            
+            Tween.To(this.m_Camera.gameObject, tween);
         }
-
-        internal void FixedUpdate()
+        
+        public void SetClipPlaneFar(float value, float duration, Easing.Type easing)
         {
-            this.OnUpdateValues(this.m_Camera.Time.FixedDeltaTime);
-            this.OnUpdateCamera();
+            if (duration <= EPSILON)
+            {
+                this.ClipPlaneFar = value;
+                return;
+            }
+
+            ITweenInput tween = new TweenInput<float>(
+                this.ClipPlaneFar,
+                value,
+                duration,
+                (a, b, t) => this.ClipPlaneFar = Mathf.Lerp(a, b, t),
+                Tween.GetHash(typeof(TCamera), "clip-plane-far"),
+                easing,
+                this.m_Camera.Time.UpdateTime
+            );
+            
+            Tween.To(this.m_Camera.gameObject, tween);
         }
 
         // PRIVATE METHODS: -----------------------------------------------------------------------
         
-        private void OnUpdateValues(float deltaTime)
+        private void OnChangeShot(ShotCamera shotCamera)
         {
-            this.m_FieldOfView.UpdateWithDelta(this.m_FieldOfView.Target, deltaTime);
-            this.m_OrthographicSize.UpdateWithDelta(this.m_OrthographicSize.Target, deltaTime);
-        }
-
-        private void OnUpdateCamera()
-        {
-            this.m_Camera.Get<Camera>().orthographic = this.m_Projection;
-            this.m_Camera.Get<Camera>().fieldOfView = this.m_FieldOfView.Current;
-            this.m_Camera.Get<Camera>().orthographicSize = this.m_OrthographicSize.Current;
+            this.OnChangeShot(shotCamera, 0f, Easing.Type.Linear);
         }
         
-        private void OnChangeShot(ShotCamera shotCamera)
+        private void OnChangeShot(ShotCamera shotCamera, float duration, Easing.Type easing)
         {
             IShotType shotType = shotCamera.ShotType;
             if (shotType.GetSystem(ShotSystemViewport.ID) is not ShotSystemViewport view)
@@ -109,13 +170,12 @@ namespace GameCreator.Runtime.Cameras
                 return;
             }
 
-            float smooth = view.SmoothTime;
-            
             if (view.ChangeProjection) this.SetProjection(view.Projection);
-            if (view.ChangeFieldOfView) this.SetFieldOfView(view.FieldOfView, smooth);
-            if (view.ChangeOrthographicSize) this.SetFieldOfView(view.OrthographicSize, smooth);
-
-            this.OnUpdateCamera();
+            if (view.ChangeFieldOfView) this.SetFieldOfView(view.FieldOfView, duration, easing);
+            if (view.ChangeOrthographicSize) this.SetFieldOfView(view.OrthographicSize, duration, easing);
+            
+            if (view.ChangeClipPlaneNear) this.SetClipPlaneNear(view.ClipPlaneNear, duration, easing);
+            if (view.ChangeClipPlaneFar) this.SetClipPlaneFar(view.ClipPlaneFar, duration, easing);
         }
     }
 }

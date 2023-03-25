@@ -23,14 +23,14 @@ namespace GameCreator.Editor.Variables
             root.Add(body);
 
             SerializedProperty listVariable = property.FindPropertyRelative(PROP_LIST_VARIABLE);
-            PropertyTool fieldListVariable = new PropertyTool(listVariable, property.displayName);
+            PropertyField fieldListVariable = new PropertyField(listVariable, property.displayName);
 
             head.Add(fieldListVariable);
             
-            fieldListVariable.EventChange += _ =>
+            fieldListVariable.RegisterValueChangeCallback(_ =>
             {
                 this.UpdateBody(body, property);
-            };
+            });
 
             this.UpdateBody(body, property);
             return root;
@@ -45,14 +45,14 @@ namespace GameCreator.Editor.Variables
             {
                 case 0 : // Local List Variable
                     SerializedProperty localList = property.FindPropertyRelative(PROP_LOCAL_LIST);
-                    PropertyTool fieldLocalList = new PropertyTool(localList, " ");
+                    PropertyField fieldLocalList = new PropertyField(localList, " ");
                     fieldLocalList.Bind(property.serializedObject);
                     body.Add(fieldLocalList);
                     break;
                     
                 case 1 : // Global List Variable
                     SerializedProperty globalList = property.FindPropertyRelative(PROP_GLOBAL_LIST);
-                    PropertyTool fieldGlobalList = new PropertyTool(globalList, " ");
+                    PropertyField fieldGlobalList = new PropertyField(globalList, " ");
                     fieldGlobalList.Bind(property.serializedObject);
                     body.Add(fieldGlobalList);
                     break;

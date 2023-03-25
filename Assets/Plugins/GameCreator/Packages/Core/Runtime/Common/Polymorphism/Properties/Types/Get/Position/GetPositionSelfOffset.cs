@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace GameCreator.Runtime.Common
 {
-    [Title("Self")]
-    [Category("Self")]
+    [Title("Self with Offset")]
+    [Category("Offsets/Self with Offset")]
     
     [Image(typeof(IconSelf), ColorTheme.Type.Yellow)]
     [Description("Returns the position of the caller plus an offset in local space")]

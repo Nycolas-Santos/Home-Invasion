@@ -23,8 +23,13 @@ namespace GameCreator.Runtime.Characters
         public VolumeSphere() : base()
         { }
 
-        public VolumeSphere(HumanBodyBones humanBone, IJoint joint, Vector3 center, float radius) 
-            : base(humanBone, joint)
+        public VolumeSphere(
+            HumanBodyBones humanBone,
+            float weight,
+            IJoint joint,
+            Vector3 center,
+            float radius) 
+            : base(humanBone, weight, joint)
         {
             this.m_Center = center;
             this.m_Radius = radius;

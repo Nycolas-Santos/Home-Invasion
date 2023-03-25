@@ -12,13 +12,12 @@ namespace GameCreator.Runtime.Characters.Animim
         private static RuntimeAnimatorController RTC_ANIMATION;
 
         // FIELDS: --------------------------------------------------------------------------------
-        
-        public AnimationLayerMixerPlayable mixerPlayable;
-        
+
+        [NonSerialized] public Playable scriptPlayable;
+        [NonSerialized] public AnimationLayerMixerPlayable mixerPlayable;
+
         // MEMBERS: -------------------------------------------------------------------------------
-        
-        [NonSerialized] protected Playable m_Playable;
-        
+
         [NonSerialized] protected readonly AvatarMask m_AvatarMask;
         [NonSerialized] protected readonly BlendMode m_BlendMode;
         
@@ -29,19 +28,27 @@ namespace GameCreator.Runtime.Characters.Animim
 
         // PROPERTIES: ----------------------------------------------------------------------------
         
-        [field: NonSerialized] protected AnimatorControllerPlayable Playable { get; set; }
+        [field: NonSerialized] protected AnimatorControllerPlayable AnimatorPlayable { get; set; }
 
         [field: NonSerialized] protected AnimFloat Weight { get; }
-        [field: NonSerialized] public double Speed { get; set; }
 
         [field: NonSerialized] protected double StartTime { get; }
-        [field: NonSerialized] protected double CurrentTime { get; private set; }
+        [field: NonSerialized] protected double ElapsedTime { get; private set; }
+        
+        [field: NonSerialized] protected EnablerFloat Duration { get; private set; }
 
         [field: NonSerialized] public bool IsComplete { get; private set; }
+        [field: NonSerialized] public bool IsInDelay { get; private set; }
 
         public float RootMotion => this.m_Config?.RootMotion ?? false 
             ? this.Weight.Current 
             : 0f;
+
+        public float Speed
+        {
+            get => this.m_Config.Speed;
+            set => this.m_Config.Speed = value;
+        }
 
         // CONSTRUCTOR: ---------------------------------------------------------------------------
 
@@ -55,9 +62,13 @@ namespace GameCreator.Runtime.Characters.Animim
             this.m_Config = config;
 
             this.StartTime = animimGraph.Character.Time.TimeAsDouble;
+            this.ElapsedTime = 0f;
             
             this.Weight = new AnimFloat(0f, this.m_Config.TransitionIn);
-            this.Speed = this.m_Config.Speed;
+            this.Duration = new EnablerFloat(false, -1f);
+
+            this.IsInDelay = true;
+            this.IsComplete = false;
         }
 
         // OVERRIDE METHODS: ----------------------------------------------------------------------
@@ -65,12 +76,18 @@ namespace GameCreator.Runtime.Characters.Animim
         public override void OnPlayableCreate(Playable playable)
         {
             base.OnPlayableCreate(playable);
-            this.m_Playable = playable;
+            this.scriptPlayable = playable;
             
+            playable.SetSpeed(this.Speed);
+
             if (this.m_Config.Duration > float.Epsilon)
             {
-                float totalDuration = this.m_Config.DelayIn + this.m_Config.Duration;
-                playable.SetDuration(totalDuration);
+                this.Duration.IsEnabled = true;
+                this.Duration.Value = this.m_Config.Duration;
+
+                // double delay = this.m_Config.DelayIn / this.m_Config.Speed;
+                // float totalDuration = this.m_Config.DelayIn + this.m_Config.Duration;
+                // playable.SetDuration(totalDuration);
             }
         }
 
@@ -78,11 +95,9 @@ namespace GameCreator.Runtime.Characters.Animim
         {
             base.PrepareFrame(playable, info);
             
-            playable.SetSpeed(this.Speed);
-
-            this.CurrentTime = playable.GetTime();
-            this.UpdateFrame();
-
+            playable.SetSpeed(this.m_Config.Speed);
+            this.UpdateFrame(ref playable);
+            
             playable.GetInput(0).SetInputWeight(1, this.Weight.Current);
 
             if (playable.IsDone())
@@ -102,32 +117,37 @@ namespace GameCreator.Runtime.Characters.Animim
                 this.IsComplete = true;
             }
             
-            if (!this.Playable.IsValid()) return;
-            if (this.Playable.IsDone()) return;
+            if (!this.AnimatorPlayable.IsValid()) return;
+            if (this.AnimatorPlayable.IsDone()) return;
 
             for (int i = 0; i < Phases.Count; ++i)
             {
-                float value = this.Playable.GetFloat(Phases.HASH_PHASES[i]);
+                float value = this.AnimatorPlayable.GetFloat(Phases.HASH_PHASES[i]);
                 this.m_AnimimGraph.Phases.Set(i, value, this.Weight.Current);
             }
         }
 
         // PRIVATE METHODS: -----------------------------------------------------------------------
 
-        private void UpdateFrame()
+        private void UpdateFrame(ref Playable playable)
         {
-            double elapsedTime = this.m_AnimimGraph.Character.Time.TimeAsDouble - this.StartTime;
+            TimeMode characterTime = this.m_AnimimGraph.Character.Time;
+            double timeSinceStart = characterTime.TimeAsDouble - this.StartTime;
 
-            if (elapsedTime < this.m_Config.DelayIn)
+            if (timeSinceStart < this.m_Config.DelayIn)
             {
-                this.Playable.Pause();
+                this.AnimatorPlayable.Pause();
+                this.IsInDelay = true;
             }
             else
             {
-                this.Playable.Play();
+                this.AnimatorPlayable.Play();
+                this.IsInDelay = false;
                 
                 this.Weight.Target = this.m_Config.Weight;
-                this.Weight.Smooth = this.m_Config.TransitionIn;
+                this.Weight.Smooth = this.m_Config.TransitionIn / this.m_Config.Speed;
+
+                this.ElapsedTime += characterTime.DeltaTime * this.m_Config.Speed;
             }
 
             if (this.m_Config.Duration > float.Epsilon)
@@ -137,14 +157,19 @@ namespace GameCreator.Runtime.Characters.Animim
                     this.m_Config.TransitionIn
                 );
                 
-                if (elapsedTime >= this.m_Config.DelayIn + timeToFadeout)
+                if (this.ElapsedTime >= timeToFadeout)
                 {
                     this.Weight.Target = 0f;
-                    this.Weight.Smooth = this.m_Config.TransitionOut;
+                    this.Weight.Smooth = this.m_Config.TransitionOut / this.m_Config.Speed;
                 }
             }
             
-            this.Weight.Update();
+            this.Weight.UpdateWithDelta(characterTime.DeltaTime);
+
+            if (this.Duration.IsEnabled && this.ElapsedTime >= this.Duration.Value)
+            {
+                playable.SetDone(true);
+            }
         }
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
@@ -153,18 +178,18 @@ namespace GameCreator.Runtime.Characters.Animim
         {
             this.m_ParentOutput = parentOutput;
             
-            Playable source = this.m_Playable.GetInput(0);
-            this.m_Playable.DisconnectInput(0);
+            Playable source = this.scriptPlayable.GetInput(0);
+            this.scriptPlayable.DisconnectInput(0);
             
             this.mixerPlayable = AnimationLayerMixerPlayable.Create(
                 this.m_AnimimGraph.Graph, 2
             );
             
             this.mixerPlayable.ConnectInput(0, source, 0);
-            this.mixerPlayable.ConnectInput(1, this.Playable, 0);
+            this.mixerPlayable.ConnectInput(1, this.AnimatorPlayable, 0);
 
-            this.m_Playable.ConnectInput(0, this.mixerPlayable, 0);
-            this.m_Playable.SetInputWeight(0, 1f);
+            this.scriptPlayable.ConnectInput(0, this.mixerPlayable, 0);
+            this.scriptPlayable.SetInputWeight(0, 1f);
 
             if (this.m_AvatarMask != null)
             {
@@ -184,12 +209,21 @@ namespace GameCreator.Runtime.Characters.Animim
 
         public virtual void Stop(float delay, float transitionOut)
         {
-            double duration = this.CurrentTime + delay + transitionOut;
-            this.m_Playable.SetDuration(duration);
+            if (this.IsInDelay)
+            {
+                this.AnimatorPlayable.SetDone(true);
+                
+                delay = 0f;
+                transitionOut = 0f;
+            }
 
-            this.m_Config.DelayIn = 0f;
-            this.m_Config.Duration = (float) duration;
+            float duration = (float) this.ElapsedTime + delay + transitionOut;
+
+            this.m_Config.Duration = duration;
             this.m_Config.TransitionOut = transitionOut;
+
+            this.Duration.IsEnabled = true;
+            this.Duration.Value = duration;
         }
 
         public void ChangeWeight(float weight, float transition)

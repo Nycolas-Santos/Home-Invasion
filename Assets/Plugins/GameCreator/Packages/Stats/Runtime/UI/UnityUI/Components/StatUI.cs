@@ -124,7 +124,7 @@ namespace GameCreator.Runtime.Stats.UnityUI
             Traits traits = this.m_LastTarget.Get<Traits>();
             if (traits == null) return;
 
-            if (this.m_Common.Icon != null) this.m_Common.Icon.overrideSprite = this.m_Stat.Icon;
+            if (this.m_Common.Icon != null) this.m_Common.Icon.overrideSprite = this.m_Stat.GetIcon(this.m_Args);
             if (this.m_Common.Color != null) this.m_Common.Color.color = this.m_Stat.Color;
 
             this.m_Common.Name.Text = this.m_Stat.GetName(this.m_Args);

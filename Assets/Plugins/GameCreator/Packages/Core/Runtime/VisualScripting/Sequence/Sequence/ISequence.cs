@@ -15,5 +15,7 @@ namespace GameCreator.Runtime.VisualScripting
         // METHODS: -------------------------------------------------------------------------------
 
         T GetTrack<T>() where T : ITrack;
+
+        float Dilate(float t);
     }
 }

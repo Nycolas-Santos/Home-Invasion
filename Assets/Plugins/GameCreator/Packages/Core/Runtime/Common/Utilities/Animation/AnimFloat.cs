@@ -12,12 +12,12 @@ namespace GameCreator.Runtime.Common
         
         public struct Transient
         {
-            private readonly float m_StartTime;
-
-            private readonly float m_Value;
-            private readonly float m_SmoothIn;
-            private readonly float m_SmoothOut;
-            private readonly float m_Duration;
+            [NonSerialized] private readonly float m_StartTime;
+            
+            [NonSerialized] private readonly float m_Value;
+            [NonSerialized] private readonly float m_SmoothIn;
+            [NonSerialized] private readonly float m_SmoothOut;
+            [NonSerialized] private readonly float m_Duration;
 
             public Transient(float value, float smoothIn, float duration, float smoothOut)
             {
@@ -60,13 +60,13 @@ namespace GameCreator.Runtime.Common
 
         // MEMBERS: -------------------------------------------------------------------------------
         
-        private Transient m_Transient;
+        [NonSerialized] private Transient m_Transient;
         
         // PROPERTIES: ----------------------------------------------------------------------------
 
-        public float Current { get; set; }
-		public float Target  { get; set; }
-		public float Smooth  { get; set; }
+        [field: NonSerialized] public float Current { get; set; }
+        [field: NonSerialized] public float Target  { get; set; }
+        [field: NonSerialized] public float Smooth  { get; set; }
 
         // CONSTRUCTOR: ---------------------------------------------------------------------------
 

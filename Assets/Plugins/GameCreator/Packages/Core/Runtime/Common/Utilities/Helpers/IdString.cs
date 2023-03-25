@@ -18,7 +18,15 @@ namespace GameCreator.Runtime.Common
         
         // PROPERTIES: ----------------------------------------------------------------------------
 
-        public string String => this.m_String ?? string.Empty;
+        public string String
+        {
+            get => this.m_String ?? string.Empty;
+            set
+            {
+                this.m_String = value;
+                this.m_Hash = value.GetHashCode();
+            }
+        }
 
         public int Hash
         {
@@ -41,6 +49,7 @@ namespace GameCreator.Runtime.Common
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
+            if (AssemblyUtils.IsReloading) return;
             if (string.IsNullOrEmpty(this.m_String)) return;
             
             this.m_String = TextUtils.ProcessID(this.m_String, false);

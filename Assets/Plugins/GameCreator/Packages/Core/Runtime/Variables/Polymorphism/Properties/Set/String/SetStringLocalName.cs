@@ -16,12 +16,9 @@ namespace GameCreator.Runtime.Variables
         [SerializeField]
         protected FieldSetLocalName m_Variable = new FieldSetLocalName(ValueString.TYPE_ID);
 
-        public override void Set(string value, Args args) => this.m_Variable.Set(value);
-        public override void Set(string value, GameObject gameObject) => this.m_Variable.Set(value);
+        public override void Set(string value, Args args) => this.m_Variable.Set(value, args);
+        public override string Get(Args args) => this.m_Variable.Get(args).ToString();
 
-        public override string Get(Args args) => this.m_Variable.Get().ToString();
-        public override string Get(GameObject gameObject) => this.m_Variable.Get().ToString();
-        
         public static PropertySetString Create => new PropertySetString(
             new SetStringLocalName()
         );

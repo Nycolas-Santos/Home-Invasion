@@ -7,8 +7,14 @@
 }
 
 #GC-Characters-Combat-Body {
+    margin-bottom: var(--gc-common-space-smaller);
+}
+
+#GC-Characters-Combat-Foot {
     
 }
+
+/* Weapons */
 
 ToolCombatItem #GC-Characters-Combat-Item-Head {
     flex-direction: row;

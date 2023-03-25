@@ -1,3 +1,4 @@
+using System;
 using GameCreator.Runtime.Common;
 
 namespace GameCreator.Runtime.Dialogue
@@ -6,9 +7,9 @@ namespace GameCreator.Runtime.Dialogue
     {
         // PROPERTIES: ----------------------------------------------------------------------------
 
-        public IdString Name { get; }
-        public int NodeId { get; }
-
+        [field: NonSerialized] public IdString Name { get; }
+        [field: NonSerialized] public int NodeId { get; }
+        
         // CONSTRUCTORS: --------------------------------------------------------------------------
 
         public Tag(IdString tag, int nodeId)

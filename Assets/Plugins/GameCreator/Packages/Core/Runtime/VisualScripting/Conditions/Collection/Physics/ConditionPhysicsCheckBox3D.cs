@@ -1,11 +1,12 @@
 using System;
+using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 
 namespace GameCreator.Runtime.VisualScripting
 {
     [Title("Check Box 3D")]
-    [Description("Returns true if casting a 3D box at a position doesn't collide with anything")]
+    [Description("Returns true if casting a 3D box at a position collides with something")]
 
     [Category("Physics/Check Box 3D")]
     
@@ -27,8 +28,8 @@ namespace GameCreator.Runtime.VisualScripting
     {
         // MEMBERS: -------------------------------------------------------------------------------
 
-        [SerializeField] private PropertyGetPosition m_Position = GetPositionCharactersPlayer.Create;
-        [SerializeField] private PropertyGetRotation m_Rotation = GetRotationCharactersPlayer.Create;
+        [SerializeField] private PropertyGetPosition m_Position = GetPositionCharacter.Create;
+        [SerializeField] private PropertyGetRotation m_Rotation = GetRotationCharacter.Create;
         
         [SerializeField] private Vector3 m_HalfExtents = Vector3.one * 0.5f;
 

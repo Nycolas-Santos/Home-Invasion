@@ -24,8 +24,8 @@ namespace GameCreator.Editor.Inventory.UnityUI
             SerializedProperty onBuy = this.serializedObject.FindProperty("m_OnBuy");
             SerializedProperty onSell = this.serializedObject.FindProperty("m_OnSell");
 
-            var fieldMerchantBagUI = new GameCreator.Editor.Common.PropertyTool(merchantBagUI);
-            var fieldClientBagUI = new GameCreator.Editor.Common.PropertyTool(clientBagUI);
+            PropertyField fieldMerchantBagUI = new PropertyField(merchantBagUI);
+            PropertyField fieldClientBagUI = new PropertyField(clientBagUI);
             
             this.m_Root.Add(fieldMerchantBagUI);
             this.m_Root.Add(fieldClientBagUI);

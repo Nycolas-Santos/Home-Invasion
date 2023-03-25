@@ -15,7 +15,7 @@
 /* PLOT INFO */
 
 #GC-Stats-Table-Plot-Info {
-    background-color: var(--gc-color-bg-dark);
+    background-color: var(--gc-color-bg-darker);
     border-radius: var(--gc-common-border-radius);
     overflow: hidden;
     padding: var(--gc-common-space-smaller);

@@ -20,11 +20,11 @@ MonoBehaviour:
     m_Version:
       major: 1
       minor: 1
-      patch: 4
+      patch: 5
     m_Complexity: 100
     m_Dependencies:
     - m_ID: GameCreator.Blockout
       m_MinVersion:
         major: 1
-        minor: 3
-        patch: 9
+        minor: 4
+        patch: 10

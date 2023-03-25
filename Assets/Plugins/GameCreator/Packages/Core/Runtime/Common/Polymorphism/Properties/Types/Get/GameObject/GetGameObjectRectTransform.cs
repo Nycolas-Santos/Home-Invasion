@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace GameCreator.Runtime.Common
 {
-    [Title("Transform")]
-    [Category("Transforms/Transform")]
+    [Title("Rect Transform")]
+    [Category("Transforms/Rect Transform")]
     
     [Image(typeof(IconRectTransform), ColorTheme.Type.Green)]
-    [Description("A RectTransform scene reference or prefab")]
+    [Description("A Rect Transform scene reference or prefab")]
 
     [Serializable] [HideLabelsInEditor]
     public class GetGameObjectRectTransform : PropertyTypeGetGameObject

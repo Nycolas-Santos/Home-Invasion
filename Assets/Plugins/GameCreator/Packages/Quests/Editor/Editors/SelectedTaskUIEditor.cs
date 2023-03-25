@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Quests.UnityUI;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Quests
@@ -18,7 +19,7 @@ namespace GameCreator.Editor.Quests
             SerializedProperty activeIfSelected = this.serializedObject.FindProperty("m_ActiveIfSelected");
             
             root.Add(new SpaceSmall());
-            root.Add(new PropertyTool(activeIfSelected));
+            root.Add(new PropertyField(activeIfSelected));
         }
     }
 }

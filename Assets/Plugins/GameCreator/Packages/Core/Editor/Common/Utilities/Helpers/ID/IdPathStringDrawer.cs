@@ -16,16 +16,16 @@ namespace GameCreator.Editor.Common.ID
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
             SerializedProperty value = property.FindPropertyRelative(NAME_STRING);
-            PropertyTool field = new PropertyTool(value, property.displayName);
+            PropertyField field = new PropertyField(value, property.displayName);
 
-            field.EventChange += changeEvent =>
+            field.RegisterValueChangeCallback(changeEvent =>
             {
                 string text = changeEvent.changedProperty.stringValue;
                 value.stringValue = TextUtils.ProcessID(text, true);
                 
                 property.serializedObject.ApplyModifiedProperties();
                 property.serializedObject.Update();
-            };
+            });
             
             return field;
         }

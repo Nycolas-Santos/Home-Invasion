@@ -13,16 +13,13 @@ namespace GameCreator.Runtime.Common
     public class GetRotationSelf : PropertyTypeGetRotation
     {
         [SerializeField] private RotationSpace m_Space = RotationSpace.Global;
-        [SerializeField] private Vector3 m_Offset = Vector3.zero;
-        
+
         public override Quaternion Get(Args args)
         {
-            Quaternion offset = Quaternion.Euler(this.m_Offset);
-            
             return args.Self != null 
                 ? this.m_Space == RotationSpace.Global 
-                    ? args.Self.transform.rotation * offset
-                    : args.Self.transform.localRotation * offset
+                    ? args.Self.transform.rotation
+                    : args.Self.transform.localRotation
                 : default;
         }
 

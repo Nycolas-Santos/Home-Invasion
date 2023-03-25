@@ -20,7 +20,7 @@ MonoBehaviour:
     m_Version:
       major: 1
       minor: 1
-      patch: 5
+      patch: 8
     m_Complexity: 0
     m_Dependencies:
     - m_ID: GameCreator.Blockout
@@ -31,25 +31,25 @@ MonoBehaviour:
     - m_ID: GameCreator.Characters
       m_MinVersion:
         major: 1
-        minor: 4
-        patch: 16
+        minor: 6
+        patch: 19
     - m_ID: Dialogue.SkinDefault
       m_MinVersion:
         major: 1
         minor: 1
-        patch: 3
+        patch: 4
     - m_ID: Dialogue.SkinCyberpunk
       m_MinVersion:
         major: 1
         minor: 1
-        patch: 3
+        patch: 4
     - m_ID: Dialogue.SkinPixel
       m_MinVersion:
         major: 1
         minor: 1
-        patch: 2
+        patch: 3
     - m_ID: Dialogue.SkinMessage
       m_MinVersion:
         major: 1
         minor: 1
-        patch: 2
+        patch: 3

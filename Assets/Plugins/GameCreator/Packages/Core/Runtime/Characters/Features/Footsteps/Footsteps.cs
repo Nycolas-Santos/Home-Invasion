@@ -141,9 +141,10 @@ namespace GameCreator.Runtime.Characters
             RaycastHit hit = this.GetGroundHit(bone.position);
             if (hit.collider == null) return;
             
-            float speed = Mathf.Clamp01(
-                this.m_Character.Driver.WorldMoveDirection.magnitude /
-                this.m_Character.Motion.LinearSpeed
+            float speed = Mathf.Clamp01(this.m_Character.Motion.LinearSpeed > 0f
+                ? this.m_Character.Driver.WorldMoveDirection.magnitude /
+                  this.m_Character.Motion.LinearSpeed 
+                : 0f
             );
             
             Args args = new Args(this.m_Character.gameObject, hit.collider.gameObject);

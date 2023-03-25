@@ -23,6 +23,8 @@ namespace GameCreator.Runtime.Characters
         void DeleteLayer(int key);
 
         int SetLayerDirection(int key, Vector3 direction, bool autoDestroyOnReach);
+        int SetLayerDirection(int key, Vector3 direction, float autoDestroyOnTimeout);
+        
         int SetLayerTarget(int key, Transform target);
     }
 }

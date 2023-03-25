@@ -1,4 +1,5 @@
 using System;
+using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -57,7 +58,7 @@ namespace GameCreator.Editor.Dialogue
         {
             this.ContentTool = contentTool;
             this.m_Scroll = new ScrollView { name = NAME_SCROLL };
-            
+
             this.Add(this.m_Scroll);
 
             this.RegisterCallback<GeometryChangedEvent>(this.OnChangeGeometry);

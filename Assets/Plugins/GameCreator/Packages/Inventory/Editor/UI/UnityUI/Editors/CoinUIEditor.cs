@@ -25,10 +25,10 @@ namespace GameCreator.Editor.Inventory.UnityUI
             SerializedProperty color = this.serializedObject.FindProperty("m_CoinColor");
             SerializedProperty image = this.serializedObject.FindProperty("m_CoinImage");
 
-            var fieldTitle = new GameCreator.Editor.Common.PropertyTool(title);
-            var fieldAmount = new GameCreator.Editor.Common.PropertyTool(amount);
-            var fieldColor = new GameCreator.Editor.Common.PropertyTool(color);
-            var fieldImage = new GameCreator.Editor.Common.PropertyTool(image);
+            PropertyField fieldTitle = new PropertyField(title);
+            PropertyField fieldAmount = new PropertyField(amount);
+            PropertyField fieldColor = new PropertyField(color);
+            PropertyField fieldImage = new PropertyField(image);
             
             this.m_Root.Add(fieldTitle);
             this.m_Root.Add(fieldAmount);

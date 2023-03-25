@@ -6,8 +6,7 @@ namespace GameCreator.Runtime.Common
 	public static partial class GizmosExtension
 	{
 		private static Mesh CIRCLE_SOLID;
-
-		private const int SEGMENTS = 90;
+		private const int CIRCLE_SEGMENTS = 90;
 		
 		// PUBLIC METHODS: ------------------------------------------------------------------------
 		
@@ -59,7 +58,7 @@ namespace GameCreator.Runtime.Common
 	        Vector3 prevPoint = position + matrix.MultiplyPoint3x4(Vector3.right);
 	        Vector3 nextPoint = Vector3.zero;
 
-	        for (int i = 0; i < SEGMENTS + 1; i++)
+	        for (int i = 0; i < CIRCLE_SEGMENTS + 1; i++)
 	        {
 		        nextPoint.x = Mathf.Cos(i * 4 * Mathf.Deg2Rad);
 		        nextPoint.z = Mathf.Sin(i * 4 * Mathf.Deg2Rad);
@@ -76,15 +75,15 @@ namespace GameCreator.Runtime.Common
         {
             if (CIRCLE_SOLID != null) return CIRCLE_SOLID;
 			
-            List<Vector3> vertices = new List<Vector3>(SEGMENTS + 2);
-            int[] indices = new int[SEGMENTS * 3];
+            List<Vector3> vertices = new List<Vector3>(CIRCLE_SEGMENTS + 2);
+            int[] indices = new int[CIRCLE_SEGMENTS * 3];
             
-            const float segmentWidth = Mathf.PI * 2f / SEGMENTS;
+            const float segmentWidth = Mathf.PI * 2f / CIRCLE_SEGMENTS;
             float angle = 0f;
             
             vertices.Add(Vector3.zero);
             
-            for (int i = 1; i < SEGMENTS + 2; ++i)
+            for (int i = 1; i < CIRCLE_SEGMENTS + 2; ++i)
             {
 	            vertices.Add(new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)));
                 

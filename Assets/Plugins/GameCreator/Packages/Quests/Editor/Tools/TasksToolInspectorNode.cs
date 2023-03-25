@@ -1,3 +1,4 @@
+using GameCreator.Editor.Common;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Quests;
 using UnityEditor;
@@ -19,6 +20,9 @@ namespace GameCreator.Editor.Quests
         
         public TasksToolInspectorNode(TasksTool tasksTool, SerializedProperty property)
         {
+            this.AddToClassList(AlignLabel.CLASS_UNITY_INSPECTOR_ELEMENT);
+            this.AddToClassList(AlignLabel.CLASS_UNITY_MAIN_CONTAINER);
+            
             this.ContentTool = tasksTool;
             this.Property = property.FindPropertyRelative(PROPERTY_DATA);
             

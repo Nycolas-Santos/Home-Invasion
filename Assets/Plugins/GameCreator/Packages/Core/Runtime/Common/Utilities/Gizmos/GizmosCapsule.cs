@@ -6,10 +6,17 @@ namespace GameCreator.Runtime.Common
 {
     public static partial class GizmosExtension
     {
+	    public enum CapsuleDirection
+	    {
+		    AxisX = 0,
+		    AxisY = 1,
+		    AxisZ = 2
+	    }
+	    
         private struct CapsuleData
         {
             private const float MEANINGFUL_DECIMALS = 1000f;
-            
+
             // MEMBERS: ---------------------------------------------------------------------------
             
             private int m_Segments;

@@ -21,9 +21,14 @@ namespace GameCreator.Editor.Common
         private const string EXPAND_LESS = "-";
         
         private static readonly IIcon ICON_INSTALLED_YES = new IconCircleSolid(ColorTheme.Type.Green);
+        private static readonly IIcon ICON_INSTALLED_UPD = new IconCircleSolid(ColorTheme.Type.Yellow);
         private static readonly IIcon ICON_INSTALLED_NO = new IconCircleOutline(ColorTheme.Type.TextLight);
 
         private const string NAME_LOADING = "GC-Updates-Loading";
+
+        private const string NAME_CONTAINER_ROOT = "GC-Updates-Container-Root";
+        private const string NAME_CONTAINER_BODY = "GC-Updates-Container-Body";
+        private const string NAME_CONTAINER_FOOT = "GC-Updates-Container-Foot";
         
         private const string NAME_ASSET_ROOT = "GC-Updates-Asset-Root";
         private const string NAME_ASSET_HEAD = "GC-Updates-Asset-Head";
@@ -31,27 +36,54 @@ namespace GameCreator.Editor.Common
         
         // MEMBERS: -------------------------------------------------------------------------------
 
-        private VisualElement m_Content;
+        private VisualElement m_Root;
+        private VisualElement m_Body;
+        private VisualElement m_Foot;
 
         // PAINT METHOD: --------------------------------------------------------------------------
         
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
             VersionsManager.Initialize();
-            this.m_Content = new VisualElement();
+
+            this.m_Root = new VisualElement { name = NAME_CONTAINER_ROOT };
+            this.m_Body = new VisualElement { name = NAME_CONTAINER_BODY };
+            this.m_Foot = new VisualElement { name = NAME_CONTAINER_FOOT };
             
             StyleSheet[] styleSheets = StyleSheetUtils.Load(USS_PATH);
-            foreach (StyleSheet sheet in styleSheets) this.m_Content.styleSheets.Add(sheet);
+            foreach (StyleSheet sheet in styleSheets) this.m_Root.styleSheets.Add(sheet);
 
-            this.Refresh();
-            VersionsManager.EventChange += this.Refresh;
+            this.RefreshFoot();
+            this.RefreshBody();
+            VersionsManager.EventChange += this.RefreshBody;
             
-            return this.m_Content;
+            this.m_Root.Add(this.m_Body);
+            this.m_Root.Add(this.m_Foot);
+            
+            return this.m_Root;
         }
 
-        private void Refresh()
+        private void RefreshFoot()
         {
-            this.m_Content.Clear();
+            Toggle remindUpdates = new Toggle
+            {
+                value = VersionsNotifications.RemindUpdates
+            };
+
+            Label remindLabel = new Label("Remind me when there is a new update");
+
+            remindUpdates.RegisterValueChangedCallback(changeEvent =>
+            {
+                VersionsNotifications.RemindUpdates = changeEvent.newValue;
+            });
+            
+            this.m_Foot.Add(remindUpdates);
+            this.m_Foot.Add(remindLabel);
+        }
+
+        private void RefreshBody()
+        {
+            this.m_Body.Clear();
 
             switch (VersionsManager.Latest.State)
             {
@@ -69,13 +101,13 @@ namespace GameCreator.Editor.Common
                 name = NAME_LOADING
             };
         
-            this.m_Content.Add(loading);
+            this.m_Body.Add(loading);
         }
         
         private void RefreshError()
         {
             ErrorMessage error = new ErrorMessage("Error while fetching. Please check later");
-            this.m_Content.Add(error);
+            this.m_Body.Add(error);
         }
         
         private void RefreshReady()
@@ -95,7 +127,7 @@ namespace GameCreator.Editor.Common
             root.Add(head);
             root.Add(body);
             
-            this.m_Content.Add(root);
+            this.m_Body.Add(root);
             
             this.CreateHead(id, asset, head, body);
             this.CreateBody(id, asset, body);
@@ -103,11 +135,14 @@ namespace GameCreator.Editor.Common
 
         private void CreateHead(string id, AssetEntry asset, VisualElement head, VisualElement body)
         {
-            string path = RuntimePaths.PACKAGES + TXT.ToTitleCase(id);
-            bool isInstalled = AssetDatabase.IsValidFolder(path); 
+            string path = RuntimePaths.PACKAGES + TXT.ToTitleCase(TXT.ToTitleCase(id));
+            bool isInstalled = AssetDatabase.IsValidFolder(path);
             
+            AssetVersion installedVersion = VersionsManager.GetInstalledVersion(id);
+            bool isInstalledOlder = installedVersion.IsOlderThan(asset.Version);
+
             Texture icon = isInstalled
-                ? ICON_INSTALLED_YES.Texture
+                ? isInstalledOlder ? ICON_INSTALLED_UPD.Texture : ICON_INSTALLED_YES.Texture
                 : ICON_INSTALLED_NO.Texture;
 
             Button btnExpand = new Button
@@ -133,7 +168,9 @@ namespace GameCreator.Editor.Common
 
             Button btnInstall = new Button
             {
-                text = isInstalled ? "Installed" : "Download",
+                text = isInstalled 
+                    ? isInstalledOlder ? "Update" : "Installed" 
+                    : "Download",
                 style =
                 {
                     width = new Length(100, LengthUnit.Pixel),
@@ -146,11 +183,16 @@ namespace GameCreator.Editor.Common
                 Application.OpenURL(string.Format(STORE_LINK, id));
             };
             
-            btnInstall.SetEnabled(!isInstalled);
+            btnInstall.SetEnabled(!isInstalled || isInstalledOlder);
+            string label = asset.Version.ToString();
+            if (isInstalled && isInstalledOlder)
+            {
+                label = $"{installedVersion} → {label}";
+            }
 
             head.Add(btnExpand);
             head.Add(new LabelTitle(TextUtils.Humanize(id)));
-            head.Add(new Label(asset.Version.ToString()));
+            head.Add(new Label(label));
             head.Add(new Image { image = icon });
             head.Add(btnInstall);
         }

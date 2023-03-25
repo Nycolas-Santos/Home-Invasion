@@ -53,13 +53,16 @@ namespace GameCreator.Editor.Dialogue
         
         public ContentToolInspectorNode(ContentTool contentTool, SerializedProperty property)
         {
+            this.AddToClassList(AlignLabel.CLASS_UNITY_INSPECTOR_ELEMENT);
+            this.AddToClassList(AlignLabel.CLASS_UNITY_MAIN_CONTAINER);
+            
             this.ContentTool = contentTool;
             this.Property = property.FindPropertyRelative(PROPERTY_DATA);
 
             SerializedProperty nodeType = this.Property.FindPropertyRelative(PROPERTY_NODE_TYPE);
             SerializedProperty conditions = this.Property.FindPropertyRelative(PROPERTY_CONDITIONS);
-
-            PropertyElement fieldNodeType = new PropertyElement(nodeType, "Type", false);
+            
+            NodeTypePropertyElement fieldNodeType = new NodeTypePropertyElement(nodeType);
             PropertyField fieldConditions = new PropertyField(conditions);
             
             this.Add(fieldNodeType);
@@ -67,7 +70,7 @@ namespace GameCreator.Editor.Dialogue
             this.Add(fieldConditions);
 
             SerializedProperty acting = this.Property.FindPropertyRelative(PROPERTY_ACTING);
-            PropertyTool fieldActor = new PropertyTool(acting);
+            PropertyField fieldActor = new PropertyField(acting);
             
             this.Add(new SpaceSmall());
             this.Add(fieldActor);
@@ -76,16 +79,16 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty audio = this.Property.FindPropertyRelative(PROPERTY_AUDIO);
             
             this.Add(new SpaceSmall());
-            this.Add(new PropertyTool(text));
+            this.Add(new PropertyField(text));
             this.Add(new SpaceSmall());
-            this.Add(new PropertyTool(audio));
+            this.Add(new PropertyField(audio));
             
             SerializedProperty animation = this.Property.FindPropertyRelative(PROPERTY_ANIMATION);
             SerializedProperty animationData = this.Property.FindPropertyRelative(PROPERTY_ANIM_DATA);
             SerializedProperty sequence = this.Property.FindPropertyRelative(PROPERTY_SEQUENCE);
             
-            PropertyTool fieldAnimation = new PropertyTool(animation);
-            PropertyTool fieldAnimationData = new PropertyTool(animationData);
+            PropertyField fieldAnimation = new PropertyField(animation);
+            PropertyField fieldAnimationData = new PropertyField(animationData);
 
             this.NodeSequence = new NodeSequenceTool(sequence);
             
@@ -95,7 +98,7 @@ namespace GameCreator.Editor.Dialogue
             this.Add(new SpaceSmall());
             this.Add(this.NodeSequence);
 
-            fieldActor.EventChange += changeEvent =>
+            fieldActor.RegisterValueChangeCallback(changeEvent =>
             {
                 SerializedPropertyType changeType = changeEvent.changedProperty.propertyType; 
                 if (changeType != SerializedPropertyType.ObjectReference) return;
@@ -105,9 +108,9 @@ namespace GameCreator.Editor.Dialogue
                 
                 this.NodeSequence.Target =
                     this.ContentTool.Settings.FindSceneReferenceForActor(actorAsset);
-            };
-            
-            fieldAnimation.EventChange += changeEvent =>
+            });
+
+            fieldAnimation.RegisterValueChangeCallback(changeEvent =>
             {
                 Object newValue = changeEvent.changedProperty.objectReferenceValue;
                 AnimationClip animationClip = newValue as AnimationClip;
@@ -116,7 +119,7 @@ namespace GameCreator.Editor.Dialogue
                 this.NodeSequence.style.display = animationClip != null
                     ? DisplayStyle.Flex
                     : DisplayStyle.None;
-            };
+            });
             
             this.NodeSequence.AnimationClip = animation.objectReferenceValue as AnimationClip;
             this.NodeSequence.style.display = animation.objectReferenceValue != null
@@ -128,7 +131,7 @@ namespace GameCreator.Editor.Dialogue
 
             PropertyField fieldOnStart = new PropertyField(onStart);
             PropertyField fieldOnFinish = new PropertyField(onFinish);
-
+            
             fieldNodeType.RegisterCallback<SerializedPropertyChangeEvent>(_ =>
             {
                 bool showInstructions = 
@@ -156,20 +159,20 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty duration = this.Property.FindPropertyRelative(PROPERTY_DURATION);
             SerializedProperty timeout = this.Property.FindPropertyRelative(PROPERTY_TIMEOUT);
 
-            PropertyTool durationField = new PropertyTool(duration);
-            PropertyTool timeoutField = new PropertyTool(timeout);
+            PropertyField durationField = new PropertyField(duration);
+            PropertyField timeoutField = new PropertyField(timeout);
 
             this.Add(new SpaceSmall());
             this.Add(durationField);
             this.Add(timeoutField);
 
-            durationField.EventChange += eventChange =>
+            durationField.RegisterValueChangeCallback(eventChange =>
             {
                 int index = eventChange.changedProperty.enumValueIndex;
                 timeoutField.style.display = index == (int) NodeDuration.Timeout
                     ? DisplayStyle.Flex
                     : DisplayStyle.None;
-            };
+            });
             
             timeoutField.style.display = duration.enumValueIndex == (int) NodeDuration.Timeout
                 ? DisplayStyle.Flex

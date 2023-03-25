@@ -2,6 +2,8 @@ using GameCreator.Editor.Common;
 using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using UnityEditor;
+using UnityEditor.Callbacks;
+using UnityEditor.SceneManagement;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -13,64 +15,169 @@ namespace GameCreator.Editor.Characters
     {
         private const string USS_PATH = EditorPaths.CHARACTERS + "StyleSheets/Skeleton";
         
-        private static Texture2D TEX_PREVIEW_ACCEPT;
-        private static Texture2D TEX_PREVIEW_REJECT;
-        
+        private const string REPLACE_HEAD = "Creating a new Skeleton will replace the current one";
+        private const string REPLACE_BODY = "Do you want to override the current Skeleton?";
+
         // MEMBERS: -------------------------------------------------------------------------------
 
         private VisualElement m_Root;
-        private int m_DrawDragType;
-        
-        private GUIStyle m_StylePreviewText;
+        private VisualElement m_Head;
+        private VisualElement m_Body;
+        private VisualElement m_Foot;
 
+        private Button m_ButtonSkeletonMode;
+        private Button m_ButtonMakeHumanoid;
+
+        private Button m_ButtonCharacter;
+        private ObjectField m_CharacterField;
+
+        // INITIALIZERS: --------------------------------------------------------------------------
+
+        private void OnEnable()
+        {
+            SkeletonConfigurationStage.EventOpenStage -= this.RefreshSkeletonState;
+            SkeletonConfigurationStage.EventOpenStage += this.RefreshSkeletonState;
+            
+            SkeletonConfigurationStage.EventCloseStage -= this.RefreshSkeletonState;
+            SkeletonConfigurationStage.EventCloseStage += this.RefreshSkeletonState;
+        }
+
+        private void OnDisable()
+        {
+            SkeletonConfigurationStage.EventOpenStage -= this.RefreshSkeletonState;
+            SkeletonConfigurationStage.EventCloseStage -= this.RefreshSkeletonState;
+        }
+
+        [OnOpenAsset]
+        public static bool OpenSkeletonExecute(int instanceID, int line)
+        {
+            Skeleton skeleton = EditorUtility.InstanceIDToObject(instanceID) as Skeleton;
+            if (skeleton == null) return false;
+
+            if (SkeletonConfigurationStage.InStage) StageUtility.GoToMainStage();
+            Selection.activeObject = skeleton;
+            
+            string skeletonPath = AssetDatabase.GetAssetPath(skeleton);
+            SkeletonConfigurationStage.EnterStage(skeletonPath);
+            
+            return true;
+        }
+        
         // PAINT METHOD: --------------------------------------------------------------------------
         
         public override VisualElement CreateInspectorGUI()
         {
             this.m_Root = new VisualElement();
+            this.m_Head = new VisualElement();
+            this.m_Body = new VisualElement();
+            this.m_Foot = new VisualElement();
             
             StyleSheet[] styleSheets = StyleSheetUtils.Load(USS_PATH);
             foreach (StyleSheet styleSheet in styleSheets) this.m_Root.styleSheets.Add(styleSheet);
+
+            this.m_ButtonSkeletonMode = new Button(this.ToggleSkeletonMode)
+            {
+                style = { height = new Length(30f, LengthUnit.Pixel)}
+            };
+
+            this.m_Root.Add(new SpaceSmall());
+            this.m_Root.Add(this.m_ButtonSkeletonMode);
             
+            this.m_Root.Add(this.m_Head);
+            this.m_Root.Add(this.m_Body);
+            this.m_Root.Add(this.m_Foot);
+
+            this.m_CharacterField = new ObjectField(string.Empty)
+            {
+                objectType = typeof(GameObject),
+                allowSceneObjects = true,
+                style =
+                {
+                    marginLeft = 0,
+                    marginRight = 0,
+                    marginTop = 0,
+                    marginBottom = 0,
+                }
+            };
+
+            this.m_ButtonCharacter = new Button(this.ChangeCharacter)
+            {
+                text = "Change Character",
+                style =
+                {
+                    height = new Length(22f, LengthUnit.Pixel),
+                    marginLeft = 0,
+                    marginRight = 0,
+                    marginTop = 0,
+                    marginBottom = 0,
+                }
+            };
+
+            PadBox characterBox = new PadBox();
+            characterBox.Add(this.m_CharacterField);
+            characterBox.Add(new SpaceSmaller());
+            characterBox.Add(this.m_ButtonCharacter);
+            
+            this.m_Head.Add(new SpaceSmall());
+            this.m_Head.Add(characterBox);
+
             SerializedProperty material = this.serializedObject.FindProperty("m_Material");
             SerializedProperty collision = this.serializedObject.FindProperty("m_CollisionDetection");
             SerializedProperty volumes = this.serializedObject.FindProperty("m_Volumes");
             
-            PropertyTool fieldMaterial = new PropertyTool(material);
-            PropertyTool fieldCollision = new PropertyTool(collision);
-            PropertyTool fieldVolumes = new PropertyTool(volumes);
-            
-            VisualElement space = new VisualElement();
-            space.AddToClassList("gc-character-skeleton-space");
-            
-            this.m_Root.Add(fieldMaterial);
-            this.m_Root.Add(fieldCollision);
-            this.m_Root.Add(space);
-            this.m_Root.Add(fieldVolumes);
+            PropertyField fieldMaterial = new PropertyField(material);
+            PropertyField fieldCollision = new PropertyField(collision);
 
+            this.m_Body.Add(new SpaceSmall());
+            this.m_Body.Add(fieldMaterial);
+            this.m_Body.Add(fieldCollision);
+            
+            PropertyField fieldVolumes = new PropertyField(volumes);
+            TextSeparator separator = new TextSeparator("or");
+
+            this.m_Foot.Add(new SpaceSmall());
+            this.m_Foot.Add(fieldVolumes);
+            
+            this.m_Foot.Add(new SpaceSmall());
+            this.m_Foot.Add(separator);
+            this.m_Foot.Add(new SpaceSmall());
+            
+            this.m_ButtonMakeHumanoid = new Button(this.BuildCharacter)
+            {
+                text = "Create Humanoid",
+                style = { height = new Length(25f, LengthUnit.Pixel)}
+            };
+            
+            this.m_Foot.Add(this.m_ButtonMakeHumanoid);
+            
+            this.RefreshSkeletonState();
             return this.m_Root;
         }
-        
+
         // AUTO BUILD CHARACTER: ------------------------------------------------------------------
 
-        private void BuildCharacter(Animator animator)
+        private void BuildCharacter()
         {
+            Animator animator = SkeletonConfigurationStage.InStage
+                ? SkeletonConfigurationStage.Stage.Animator
+                : null;
+
             if (animator == null) return;
             
             Skeleton skeleton = this.serializedObject.targetObject as Skeleton;
             if (skeleton == null) return;
-
-            if (skeleton.VolumesLength > 0)
+        
+            if (!skeleton.IsEmpty)
             {
                 bool replace = EditorUtility.DisplayDialog(
-                    "Creating a new Skeleton layout will replace the current one.",
-                    "Do you want to override the current Skeleton?",
+                    REPLACE_HEAD,
+                    REPLACE_BODY,
                     "Yes", "Cancel"
                 );
                 
                 if (!replace) return;
             }
-
+        
             Volumes volumes = SkeletonBuilder.Make(animator);
             
             this.serializedObject.Update();
@@ -83,104 +190,59 @@ namespace GameCreator.Editor.Characters
             this.m_Root.Bind(this.serializedObject);
         }
         
-        // PREVIEW WINDOW: ------------------------------------------------------------------------
-        
-        public override bool HasPreviewGUI() => true;
-        
-        public override GUIContent GetPreviewTitle() => new GUIContent("Build humanoid Skeleton");
-
-        public override void DrawPreview(Rect previewArea)
-        {
-            if (!TEX_PREVIEW_ACCEPT) TEX_PREVIEW_ACCEPT = MakeTexture(ColorTheme.Type.Green, 0.25f);
-            if (!TEX_PREVIEW_REJECT) TEX_PREVIEW_REJECT = MakeTexture(ColorTheme.Type.Red, 0.25f);
-
-            if (this.m_DrawDragType == 2) GUI.DrawTexture(
-                previewArea, TEX_PREVIEW_ACCEPT,
-                ScaleMode.StretchToFill, true
-            );
-            
-            if (this.m_DrawDragType == 1) GUI.DrawTexture(
-                previewArea, TEX_PREVIEW_REJECT,
-                ScaleMode.StretchToFill, true
-            );
-            
-            this.m_StylePreviewText ??= new GUIStyle(EditorStyles.whiteLabel)
-            {
-                alignment = TextAnchor.MiddleCenter
-            };
-            
-            EditorGUI.LabelField(
-                previewArea,
-                "Drop a scene Character or Animator to build Skeleton",
-                this.m_StylePreviewText
-            );
-            
-            EventType currentEvent = Event.current.type;
-            switch (currentEvent)
-            {
-                case EventType.DragUpdated:
-                case EventType.DragPerform:
-                    DragAndDrop.visualMode = DragAndDropVisualMode.Rejected;
-                    this.m_DrawDragType = 1;
-                    if (!previewArea.Contains(Event.current.mousePosition))
-                    {
-                        this.m_DrawDragType = 0;
-                        break;
-                    }
-            
-                    if (DragAndDrop.objectReferences.Length == 1)
-                    {
-                        GameObject dropObject = DragAndDrop.objectReferences[0] as GameObject;
-                        
-                        // PrefabAssetType dropType = PrefabUtility.GetPrefabAssetType(dropObject);
-                        // bool acceptPrefab = dropType != PrefabAssetType.Model &&
-                        //                     dropType == ;
-                        
-                        if (dropObject != null && AcceptType(dropObject))
-                        {
-                            Animator animator = dropObject.GetComponentInChildren<Animator>();
-                            if (animator != null)
-                            {
-                                DragAndDrop.visualMode = DragAndDropVisualMode.Link;
-                                this.m_DrawDragType = 2;
-                                if (currentEvent == EventType.DragPerform)
-                                {
-                                    this.m_DrawDragType = 0;
-                                    DragAndDrop.AcceptDrag();
-                                    this.BuildCharacter(animator);
-                                }
-                            }
-                        }
-                    }
-                    Event.current.Use();
-                    break;
-            
-                case EventType.DragExited:
-                    this.m_DrawDragType = 0;
-                    break;
-            }
-        }
-        
         // PRIVATE METHODS: -----------------------------------------------------------------------
-
-        private static bool AcceptType(GameObject dropObject)
-        {
-            if (dropObject == null) return false;
-            
-            PrefabAssetType dropType = PrefabUtility.GetPrefabAssetType(dropObject);
-            if (dropType == PrefabAssetType.NotAPrefab) return true;
-
-            return PrefabUtility.IsPartOfNonAssetPrefabInstance(dropObject);
-        }
         
-        private static Texture2D MakeTexture(ColorTheme.Type colorType, float alpha = 1.0f)
+        private void ChangeCharacter()
         {
-            Color color = ColorTheme.Get(colorType);
+            GameObject character = this.m_CharacterField.value as GameObject;
+            SkeletonConfigurationStage.ChangeCharacter(character);
+        }
+
+        private void ToggleSkeletonMode()
+        {
+            if (SkeletonConfigurationStage.InStage)
+            {
+                StageUtility.GoToMainStage();
+                this.RefreshSkeletonState();
+                return;
+            }
+
+            Skeleton skeleton = this.target as Skeleton;
+            if (skeleton == null) return;
+
+            string path = AssetDatabase.GetAssetPath(skeleton);
+            SkeletonConfigurationStage.EnterStage(path);
+        }
+
+        private void RefreshSkeletonState()
+        {
+            if (this.m_ButtonSkeletonMode == null) return;
             
-            Texture2D texture = new Texture2D(1, 1);
-            texture.SetPixel(0, 0, new Color(color.r, color.g, color.b, alpha));
-            texture.Apply();
-            return texture;
+            bool inSkeletonStage = SkeletonConfigurationStage.InStage;
+            this.m_ButtonSkeletonMode.text = inSkeletonStage
+                ? "Close Skeleton Mode" 
+                : "Enter Skeleton Mode";
+
+            Color borderColor = inSkeletonStage
+                ? ColorTheme.Get(ColorTheme.Type.Green)
+                : ColorTheme.Get(ColorTheme.Type.Dark);
+            
+            this.m_ButtonSkeletonMode.style.borderTopColor = borderColor;
+            this.m_ButtonSkeletonMode.style.borderBottomColor = borderColor;
+            this.m_ButtonSkeletonMode.style.borderLeftColor = borderColor;
+            this.m_ButtonSkeletonMode.style.borderRightColor = borderColor;
+
+            this.m_ButtonSkeletonMode.style.color = inSkeletonStage
+                ? ColorTheme.Get(ColorTheme.Type.Green)
+                : ColorTheme.Get(ColorTheme.Type.TextNormal);
+
+            this.m_Head.SetEnabled(inSkeletonStage);
+            this.m_Foot.SetEnabled(inSkeletonStage);
+            
+            if (inSkeletonStage)
+            {
+                this.m_CharacterField.value = SkeletonConfigurationStage.CharacterReference;
+            }
         }
     }
 }

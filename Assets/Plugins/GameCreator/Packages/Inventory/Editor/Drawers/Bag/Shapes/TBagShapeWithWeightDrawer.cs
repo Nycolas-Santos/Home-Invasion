@@ -14,14 +14,14 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty hasMaxWeight = property.FindPropertyRelative("m_HasMaxWeight");
             SerializedProperty maxWeight = property.FindPropertyRelative("m_MaxWeight");
 
-            var fieldHasMaxWeight = new GameCreator.Editor.Common.PropertyTool(hasMaxWeight);
-            var fieldMaxWeight = new GameCreator.Editor.Common.PropertyTool(maxWeight);
+            PropertyField fieldHasMaxWeight = new PropertyField(hasMaxWeight);
+            PropertyField fieldMaxWeight = new PropertyField(maxWeight);
             VisualElement weightContentMaxWeight = new VisualElement();
             
             root.Add(fieldHasMaxWeight);
             root.Add(weightContentMaxWeight);
             
-            fieldHasMaxWeight.EventChange += changeEvent =>
+            fieldHasMaxWeight.RegisterValueChangeCallback(changeEvent =>
             {
                 weightContentMaxWeight.Clear();
                 if (changeEvent.changedProperty.boolValue)
@@ -29,7 +29,7 @@ namespace GameCreator.Editor.Inventory
                     weightContentMaxWeight.Add(fieldMaxWeight);
                     weightContentMaxWeight.Bind(changeEvent.changedProperty.serializedObject);
                 }
-            };
+            });
             
             if (hasMaxWeight.boolValue) weightContentMaxWeight.Add(fieldMaxWeight);
         }

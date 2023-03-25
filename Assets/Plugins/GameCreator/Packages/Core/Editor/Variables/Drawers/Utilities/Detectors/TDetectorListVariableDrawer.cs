@@ -22,13 +22,13 @@ namespace GameCreator.Editor.Variables
             SerializedProperty when = property.FindPropertyRelative("m_When");
             SerializedProperty index = property.FindPropertyRelative("m_Index");
 
-            PropertyTool fieldVariable = new PropertyTool(variables);
-            PropertyTool fieldWhen = new PropertyTool(when);
+            PropertyField fieldVariable = new PropertyField(variables);
+            PropertyField fieldWhen = new PropertyField(when);
 
             head.Add(fieldVariable);
             head.Add(fieldWhen);
 
-            fieldWhen.EventChange += _ =>
+            fieldWhen.RegisterValueChangeCallback(_ =>
             {
                 body.Clear();
                 if (when.enumValueIndex == 1) // When.SetIndex
@@ -36,7 +36,7 @@ namespace GameCreator.Editor.Variables
                     PropertyElement indexTool = new PropertyElement(index, index.displayName, true);
                     body.Add(indexTool);
                 }
-            };
+            });
 
             if (when.enumValueIndex == 1) // When.SetIndex
             {

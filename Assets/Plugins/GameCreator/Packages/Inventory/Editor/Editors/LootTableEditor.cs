@@ -114,7 +114,7 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty noDropRate = this.serializedObject.FindProperty(PROP_NO_DROP_RATE);
             SerializedProperty lootList = this.serializedObject.FindProperty(PROP_LOOT_LIST);
 
-            var fieldNoDropRate = new GameCreator.Editor.Common.PropertyTool(noDropRate);
+            PropertyField fieldNoDropRate = new PropertyField(noDropRate);
             this.m_LootListTool = new LootListTool(lootList, "m_List");
             
             this.m_Body.Add(this.m_LootListTool);

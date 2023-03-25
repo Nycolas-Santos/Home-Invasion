@@ -5,7 +5,6 @@ using UnityEditor.UIElements;
 using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace GameCreator.Editor.Characters
 {
@@ -18,7 +17,7 @@ namespace GameCreator.Editor.Characters
 
         private const string PATH_USS = EditorPaths.CHARACTERS + "StyleSheets/Character";
         
-        private const string MODEL_PATH = RuntimePaths.CHARACTERS + "Assets/3D/Mannequin.fbx";
+        public const string MODEL_PATH = RuntimePaths.CHARACTERS + "Assets/3D/Mannequin.fbx";
         private const string SKELETON_PATH = RuntimePaths.CHARACTERS + "Assets/3D/Skeleton.asset";
         private const string FOOTSTEPS_PATH = RuntimePaths.CHARACTERS + "Assets/3D/Footsteps.asset";
         private const string RTC_PATH = RuntimePaths.CHARACTERS + "Assets/Controllers/CompleteLocomotion.controller";
@@ -41,13 +40,13 @@ namespace GameCreator.Editor.Characters
             groupGeneral.Add(groupGeneralL);
             groupGeneral.Add(groupGeneralR);
 
-            PropertyTool fieldIsPlayer = new PropertyTool(propertyIsPlayer);
-            PropertyTool fieldTime = new PropertyTool(propertyTime);
+            PropertyField fieldIsPlayer = new PropertyField(propertyIsPlayer);
+            PropertyField fieldTime = new PropertyField(propertyTime);
             
             fieldIsPlayer.SetEnabled(!EditorApplication.isPlayingOrWillChangePlaymode);
             fieldTime.SetEnabled(!EditorApplication.isPlayingOrWillChangePlaymode);
             
-            groupGeneralL.Add(new PropertyTool(propertyBusy));
+            groupGeneralL.Add(new PropertyField(propertyBusy));
             groupGeneralR.Add(fieldIsPlayer);
             groupGeneralR.Add(fieldTime);
 

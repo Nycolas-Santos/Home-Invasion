@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue.UnityUI;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -31,22 +32,22 @@ namespace GameCreator.Editor.Dialogue
 
             SerializedProperty clipOnChange = this.serializedObject.FindProperty("m_ClipOnChange");
             
-            this.m_Root.Add(new PropertyTool(active));
+            this.m_Root.Add(new PropertyField(active));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(showListeners));
-            this.m_Root.Add(new PropertyTool(listenersTint));
+            this.m_Root.Add(new PropertyField(showListeners));
+            this.m_Root.Add(new PropertyField(listenersTint));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(active1));
-            this.m_Root.Add(new PropertyTool(portrait1));
-            this.m_Root.Add(new PropertyTool(actorName1));
-            this.m_Root.Add(new PropertyTool(actorDesc1));
+            this.m_Root.Add(new PropertyField(active1));
+            this.m_Root.Add(new PropertyField(portrait1));
+            this.m_Root.Add(new PropertyField(actorName1));
+            this.m_Root.Add(new PropertyField(actorDesc1));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(active2));
-            this.m_Root.Add(new PropertyTool(portrait2));
-            this.m_Root.Add(new PropertyTool(actorName2));
-            this.m_Root.Add(new PropertyTool(actorDesc2));
+            this.m_Root.Add(new PropertyField(active2));
+            this.m_Root.Add(new PropertyField(portrait2));
+            this.m_Root.Add(new PropertyField(actorName2));
+            this.m_Root.Add(new PropertyField(actorDesc2));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(clipOnChange));
+            this.m_Root.Add(new PropertyField(clipOnChange));
             
             return this.m_Root;
         }

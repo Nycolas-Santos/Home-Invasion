@@ -69,18 +69,22 @@ namespace GameCreator.Runtime.VisualScripting
         void ITrack.OnUpdate(ISequence sequence, Args args)
         {
             float t = sequence.T;
+
             foreach (IClip clip in this.Clips)
             {
-                if (t >= clip.TimeStart)
+                float clipTimeStart = sequence.Dilate(clip.TimeStart);
+                float clipTimeEnd = sequence.Dilate(clip.TimeEnd);
+
+                if (t >= clipTimeStart)
                 {
                     if (!clip.IsStart)
                     {
                         clip.Start(this, args);
-                        clip.Update(this, args, this.T(clip, t));
+                        clip.Update(this, args, this.CalculateT(clip, sequence, t));
                     }
-                    else if (t <= clip.TimeEnd)
+                    else if (t <= clipTimeEnd)
                     {
-                        clip.Update(this, args, this.T(clip, t));
+                        clip.Update(this, args, this.CalculateT(clip, sequence, t));
                     }
                 }
                 else
@@ -95,10 +99,13 @@ namespace GameCreator.Runtime.VisualScripting
 
         // PRIVATE METHODS: -----------------------------------------------------------------------
 
-        private float T(IClip clip, float t)
+        private float CalculateT(IClip clip, ISequence sequence, float t)
         {
-            if (clip.TimeStart >= clip.TimeEnd) return 1f;
-            return (t - clip.TimeStart) / (clip.TimeEnd - clip.TimeStart);
+            float clipTimeStart = sequence.Dilate(clip.TimeStart);
+            float clipTimeEnd = sequence.Dilate(clip.TimeEnd);
+
+            if (clipTimeStart >= clipTimeEnd) return 1f;
+            return (t - clipTimeStart) / (clipTimeEnd - clipTimeStart);
         }
     }
 }

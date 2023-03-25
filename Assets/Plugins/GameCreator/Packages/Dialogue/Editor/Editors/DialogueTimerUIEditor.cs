@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue.UnityUI;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -22,16 +23,16 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty durationA = this.serializedObject.FindProperty("m_DurationSeconds");
             SerializedProperty durationB = this.serializedObject.FindProperty("m_DurationDecimals");
 
-            this.m_Root.Add(new PropertyTool(active));
+            this.m_Root.Add(new PropertyField(active));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(timer));
-            this.m_Root.Add(new PropertyTool(invert));
+            this.m_Root.Add(new PropertyField(timer));
+            this.m_Root.Add(new PropertyField(invert));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(remainingA));
-            this.m_Root.Add(new PropertyTool(remainingB));
+            this.m_Root.Add(new PropertyField(remainingA));
+            this.m_Root.Add(new PropertyField(remainingB));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(durationA));
-            this.m_Root.Add(new PropertyTool(durationB));
+            this.m_Root.Add(new PropertyField(durationA));
+            this.m_Root.Add(new PropertyField(durationB));
 
             return this.m_Root;
         }

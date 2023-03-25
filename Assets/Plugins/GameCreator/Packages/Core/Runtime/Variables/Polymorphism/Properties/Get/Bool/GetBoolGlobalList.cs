@@ -16,9 +16,7 @@ namespace GameCreator.Runtime.Variables
         [SerializeField]
         protected FieldGetGlobalList m_Variable = new FieldGetGlobalList(ValueBool.TYPE_ID);
 
-        public override bool Get(Args args) => this.m_Variable.Get<bool>();
-        public override bool Get(GameObject gameObject) => this.m_Variable.Get<bool>();
-
+        public override bool Get(Args args) => this.m_Variable.Get<bool>(args);
         public override string String => this.m_Variable.ToString();
     }
 }

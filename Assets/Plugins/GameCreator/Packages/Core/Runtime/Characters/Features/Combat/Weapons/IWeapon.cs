@@ -11,7 +11,10 @@ namespace GameCreator.Runtime.Characters
         IdString Id { get; }
         Texture EditorIcon { get; }
         
-        Reaction Reaction { get; }
+        IReaction HitReaction { get; }
+        IReaction ParriedReaction { get; }
+        
+        IShield Shield { get; }
 
         // GETTERS: -------------------------------------------------------------------------------
         
@@ -23,8 +26,9 @@ namespace GameCreator.Runtime.Characters
 
         // RUNNERS: -------------------------------------------------------------------------------
 
-        Task RunOnEquip(Args args);
-        Task RunOnUnequip(Args args);
+        Task RunOnEquip(Character character, Args args);
+        Task RunOnUnequip(Character character, Args args);
+        Task RunOnDodge(Character character, Args args);
         
         // PUBLIC METHODS: ------------------------------------------------------------------------
 

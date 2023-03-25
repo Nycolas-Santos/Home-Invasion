@@ -27,5 +27,23 @@ namespace GameCreator.Runtime.Dialogue
             get => this.m_IsVisited;
             set => this.m_IsVisited = value;
         }
+        
+        // PUBLIC METHODS: ------------------------------------------------------------------------
+
+        public void Clear()
+        {
+            this.m_Nodes.Clear();
+            this.m_Tags.Clear();
+        }
+
+        public bool RemoveNode(int nodeId)
+        {
+            return this.m_Nodes.Remove(nodeId);
+        }
+
+        public bool RemoveTag(IdString tag)
+        {
+            return this.m_Tags.Remove(tag);
+        }
     }
 }

@@ -19,14 +19,32 @@ namespace GameCreator.Runtime.Inventory
         
         // PROPERTIES: ----------------------------------------------------------------------------
         
-        private Bag Bag { get; set; }
-        private Args Args { get; set; }
+        [field: NonSerialized] private Bag Bag   { get; set; }
+        [field: NonSerialized] private Args Args { get; set; }
         
         // INITIALIZERS: --------------------------------------------------------------------------
         
         protected override void OnEnable(Trigger trigger)
         {
             base.OnEnable(trigger);
+
+            this.Bag = this.m_Bag.Get<Bag>(trigger);
+            if (this.Bag == null) return;
+
+            this.Args = new Args(this.Self, this.Bag.gameObject);
+            
+            this.Bag.Content.EventAdd -= this.OnAdd;
+            this.Bag.Content.EventAdd += this.OnAdd;
+        }
+
+        protected override void OnStart(Trigger trigger)
+        {
+            base.OnStart(trigger);
+
+            if (this.Bag != null)
+            {
+                this.Bag.Content.EventAdd -= this.OnAdd;
+            }
             
             this.Bag = this.m_Bag.Get<Bag>(trigger);
             if (this.Bag == null) return;

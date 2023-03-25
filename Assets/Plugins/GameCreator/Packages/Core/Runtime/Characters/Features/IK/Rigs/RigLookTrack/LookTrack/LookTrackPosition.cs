@@ -14,6 +14,8 @@ namespace GameCreator.Runtime.Characters.IK
         public bool Exists => true;
         
         [field: NonSerialized] public Vector3 Position { get; }
+        
+        public GameObject Target => null;
 
         // CONSTRUCTOR: ---------------------------------------------------------------------------
 

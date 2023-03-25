@@ -1,3 +1,4 @@
+using System;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 
@@ -15,12 +16,12 @@ namespace GameCreator.Runtime.Characters.IK
         
         // PROPERTIES: ----------------------------------------------------------------------------
         
-        private RigLean Rig { get; }
-        private Transform Bone { get; }
+        [field: NonSerialized] private RigLean Rig { get; }
+        [field: NonSerialized] private Transform Bone { get; }
         
-        private float SidesAngle { get; }
-        private float ForwardPositive { get; }
-        private float ForwardNegative { get; }
+        [field: NonSerialized] private float SidesAngle { get; }
+        [field: NonSerialized] private float ForwardPositive { get; }
+        [field: NonSerialized] private float ForwardNegative { get; }
 
         // CONSTRUCTOR: ---------------------------------------------------------------------------
 

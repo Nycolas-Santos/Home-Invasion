@@ -58,14 +58,14 @@ namespace GameCreator.Runtime.Characters
         ///////////////////////////////////////////////////////////////////////////////////////////
         // DEPRECATED METHODS: --------------------------------------------------------------------
         
-        // TODO: Remove deprecated method in next update
+        // TODO [07/03/2023]: Remove deprecated method in next update
         [Obsolete("Deprecated method and will be removed in the future. Use AttachPrefab(...)")]
         public GameObject Attach(IBone bone, GameObject prefab, Vector3 position, Quaternion rotation)
         {
             return this.AttachPrefab(bone, prefab, position, rotation);
         }
         
-        // TODO: Remove deprecated method in next update
+        // TODO [07/03/2023]: Remove deprecated method in next update
         [Obsolete("Deprecated method and will be removed in the future. Use RemovePrefab(...)")]
         public void Remove(GameObject prefab)
         {
@@ -74,8 +74,27 @@ namespace GameCreator.Runtime.Characters
         
         // ----------------------------------------------------------------------------------------
         ///////////////////////////////////////////////////////////////////////////////////////////
+
+        // GETTER METHODS: ------------------------------------------------------------------------
+
+        public bool HasInstance(GameObject instance)
+        {
+            if (instance == null) return false;
+            int instanceID = instance.GetInstanceID();
+            
+            foreach (KeyValuePair<int, List<IProp>> entry in this.m_Props)
+            {
+                foreach (IProp prop in entry.Value)
+                {
+                    if (prop.Instance == null) continue;
+                    if (prop.Instance.GetInstanceID() == instanceID) return true;
+                }
+            }
+
+            return false;
+        }
         
-        // PUBLIC METHODS: ------------------------------------------------------------------------
+        // PROP METHODS: --------------------------------------------------------------------------
 
         /// <summary>
         /// Creates a new instance of the prefab at the specified bone location with the right
@@ -397,6 +416,46 @@ namespace GameCreator.Runtime.Characters
             }
 
             return false;
+        }
+        
+        // SKINNED MESH METHODS: ------------------------------------------------------------------
+
+        public GameObject AttachSkinMesh(GameObject prefab)
+        {
+            if (prefab == null) return null;
+            
+            int instanceID = prefab.GetInstanceID();
+            if (!this.m_Props.TryGetValue(instanceID, out List<IProp> props))
+            {
+                props = new List<IProp>();
+                this.m_Props.Add(instanceID, props);
+            }
+            
+            PropSkin prop = new PropSkin(prefab);
+            prop.Create(this.m_Character.Animim.Animator);
+            
+            props.Add(prop);
+            
+            LastPropAttached = prop.Instance;
+            this.EventAdd?.Invoke(null, prop.Instance);
+
+            return prop.Instance;
+        }
+
+        public void RemoveSkinMesh(GameObject prefab)
+        {
+            if (prefab == null) return;
+            int instanceID = prefab.GetInstanceID();
+            
+            if (!this.m_Props.TryGetValue(instanceID, out List<IProp> props)) return;
+            if (props.Count <= 0) return;
+
+            int removeIndex = props.Count - 1;
+
+            props[removeIndex].Destroy();
+            props.RemoveAt(removeIndex);
+            
+            this.EventRemove?.Invoke(null);
         }
         
         // CALLBACKS: -----------------------------------------------------------------------------

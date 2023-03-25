@@ -15,7 +15,7 @@ namespace GameCreator.Runtime.VisualScripting
     [Serializable]
     public class InstructionGeometryCrossProduct : TInstructionGeometryDirections
     {
-        protected override string Operator => "*";
+        protected override string Operator => "x";
         
         protected override Vector3 Operate(Vector3 value1, Vector3 value2)
         {

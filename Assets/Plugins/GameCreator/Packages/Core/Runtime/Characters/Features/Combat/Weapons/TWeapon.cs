@@ -18,11 +18,13 @@ namespace GameCreator.Runtime.Characters
 
         [SerializeField] private PropertyGetSprite m_Icon = GetSpriteNone.Create;
         [SerializeField] private PropertyGetColor m_Color = GetColorColorsWhite.Create;
-
-        [SerializeField] private Reaction m_Reaction;
+        
+        [SerializeField] private Reaction m_HitReaction;
+        [SerializeField] private Reaction m_ParriedReaction;
 
         [SerializeField] private RunInstructionsList m_OnEquip = new RunInstructionsList();
         [SerializeField] private RunInstructionsList m_OnUnequip = new RunInstructionsList();
+        [SerializeField] private RunInstructionsList m_OnDodge = new RunInstructionsList();
 
         // PROPERTIES: ----------------------------------------------------------------------------
 
@@ -30,7 +32,10 @@ namespace GameCreator.Runtime.Characters
 
         public abstract Texture EditorIcon { get; }
 
-        public Reaction Reaction => this.m_Reaction;
+        public abstract IShield Shield { get; }
+        
+        public IReaction HitReaction => this.m_HitReaction;
+        public IReaction ParriedReaction => this.m_ParriedReaction;
 
         // GETTERS: -------------------------------------------------------------------------------
 
@@ -42,14 +47,19 @@ namespace GameCreator.Runtime.Characters
         
         // RUNNERS: -------------------------------------------------------------------------------
         
-        public async Task RunOnEquip(Args args)
+        public virtual async Task RunOnEquip(Character character, Args args)
         {
             await this.m_OnEquip.Run(args);
         }
 
-        public async Task RunOnUnequip(Args args)
+        public virtual async Task RunOnUnequip(Character character, Args args)
         {
             await this.m_OnUnequip.Run(args);
+        }
+        
+        public virtual async Task RunOnDodge(Character character, Args args)
+        {
+            await this.m_OnDodge.Run(args);
         }
 
         // PUBLIC METHODS: ------------------------------------------------------------------------

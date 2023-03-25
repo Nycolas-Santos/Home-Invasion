@@ -16,9 +16,66 @@ MonoBehaviour:
   m_Entry:
     m_EntryClip: {fileID: 7400000, guid: 26bedcafbec57764a93ab3339ccc399b, type: 3}
     m_EntryMask: {fileID: 0}
+    m_RootMotion: 0
   m_Exit:
     m_ExitClip: {fileID: 0}
     m_ExitMask: {fileID: 0}
+    m_RootMotion: 0
+  m_Properties:
+    m_Speed:
+      m_IsEnabled: 0
+      m_Value: 4
+    m_Rotation:
+      m_IsEnabled: 0
+      m_Value: 1800
+    m_Mass:
+      m_IsEnabled: 0
+      m_Value: 80
+    m_Height:
+      m_IsEnabled: 0
+      m_Value: 2
+    m_Radius:
+      m_IsEnabled: 0
+      m_Value: 0.2
+    m_GravityUpwards:
+      m_IsEnabled: 0
+      m_Value: -9.81
+    m_GravityDownwards:
+      m_IsEnabled: 0
+      m_Value: -9.81
+    m_TerminalVelocity:
+      m_IsEnabled: 0
+      m_Value: -53
+    m_UseAcceleration:
+      m_IsEnabled: 0
+      m_Value: 1
+    m_Acceleration:
+      m_IsEnabled: 0
+      m_Value: 10
+    m_Deceleration:
+      m_IsEnabled: 0
+      m_Value: 4
+    m_CanJump:
+      m_IsEnabled: 0
+      m_Value: 1
+    m_AirJumps:
+      m_IsEnabled: 0
+      m_Value: 0
+    m_JumpForce:
+      m_IsEnabled: 0
+      m_Value: 5
+    m_JumpCooldown:
+      m_IsEnabled: 0
+      m_Value: 0.5
+    m_DashInSuccession:
+      m_IsEnabled: 0
+      m_Value: 0
+    m_DashInAir:
+      m_IsEnabled: 0
+      m_Value: 0
+    m_DashCooldown:
+      m_IsEnabled: 0
+      m_Value: 1
   m_OnChange:
     m_Instructions: []
   m_Controller: {fileID: 6292572525611312860}

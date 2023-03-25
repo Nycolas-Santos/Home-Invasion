@@ -14,7 +14,7 @@ namespace GameCreator.Editor.Common
             PropertyElement inputElement = new PropertyElement(
                 reference,
                 property.displayName, 
-                true
+                false
             );
             
             root.Add(inputElement);

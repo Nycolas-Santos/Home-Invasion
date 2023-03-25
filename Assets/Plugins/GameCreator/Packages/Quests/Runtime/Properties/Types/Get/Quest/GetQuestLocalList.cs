@@ -17,8 +17,7 @@ namespace GameCreator.Runtime.Quests
         [SerializeField]
         protected FieldGetLocalList m_Variable = new FieldGetLocalList(ValueQuest.TYPE_ID);
 
-        public override Quest Get(Args args) => this.m_Variable.Get<Quest>();
-        public override Quest Get(GameObject gameObject) => this.m_Variable.Get<Quest>();
+        public override Quest Get(Args args) => this.m_Variable.Get<Quest>(args);
 
         public override string String => this.m_Variable.ToString();
     }

@@ -18,8 +18,8 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty propertyBase = property.FindPropertyRelative(PROP_BASE);
             SerializedProperty propertySocketID = property.FindPropertyRelative(PROP_SOCKET_ID);
 
-            var fieldBase = new GameCreator.Editor.Common.PropertyTool(propertyBase);
-            var fieldSocketID = new GameCreator.Editor.Common.PropertyTool(propertySocketID);
+            PropertyField fieldBase = new PropertyField(propertyBase);
+            PropertyField fieldSocketID = new PropertyField(propertySocketID);
 
             root.Add(fieldBase);
             root.Add(fieldSocketID);

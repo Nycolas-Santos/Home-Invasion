@@ -26,7 +26,8 @@ namespace GameCreator.Runtime.Characters
 
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
         
-        [SerializeField] protected float m_ModelPosition = 0f;
+        [SerializeField] protected float m_ModelPosition;
+
         [SerializeField] protected float m_SmoothTime = 0.5f;
         [SerializeField] protected Transform m_Mannequin;
         [SerializeField] protected Animator m_Animator;
@@ -120,7 +121,7 @@ namespace GameCreator.Runtime.Characters
             this.m_Breathing?.OnStartup(this, character);
             this.m_Twitching?.OnStartup(this, character);
             
-            this.Character.Ragdoll.EventBeforeStartRagdoll += this.OnStartRagdoll;
+            this.Character.Ragdoll.EventAfterStartRagdoll += this.OnStartRagdoll;
             this.Character.Ragdoll.EventAfterStartRecover += this.OnEndRagdoll;
         }
 
@@ -151,7 +152,7 @@ namespace GameCreator.Runtime.Characters
                 }
             }
             
-            this.Character.Ragdoll.EventBeforeStartRagdoll -= this.OnStartRagdoll;
+            this.Character.Ragdoll.EventAfterStartRagdoll -= this.OnStartRagdoll;
             this.Character.Ragdoll.EventAfterStartRecover -= this.OnEndRagdoll;
         }
 

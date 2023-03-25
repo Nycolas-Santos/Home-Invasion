@@ -13,14 +13,12 @@ namespace GameCreator.Runtime.Stats
     [Serializable] [HideLabelsInEditor]
     public class GetStringStatusEffectName : PropertyTypeGetString
     {
-        [SerializeField] protected StatusEffect m_StatusEffect;
+        [SerializeField] protected StatusEffectSelector m_StatusEffect = new StatusEffectSelector();
 
-        public override string Get(Args args) => this.m_StatusEffect != null 
-            ? this.m_StatusEffect.GetName(args) 
+        public override string Get(Args args) => this.m_StatusEffect.Get != null 
+            ? this.m_StatusEffect.Get.GetName(args) 
             : string.Empty;
 
-        public override string String => this.m_StatusEffect != null 
-            ? this.m_StatusEffect.ID.String 
-            : "(none)";
+        public override string String => this.m_StatusEffect.ToString();
     }
 }

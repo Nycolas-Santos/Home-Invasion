@@ -16,10 +16,10 @@ namespace GameCreator.Editor.Characters
             SerializedProperty radius = property.FindPropertyRelative("m_Radius");
             SerializedProperty direction = property.FindPropertyRelative("m_Direction");
 
-            PropertyTool fieldCenter = new PropertyTool(center);
-            PropertyTool fieldHeight = new PropertyTool(height);
-            PropertyTool fieldRadius = new PropertyTool(radius);
-            PropertyTool fieldDirection = new PropertyTool(direction);
+            PropertyField fieldCenter = new PropertyField(center);
+            PropertyField fieldHeight = new PropertyField(height);
+            PropertyField fieldRadius = new PropertyField(radius);
+            PropertyField fieldDirection = new PropertyField(direction);
 
             root.Add(fieldCenter);
             root.Add(fieldHeight);

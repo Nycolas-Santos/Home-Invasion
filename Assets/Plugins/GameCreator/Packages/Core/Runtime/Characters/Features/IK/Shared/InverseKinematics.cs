@@ -10,10 +10,10 @@ namespace GameCreator.Runtime.Characters
     {
         // MEMBERS: -------------------------------------------------------------------------------
 
-        private Character m_Character;
+        [NonSerialized] private Character m_Character;
         
-        private GameObject m_Model;
-        private RigBuilder m_RigBuilder;
+        [NonSerialized] private GameObject m_Model;
+        [NonSerialized] private RigBuilder m_RigBuilder;
         
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
         

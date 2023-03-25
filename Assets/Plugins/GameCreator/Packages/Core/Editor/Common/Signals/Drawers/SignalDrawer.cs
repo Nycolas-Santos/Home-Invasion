@@ -132,6 +132,8 @@ namespace GameCreator.Editor.Common
             nameContainer.Add(favorite);
             nameContainer.Add(dropdown);
 
+            _ = new AlignLabel(nameContainer);
+
             root.Add(nameContainer);
             root.SetEnabled(!EditorApplication.isPlayingOrWillChangePlaymode);
             

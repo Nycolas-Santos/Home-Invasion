@@ -16,9 +16,9 @@ namespace GameCreator.Editor.Characters
             SerializedProperty minPower = property.FindPropertyRelative("m_MinPower");
             SerializedProperty direction = property.FindPropertyRelative("m_Direction");
             
-            root.Add(new PropertyTool(minPower));
+            root.Add(new PropertyField(minPower));
             root.Add(new SpaceSmallest());
-            root.Add(new PropertyTool(direction));
+            root.Add(new PropertyField(direction));
             
             SerializedProperty conditions = property.FindPropertyRelative("m_Conditions");
             
@@ -27,9 +27,15 @@ namespace GameCreator.Editor.Characters
             
             SerializedProperty animations = property.FindPropertyRelative("m_Animations");
             SerializedProperty avatarMask = property.FindPropertyRelative("m_AvatarMask");
+            SerializedProperty cancelTime = property.FindPropertyRelative("m_CancelTime");
+            SerializedProperty rotation = property.FindPropertyRelative("m_Rotation");
+            SerializedProperty gravity = property.FindPropertyRelative("m_Gravity");
 
             root.Add(new SpaceSmall());
-            root.Add(new PropertyTool(avatarMask));
+            root.Add(new PropertyField(cancelTime));
+            root.Add(new PropertyField(rotation));
+            root.Add(new PropertyField(gravity));
+            root.Add(new PropertyField(avatarMask));
             root.Add(new SpaceSmaller());
             root.Add(new PropertyField(animations));
 

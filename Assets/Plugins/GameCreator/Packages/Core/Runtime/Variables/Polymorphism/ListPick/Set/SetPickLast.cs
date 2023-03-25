@@ -12,8 +12,8 @@ namespace GameCreator.Runtime.Variables
     [Serializable]
     public class SetPickLast : TListSetPick
     {
-        public override int GetIndex(ListVariableRuntime list, int count) => count - 1;
-        public override int GetIndex(int count) => count - 1;
+        public override int GetIndex(ListVariableRuntime list, int count, Args args) => count - 1;
+        public override int GetIndex(int count, Args args) => count - 1;
         
         public override string ToString() => "Last";
     }

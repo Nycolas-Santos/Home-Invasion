@@ -17,9 +17,9 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty sprite = property.FindPropertyRelative("m_Sprite");
             SerializedProperty speechUI = property.FindPropertyRelative("m_OverrideSpeechSkin");
 
-            PropertyTool fieldId = new PropertyTool(id, "ID");
-            PropertyTool fieldSprite = new PropertyTool(sprite);
-            PropertyTool fieldSpeechUI = new PropertyTool(speechUI, "Speech Skin");
+            PropertyField fieldId = new PropertyField(id, "ID");
+            PropertyField fieldSprite = new PropertyField(sprite);
+            PropertyField fieldSpeechUI = new PropertyField(speechUI, "Speech Skin");
             
             root.Add(fieldId);
             root.Add(fieldSprite);
@@ -28,8 +28,8 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty onStart = property.FindPropertyRelative("m_InstructionsOnStart");
             SerializedProperty onEnd = property.FindPropertyRelative("m_InstructionsOnEnd");
 
-            PropertyTool fieldOnStart = new PropertyTool(onStart);
-            PropertyTool fieldOnEnd = new PropertyTool(onEnd);
+            PropertyField fieldOnStart = new PropertyField(onStart);
+            PropertyField fieldOnEnd = new PropertyField(onEnd);
             
             root.Add(new SpaceSmaller());
             root.Add(new LabelTitle("On Start"));

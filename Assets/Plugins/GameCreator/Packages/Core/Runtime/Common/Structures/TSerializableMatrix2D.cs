@@ -65,6 +65,8 @@ namespace GameCreator.Runtime.Common
 
 		void ISerializationCallbackReceiver.OnAfterDeserialize()
 		{
+			if (AssemblyUtils.IsReloading) return;
+			
 			int width = this.m_MatrixWidth;
 			int height = width > 0 ? this.m_MatrixUnwrapped.Length / this.m_MatrixWidth : 0;
 			
@@ -82,6 +84,8 @@ namespace GameCreator.Runtime.Common
 
 		void ISerializationCallbackReceiver.OnBeforeSerialize()
 		{
+			if (AssemblyUtils.IsReloading) return;
+			
 			int width = this.MatrixWidth;
 			int height = this.MatrixHeight;
 			

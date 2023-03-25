@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameCreator.Runtime.VisualScripting
 {
     [Title("Raycast 3D")]
-    [Description("Returns true if there's a clear line of sight between two positions")]
+    [Description("Returns true if there's an object between two positions")]
 
     [Category("Physics/Raycast 3D")]
     
@@ -25,8 +25,6 @@ namespace GameCreator.Runtime.VisualScripting
     [Serializable]
     public class ConditionPhysicsRaycast3D : Condition
     {
-        private static RaycastHit[] HITS = new RaycastHit[1];
-        
         // MEMBERS: -------------------------------------------------------------------------------
 
         [SerializeField] private PropertyGetPosition m_Source = GetPositionCamerasMain.Create;
@@ -36,7 +34,7 @@ namespace GameCreator.Runtime.VisualScripting
 
         // PROPERTIES: ----------------------------------------------------------------------------
         
-        protected override string Summary => $"check Raycast {this.m_Source} and {this.m_Target}";
+        protected override string Summary => $"raycast {this.m_Source} and {this.m_Target}";
         
         // RUN METHOD: ----------------------------------------------------------------------------
 
@@ -48,13 +46,15 @@ namespace GameCreator.Runtime.VisualScripting
             if (target == null) return false;
 
             bool isHit = Physics.Raycast(
-                source, target.transform.position - source,
+                source,
+                target.transform.position - source,
                 out RaycastHit hit,
                 Vector3.Distance(source, target.transform.position),
-                this.m_LayerMask, QueryTriggerInteraction.Ignore
+                this.m_LayerMask,
+                QueryTriggerInteraction.Ignore
             );
 
-            return !isHit || hit.collider.gameObject == target;
+            return isHit && hit.collider.gameObject != target;
         }
     }
 }

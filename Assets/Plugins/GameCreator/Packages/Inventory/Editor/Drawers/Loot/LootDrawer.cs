@@ -34,11 +34,11 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty currency = property.FindPropertyRelative(PROP_CURRENCY);
             SerializedProperty amount = property.FindPropertyRelative(PROP_AMOUNT);
 
-            var fieldRate = new GameCreator.Editor.Common.PropertyTool(rate);
-            var fieldType = new GameCreator.Editor.Common.PropertyTool(type, LABEL_LOOT_TYPE);
-            var fieldItem = new GameCreator.Editor.Common.PropertyTool(item, LABEL_LOOT_EMPTY);
-            var fieldCurrency = new GameCreator.Editor.Common.PropertyTool(currency, LABEL_LOOT_EMPTY);
-            var fieldAmount = new GameCreator.Editor.Common.PropertyTool(amount);
+            PropertyField fieldRate = new PropertyField(rate);
+            PropertyField fieldType = new PropertyField(type, LABEL_LOOT_TYPE);
+            PropertyField fieldItem = new PropertyField(item, LABEL_LOOT_EMPTY);
+            PropertyField fieldCurrency = new PropertyField(currency, LABEL_LOOT_EMPTY);
+            PropertyField fieldAmount = new PropertyField(amount);
 
             root.Add(fieldRate);
             root.Add(new SpaceSmall());
@@ -49,7 +49,7 @@ namespace GameCreator.Editor.Inventory
             root.Add(fieldAmount);
             root.Add(amountContent);
             
-            fieldType.EventChange += changeEvent =>
+            fieldType.RegisterValueChangeCallback(changeEvent =>
             {
                 fieldItem.style.display = changeEvent.changedProperty.enumValueIndex == 0
                     ? DisplayStyle.Flex
@@ -58,7 +58,7 @@ namespace GameCreator.Editor.Inventory
                 fieldCurrency.style.display = changeEvent.changedProperty.enumValueIndex == 1
                     ? DisplayStyle.Flex
                     : DisplayStyle.None;
-            };
+            });
             
             fieldItem.style.display = type.enumValueIndex == 0
                 ? DisplayStyle.Flex
@@ -68,20 +68,20 @@ namespace GameCreator.Editor.Inventory
                 ? DisplayStyle.Flex
                 : DisplayStyle.None;
 
-            fieldRate.EventChange += changeEvent =>
+            fieldRate.RegisterValueChangeCallback(changeEvent =>
             {
                 int value = Mathf.Max(changeEvent.changedProperty.intValue, 0);
                 rate.intValue = value;
                 
                 rate.serializedObject.ApplyModifiedProperties();
                 rate.serializedObject.Update();
-            };
+            });
 
             RefreshAmount(amountContent, property);
-            fieldAmount.EventChange += _ =>
+            fieldAmount.RegisterValueChangeCallback(_ =>
             {
                 RefreshAmount(amountContent, property);
-            };
+            });
 
             return root;
         }
@@ -98,14 +98,14 @@ namespace GameCreator.Editor.Inventory
             switch (amount.intValue)
             {
                 case 0: // Constant
-                    var fieldConstant = new GameCreator.Editor.Common.PropertyTool(amountConstant, LABEL_LOOT_EMPTY);
+                    PropertyField fieldConstant = new PropertyField(amountConstant, LABEL_LOOT_EMPTY);
                     fieldConstant.Bind(property.serializedObject);
                     content.Add(fieldConstant);
                     break;
                 
                 case 1: // Range
-                    var fieldMin = new GameCreator.Editor.Common.PropertyTool(amountMin, "  Min");
-                    var fieldMax = new GameCreator.Editor.Common.PropertyTool(amountMax, "  Max");
+                    PropertyField fieldMin = new PropertyField(amountMin, "  Min");
+                    PropertyField fieldMax = new PropertyField(amountMax, "  Max");
                     content.Add(fieldMin);
                     content.Add(fieldMax);
                     break;

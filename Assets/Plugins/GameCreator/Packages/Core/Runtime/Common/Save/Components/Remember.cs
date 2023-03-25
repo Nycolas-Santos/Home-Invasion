@@ -14,7 +14,7 @@ namespace GameCreator.Runtime.Common
         // MEMBERS: -------------------------------------------------------------------------------
         
         [SerializeField]
-        private SaveUniqueID m_SaveUniqueID = new SaveUniqueID();
+        private SaveUniqueID m_SaveUniqueID = new SaveUniqueID(true);
 
         [SerializeField] 
         private Memories m_Memories = new Memories();

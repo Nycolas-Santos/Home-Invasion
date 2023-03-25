@@ -13,15 +13,19 @@ namespace GameCreator.Runtime.Variables
         
         // PUBLIC METHODS: ------------------------------------------------------------------------
         
-        public T Get<T>()
+        public T Get<T>(Args args)
         {
-            object value = this.Get();
-            return Convert.ChangeType(value, typeof(T)) is T typedValue ? typedValue : default;
+            object value = this.Get(args);
+            if (value is T valueTyped) return valueTyped;
+            
+            return Convert.ChangeType(value, typeof(T)) is T valueConverted 
+                ? valueConverted
+                : default;
         }
         
         // ABSTRACT METHODS: ----------------------------------------------------------------------
 
-        public abstract object Get();
+        public abstract object Get(Args args);
         public abstract override string ToString();
     }
 }

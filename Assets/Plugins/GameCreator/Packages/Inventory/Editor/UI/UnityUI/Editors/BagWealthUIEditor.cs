@@ -20,10 +20,10 @@ namespace GameCreator.Editor.Inventory.UnityUI
         private SerializedProperty m_PrefabCoin;
         private SerializedProperty m_CoinsContent;
         
-        private GameCreator.Editor.Common.PropertyTool m_FieldCurrency;
-        private GameCreator.Editor.Common.PropertyTool m_FieldFromBag;
-        private GameCreator.Editor.Common.PropertyTool m_FieldPrefabCoin;
-        private GameCreator.Editor.Common.PropertyTool m_FieldCoinsContent;
+        private PropertyField m_FieldCurrency;
+        private PropertyField m_FieldFromBag;
+        private PropertyField m_FieldPrefabCoin;
+        private PropertyField m_FieldCoinsContent;
 
         public override VisualElement CreateInspectorGUI()
         {
@@ -34,10 +34,10 @@ namespace GameCreator.Editor.Inventory.UnityUI
             this.m_PrefabCoin = this.serializedObject.FindProperty("m_PrefabCoin");
             this.m_CoinsContent = this.serializedObject.FindProperty("m_CoinsContent");
 
-            this.m_FieldCurrency = new GameCreator.Editor.Common.PropertyTool(this.m_Currency);
-            this.m_FieldFromBag = new GameCreator.Editor.Common.PropertyTool(this.m_FromBag);
-            this.m_FieldPrefabCoin = new GameCreator.Editor.Common.PropertyTool(this.m_PrefabCoin);
-            this.m_FieldCoinsContent = new GameCreator.Editor.Common.PropertyTool(this.m_CoinsContent);
+            this.m_FieldCurrency = new PropertyField(this.m_Currency);
+            this.m_FieldFromBag = new PropertyField(this.m_FromBag);
+            this.m_FieldPrefabCoin = new PropertyField(this.m_PrefabCoin);
+            this.m_FieldCoinsContent = new PropertyField(this.m_CoinsContent);
 
             this.m_Root.Add(this.m_FieldCurrency);
             

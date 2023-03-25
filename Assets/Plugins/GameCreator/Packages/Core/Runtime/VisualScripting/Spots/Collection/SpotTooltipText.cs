@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using GameCreator.Runtime.Common;
+using TMPro;
 using UnityEngine.UI;
 
 namespace GameCreator.Runtime.VisualScripting
@@ -24,8 +25,15 @@ namespace GameCreator.Runtime.VisualScripting
         private const float SIZE_Y = 1f;
 
         private const int PADDING = 50;
-
+        
+        // TODO: Remove condition once 2022.3 LTS lands
+        
+        #if UNITY_2022_2_OR_NEWER
+        private const string FONT_NAME = "LegacyRuntime.tff";
+        #else 
         private const string FONT_NAME = "Arial.ttf";
+        #endif
+
         private const int FONT_SIZE = 32;
         
         private static readonly Color COLOR_BACKGROUND = new Color(0f, 0f, 0f, 0.5f);
@@ -41,7 +49,9 @@ namespace GameCreator.Runtime.VisualScripting
         // MEMBERS: -------------------------------------------------------------------------------
         
         [NonSerialized] private GameObject m_Tooltip;
+        
         [NonSerialized] private Text m_TooltipText;
+        [NonSerialized] private TMP_Text m_TooltipTMPText;
         
         // PROPERTIES: ----------------------------------------------------------------------------
 
@@ -109,6 +119,7 @@ namespace GameCreator.Runtime.VisualScripting
                     );
 
                     this.m_TooltipText = this.m_Tooltip.GetComponentInChildren<Text>();
+                    this.m_TooltipTMPText = this.m_Tooltip.GetComponentInChildren<TMP_Text>();
                 }
                 else
                 {
@@ -140,7 +151,9 @@ namespace GameCreator.Runtime.VisualScripting
                 this.m_Tooltip.hideFlags = HideFlags.HideAndDontSave;
                 
                 Args args = new Args(hotspot.gameObject, hotspot.Target);
-                this.m_TooltipText.text = this.m_Text.Get(args);
+                
+                if (this.m_TooltipText != null) this.m_TooltipText.text = this.m_Text.Get(args);
+                if (this.m_TooltipTMPText != null) this.m_TooltipTMPText.text = this.m_Text.Get(args);
             }
 
             return this.m_Tooltip;

@@ -29,6 +29,10 @@ namespace GameCreator.Runtime.Dialogue
         [SerializeField] private AudioClip m_Select;
         [SerializeField] private AudioClip m_Submit;
 
+        [SerializeField] private ValuesNodeTexts m_ValuesTexts = new ValuesNodeTexts();
+        [SerializeField] private ValuesNodeChoices m_ValuesChoices = new ValuesNodeChoices();
+        [SerializeField] private ValuesNodeRandom m_ValuesRandom = new ValuesNodeRandom();
+
         // MEMBERS: -------------------------------------------------------------------------------
 
         [NonSerialized] private DialogueUI m_Instance;
@@ -50,6 +54,10 @@ namespace GameCreator.Runtime.Dialogue
         
         public float DurationOpen => this.m_Open != null ? this.m_Open.length : 0f;
         public float DurationClose => this.m_Close != null ? this.m_Close.length : 0f;
+
+        public ValuesNodeTexts ValuesTexts => this.m_ValuesTexts;
+        public ValuesNodeChoices ValuesChoices => this.m_ValuesChoices;
+        public ValuesNodeRandom ValuesRandom => this.m_ValuesRandom;
         
         // PUBLIC METHODS: ------------------------------------------------------------------------
 

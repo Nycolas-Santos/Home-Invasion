@@ -22,8 +22,8 @@ namespace GameCreator.Editor.Inventory.UnityUI
 
             root.Add(new PropertyField(itemUI));
             root.Add(new SpaceSmall());
-            root.Add(new GameCreator.Editor.Common.PropertyTool(cursorIcon));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(cursorPoint));
+            root.Add(new PropertyField(cursorIcon));
+            root.Add(new PropertyField(cursorPoint));
 
             return root;
         }

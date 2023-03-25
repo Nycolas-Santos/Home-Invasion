@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Quests.UnityUI;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Quests
@@ -15,16 +16,16 @@ namespace GameCreator.Editor.Quests
             SerializedProperty journal = this.serializedObject.FindProperty("m_Journal");
             SerializedProperty filter = this.serializedObject.FindProperty("m_Filter");
             
-            root.Add(new PropertyTool(journal));
+            root.Add(new PropertyField(journal));
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(filter));
+            root.Add(new PropertyField(filter));
             
             SerializedProperty content = this.serializedObject.FindProperty("m_Content");
             SerializedProperty prefab = this.serializedObject.FindProperty("m_Prefab");
             
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(content));
-            root.Add(new PropertyTool(prefab));
+            root.Add(new PropertyField(content));
+            root.Add(new PropertyField(prefab));
 
             return root;
         }

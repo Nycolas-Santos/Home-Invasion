@@ -41,8 +41,8 @@ namespace GameCreator.Editor.Inventory.UnityUI
             this.m_Root.Add(new PropertyField(numberValue));
             this.m_Root.Add(new PropertyField(stringValue));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(icon));
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(color));
+            this.m_Root.Add(new PropertyField(icon));
+            this.m_Root.Add(new PropertyField(color));
             
             return this.m_Root;
         }

@@ -30,7 +30,7 @@ namespace GameCreator.Runtime.Characters
         float Height { get; set; }
         float Radius { get; set; }
 
-        bool UseAcceleration { get; }
+        bool UseAcceleration { get; set; }
         float Acceleration   { get; set; }
         float Deceleration   { get; set; }
 
@@ -47,6 +47,10 @@ namespace GameCreator.Runtime.Characters
         float JumpForce    { get; set; }
         float JumpCooldown { get; set; }
         
+        int DashInSuccession { get; set; }
+        bool DashInAir { get; set; }
+        float DashCooldown { get; set; }
+
         float InteractionRadius { get; set; }
         InteractionMode InteractionMode { get; set; }
 

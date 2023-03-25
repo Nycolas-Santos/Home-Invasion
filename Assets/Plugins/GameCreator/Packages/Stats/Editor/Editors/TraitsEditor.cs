@@ -37,9 +37,9 @@ namespace GameCreator.Editor.Stats
             foreach (StyleSheet sheet in sheets) this.m_Root.styleSheets.Add(sheet);
 
             this.m_PropertyClass = this.serializedObject.FindProperty("m_Class");
-            PropertyTool fieldClass = new PropertyTool(this.m_PropertyClass);
+            PropertyField fieldClass = new PropertyField(this.m_PropertyClass);
             
-            fieldClass.EventChange += _ => this.RefreshBody();
+            fieldClass.RegisterValueChangeCallback(_ => this.RefreshBody());
             this.RefreshBody();
             
             if (!EditorApplication.isPlayingOrWillChangePlaymode) this.m_Head.Add(fieldClass);

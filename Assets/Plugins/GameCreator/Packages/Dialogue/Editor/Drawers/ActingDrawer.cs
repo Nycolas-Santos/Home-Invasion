@@ -1,6 +1,6 @@
-using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -18,7 +18,7 @@ namespace GameCreator.Editor.Dialogue
             VisualElement root = new VisualElement();
             SerializedProperty portrait = property.FindPropertyRelative(PROPERTY_PORTRAIT);
             
-            root.Add(new PropertyTool(portrait));
+            root.Add(new PropertyField(portrait));
             root.Add(new ExpressingTool(property));
             
             return root;

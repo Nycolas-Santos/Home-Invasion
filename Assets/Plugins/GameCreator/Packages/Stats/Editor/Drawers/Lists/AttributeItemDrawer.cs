@@ -19,11 +19,11 @@ namespace GameCreator.Editor.Stats
 
             VisualElement contentStartPercent = new VisualElement();
 
-            PropertyTool fieldAttr = new PropertyTool(attr);
-            PropertyTool fieldChangeStartPercent = new PropertyTool(changeStartPercent);
-            PropertyTool fieldStartPercent = new PropertyTool(startPercent, " ");
+            PropertyField fieldAttr = new PropertyField(attr);
+            PropertyField fieldChangeStartPercent = new PropertyField(changeStartPercent);
+            PropertyField fieldStartPercent = new PropertyField(startPercent, " ");
 
-            fieldChangeStartPercent.EventChange += changeEvent =>
+            fieldChangeStartPercent.RegisterValueChangeCallback(changeEvent =>
             {
                 contentStartPercent.Clear();
                 if (changeEvent.changedProperty.boolValue)
@@ -31,7 +31,7 @@ namespace GameCreator.Editor.Stats
                     contentStartPercent.Add(fieldStartPercent);
                     fieldStartPercent.Bind(changeEvent.changedProperty.serializedObject);
                 }
-            };
+            });
             
             root.Add(fieldAttr);
             root.Add(fieldChangeStartPercent);

@@ -41,6 +41,9 @@ namespace GameCreator.Editor.Common
         public abstract bool AllowBreakpoint    { get; }
         public abstract bool AllowDisable       { get; }
         public abstract bool AllowDocumentation { get; }
+        
+        public virtual bool AllowGroupCollapse => true;
+        public virtual bool AllowGroupExpand => true;
 
         protected virtual List<string> CustomStyleSheetPaths => new List<string>();
 
@@ -105,10 +108,8 @@ namespace GameCreator.Editor.Common
             StyleSheet[] sheets = StyleSheetUtils.Load(styleSheetsPaths.ToArray());
             foreach (StyleSheet sheet in sheets) this.styleSheets.Add(sheet);
         }
-        
-        // PROTECTED METHODS: ---------------------------------------------------------------------
 
-        protected void CollapseItems()
+        private void ChangeExpansionItems(bool isExpanded)
         {
             this.SerializedObject.Update();
             
@@ -116,13 +117,15 @@ namespace GameCreator.Editor.Common
             for (int i = 0; i < arraySize; ++i)
             {
                 SerializedProperty item = this.PropertyList.GetArrayElementAtIndex(i);
-                item.FindPropertyRelative("m_IsExpanded").boolValue = false;
+                item.FindPropertyRelative("m_IsExpanded").boolValue = isExpanded;
             }
 
             SerializationUtils.ApplyUnregisteredSerialization(this.SerializedObject);
             this.Refresh();
         }
 
+        // PROTECTED METHODS: ---------------------------------------------------------------------
+        
         protected void ExecuteEventChangeSize(int size)
         {
             this.EventChangeSize?.Invoke(size);
@@ -216,6 +219,16 @@ namespace GameCreator.Editor.Common
 
             SerializationUtils.ApplyUnregisteredSerialization(this.SerializedObject);
             this.Refresh();
+        }
+
+        public void Collapse()
+        {
+            this.ChangeExpansionItems(false);
+        }
+        
+        public void Expand()
+        {
+            this.ChangeExpansionItems(true);
         }
     }
 }

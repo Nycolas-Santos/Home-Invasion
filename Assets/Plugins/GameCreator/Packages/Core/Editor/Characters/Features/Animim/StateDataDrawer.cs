@@ -20,15 +20,15 @@ namespace GameCreator.Editor.Characters
             root.Add(body);
             
             SerializedProperty propertyStateType = property.FindPropertyRelative("m_StateType");
-            PropertyTool fieldStateType = new PropertyTool(propertyStateType);
+            PropertyField fieldStateType = new PropertyField(propertyStateType);
 
             head.Add(fieldStateType);
             
             this.Refresh(body, property, propertyStateType.enumValueIndex);
-            fieldStateType.EventChange += eventChange =>
+            fieldStateType.RegisterValueChangeCallback(eventChange =>
             {
                 this.Refresh(body, property, eventChange.changedProperty.enumValueIndex);
-            };
+            });
             
             return root;
         }
@@ -42,10 +42,10 @@ namespace GameCreator.Editor.Characters
             SerializedProperty propertyState = property.FindPropertyRelative("m_State");
             SerializedProperty propertyAvatarMask = property.FindPropertyRelative("m_AvatarMask");
             
-            PropertyTool fieldClip = new PropertyTool(propertyClip);
-            PropertyTool fieldRTC = new PropertyTool(propertyRTC);
-            PropertyTool fieldState = new PropertyTool(propertyState);
-            PropertyTool fieldAvatarMask = new PropertyTool(propertyAvatarMask);
+            PropertyField fieldClip = new PropertyField(propertyClip);
+            PropertyField fieldRTC = new PropertyField(propertyRTC);
+            PropertyField fieldState = new PropertyField(propertyState);
+            PropertyField fieldAvatarMask = new PropertyField(propertyAvatarMask);
             
             switch ((StateData.StateType)enumIndex)
             {

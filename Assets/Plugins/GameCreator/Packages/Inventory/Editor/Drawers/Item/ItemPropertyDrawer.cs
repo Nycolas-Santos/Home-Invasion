@@ -27,8 +27,8 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty propertyID = property.FindPropertyRelative(PROP_PROPERTY_ID);
             SerializedProperty propertyIsHidden = property.FindPropertyRelative(PROP_VISIBLE);
             
-            var fieldPropertyID = new GameCreator.Editor.Common.PropertyTool(propertyID);
-            var fieldIsHidden = new GameCreator.Editor.Common.PropertyTool(propertyIsHidden);
+            PropertyField fieldPropertyID = new PropertyField(propertyID);
+            PropertyField fieldIsHidden = new PropertyField(propertyIsHidden);
 
             root.Add(fieldPropertyID);
             root.Add(fieldIsHidden);
@@ -36,8 +36,8 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty icon = property.FindPropertyRelative(PROP_ICON);
             SerializedProperty color = property.FindPropertyRelative(PROP_COLOR);
 
-            var fieldIcon = new GameCreator.Editor.Common.PropertyTool(icon);
-            var fieldColor = new GameCreator.Editor.Common.PropertyTool(color);
+            PropertyField fieldIcon = new PropertyField(icon);
+            PropertyField fieldColor = new PropertyField(color);
             
             root.Add(new SpaceSmall());
             root.Add(fieldIcon);
@@ -46,8 +46,8 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty propertyNumber = property.FindPropertyRelative(PROP_NUMBER);
             SerializedProperty propertyText = property.FindPropertyRelative(PROP_TEXT);
             
-            var fieldNumber = new GameCreator.Editor.Common.PropertyTool(propertyNumber);
-            var fieldText = new GameCreator.Editor.Common.PropertyTool(propertyText);
+            PropertyField fieldNumber = new PropertyField(propertyNumber);
+            PropertyField fieldText = new PropertyField(propertyText);
             
             root.Add(new SpaceSmall());
             root.Add(fieldNumber);

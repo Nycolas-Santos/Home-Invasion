@@ -18,7 +18,7 @@ namespace GameCreator.Editor.Characters
             SerializedProperty footstepSounds = property.FindPropertyRelative("m_FootstepSounds");
             
             container.Add(feetTool);
-            container.Add(new PropertyTool(footstepSounds));
+            container.Add(new PropertyField(footstepSounds));
         }
     }
 }

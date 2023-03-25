@@ -12,7 +12,7 @@ namespace GameCreator.Runtime.Variables
     [Serializable]
     public class GetPickRandom : TListGetPick
     {
-        public override int GetIndex(int count)
+        public override int GetIndex(int count, Args args)
         {
             return UnityEngine.Random.Range(0, count);
         }

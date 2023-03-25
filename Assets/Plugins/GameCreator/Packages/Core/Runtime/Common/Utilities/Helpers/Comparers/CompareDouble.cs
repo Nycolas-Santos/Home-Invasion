@@ -36,7 +36,7 @@ namespace GameCreator.Runtime.Common
         
         public CompareDouble(double value) : this(new PropertyGetDecimal(value))
         { }
-        
+
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
         public bool Match(double value, Args args)

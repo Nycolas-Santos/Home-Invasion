@@ -7,14 +7,14 @@ namespace GameCreator.Runtime.VisualScripting
 {
     [Version(0, 0, 1)]
     
-    [Title("Raise Signal")]
-    [Description("Raises a specific signal, which is captured by other listeners")]
+    [Title("Emit Signal")]
+    [Description("Emits a specific signal, which is captured by other listeners")]
 
-    [Category("Logic/Raise Signal")]
+    [Category("Logic/Emit Signal")]
 
-    [Parameter("Signal", "The signal name risen")]
+    [Parameter("Signal", "The signal name emitted")]
 
-    [Keywords("Event", "Command", "Fire", "Trigger", "Dispatch", "Execute")]
+    [Keywords("Event", "Raise", "Command", "Fire", "Trigger", "Dispatch", "Execute")]
     [Image(typeof(IconSignal), ColorTheme.Type.Red)]
     
     [Serializable]
@@ -40,7 +40,7 @@ namespace GameCreator.Runtime.VisualScripting
         protected override Task Run(Args args)
         {
             SignalArgs data = new SignalArgs(this.m_Signal.Value, args.Self);
-            Signals.Raise(data);
+            Signals.Emit(data);
             return DefaultResult;
         }
     }

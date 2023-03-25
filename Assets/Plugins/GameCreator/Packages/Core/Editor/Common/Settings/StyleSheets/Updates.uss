@@ -4,6 +4,16 @@
     opacity: 0.5;
 }
 
+#GC-Updates-Container-Foot {
+    margin-top: var(--gc-common-space-small);
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#GC-Updates-Container-Foot Toggle {
+    margin-right: var(--gc-common-space-smaller);
+}
+
 #GC-Updates-Asset-Root {
     margin-top: var(--gc-common-space-smaller);
 }

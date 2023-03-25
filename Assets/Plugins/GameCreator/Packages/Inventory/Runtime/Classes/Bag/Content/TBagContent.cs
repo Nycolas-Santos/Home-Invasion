@@ -136,7 +136,7 @@ namespace GameCreator.Runtime.Inventory
         
         public abstract bool Move(Vector2Int positionA, Vector2Int positionB, bool allowStack);
         public abstract bool Add(RuntimeItem runtimeItem, Vector2Int position, bool allowStack);
-        public abstract bool Add(RuntimeItem runtimeItem, bool allowStack);
+        public abstract Vector2Int Add(RuntimeItem runtimeItem, bool allowStack);
         
         public abstract RuntimeItem AddType(Item item, Vector2Int position, bool allowStack);
         public abstract RuntimeItem AddType(Item item, bool allowStack);

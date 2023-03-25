@@ -26,22 +26,22 @@ namespace GameCreator.Editor.Quests
             SerializedProperty sprite = this.serializedObject.FindProperty("m_Sprite");
 
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(title));
+            root.Add(new PropertyField(title));
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(description));
+            root.Add(new PropertyField(description));
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(color));
+            root.Add(new PropertyField(color));
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(sprite));
+            root.Add(new PropertyField(sprite));
             
             SerializedProperty countTo = this.serializedObject.FindProperty("m_CountTo");
             SerializedProperty currentCount = this.serializedObject.FindProperty("m_CurrentCount");
             SerializedProperty fillCounter = this.serializedObject.FindProperty("m_FillCounter");
             
             root.Add(new SpaceSmall());
-            root.Add(new PropertyTool(countTo));
-            root.Add(new PropertyTool(currentCount));
-            root.Add(new PropertyTool(fillCounter));
+            root.Add(new PropertyField(countTo));
+            root.Add(new PropertyField(currentCount));
+            root.Add(new PropertyField(fillCounter));
             
             SerializedProperty styleGraphics = this.serializedObject.FindProperty("m_StyleGraphics");
             SerializedProperty activeElements = this.serializedObject.FindProperty("m_ActiveElements");
@@ -56,29 +56,29 @@ namespace GameCreator.Editor.Quests
             SerializedProperty showHidden = this.serializedObject.FindProperty("m_ShowHidden");
             
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(show));
-            root.Add(new PropertyTool(showHidden));
+            root.Add(new PropertyField(show));
+            root.Add(new PropertyField(showHidden));
             
             SerializedProperty subtasksContent = this.serializedObject.FindProperty("m_SubtasksContent");
             SerializedProperty subtaskPrefab = this.serializedObject.FindProperty("m_SubtaskPrefab");
 
-            PropertyTool fieldTasksContent = new PropertyTool(subtasksContent);
+            PropertyField fieldTasksContent = new PropertyField(subtasksContent);
             ErrorMessage fieldErrorTaskPrefab = new ErrorMessage(ERR_PREFAB);
-            PropertyTool fieldTaskPrefab = new PropertyTool(subtaskPrefab);
+            PropertyField fieldTaskPrefab = new PropertyField(subtaskPrefab);
             
             root.Add(new SpaceSmaller());
             root.Add(fieldTasksContent);
             root.Add(fieldErrorTaskPrefab);
             root.Add(fieldTaskPrefab);
 
-            fieldTaskPrefab.EventChange += changeEvent =>
+            fieldTaskPrefab.RegisterValueChangeCallback(changeEvent =>
             {
                 GameObject prefab = changeEvent.changedProperty.objectReferenceValue as GameObject;
                 fieldErrorTaskPrefab.style.display =
                     prefab != null && prefab.GetComponent<TaskUI>() == null
                         ? DisplayStyle.Flex
                         : DisplayStyle.None;
-            };
+            });
             
             GameObject prefab = subtaskPrefab.objectReferenceValue as GameObject;
             fieldErrorTaskPrefab.style.display =

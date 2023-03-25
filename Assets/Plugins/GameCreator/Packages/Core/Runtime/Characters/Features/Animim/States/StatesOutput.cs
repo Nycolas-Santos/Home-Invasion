@@ -160,27 +160,47 @@ namespace GameCreator.Runtime.Characters.Animim
             ref ScriptPlayable<StatePlayableBehaviour> statePlayable, 
             int layer, ConfigState config)
         {
-            this.StopPlayable(layer, config.DelayIn + config.TransitionIn, 0.01f);
-            int prevLayerIndex = this.m_Layers.IndexOfKey(layer) - 1;
+            this.StopPlayable(
+                layer, 
+                config.DelayIn + config.TransitionIn,
+                AnimimGraph.SAFE_TIME_OFFSET
+            );
+            
+            int setLayerIndex = -1;
+            foreach (KeyValuePair<int, List<StatePlayableBehaviour>> entry in this.m_Layers)
+            {
+                if (entry.Key > layer) break;
+                setLayerIndex += 1;
+            }
 
             Playable output;
             Playable input;
 
-            if (prevLayerIndex < 0)
+            if (this.m_Layers.Count == 0)
             {
                 output = this.ScriptPlayable;
                 input = this.ScriptPlayable.GetInput(0);
                 this.ScriptPlayable.DisconnectInput(0);
             }
-            else
+            else if (setLayerIndex < 0)
             {
-                int prevLayerKey = this.m_Layers.Keys[prevLayerIndex];
+                int prevLayerKey = this.m_Layers.Keys[0];
                 int prevLayerListLast = this.m_Layers[prevLayerKey].Count - 1;
                 StatePlayableBehaviour prevState = this.m_Layers[prevLayerKey][prevLayerListLast];
 
                 output = prevState.mixerPlayable;
                 input = prevState.mixerPlayable.GetInput(0);
                 prevState.mixerPlayable.DisconnectInput(0);
+            }
+            else
+            {
+                int prevLayerKey = this.m_Layers.Keys[setLayerIndex];
+                int prevLayerListLast = this.m_Layers[prevLayerKey].Count - 1;
+                StatePlayableBehaviour prevState = this.m_Layers[prevLayerKey][prevLayerListLast];
+
+                output = prevState.scriptPlayable.GetOutput(0);
+                input = prevState.scriptPlayable;
+                prevState.scriptPlayable.GetOutput(0).DisconnectInput(0);
             }
 
             statePlayable.ConnectInput(0, input, 0);

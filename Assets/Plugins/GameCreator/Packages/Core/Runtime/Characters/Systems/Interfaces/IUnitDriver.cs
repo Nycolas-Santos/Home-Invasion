@@ -16,6 +16,8 @@ namespace GameCreator.Runtime.Characters
         bool IsGrounded { get; }
         Vector3 FloorNormal { get; }
         
+        float GravityInfluence { get; }
+
         bool Collision { get; set; }
 
         // POSITION MODIFIERS: --------------------------------------------------------------------
@@ -27,5 +29,11 @@ namespace GameCreator.Runtime.Characters
         void AddPosition(Vector3 amount);
         void AddRotation(Quaternion amount);
         void AddScale(Vector3 amount);
+        
+        // GRAVITY METHODS: -----------------------------------------------------------------------
+
+        void ResetVerticalVelocity();
+        void SetGravityInfluence(int key, float influence);
+        void RemoveGravityInfluence(int key);
     }
 }

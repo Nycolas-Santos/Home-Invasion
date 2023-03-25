@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Variables;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Variables
@@ -15,7 +16,7 @@ namespace GameCreator.Editor.Variables
             SerializedProperty propertyVariable = property.FindPropertyRelative("m_Variable");
             SerializedProperty propertySelect = property.FindPropertyRelative("m_Select");
 
-            PropertyTool fieldVariable = new PropertyTool(propertyVariable);
+            PropertyField fieldVariable = new PropertyField(propertyVariable);
             PickFieldElement fieldSelect = new PickFieldElement(propertySelect, " ");
             
             root.Add(fieldVariable);

@@ -20,8 +20,8 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty item = property.FindPropertyRelative(PROP_ITEM);
             SerializedProperty amount = property.FindPropertyRelative(PROP_AMOUNT);
 
-            var fieldItem = new GameCreator.Editor.Common.PropertyTool(item);
-            var fieldAmount = new GameCreator.Editor.Common.PropertyTool(amount);
+            PropertyField fieldItem = new PropertyField(item);
+            PropertyField fieldAmount = new PropertyField(amount);
 
             root.Add(fieldItem);
             root.Add(fieldAmount);

@@ -67,7 +67,7 @@ namespace GameCreator.Runtime.VisualScripting
             if (character == null) return;
             
             ConfigGesture configuration = new ConfigGesture(
-                this.m_Delay, this.m_AnimationClip.length / this.m_Speed, 
+                this.m_Delay, this.m_AnimationClip.length, 
                 this.m_Speed, this.m_UseRootMotion,
                 this.m_TransitionIn, this.m_TransitionOut
             );

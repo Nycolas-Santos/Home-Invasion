@@ -14,7 +14,7 @@ namespace GameCreator.Editor.Variables
             SerializedProperty value = property.FindPropertyRelative("m_Value");
             if (value == null) return new VisualElement();
             
-            PropertyTool field = new PropertyTool(value);
+            PropertyField field = new PropertyField(value);
             field.Bind(property.serializedObject);
 
             return field;

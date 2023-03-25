@@ -34,18 +34,31 @@ namespace GameCreator.Editor.Characters
             SerializedProperty icon = this.serializedObject.FindProperty("m_Icon");
             SerializedProperty color = this.serializedObject.FindProperty("m_Color");
             
-            head.Add(new PropertyTool(title));
+            head.Add(new PropertyField(title));
             head.Add(new SpaceSmaller());
-            head.Add(new PropertyTool(description));
+            head.Add(new PropertyField(description));
             head.Add(new SpaceSmaller());
-            head.Add(new PropertyTool(icon));
+            head.Add(new PropertyField(icon));
             head.Add(new SpaceSmaller());
-            head.Add(new PropertyTool(color));
+            head.Add(new PropertyField(color));
+
+            head.Add(new SpaceSmaller());
+
+            PadBox receiveBox = new PadBox();
+            head.Add(receiveBox);
             
-            SerializedProperty reaction = this.serializedObject.FindProperty("m_Reaction");
+            if (this.HasShieldMember)
+            {
+                SerializedProperty shield = this.serializedObject.FindProperty("m_Shield");
+                receiveBox.Add(new PropertyField(shield));
+            }
             
-            head.Add(new SpaceSmaller());
-            head.Add(new PropertyTool(reaction));
+            SerializedProperty hitReaction = this.serializedObject.FindProperty("m_HitReaction");
+            SerializedProperty parriedReaction = this.serializedObject.FindProperty("m_ParriedReaction");
+            
+            receiveBox.Add(new SpaceSmaller());
+            receiveBox.Add(new PropertyField(hitReaction));
+            receiveBox.Add(new PropertyField(parriedReaction));
 
             SerializedProperty id = this.serializedObject.FindProperty("m_Id");
             head.Add(new SpaceSmall());
@@ -55,6 +68,7 @@ namespace GameCreator.Editor.Characters
 
             SerializedProperty onEquip = this.serializedObject.FindProperty("m_OnEquip");
             SerializedProperty onUnequip = this.serializedObject.FindProperty("m_OnUnequip");
+            SerializedProperty onDodge = this.serializedObject.FindProperty("m_OnDodge");
 
             foot.Add(new SpaceSmall());
             foot.Add(new LabelTitle("On Equip:"));
@@ -66,6 +80,11 @@ namespace GameCreator.Editor.Characters
             foot.Add(new SpaceSmaller());
             foot.Add(new PropertyField(onUnequip));
             
+            foot.Add(new SpaceSmall());
+            foot.Add(new LabelTitle("On Dodge:"));
+            foot.Add(new SpaceSmaller());
+            foot.Add(new PropertyField(onDodge));
+            
             root.Add(head);
             root.Add(body);
             root.Add(foot);
@@ -75,6 +94,7 @@ namespace GameCreator.Editor.Characters
 
         // PROTECTED METHODS: ---------------------------------------------------------------------
 
+        protected abstract bool HasShieldMember { get; }
         protected abstract void CreateGUI(VisualElement root);
     }
 }

@@ -13,11 +13,13 @@ namespace GameCreator.Editor.Characters
         {
             SerializedProperty footOffset = property.FindPropertyRelative("m_FootOffset");
             SerializedProperty footMask = property.FindPropertyRelative("m_FootMask");
+            SerializedProperty smoothTime = property.FindPropertyRelative("m_SmoothTime");
 
             VisualElement root = new VisualElement();
             
-            root.Add(new PropertyTool(footOffset));
-            root.Add(new PropertyTool(footMask));
+            root.Add(new PropertyField(footOffset));
+            root.Add(new PropertyField(footMask));
+            root.Add(new PropertyField(smoothTime));
 
             return root;
         }

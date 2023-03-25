@@ -21,7 +21,7 @@ namespace GameCreator.Editor.Common
             container.Add(new PropertyField(impact));
             container.Add(new SpaceSmall());
             container.Add(new LabelTitle("Sounds"));
-            container.Add(new PropertyTool(volume));
+            container.Add(new PropertyField(volume));
             container.Add(new PropertyField(variations));
         }
     }

@@ -17,7 +17,7 @@ namespace GameCreator.Editor.Common
             MaterialSoundsTool materialSoundsTool = new MaterialSoundsTool(property);
             SerializedProperty defaultSounds = property.FindPropertyRelative("m_DefaultSounds");
             
-            root.Add(new PropertyTool(layerMask));
+            root.Add(new PropertyField(layerMask));
             root.Add(materialSoundsTool);
             root.Add(new PropertyField(defaultSounds));
 

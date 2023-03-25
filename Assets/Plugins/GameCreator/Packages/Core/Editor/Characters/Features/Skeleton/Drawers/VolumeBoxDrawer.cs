@@ -14,8 +14,8 @@ namespace GameCreator.Editor.Characters
             SerializedProperty center = property.FindPropertyRelative("m_Center");
             SerializedProperty size = property.FindPropertyRelative("m_Size");
 
-            PropertyTool fieldCenter = new PropertyTool(center);
-            PropertyTool fieldSize = new PropertyTool(size);
+            PropertyField fieldCenter = new PropertyField(center);
+            PropertyField fieldSize = new PropertyField(size);
 
             root.Add(fieldCenter);
             root.Add(fieldSize);

@@ -20,11 +20,11 @@ namespace GameCreator.Editor.Stats
             SerializedProperty hasDuration = property.FindPropertyRelative("m_HasDuration");
             SerializedProperty duration = property.FindPropertyRelative("m_Duration");
 
-            PropertyTool fieldType = new PropertyTool(type);
-            PropertyTool fieldMaxStack = new PropertyTool(maxStack);
-            PropertyTool fieldSave = new PropertyTool(save);
-            PropertyTool fieldHasDuration = new PropertyTool(hasDuration);
-            PropertyTool fieldDuration = new PropertyTool(duration);
+            PropertyField fieldType = new PropertyField(type);
+            PropertyField fieldMaxStack = new PropertyField(maxStack);
+            PropertyField fieldSave = new PropertyField(save);
+            PropertyField fieldHasDuration = new PropertyField(hasDuration);
+            PropertyField fieldDuration = new PropertyField(duration);
 
             VisualElement durationContent = new VisualElement();
             
@@ -36,7 +36,7 @@ namespace GameCreator.Editor.Stats
             root.Add(durationContent);
 
             if (hasDuration.boolValue) durationContent.Add(fieldDuration);
-            fieldHasDuration.EventChange += changeEvent =>
+            fieldHasDuration.RegisterValueChangeCallback(changeEvent =>
             {
                 durationContent.Clear();
                 if (changeEvent.changedProperty.boolValue)
@@ -44,7 +44,7 @@ namespace GameCreator.Editor.Stats
                     durationContent.Add(fieldDuration);
                     fieldDuration.Bind(property.serializedObject);
                 }
-            };
+            });
             
             return root;
         }

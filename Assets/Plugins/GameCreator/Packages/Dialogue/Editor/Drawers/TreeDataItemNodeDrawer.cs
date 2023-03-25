@@ -1,7 +1,7 @@
-using GameCreator.Editor.Common;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -12,7 +12,7 @@ namespace GameCreator.Editor.Dialogue
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
             SerializedProperty node = property.FindPropertyRelative(TTreeDataItem<Node>.NAME_VALUE);
-            return new PropertyTool(node);
+            return new PropertyField(node);
         }
     }
 }

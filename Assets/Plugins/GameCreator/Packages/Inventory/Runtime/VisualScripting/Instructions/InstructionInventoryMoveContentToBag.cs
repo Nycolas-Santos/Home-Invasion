@@ -59,7 +59,7 @@ namespace GameCreator.Runtime.Inventory
                     if (toBag.Content.CanAdd(runtimeItem, true))
                     {
                         fromBag.Content.Remove(runtimeItem);
-                        if (!toBag.Content.Add(runtimeItem, true))
+                        if (toBag.Content.Add(runtimeItem, true) == TBagContent.INVALID)
                         {
                             fromBag.Content.Add(runtimeItem, true);
                         }

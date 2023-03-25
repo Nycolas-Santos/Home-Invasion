@@ -16,12 +16,9 @@ namespace GameCreator.Runtime.Variables
         [SerializeField]
         protected FieldSetLocalList m_Variable = new FieldSetLocalList(ValueBool.TYPE_ID);
 
-        public override void Set(bool value, Args args) => this.m_Variable.Set(value);
-        public override void Set(bool value, GameObject gameObject) => this.m_Variable.Set(value);
+        public override void Set(bool value, Args args) => this.m_Variable.Set(value, args);
+        public override bool Get(Args args) => (bool) this.m_Variable.Get(args);
 
-        public override bool Get(Args args) => (bool) this.m_Variable.Get();
-        public override bool Get(GameObject gameObject) => (bool) this.m_Variable.Get();
-        
         public static PropertySetBool Create => new PropertySetBool(
             new SetBoolLocalList()
         );

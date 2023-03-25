@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -15,7 +16,7 @@ namespace GameCreator.Editor.Dialogue
             VisualElement root = new VisualElement();
             SerializedProperty text = property.FindPropertyRelative(PROPERTY_TEXT);
 
-            root.Add(new PropertyTool(text));
+            root.Add(new PropertyField(text));
             root.Add(new SpaceSmaller());
             root.Add(new NodeTextValuesTool(property));
 

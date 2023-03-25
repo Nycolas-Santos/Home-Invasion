@@ -6,8 +6,8 @@ namespace GameCreator.Runtime.Variables
     
     public interface IListSetPick
     {
-        int GetIndex(ListVariableRuntime list, int count);
-        int GetIndex(int count);
+        int GetIndex(ListVariableRuntime list, int count, Args args);
+        int GetIndex(int count, Args args);
         
         string ToString();
     }

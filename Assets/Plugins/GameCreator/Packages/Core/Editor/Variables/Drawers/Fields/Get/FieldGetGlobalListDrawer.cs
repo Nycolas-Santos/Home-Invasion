@@ -16,7 +16,7 @@ namespace GameCreator.Editor.Variables
             SerializedProperty propertyVariable = property.FindPropertyRelative("m_Variable");
             SerializedProperty propertySelect = property.FindPropertyRelative("m_Select");
 
-            PropertyTool fieldVariable = new PropertyTool(propertyVariable);
+            PropertyField fieldVariable = new PropertyField(propertyVariable);
             PickFieldElement fieldSelect = new PickFieldElement(propertySelect, " ");
             
             root.Add(fieldVariable);

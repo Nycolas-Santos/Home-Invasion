@@ -42,6 +42,7 @@ namespace GameCreator.Runtime.Cameras
         public abstract Args Args { get; }
 
         public ShotCamera ShotCamera => this.m_ShotCamera;
+        public Transform Transform => this.m_Transform;
 
         public virtual bool UseSmoothPosition => true;
         public virtual bool UseSmoothRotation => true;

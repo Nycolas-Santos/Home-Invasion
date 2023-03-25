@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue.UnityUI;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -32,24 +33,24 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty colorNormal = this.serializedObject.FindProperty("m_ColorNormal");
             SerializedProperty colorVisited = this.serializedObject.FindProperty("m_ColorVisited");
 
-            this.m_Root.Add(new PropertyTool(text));
-            this.m_Root.Add(new PropertyTool(index));
-            this.m_Root.Add(new PropertyTool(button));
+            this.m_Root.Add(new PropertyField(text));
+            this.m_Root.Add(new PropertyField(index));
+            this.m_Root.Add(new PropertyField(button));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(actor));
-            this.m_Root.Add(new PropertyTool(actorName));
-            this.m_Root.Add(new PropertyTool(actorDesc));
+            this.m_Root.Add(new PropertyField(actor));
+            this.m_Root.Add(new PropertyField(actorName));
+            this.m_Root.Add(new PropertyField(actorDesc));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(activeSelected));
-            this.m_Root.Add(new PropertyTool(activeCondition));
+            this.m_Root.Add(new PropertyField(activeSelected));
+            this.m_Root.Add(new PropertyField(activeCondition));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(graphic));
-            this.m_Root.Add(new PropertyTool(graphicNormal));
-            this.m_Root.Add(new PropertyTool(graphicSelected));
+            this.m_Root.Add(new PropertyField(graphic));
+            this.m_Root.Add(new PropertyField(graphicNormal));
+            this.m_Root.Add(new PropertyField(graphicSelected));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(color));
-            this.m_Root.Add(new PropertyTool(colorNormal));
-            this.m_Root.Add(new PropertyTool(colorVisited));
+            this.m_Root.Add(new PropertyField(color));
+            this.m_Root.Add(new PropertyField(colorNormal));
+            this.m_Root.Add(new PropertyField(colorVisited));
 
             return this.m_Root;
         }

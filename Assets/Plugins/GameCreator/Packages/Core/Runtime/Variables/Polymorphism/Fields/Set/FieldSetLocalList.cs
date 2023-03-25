@@ -22,16 +22,16 @@ namespace GameCreator.Runtime.Variables
         
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
-        public override void Set(object value)
+        public override void Set(object value, Args args)
         {
             if (this.m_Variable == null) return;
-            m_Variable.Set(this.m_Select, value);
+            m_Variable.Set(this.m_Select, value, args);
         }
 
-        public override object Get()
+        public override object Get(Args args)
         {
             if (this.m_Variable == null) return null;
-            return m_Variable.Get(this.m_Select);
+            return m_Variable.Get(this.m_Select, args);
         }
 
         public override string ToString() => this.m_Variable != null

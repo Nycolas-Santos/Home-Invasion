@@ -25,16 +25,16 @@ namespace GameCreator.Editor.Inventory
             root.Add(body);
 
             SerializedProperty equipment = property.FindPropertyRelative(PROP_EQUIPMENT);
-            var fieldEquipment = new GameCreator.Editor.Common.PropertyTool(equipment);
+            PropertyField fieldEquipment = new PropertyField(equipment);
             
             head.Add(new SpaceSmall());
             head.Add(fieldEquipment);
             
             fieldEquipment.SetEnabled(!EditorApplication.isPlayingOrWillChangePlaymode);
-            fieldEquipment.EventChange += _ =>
+            fieldEquipment.RegisterValueChangeCallback(_ =>
             {
                 this.PaintBody(property, body);
-            };
+            });
             
             this.PaintBody(property, body);
 

@@ -13,8 +13,8 @@ namespace GameCreator.Editor.Installs
             SerializedProperty id = property.FindPropertyRelative("m_ID");
             SerializedProperty minVersion = property.FindPropertyRelative("m_MinVersion");
 
-            PropertyTool fieldID = new PropertyTool(id);
-            PropertyTool fieldMinVersion = new PropertyTool(minVersion);
+            PropertyField fieldID = new PropertyField(id);
+            PropertyField fieldMinVersion = new PropertyField(minVersion);
 
             VisualElement root = new VisualElement();
 

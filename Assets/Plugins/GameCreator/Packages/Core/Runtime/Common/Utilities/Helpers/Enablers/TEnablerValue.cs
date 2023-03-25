@@ -7,17 +7,10 @@ namespace GameCreator.Runtime.Common
     public abstract class TEnablerValue<T> : TEnablerValueCommon
     {
         // MEMBERS: -------------------------------------------------------------------------------
-
-        [SerializeField] private bool m_IsEnabled;
+        
         [SerializeField] private T m_Value;
         
         // PROPERTIES: ----------------------------------------------------------------------------
-
-        public bool IsEnabled
-        {
-            get => this.m_IsEnabled;
-            set => this.m_IsEnabled = value;
-        }
 
         public T Value
         {
@@ -27,15 +20,13 @@ namespace GameCreator.Runtime.Common
 
         // CONSTRUCTORS: --------------------------------------------------------------------------
 
-        protected TEnablerValue()
+        protected TEnablerValue() : base()
         {
-            this.m_IsEnabled = false;
             this.m_Value = default;
         }
 
-        protected TEnablerValue(bool isEnabled, T value)
+        protected TEnablerValue(bool isEnabled, T value) : base(isEnabled)
         {
-            this.m_IsEnabled = isEnabled;
             this.m_Value = value;
         }
     }

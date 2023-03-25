@@ -1,17 +1,18 @@
 using System;
+using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 
 namespace GameCreator.Runtime.VisualScripting
 {
     [Title("Check Box 2D")]
-    [Description("Returns true if casting a 2D box at a position doesn't collide with anything")]
+    [Description("Returns true if casting a 2D box at a position collides with something")]
 
     [Category("Physics/Check Box 2D")]
     
     [Parameter("Position", "The scene position where the box's center is cast. Z axis is ignored")]
     [Parameter("Size", "Size of each side's extension along its local axis")]
-    [Parameter("Angle", "Cloc-wise rotation measured in degrees")]
+    [Parameter("Angle", "Clock-wise rotation measured in degrees")]
     [Parameter("Layer Mask", "A bitmask that skips any objects that don't belong to the list")]
     
     [Example(
@@ -29,7 +30,7 @@ namespace GameCreator.Runtime.VisualScripting
         
         // MEMBERS: -------------------------------------------------------------------------------
 
-        [SerializeField] private PropertyGetPosition m_Position = GetPositionCharactersPlayer.Create;
+        [SerializeField] private PropertyGetPosition m_Position = GetPositionCharacter.Create;
         
         [SerializeField] private Vector2 m_Size = Vector2.one;
         [SerializeField] private float m_Angle = 0f;
@@ -52,7 +53,7 @@ namespace GameCreator.Runtime.VisualScripting
                 this.m_LayerMask
             );
             
-            return collisionCount == 0;
+            return collisionCount >= 0;
         }
     }
 }

@@ -18,8 +18,8 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty prefabSocket = property.FindPropertyRelative("m_PrefabSocket");
             SerializedProperty inheritFromParent = property.FindPropertyRelative("m_InheritFromParent");
 
-            var fieldPrefabSocket = new GameCreator.Editor.Common.PropertyTool(prefabSocket);
-            var fieldInheritFromParent = new GameCreator.Editor.Common.PropertyTool(inheritFromParent);
+            PropertyField fieldPrefabSocket = new PropertyField(prefabSocket);
+            PropertyField fieldInheritFromParent = new PropertyField(inheritFromParent);
             SocketsTool fieldSockets = new SocketsTool(property, PROP_LIST);
 
             container.Add(fieldPrefabSocket);

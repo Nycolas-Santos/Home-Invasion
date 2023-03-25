@@ -61,8 +61,8 @@ namespace GameCreator.Editor.Quests
             SerializedProperty order = this.serializedObject.FindProperty("m_SortOrder");
             
             header.Add(new SpaceSmall());
-            header.Add(new PropertyTool(type));
-            header.Add(new PropertyTool(order));
+            header.Add(new PropertyField(type));
+            header.Add(new PropertyField(order));
             
             this.m_ErrorId = new ErrorMessage(string.Empty);
             

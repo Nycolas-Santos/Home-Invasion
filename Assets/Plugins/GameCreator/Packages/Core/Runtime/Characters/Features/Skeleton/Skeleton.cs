@@ -12,12 +12,12 @@ namespace GameCreator.Runtime.Characters
     [Icon(RuntimePaths.GIZMOS + "GizmoSkeleton.png")]
     
     [Serializable]
-    public class Skeleton : ScriptableObject
+    public class Skeleton : ScriptableObject, IStageGizmos
     {
         // MEMBERS: -------------------------------------------------------------------------------
 
         [SerializeField] 
-        private PhysicMaterial m_Material = null;
+        private PhysicMaterial m_Material;
 
         [SerializeField]
         private CollisionDetectionMode m_CollisionDetection = CollisionDetectionMode.Discrete;
@@ -28,10 +28,11 @@ namespace GameCreator.Runtime.Characters
         // PROPERTIES: ----------------------------------------------------------------------------
 
         public PhysicMaterial Material => m_Material;
-
         public CollisionDetectionMode CollisionDetection => m_CollisionDetection;
 
-        public int VolumesLength => this.m_Volumes.Length;
+        public bool IsEmpty => this.m_Volumes.Length == 0;
+        
+        [field: SerializeField] public string EditorModelPath { get; set; }
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
         
@@ -55,6 +56,14 @@ namespace GameCreator.Runtime.Characters
         public void DrawGizmos(Animator animator, Volumes.Display display)
         {
             this.m_Volumes.DrawGizmos(animator, display);
+        }
+
+        public void StageGizmos(StagingGizmos stagingGizmos)
+        {
+            Animator animator = stagingGizmos.Animator;
+            if (animator == null) return;
+            
+            this.DrawGizmos(animator, Volumes.Display.Solid);
         }
     }
 }

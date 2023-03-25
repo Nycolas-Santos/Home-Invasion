@@ -18,7 +18,7 @@ namespace GameCreator.Runtime.Characters.Animim
         {
             this.AnimationClipHash = animationClip.GetHashCode();
             
-            this.Playable = AnimatorControllerPlayable.Create(
+            this.AnimatorPlayable = AnimatorControllerPlayable.Create(
                 animimGraph.Graph, 
                 CreateController(animationClip)
             );

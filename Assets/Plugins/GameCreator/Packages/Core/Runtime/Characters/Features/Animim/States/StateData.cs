@@ -67,14 +67,13 @@ namespace GameCreator.Runtime.Characters
 
         public bool IsValid()
         {
-            switch (this.m_StateType)
+            return this.m_StateType switch
             {
-                case StateType.AnimationClip: return this.m_AnimationClip != null;
-                case StateType.RuntimeController: return this.m_RuntimeController != null;
-                case StateType.State: return this.m_State != null;
-            }
-
-            return false;
+                StateType.AnimationClip => this.m_AnimationClip != null,
+                StateType.RuntimeController => this.m_RuntimeController != null,
+                StateType.State => this.m_State != null,
+                _ => false
+            };
         }
         
         // OVERRIDE METHODS: ----------------------------------------------------------------------

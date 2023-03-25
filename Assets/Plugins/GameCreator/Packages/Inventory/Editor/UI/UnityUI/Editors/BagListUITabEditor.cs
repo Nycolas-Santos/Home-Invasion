@@ -22,10 +22,10 @@ namespace GameCreator.Editor.Inventory.UnityUI
             SerializedProperty filterByParent = this.serializedObject.FindProperty("m_FilterByParent");
             SerializedProperty activeFilter = this.serializedObject.FindProperty("m_ActiveFilter");
             
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(bagListUI));
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(filterByParent));
+            this.m_Root.Add(new PropertyField(bagListUI));
+            this.m_Root.Add(new PropertyField(filterByParent));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(activeFilter));
+            this.m_Root.Add(new PropertyField(activeFilter));
             
             return this.m_Root;
         }

@@ -17,6 +17,9 @@ namespace GameCreator.Runtime.Stats
 
         [SerializeField] private PropertyGetString m_Class = GetStringSelfName.Create;
         [SerializeField] private PropertyGetString m_Description = GetStringTextArea.Create();
+
+        [SerializeField] private PropertyGetSprite m_Sprite = GetSpriteNone.Create;
+        [SerializeField] private PropertyGetColor m_Color = GetColorColorsWhite.Create;
         
         [SerializeField] private AttributeList m_Attributes = new AttributeList();
         [SerializeField] private StatList m_Stats = new StatList();
@@ -30,6 +33,9 @@ namespace GameCreator.Runtime.Stats
 
         public string GetName(Args args) => this.m_Class.Get(args);
         public string GetDescription(Args args) => this.m_Description.Get(args);
+        
+        public Sprite GetSprite(Args args) => this.m_Sprite.Get(args);
+        public Color GetColor(Args args) => this.m_Color.Get(args);
         
         public AttributeItem GetAttribute(int index) => this.m_Attributes.Get(index);
         public StatItem GetStat(int index) => this.m_Stats.Get(index);

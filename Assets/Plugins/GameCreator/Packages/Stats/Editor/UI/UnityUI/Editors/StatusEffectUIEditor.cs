@@ -42,9 +42,9 @@ namespace GameCreator.Editor.Stats.UnityUI
             
             this.m_Root.Add(new SpaceSmall());
             this.m_Root.Add(new LabelTitle("Duration:"));
-            this.m_Root.Add(new PropertyTool(imageFill));
-            this.m_Root.Add(new PropertyTool(scaleX));
-            this.m_Root.Add(new PropertyTool(scaleY));
+            this.m_Root.Add(new PropertyField(imageFill));
+            this.m_Root.Add(new PropertyField(scaleX));
+            this.m_Root.Add(new PropertyField(scaleY));
 
             return this.m_Root;
         }

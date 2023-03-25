@@ -11,6 +11,8 @@ namespace GameCreator.Runtime.Characters.Animim
     {
         private const string NAME_GRAPH = "Animim Graph";
         private const string NAME_ANIM_OUTPUT = "Animation Output";
+
+        internal const float SAFE_TIME_OFFSET = 0.01f;
         
         ///////////////////////////////////////////////////////////////////////////////////////////
         //                                                                                       //
@@ -38,7 +40,7 @@ namespace GameCreator.Runtime.Characters.Animim
 
         internal Character Character => this.m_Character;
         
-        internal PlayableGraph Graph { get; private set; }
+        public PlayableGraph Graph { get; private set; }
 
         public StatesOutput States => this.m_States.IsValid() 
             ? this.m_States.GetBehaviour() 
@@ -68,7 +70,6 @@ namespace GameCreator.Runtime.Characters.Animim
         [field: NonSerialized] internal bool UseRootMotionRotation { private get; set; } = true;
         
         public Phases Phases => this.m_Phases;
-
         
         // PUBLIC METHODS: ------------------------------------------------------------------------
 

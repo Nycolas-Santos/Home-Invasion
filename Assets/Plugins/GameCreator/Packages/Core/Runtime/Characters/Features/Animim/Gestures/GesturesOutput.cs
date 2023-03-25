@@ -104,7 +104,7 @@ namespace GameCreator.Runtime.Characters.Animim
                 gesture.Stop(delay, transitionOut);
             }
         }
-
+        
         /// <summary>
         /// Changes the speed coefficient of a playing Animation Clip
         /// </summary>
@@ -130,7 +130,7 @@ namespace GameCreator.Runtime.Characters.Animim
         {
             if (stopPreviousGestures)
             {
-                this.Stop(config.DelayIn + config.TransitionIn, 0.01f);
+                this.Stop(config.DelayIn + config.TransitionIn + SAFE_TIME_EPSILON, 0f);
             }
 
             Playable input = this.ScriptPlayable.GetInput(0);

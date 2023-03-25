@@ -20,8 +20,24 @@ namespace GameCreator.Editor.Quests
         // PROPERTIES: ----------------------------------------------------------------------------
         
         [field: NonSerialized] public SerializedProperty Property { get; }
+        
+        public TasksTree Instance
+        {
+            get
+            {
+                this.Property.serializedObject.Update();
+                return this.Property.managedReferenceValue as TasksTree;
+            }
+            set
+            {
+                this.SerializedObject.Update();
+                this.Property.managedReferenceValue = value;
 
-        public TasksTree Instance => this.Property.managedReferenceValue as TasksTree;
+                int random = UnityEngine.Random.Range(1, 99999);
+                this.Property.FindPropertyRelative("m_Dirty").intValue = random;
+                this.SerializedObject.ApplyModifiedPropertiesWithoutUndo();
+            }
+        }
         
         public SerializedObject SerializedObject => this.Property.serializedObject;
 

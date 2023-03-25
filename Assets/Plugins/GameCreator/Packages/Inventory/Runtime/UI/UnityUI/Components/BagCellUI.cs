@@ -52,7 +52,8 @@ namespace GameCreator.Runtime.Inventory.UnityUI
             Dismantle,
             SendToBag,
             Equip,
-            Unequip
+            Unequip,
+            SplitStack
         }
         
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
@@ -154,10 +155,17 @@ namespace GameCreator.Runtime.Inventory.UnityUI
 
                 case EnumOnChoose.Equip:
                     this.Equip();
+                    data.Use();
                     break;
                 
                 case EnumOnChoose.Unequip:
                     this.Unequip();
+                    data.Use();
+                    break;
+                
+                case EnumOnChoose.SplitStack:
+                    this.Split();
+                    data.Use();
                     break;
                 
                 default: throw new ArgumentOutOfRangeException();
@@ -244,7 +252,7 @@ namespace GameCreator.Runtime.Inventory.UnityUI
                 
             direction = Vector3.ClampMagnitude(direction, this.BagUI.MaxDropDistance);
             Vector3 point = wearerPosition + direction;
-            int dropAmount = this.BagUI.DropAmount switch
+            int dropAmount = TBagUI.DropAmount switch
             {
                 TBagUI.EnumDropAmount.One => 1,
                 TBagUI.EnumDropAmount.Stack => this.Cell.Count,
@@ -304,11 +312,21 @@ namespace GameCreator.Runtime.Inventory.UnityUI
         {
             if (this.Cell == null || this.Cell.Available) return;
 
-            RuntimeItem runtimeItem = this.Cell.Peek();
-            if (!bag.Content.CanAdd(runtimeItem, true)) return;
+            int times = TBagUI.TransferAmount switch
+            {
+                TBagUI.EnumTransferAmount.One => 1,
+                TBagUI.EnumTransferAmount.Stack => this.Cell.Count,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
+            for (int i = 0; i < times; ++i)
+            {
+                RuntimeItem runtimeItem = this.Cell.Peek();
+                if (!bag.Content.CanAdd(runtimeItem, true)) return;
             
-            RuntimeItem removeRuntimeItem = this.BagUI.Bag.Content.Remove(runtimeItem);
-            if (removeRuntimeItem != null) bag.Content.Add(removeRuntimeItem, true);
+                RuntimeItem removeRuntimeItem = this.BagUI.Bag.Content.Remove(runtimeItem);
+                if (removeRuntimeItem != null) bag.Content.Add(removeRuntimeItem, true);   
+            }
         }
 
         public void Equip()
@@ -339,10 +357,45 @@ namespace GameCreator.Runtime.Inventory.UnityUI
                 ? this.BagUI.Bag.Wearer.transform
                 : this.BagUI.Bag.transform;
             
-            this.BagUI.Bag.Content.Drop(
-                this.m_Position, 1, 
-                target.position + UnityEngine.Random.insideUnitSphere * randomRadius
-            );
+            int times = TBagUI.DropAmount switch
+            {
+                TBagUI.EnumDropAmount.One => 1,
+                TBagUI.EnumDropAmount.Stack => this.Cell.Count,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
+            for (int i = 0; i < times; ++i)
+            {
+                this.BagUI.Bag.Content.Drop(
+                    this.m_Position, 1, 
+                    target.position + UnityEngine.Random.insideUnitSphere * randomRadius
+                );
+            }
+        }
+
+        public void Split()
+        {
+            if (this.Cell == null || this.Cell.Available) return;
+            if (this.Cell.Count <= 1) return;
+            
+            if (!this.BagUI.Bag.Content.CanAddType(this.Cell.Item, false)) return;
+
+            int splitAmount = this.Cell.Count / 2;
+
+            RuntimeItem runtimeItem = this.BagUI.Bag.Content.Remove(this.m_Position);
+            Vector2Int newPosition = this.BagUI.Bag.Content.Add(runtimeItem, false);
+
+            if (newPosition == TBagContent.INVALID)
+            {
+                this.BagUI.Bag.Content.Add(runtimeItem, this.m_Position, true);
+                return;
+            }
+            
+            for (int i = 1; i < splitAmount; ++i)
+            {
+                runtimeItem = this.BagUI.Bag.Content.Remove(this.m_Position);
+                this.BagUI.Bag.Content.Add(runtimeItem, newPosition, true);
+            }
         }
         
         // PRIVATE METHODS: -----------------------------------------------------------------------

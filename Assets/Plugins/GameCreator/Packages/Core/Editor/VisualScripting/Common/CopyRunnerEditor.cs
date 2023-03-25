@@ -11,7 +11,7 @@ namespace GameCreator.Editor.Common
         public override VisualElement CreateInspectorGUI()
         {
             SerializedProperty runner = this.serializedObject.FindProperty("m_Runner");
-            return new PropertyTool(runner);
+            return new PropertyField(runner);
         }
     }
 }

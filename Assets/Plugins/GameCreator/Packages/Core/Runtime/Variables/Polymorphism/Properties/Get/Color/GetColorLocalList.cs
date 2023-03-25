@@ -16,9 +16,7 @@ namespace GameCreator.Runtime.Variables
         [SerializeField]
         protected FieldGetLocalList m_Variable = new FieldGetLocalList(ValueColor.TYPE_ID);
 
-        public override Color Get(Args args) => this.m_Variable.Get<Color>();
-        public override Color Get(GameObject gameObject) => this.m_Variable.Get<Color>();
-
+        public override Color Get(Args args) => this.m_Variable.Get<Color>(args);
         public override string String => this.m_Variable.ToString();
     }
 }

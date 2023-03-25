@@ -17,14 +17,14 @@ namespace GameCreator.Editor.Common
             SerializedProperty linkType = property.FindPropertyRelative("m_LinkType");
             SerializedProperty forAreas = property.FindPropertyRelative("m_ForAreas");
 
-            PropertyTool fieldLinkType = new PropertyTool(linkType);
-            PropertyTool fieldForAreas = new PropertyTool(forAreas, EMPTY_LABEL);
+            PropertyField fieldLinkType = new PropertyField(linkType);
+            PropertyField fieldForAreas = new PropertyField(forAreas, EMPTY_LABEL);
             
             fieldForAreas.style.display = linkType.intValue == (int) NavLinkType.LinkType.Manual
                 ? DisplayStyle.Flex
                 : DisplayStyle.None;
             
-            fieldLinkType.EventChange += changeEvent =>
+            fieldLinkType.RegisterValueChangeCallback(changeEvent =>
             {
                 fieldForAreas.style.display = linkType.intValue == (int) NavLinkType.LinkType.Manual
                     ? DisplayStyle.Flex
@@ -32,7 +32,7 @@ namespace GameCreator.Editor.Common
 
                 SerializedObject serializedObject = changeEvent.changedProperty.serializedObject;
                 SerializationUtils.ApplyUnregisteredSerialization(serializedObject);
-            };
+            });
 
             root.Add(fieldLinkType);
             root.Add(fieldForAreas);

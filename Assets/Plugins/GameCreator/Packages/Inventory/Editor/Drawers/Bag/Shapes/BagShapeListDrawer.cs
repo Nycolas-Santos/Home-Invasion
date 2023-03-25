@@ -14,9 +14,9 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty hasMaxHeight = property.FindPropertyRelative("m_HasMaxHeight");
             SerializedProperty height = property.FindPropertyRelative("m_Height");
 
-            var fieldHasMaxHeight = new GameCreator.Editor.Common.PropertyTool(hasMaxHeight);
+            PropertyField fieldHasMaxHeight = new PropertyField(hasMaxHeight);
             VisualElement contentHeight = new VisualElement();
-            var fieldHeight = new GameCreator.Editor.Common.PropertyTool(height);
+            PropertyField fieldHeight = new PropertyField(height);
             
             root.Add(fieldHasMaxHeight);
             root.Add(contentHeight);
@@ -26,7 +26,7 @@ namespace GameCreator.Editor.Inventory
                 contentHeight.Add(fieldHeight);
                 contentHeight.Add(new SpaceSmall());
             }
-            fieldHasMaxHeight.EventChange += changeEvent =>
+            fieldHasMaxHeight.RegisterValueChangeCallback(changeEvent =>
             {
                 contentHeight.Clear();
                 if (changeEvent.changedProperty.boolValue)
@@ -35,7 +35,7 @@ namespace GameCreator.Editor.Inventory
                     contentHeight.Add(new SpaceSmall());
                     fieldHeight.Bind(changeEvent.changedProperty.serializedObject);
                 }
-            };
+            });
             
             base.EditorContent(property, root);
         }

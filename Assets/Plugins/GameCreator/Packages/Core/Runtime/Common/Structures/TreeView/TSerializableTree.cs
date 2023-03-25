@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace GameCreator.Runtime.Common
@@ -21,8 +22,24 @@ namespace GameCreator.Runtime.Common
 
         public const int NODE_INVALID = TreeNode.INVALID;
         
-        // MEMBERS: -------------------------------------------------------------------------------
+        // EDITOR MEMBERS: ------------------------------------------------------------------------
         
+        /// <summary>
+        /// [01/03/2023] HACK: This value is used as a work-around to an ongoing Unity issue where
+        /// modifying a serialized object is not marked as 'dirty' and attempting to flush
+        /// changes to disk fails, since it detects no changes at all.
+        /// </summary>
+        
+        #if UNITY_EDITOR
+        #pragma warning disable 414
+
+        [SerializeField] internal int m_Dirty;
+
+        #pragma warning restore 414
+        #endif
+
+        // MEMBERS: -------------------------------------------------------------------------------
+
         [SerializeField] protected TTreeData<TValue> m_Data;
         [SerializeField] protected TreeNodes m_Nodes;
         [SerializeField] protected List<int> m_Roots;
@@ -49,6 +66,7 @@ namespace GameCreator.Runtime.Common
 
         public TSerializableTree()
         {
+            this.m_Dirty = 0;
             this.m_Data = new TTreeData<TValue>();
             this.m_Nodes = new TreeNodes();
             this.m_Roots = new List<int>();

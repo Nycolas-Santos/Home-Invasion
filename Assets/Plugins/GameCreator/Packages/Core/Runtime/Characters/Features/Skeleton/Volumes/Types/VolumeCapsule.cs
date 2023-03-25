@@ -36,8 +36,15 @@ namespace GameCreator.Runtime.Characters
         public VolumeCapsule() : base()
         { }
 
-        public VolumeCapsule(HumanBodyBones humanBone, IJoint joint, Vector3 center, float height, 
-            float radius, Direction direction) : base(humanBone, joint)
+        public VolumeCapsule(
+            HumanBodyBones humanBone,
+            float weight,
+            IJoint joint,
+            Vector3 center,
+            float height, 
+            float radius, 
+            Direction direction)
+            : base(humanBone, weight, joint)
         {
             this.m_Center = center;
             this.m_Height = height;

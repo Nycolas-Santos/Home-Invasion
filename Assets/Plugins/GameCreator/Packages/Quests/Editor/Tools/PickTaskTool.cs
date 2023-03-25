@@ -54,10 +54,10 @@ namespace GameCreator.Editor.Quests
             this.m_PropertyQuest = this.m_Property.FindPropertyRelative("m_Quest");
             this.m_PropertyTaskId = this.m_Property.FindPropertyRelative("m_TaskId");
 
-            PropertyTool fieldQuest = new PropertyTool(this.m_PropertyQuest);
+            PropertyField fieldQuest = new PropertyField(this.m_PropertyQuest);
             this.m_Head.Add(fieldQuest);
 
-            fieldQuest.EventChange += this.OnChangeQuest;
+            fieldQuest.RegisterValueChangeCallback(this.OnChangeQuest);
             this.RefreshTask(this.m_PropertyQuest.objectReferenceValue as Quest);
         }
         

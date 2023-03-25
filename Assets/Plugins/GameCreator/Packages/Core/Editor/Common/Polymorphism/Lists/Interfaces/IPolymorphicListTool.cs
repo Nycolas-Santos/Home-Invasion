@@ -18,6 +18,8 @@ namespace GameCreator.Editor.Common
         bool AllowBreakpoint    { get; }
         bool AllowDisable       { get; }
         bool AllowDocumentation { get; }
+        bool AllowGroupCollapse { get; }
+        bool AllowGroupExpand   { get; }
 
         // METHODS: -------------------------------------------------------------------------------
         
@@ -26,6 +28,9 @@ namespace GameCreator.Editor.Common
         void InsertItem(int index, object value);
         void DeleteItem(int index);
         void DuplicateItem(int index);
+
+        void Expand();
+        void Collapse();
         
         void MoveItems(int sourceIndex, int destinationIndex);
     }

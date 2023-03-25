@@ -15,7 +15,7 @@ namespace GameCreator.Editor.Characters
             VisualElement root = new VisualElement();
             
             SerializedProperty soundsAsset = property.FindPropertyRelative("m_SoundsAsset");
-            root.Add(new PropertyTool(soundsAsset));
+            root.Add(new PropertyField(soundsAsset));
 
             return root;
         }

@@ -18,8 +18,8 @@ namespace GameCreator.Editor.Inventory.UnityUI
             this.m_FilterByParent = this.serializedObject.FindProperty("m_FilterByParent");
             this.m_Content = this.serializedObject.FindProperty("m_Content");
             
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(this.m_FilterByParent));
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(this.m_Content));
+            this.m_Root.Add(new PropertyField(this.m_FilterByParent));
+            this.m_Root.Add(new PropertyField(this.m_Content));
         }
         
         // CREATE: --------------------------------------------------------------------------------

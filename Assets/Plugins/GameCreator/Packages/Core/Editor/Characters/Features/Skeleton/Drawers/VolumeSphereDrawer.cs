@@ -14,8 +14,8 @@ namespace GameCreator.Editor.Characters
             SerializedProperty center = property.FindPropertyRelative("m_Center");
             SerializedProperty radius = property.FindPropertyRelative("m_Radius");
 
-            PropertyTool fieldCenter = new PropertyTool(center);
-            PropertyTool fieldRadius = new PropertyTool(radius);
+            PropertyField fieldCenter = new PropertyField(center);
+            PropertyField fieldRadius = new PropertyField(radius);
 
             root.Add(fieldCenter);
             root.Add(fieldRadius);

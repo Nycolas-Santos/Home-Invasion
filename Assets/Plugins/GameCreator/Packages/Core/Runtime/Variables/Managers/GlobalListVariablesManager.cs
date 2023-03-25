@@ -35,18 +35,18 @@ namespace GameCreator.Runtime.Variables
 
 		// PUBLIC METHODS: ------------------------------------------------------------------------
 
-		public object Get(GlobalListVariables asset, IListGetPick pick)
+		public object Get(GlobalListVariables asset, IListGetPick pick, Args args)
 		{
 			int count = this.Count(asset);
-			int index = pick?.GetIndex(count) ?? -1;
+			int index = pick?.GetIndex(count, args) ?? -1;
 			
 			return this.Get(asset, index);
 		}
 		
-		public object Get(GlobalListVariables asset, IListSetPick pick)
+		public object Get(GlobalListVariables asset, IListSetPick pick, Args args)
 		{
 			int count = this.Count(asset);
-			int index = pick?.GetIndex(count) ?? -1;
+			int index = pick?.GetIndex(count, args) ?? -1;
 			
 			return this.Get(asset, index);
 		}
@@ -78,14 +78,14 @@ namespace GameCreator.Runtime.Variables
 				: null;
 		}
 
-		public void Set(GlobalListVariables asset, IListSetPick pick, object value)
+		public void Set(GlobalListVariables asset, IListSetPick pick, object value, Args args)
 		{
 			this.RequireInit(asset);
 			
 			int count = this.Count(asset);
 			if (!this.Values.TryGetValue(asset.UniqueID, out ListVariableRuntime runtime)) return;
 			
-			int index = pick?.GetIndex(runtime, count) ?? 0;
+			int index = pick?.GetIndex(runtime, count, args) ?? 0;
 			this.Set(asset, index, value);
 		}
 		
@@ -99,10 +99,10 @@ namespace GameCreator.Runtime.Variables
 			if (asset.Save) this.SaveValues.Add(asset.UniqueID);
 		}
 		
-		public void Insert(GlobalListVariables asset, IListGetPick pick, object value)
+		public void Insert(GlobalListVariables asset, IListGetPick pick, object value, Args args)
 		{
 			int count = this.Count(asset);
-			int index = pick?.GetIndex(count) ?? 0;
+			int index = pick?.GetIndex(count, args) ?? 0;
 			
 			this.Insert(asset, index, value);
 		}
@@ -122,10 +122,10 @@ namespace GameCreator.Runtime.Variables
 			this.Insert(asset, this.Count(asset), value);
 		}
 		
-		public void Remove(GlobalListVariables asset, IListGetPick pick)
+		public void Remove(GlobalListVariables asset, IListGetPick pick, Args args)
 		{
 			int count = this.Count(asset);
-			int index = pick?.GetIndex(count) ?? 0;
+			int index = pick?.GetIndex(count, args) ?? 0;
 			
 			this.Remove(asset, index);
 		}
@@ -150,12 +150,12 @@ namespace GameCreator.Runtime.Variables
 			}
 		}
 		
-		public void Move(GlobalListVariables asset, IListGetPick pickA, IListGetPick pickB)
+		public void Move(GlobalListVariables asset, IListGetPick pickA, IListGetPick pickB, Args args)
 		{
 			int count = this.Count(asset);
 			
-			int indexA = pickA?.GetIndex(count) ?? 0;
-			int indexB = pickB?.GetIndex(count) ?? 0;
+			int indexA = pickA?.GetIndex(count, args) ?? 0;
+			int indexB = pickB?.GetIndex(count, args) ?? 0;
 			
 			this.Move(asset, indexA, indexB);
 		}

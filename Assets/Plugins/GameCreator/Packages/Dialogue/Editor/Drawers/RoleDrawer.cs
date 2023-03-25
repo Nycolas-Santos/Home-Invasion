@@ -1,6 +1,6 @@
-using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -15,7 +15,7 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty actor = property.FindPropertyRelative("m_Actor");
             SerializedProperty target = property.FindPropertyRelative("m_Target");
 
-            PropertyTool field = new PropertyTool(target, actor.name);
+            PropertyField field = new PropertyField(target, actor.name);
             root.Add(field);
 
             return root;

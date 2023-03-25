@@ -11,8 +11,7 @@ namespace GameCreator.Editor.Common
         private const string USS_PATH = EditorPaths.COMMON + "Utilities/Helpers/Enablers/EnablerValueCommon";
 
         private const string NAME_ROOT = "GC-Enabler-Root";
-        private const string NAME_ROOT_NAME = "GC-ReflectionPick-Name";
-        
+
         public const string PROP_IS_ENABLED = "m_IsEnabled";
         public const string PROP_VALUE = "m_Value";
         
@@ -38,6 +37,8 @@ namespace GameCreator.Editor.Common
             root.Add(label);
             root.Add(toggleIsEnabled);
             root.Add(fieldValue);
+
+            _ = new AlignLabel(root);
 
             toggleIsEnabled.RegisterValueChangedCallback(changeEvent =>
             {

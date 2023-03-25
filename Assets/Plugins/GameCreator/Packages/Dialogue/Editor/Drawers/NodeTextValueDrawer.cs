@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -29,24 +30,24 @@ namespace GameCreator.Editor.Dialogue
 
             VisualElement root = new VisualElement();
             
-            root.Add(new PropertyTool(value));
+            root.Add(new PropertyField(value));
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(inBold));
-            root.Add(new PropertyTool(inItalic));
+            root.Add(new PropertyField(inBold));
+            root.Add(new PropertyField(inItalic));
 
-            PropertyTool fieldUseColor = new PropertyTool(useColor);
-            PropertyTool fieldColor = new PropertyTool(color);
+            PropertyField fieldUseColor = new PropertyField(useColor);
+            PropertyField fieldColor = new PropertyField(color);
 
             root.Add(new SpaceSmaller());
             root.Add(fieldUseColor);
             root.Add(fieldColor);
             
-            fieldUseColor.EventChange += changeEvent =>
+            fieldUseColor.RegisterValueChangeCallback(changeEvent =>
             {
                 fieldColor.style.display = changeEvent.changedProperty.boolValue
                     ? DisplayStyle.Flex
                     : DisplayStyle.None;
-            };
+            });
 
             fieldColor.style.display = useColor.boolValue
                 ? DisplayStyle.Flex

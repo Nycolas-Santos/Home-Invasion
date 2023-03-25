@@ -1,7 +1,7 @@
-
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue.UnityUI;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -24,17 +24,17 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty text = this.serializedObject.FindProperty("m_Text");
             SerializedProperty skip = this.serializedObject.FindProperty("m_Skip");
             
-            this.m_Root.Add(new PropertyTool(active));
+            this.m_Root.Add(new PropertyField(active));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(actor));
-            this.m_Root.Add(new PropertyTool(actorName));
-            this.m_Root.Add(new PropertyTool(actorDesc));
+            this.m_Root.Add(new PropertyField(actor));
+            this.m_Root.Add(new PropertyField(actorName));
+            this.m_Root.Add(new PropertyField(actorDesc));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(activePortrait));
-            this.m_Root.Add(new PropertyTool(portrait));
+            this.m_Root.Add(new PropertyField(activePortrait));
+            this.m_Root.Add(new PropertyField(portrait));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(text));
-            this.m_Root.Add(new PropertyTool(skip));
+            this.m_Root.Add(new PropertyField(text));
+            this.m_Root.Add(new PropertyField(skip));
             
             return this.m_Root;
         }

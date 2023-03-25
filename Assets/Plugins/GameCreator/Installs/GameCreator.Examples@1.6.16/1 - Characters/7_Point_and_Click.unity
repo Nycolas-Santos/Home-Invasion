@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: d91dea64fd61f4de5ae17e2cc2d1b3f9, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &19829572
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +893,22 @@ MonoBehaviour:
     - rid: 5735539854195556813
       type: {class: ShotTypeFollow, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data:
+        m_ShotSystemViewport:
+          m_Projection:
+            m_IsEnabled: 0
+            m_Value: 0
+          m_FieldOfView:
+            m_IsEnabled: 0
+            m_Value: 60
+          m_OrthographicSize:
+            m_IsEnabled: 0
+            m_Value: 5
+          m_ClipPlaneNear:
+            m_IsEnabled: 0
+            m_Value: 0.3
+          m_ClipPlaneFar:
+            m_IsEnabled: 0
+            m_Value: 1000
         m_ShotSystemLook:
           m_IsActive: 1
           m_LookTarget:
@@ -902,7 +918,6 @@ MonoBehaviour:
             m_Property:
               rid: 5735539854195556815
         m_ShotSystemFollow:
-          m_IsActive: 1
           m_Follow:
             m_Property:
               rid: 5735539854195556816
@@ -3740,7 +3755,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &1002688710
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3757,7 +3772,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1002688711
 Transform:
   m_ObjectHideFlags: 0
@@ -3805,6 +3821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
@@ -3821,6 +3838,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!114 &1012116131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4527,7 +4545,7 @@ MonoBehaviour:
     m_Motion:
       rid: 5178594673742839809
     m_Driver:
-      rid: 3808071717946916868
+      rid: 3592961536010747942
     m_Facing:
       rid: 5178594673742839811
     m_Animim:
@@ -4541,7 +4559,6 @@ MonoBehaviour:
     m_Feet:
     - rid: 5178594673742839815
     - rid: 5178594673742839816
-    m_GroundThreshold: 0.05
     m_FootstepSounds:
       m_SoundsAsset: {fileID: 11400000, guid: cc9a58db4035e493199624217f60c661, type: 2}
   m_Ragdoll:
@@ -4554,14 +4571,14 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 3808071717946916868
-      type: {class: UnitDriverNavmesh, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+    - rid: 3592961536010747942
+      type: {class: UnitDriverController, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
-        m_AvoidQuality: 4
-        m_AvoidPriority: 50
-        m_AutoMeshLink: 1
-        m_AgentType:
-          m_AgentTypeIndex: 0
+        m_SkinWidth: 0.08
+        m_PushForce: 1
+        m_MaxSlope: 45
+        m_StepHeight: 0.3
+        m_Plane: 0
     - rid: 3808071717946916869
       type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
@@ -4587,7 +4604,8 @@ MonoBehaviour:
         m_Mass: 80
         m_Height: 2
         m_Radius: 0.2
-        m_Gravity: -9.81
+        m_GravityUpwards: -9.81
+        m_GravityDownwards: -9.81
         m_TerminalVelocity: -53
         m_Acceleration:
           m_UseAcceleration: 1
@@ -4598,6 +4616,10 @@ MonoBehaviour:
           m_AirJumps: 0
           m_JumpForce: 5
           m_JumpCooldown: 0.5
+        m_Dash:
+          m_InSuccession: 0
+          m_DashInAir: 0
+          m_Cooldown: 1
     - rid: 5178594673742839811
       type: {class: UnitFacingPivot, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
@@ -4613,6 +4635,7 @@ MonoBehaviour:
         m_StartState: {fileID: 0}
         m_BoneRack:
           m_Skeleton: {fileID: 11400000, guid: 5809449d43408435db32108bd69aa82c, type: 2}
+        m_Reaction: {fileID: 0}
         m_Breathing:
           m_Exertion: 0.1
           m_Rate: 0.25
@@ -4640,7 +4663,7 @@ MonoBehaviour:
         m_FootMask:
           serializedVersion: 2
           m_Bits: 4294967295
-        m_AlignHips: 1
+        m_SmoothTime: 0.25
     - rid: 5178594673742839815
       type: {class: Bone, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:

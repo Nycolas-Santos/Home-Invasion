@@ -16,8 +16,7 @@ namespace GameCreator.Runtime.Variables
         [SerializeField]
         protected FieldGetLocalName m_Variable = new FieldGetLocalName(ValueString.TYPE_ID);
 
-        public override string Get(Args args) => this.m_Variable.Get<string>();
-        public override string Get(GameObject gameObject) => this.m_Variable.Get<string>();
+        public override string Get(Args args) => this.m_Variable.Get<string>(args);
 
         public static PropertyGetString Create => new PropertyGetString(
             new GetStringLocalName()

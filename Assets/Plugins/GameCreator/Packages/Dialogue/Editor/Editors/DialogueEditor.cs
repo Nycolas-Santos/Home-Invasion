@@ -1,6 +1,5 @@
-using GameCreator.Editor.Common;
-using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,7 +19,7 @@ namespace GameCreator.Editor.Dialogue
             this.m_Root = new VisualElement();
             
             SerializedProperty story = this.serializedObject.FindProperty("m_Story");
-            PropertyTool fieldStory = new PropertyTool(story);
+            PropertyField fieldStory = new PropertyField(story);
 
             this.m_Root.Add(fieldStory);
             

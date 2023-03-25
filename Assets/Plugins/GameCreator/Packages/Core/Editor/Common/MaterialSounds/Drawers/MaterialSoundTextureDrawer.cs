@@ -19,14 +19,14 @@ namespace GameCreator.Editor.Characters
             SerializedProperty impact = property.FindPropertyRelative("m_Impact");
             SerializedProperty variations = property.FindPropertyRelative("m_Variations");
             
-            root.Add(new PropertyTool(name));
-            root.Add(new PropertyTool(texture));
+            root.Add(new PropertyField(name));
+            root.Add(new PropertyField(texture));
             root.Add(new SpaceSmaller());
             root.Add(new LabelTitle("Impact"));
             root.Add(new PropertyField(impact));
             root.Add(new SpaceSmaller());
             root.Add(new LabelTitle("Sounds"));
-            root.Add(new PropertyTool(volume));
+            root.Add(new PropertyField(volume));
             root.Add(new PropertyField(variations));
             
             return root;

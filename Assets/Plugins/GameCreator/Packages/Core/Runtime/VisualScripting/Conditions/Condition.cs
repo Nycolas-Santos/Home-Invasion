@@ -26,7 +26,7 @@ namespace GameCreator.Runtime.VisualScripting
 
         public bool Check(Args args)
         {
-            if (!this.IsEnabled) return false;
+            if (!this.IsEnabled) return this.m_Sign;
             if (this.Breakpoint) Debug.Break();
             
             return this.m_Sign ? this.Run(args) : !this.Run(args);

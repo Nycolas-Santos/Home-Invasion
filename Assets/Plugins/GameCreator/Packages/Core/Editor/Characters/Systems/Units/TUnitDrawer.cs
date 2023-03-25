@@ -16,6 +16,8 @@ namespace GameCreator.Editor.Characters
     {
         private const string PATH_STYLES = EditorPaths.CHARACTERS + "StyleSheets/";
 
+        private static readonly IIcon ICON_ARROW = new IconDropdown(ColorTheme.Type.TextLight);
+
         // PROTECTED METHODS: ---------------------------------------------------------------------
 
         protected VisualElement MakePropertyGUI(SerializedProperty property, string headTitle)
@@ -74,6 +76,7 @@ namespace GameCreator.Editor.Characters
             
             Button btnChangeType = new Button();
             btnChangeType.SetEnabled(!EditorApplication.isPlayingOrWillChangePlaymode);
+            
             btnChangeType.clicked += () => TypeSelectorFancyPopup.Open(
                 head, typeField,
                 newType =>
@@ -96,9 +99,16 @@ namespace GameCreator.Editor.Characters
                 image = iconAttr != null ? iconAttr.Image : Texture2D.whiteTexture
             };
 
+            Image imageChevron = new Image
+            {
+                image = ICON_ARROW.Texture
+            };
+
             imageChangeType.AddToClassList("gc-character-unit-head-image");
+            imageChevron.AddToClassList("gc-character-unit-head-arrow");
             
             btnChangeType.Add(imageChangeType);
+            btnChangeType.Add(imageChevron);
 
             image.AddToClassList("gc-character-unit-head-image");
             btnToggle.AddToClassList("gc-character-unit-head-btn__toggle");

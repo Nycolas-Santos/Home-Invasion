@@ -18,7 +18,7 @@ namespace GameCreator.Editor.Common
             SerializedProperty option = property.FindPropertyRelative("m_Option");
             SerializedProperty gameObject = property.FindPropertyRelative("m_GameObject");
             
-            PropertyTool fieldOption = new PropertyTool(option, property.displayName);
+            PropertyField fieldOption = new PropertyField(option, property.displayName);
             
             PropertyElement fieldGameObject = new PropertyElement(
                 gameObject.FindPropertyRelative(IPropertyDrawer.PROPERTY_NAME),
@@ -27,13 +27,13 @@ namespace GameCreator.Editor.Common
             
             head.Add(fieldOption);
             
-            fieldOption.EventChange += changeEvent =>
+            fieldOption.RegisterValueChangeCallback(changeEvent =>
             {
                 body.Clear();
                 if (changeEvent.changedProperty.intValue != 1) return;
                 body.Add(fieldGameObject);
                 body.Bind(changeEvent.changedProperty.serializedObject);
-            };
+            });
 
             if (option.intValue == 1)
             {

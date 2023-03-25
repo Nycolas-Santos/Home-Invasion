@@ -2,6 +2,7 @@ using System;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GameCreator.Runtime.Characters
 {
@@ -14,6 +15,7 @@ namespace GameCreator.Runtime.Characters
 
         [SerializeField] private EntryAnimationClip m_Entry = new EntryAnimationClip();
         [SerializeField] private ExitAnimationClip m_Exit = new ExitAnimationClip();
+        [SerializeField] private LocomotionProperties m_Properties = new LocomotionProperties();
 
         [SerializeField] private InstructionList m_OnChange = new InstructionList();
         
@@ -28,10 +30,12 @@ namespace GameCreator.Runtime.Characters
         public AvatarMask StateMask => this.m_StateMask;
         public bool HasStateMask => this.m_StateMask != null;
 
+        public bool EntryRootMotion => this.m_Entry.RootMotion;
         public AnimationClip EntryClip => this.m_Entry.EntryClip;
         public bool HasEntryClip => this.m_Entry.EntryClip != null;
         public AvatarMask EntryMask => this.m_Entry.EntryMask;
         
+        public bool ExitRootMotion => this.m_Exit.RootMotion;
         public AnimationClip ExitClip => this.m_Exit.ExitClip;
         public bool HasExitClip => this.m_Exit.ExitClip != null;
         public AvatarMask ExitMask => this.m_Exit.ExitMask;
@@ -40,6 +44,10 @@ namespace GameCreator.Runtime.Characters
 
         public void RunChange(Args args)
         {
+            if (ApplicationManager.IsExiting) return;
+            
+            this.m_Properties.Setup(args.Self.Get<Character>());
+            
             if (this.m_TemplateOnChange == null)
             {
                 this.m_TemplateOnChange = RunInstructionsList.CreateTemplate(

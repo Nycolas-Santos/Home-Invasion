@@ -1,4 +1,5 @@
 using System;
+using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 
@@ -34,7 +35,7 @@ namespace GameCreator.Runtime.VisualScripting
         // MEMBERS: -------------------------------------------------------------------------------
         
         [SerializeField] 
-        private PropertyGetPosition m_Center = GetPositionCharactersPlayer.Create;
+        private PropertyGetPosition m_Center = GetPositionCharacter.Create;
 
         [SerializeField] 
         private PropertyGetOffset m_Size = GetOffsetVector3.Create();

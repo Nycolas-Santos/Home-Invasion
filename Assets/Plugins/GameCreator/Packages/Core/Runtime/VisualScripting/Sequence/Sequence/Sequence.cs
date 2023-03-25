@@ -14,8 +14,7 @@ namespace GameCreator.Runtime.VisualScripting
 
         // MEMBERS: -------------------------------------------------------------------------------
 
-        [NonSerialized] private float m_Time;
-
+        [NonSerialized] private float m_StartTime;
         [NonSerialized] private bool m_IsRunning;
         [NonSerialized] private bool m_IsCancelled;
 
@@ -23,8 +22,8 @@ namespace GameCreator.Runtime.VisualScripting
         
         public TimeMode.UpdateMode UpdateMode => this.TimeMode.UpdateTime;
         public float T => Mathf.Clamp01(this.Time / this.Duration);
-
-        public float Time => this.m_Time;
+        
+        public float Time => this.TimeMode.Time - this.m_StartTime;
 
         public bool IsRunning => this.m_IsRunning;
 
@@ -45,12 +44,19 @@ namespace GameCreator.Runtime.VisualScripting
 
         protected Sequence()
         {
-            this.m_Time = 0;
+            this.m_StartTime = 0f;
         }
 
         protected Sequence(Track[] tracks) : this()
         {
             this.m_Tracks = tracks;
+        }
+        
+        // IMPLICIT METHODS: ----------------------------------------------------------------------
+        
+        float ISequence.Dilate(float t)
+        {
+            return this.GetDilated(t);
         }
         
         // PUBLIC METHODS: ------------------------------------------------------------------------
@@ -89,6 +95,11 @@ namespace GameCreator.Runtime.VisualScripting
             this.OnCancel(args);
         }
 
+        protected virtual float GetDilated(float t)
+        {
+            return t;
+        }
+
         // PRIVATE METHODS: -----------------------------------------------------------------------
 
         private bool OnRun(Args args)
@@ -105,7 +116,7 @@ namespace GameCreator.Runtime.VisualScripting
         
         private void OnStart(Args args)
         {
-            this.m_Time = 0f;
+            this.m_StartTime = this.TimeMode.Time;
             this.m_IsRunning = true;
             this.m_IsCancelled = false;
 
@@ -120,9 +131,6 @@ namespace GameCreator.Runtime.VisualScripting
         private void OnUpdate(Args args)
         {
             this.EventBeforeUpdate?.Invoke();
-
-            float deltaTime = this.TimeMode.DeltaTime;
-            this.m_Time += deltaTime;
 
             foreach (ITrack track in this.m_Tracks)
             {

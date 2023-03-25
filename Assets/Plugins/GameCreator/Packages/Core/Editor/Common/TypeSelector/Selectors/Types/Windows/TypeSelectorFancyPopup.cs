@@ -271,8 +271,14 @@ namespace GameCreator.Editor.Common
                 }
             });
 
+            // TODO: [15/03/2023] Remove when Unity 2022.3 LTS is released
+            #if UNITY_2022_2_OR_NEWER
+            content.selectionChanged += ContentSelectItem;
+            content.itemsChosen += ContentChooseItem;
+            #else
             content.onSelectionChange += ContentSelectItem;
             content.onItemsChosen += ContentChooseItem;
+            #endif
 
             content.AddToClassList("gc-tsf-body--content");
             content.RegisterCallback<KeyDownEvent>(eventKeydown =>

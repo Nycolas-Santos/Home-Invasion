@@ -41,7 +41,7 @@ namespace GameCreator.Runtime.VisualScripting
             if (character == null) return DefaultResult;
             if (prefab == null) return DefaultResult;
 
-            SkinMeshUtils.TakeOff(prefab, character);
+            character.Props.RemoveSkinMesh(prefab);
             return DefaultResult;
         }
     }

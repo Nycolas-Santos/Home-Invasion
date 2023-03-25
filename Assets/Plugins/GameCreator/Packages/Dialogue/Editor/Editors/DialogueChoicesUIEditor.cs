@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue.UnityUI;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -18,10 +19,10 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty content = this.serializedObject.FindProperty("m_ContentChoice");
             SerializedProperty prefab = this.serializedObject.FindProperty("m_PrefabChoice");
                 
-            this.m_Root.Add(new PropertyTool(active));
+            this.m_Root.Add(new PropertyField(active));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new PropertyTool(content));
-            this.m_Root.Add(new PropertyTool(prefab));
+            this.m_Root.Add(new PropertyField(content));
+            this.m_Root.Add(new PropertyField(prefab));
 
             return this.m_Root;
         }

@@ -27,7 +27,7 @@ namespace GameCreator.Editor.Inventory
             this.propertyItem = this.serializedObject.FindProperty("m_Item");
             this.propertySockets = this.serializedObject.FindProperty("m_Sockets");
 
-            var fieldItem = new GameCreator.Editor.Common.PropertyTool(this.propertyItem);
+            PropertyField fieldItem = new PropertyField(this.propertyItem);
             this.m_Sockets = new VisualElement();
 
             this.m_Root.Add(fieldItem);
@@ -36,7 +36,7 @@ namespace GameCreator.Editor.Inventory
             this.m_Root.Add(new LabelTitle("Sockets"));
             this.m_Root.Add(this.m_Sockets);
 
-            fieldItem.EventChange += _ => this.RefreshSockets();
+            fieldItem.RegisterValueChangeCallback(_ => this.RefreshSockets());
             this.RefreshSockets();
             
             return this.m_Root;
@@ -61,7 +61,7 @@ namespace GameCreator.Editor.Inventory
                 string socketName = key.FindPropertyRelative(IdStringDrawer.NAME_STRING)
                     .stringValue;
 
-                var fieldTransform = new GameCreator.Editor.Common.PropertyTool(value, TextUtils.Humanize(socketName));
+                var fieldTransform = new PropertyField(value, TextUtils.Humanize(socketName));
                 fieldTransform.Bind(this.serializedObject);
                 this.m_Sockets.Add(fieldTransform);
             }

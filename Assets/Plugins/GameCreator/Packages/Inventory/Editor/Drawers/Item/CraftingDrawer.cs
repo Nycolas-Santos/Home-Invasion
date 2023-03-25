@@ -28,10 +28,10 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty ifDismantle = property.FindPropertyRelative("m_ConditionsDismantle");
             SerializedProperty onDismantle = property.FindPropertyRelative("m_InstructionsOnDismantle");
 
-            var fieldCanCraft = new GameCreator.Editor.Common.PropertyTool(canCraft, "Craft");
+            PropertyField fieldCanCraft = new PropertyField(canCraft, "Craft");
             PropertyField fieldIfCraft = new PropertyField(ifCraft);
             PropertyField fieldOnCraft = new PropertyField(onCraft);
-            var fieldCanDismantle = new GameCreator.Editor.Common.PropertyTool(canDismantle, "Dismantle");
+            PropertyField fieldCanDismantle = new PropertyField(canDismantle, "Dismantle");
             PropertyField fieldIfDismantle = new PropertyField(ifDismantle);
             PropertyField fieldOnDismantle = new PropertyField(onDismantle);
 
@@ -52,16 +52,16 @@ namespace GameCreator.Editor.Inventory
             contentDismantle.Add(fieldOnDismantle);
             
             contentCraft.SetEnabled(canCraft.boolValue);
-            fieldCanCraft.EventChange += changeEvent =>
+            fieldCanCraft.RegisterValueChangeCallback(changeEvent =>
             {
                 contentCraft.SetEnabled(changeEvent.changedProperty.boolValue);
-            };
+            });
             
             contentDismantle.SetEnabled(canDismantle.boolValue);
-            fieldCanDismantle.EventChange += changeEvent =>
+            fieldCanDismantle.RegisterValueChangeCallback(changeEvent =>
             {
                 contentDismantle.SetEnabled(changeEvent.changedProperty.boolValue);
-            };
+            });
         }
     }
 }

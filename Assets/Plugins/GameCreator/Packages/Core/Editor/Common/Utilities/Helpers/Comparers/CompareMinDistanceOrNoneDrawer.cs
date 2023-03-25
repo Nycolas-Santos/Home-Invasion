@@ -19,19 +19,19 @@ namespace GameCreator.Editor.Common
             SerializedProperty radius = property.FindPropertyRelative("m_Radius");
             SerializedProperty offset = property.FindPropertyRelative("m_Offset");
             
-            PropertyTool fieldOption = new PropertyTool(option, property.displayName);
+            PropertyField fieldOption = new PropertyField(option, property.displayName);
             
             PropertyElement fieldTarget = new PropertyElement(
                 target.FindPropertyRelative(IPropertyDrawer.PROPERTY_NAME),
                 target.displayName, true
             );
 
-            PropertyTool fieldRadius = new PropertyTool(radius);
-            PropertyTool fieldOffset = new PropertyTool(offset);
+            PropertyField fieldRadius = new PropertyField(radius);
+            PropertyField fieldOffset = new PropertyField(offset);
             
             head.Add(fieldOption);
             
-            fieldOption.EventChange += changeEvent =>
+            fieldOption.RegisterValueChangeCallback(changeEvent =>
             {
                 body.Clear();
                 if (changeEvent.changedProperty.enumValueIndex != 1) return;
@@ -41,7 +41,7 @@ namespace GameCreator.Editor.Common
                 body.Add(fieldOffset);
                 
                 body.Bind(changeEvent.changedProperty.serializedObject);
-            };
+            });
 
             if (option.enumValueIndex == 1)
             {

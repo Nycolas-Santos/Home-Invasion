@@ -38,7 +38,7 @@ namespace GameCreator.Editor.Stats.UnityUI
 
             PropertyField fieldSource = new PropertyField(formulaSource);
             PropertyField fieldTarget = new PropertyField(formulaTarget);
-            PropertyTool fieldFormula = new PropertyTool(formulaAsset);
+            PropertyField fieldFormula = new PropertyField(formulaAsset);
             
             this.m_Head.Add(fieldSource);
             this.m_Head.Add(fieldTarget);
@@ -46,14 +46,14 @@ namespace GameCreator.Editor.Stats.UnityUI
 
             this.m_Body.Add(new SpaceSmall());
             this.m_Body.Add(new PropertyField(value));
-            this.m_Body.Add(new PropertyTool(ratioFill));
+            this.m_Body.Add(new PropertyField(ratioFill));
             
             this.m_Body.SetEnabled(formulaAsset.objectReferenceValue != null);
-            fieldFormula.EventChange += changeEvent =>
+            fieldFormula.RegisterValueChangeCallback(changeEvent =>
             {
                 bool exists = changeEvent.changedProperty.objectReferenceValue != null;
                 this.m_Body.SetEnabled(exists);
-            };
+            });
             
             return this.m_Root;
         }

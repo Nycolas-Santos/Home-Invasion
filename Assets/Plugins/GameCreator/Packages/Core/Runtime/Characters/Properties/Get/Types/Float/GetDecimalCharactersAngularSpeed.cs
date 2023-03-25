@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameCreator.Runtime.Characters
 {
     [Title("Angular Speed")]
-    [Category("Characters/Angular Speed")]
+    [Category("Characters/Navigation/Angular Speed")]
     
     [Image(typeof(IconRotationYaw), ColorTheme.Type.Yellow)]
     [Description("The Character's Angular Speed value")]

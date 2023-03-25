@@ -45,23 +45,23 @@ namespace GameCreator.Editor.Inventory.UnityUI
             }
 
             this.m_ContentChoose = new VisualElement();
-            var fieldChoose = new GameCreator.Editor.Common.PropertyTool(onChoose);
+            var fieldChoose = new PropertyField(onChoose);
             
             this.m_Root.Add(new PropertyField(cellInfo));
             this.m_Root.Add(new PropertyField(cellMerchant));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(canDrag));
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(activeSelection));
+            this.m_Root.Add(new PropertyField(canDrag));
+            this.m_Root.Add(new PropertyField(activeSelection));
             this.m_Root.Add(new SpaceSmall());
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(onDrop));
+            this.m_Root.Add(new PropertyField(onDrop));
             this.m_Root.Add(fieldChoose);
             this.m_Root.Add(this.m_ContentChoose);
 
             this.RefreshContentChoose();
-            fieldChoose.EventChange += _ =>
+            fieldChoose.RegisterValueChangeCallback(_ =>
             {
                 this.RefreshContentChoose();
-            };
+            });
 
             return this.m_Root;
         }

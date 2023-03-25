@@ -24,8 +24,8 @@ namespace GameCreator.Editor.Common
             SerializedProperty pointA = property.FindPropertyRelative("m_PointA");
             SerializedProperty pointB = property.FindPropertyRelative("m_PointB");
 
-            container.Add(new PropertyTool(pointA));
-            container.Add(new PropertyTool(pointB));
+            container.Add(new PropertyField(pointA));
+            container.Add(new PropertyField(pointB));
         }
         
         // SCENE GUI: -----------------------------------------------------------------------------

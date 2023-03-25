@@ -101,7 +101,7 @@ namespace GameCreator.Runtime.Common
                 Renderer renderer = RENDERERS[i];
                 if (renderer == null) continue;
 
-                foreach (Material material in renderer.materials)
+                foreach (Material material in renderer.sharedMaterials)
                 {
                     Texture texture = material.mainTexture;
                     if (texture == null) continue;
@@ -198,7 +198,7 @@ namespace GameCreator.Runtime.Common
                 Renderer renderer = RENDERERS[i];
                 if (renderer == null) continue;
 
-                foreach (Material material in renderer.materials)
+                foreach (Material material in renderer.sharedMaterials)
                 {
                     Texture texture = material.mainTexture;
                     this.PlaySound(texture, 1f, speed, transform, args);

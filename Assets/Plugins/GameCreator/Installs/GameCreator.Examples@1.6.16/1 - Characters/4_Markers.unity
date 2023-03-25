@@ -3676,11 +3676,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 301130881253343975, guid: 6dea5d8fa8b544760979cdcd54fd56f9, type: 3}
       propertyPath: m_Kernel.m_Driver
-      value: 5735539816121237522
+      value: 3592961536010747932
+      objectReference: {fileID: 0}
+    - target: {fileID: 301130881253343975, guid: 6dea5d8fa8b544760979cdcd54fd56f9, type: 3}
+      propertyPath: managedReferences[3592961536010747932]
+      value: GameCreator.Runtime.Core GameCreator.Runtime.Characters.UnitDriverController
       objectReference: {fileID: 0}
     - target: {fileID: 301130881253343975, guid: 6dea5d8fa8b544760979cdcd54fd56f9, type: 3}
       propertyPath: managedReferences[5735539816121237522]
       value: GameCreator.Runtime.Core GameCreator.Runtime.Characters.UnitDriverNavmesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 301130881253343975, guid: 6dea5d8fa8b544760979cdcd54fd56f9, type: 3}
+      propertyPath: managedReferences[3592961536010747932].m_Plane
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 301130881253343975, guid: 6dea5d8fa8b544760979cdcd54fd56f9, type: 3}
+      propertyPath: managedReferences[3592961536010747932].m_MaxSlope
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 301130881253343975, guid: 6dea5d8fa8b544760979cdcd54fd56f9, type: 3}
+      propertyPath: managedReferences[3592961536010747932].m_PushForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 301130881253343975, guid: 6dea5d8fa8b544760979cdcd54fd56f9, type: 3}
+      propertyPath: managedReferences[3592961536010747932].m_SkinWidth
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 301130881253343975, guid: 6dea5d8fa8b544760979cdcd54fd56f9, type: 3}
+      propertyPath: managedReferences[3592961536010747932].m_StepHeight
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 301130881253343975, guid: 6dea5d8fa8b544760979cdcd54fd56f9, type: 3}
       propertyPath: managedReferences[5735539769207160837].m_IsExpanded
@@ -4606,7 +4630,6 @@ MonoBehaviour:
       type: {class: ShotTypeThirdPerson, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data:
         m_ShotSystemViewport:
-          m_SmoothTime: 0.01
           m_Projection:
             m_IsEnabled: 0
             m_Value: 0
@@ -4616,6 +4639,12 @@ MonoBehaviour:
           m_OrthographicSize:
             m_IsEnabled: 0
             m_Value: 5
+          m_ClipPlaneNear:
+            m_IsEnabled: 0
+            m_Value: 0.3
+          m_ClipPlaneFar:
+            m_IsEnabled: 0
+            m_Value: 1000
         m_ShotSystemLook:
           m_IsActive: 1
           m_LookTarget:
@@ -5715,6 +5744,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6850921225140801634, guid: 567769a2d701d4dff8350f9c2b29b663, type: 3}
   m_PrefabInstance: {fileID: 987902053}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1006480822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1006480824}
+  - component: {fileID: 1006480823}
+  m_Layer: 0
+  m_Name: Marker_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1006480823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006480822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b01c4c6ab8f24302816449b24f62efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StopDistance: 0
+  m_MarkerType:
+    rid: 3872144977834541059
+  m_UniqueID:
+    m_SerializedID:
+      m_String: 18a34797-4451-4911-8a89-13bdff872e5e
+  references:
+    version: 2
+    RefIds:
+    - rid: 3872144977834541059
+      type: {class: MarkerTypeDirection, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+--- !u!4 &1006480824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006480822}
+  m_LocalRotation: {x: -0, y: -0.0000009685754, z: -0, w: 1}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1009608689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6681,7 +6765,7 @@ GameObject:
   - component: {fileID: 1182527722}
   - component: {fileID: 1182527721}
   m_Layer: 0
-  m_Name: Marker_2
+  m_Name: Marker_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6717,14 +6801,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182527720}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: 0.5, y: 3, z: 8.5}
+  m_LocalRotation: {x: -0, y: -0.7071049, z: -0, w: 0.70710874}
+  m_LocalPosition: {x: 6, y: 3, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &1198503527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8135,12 +8219,81 @@ MonoBehaviour:
     - rid: 5735539816121237509
     - rid: 5735539816121237513
     - rid: 5735539816121237517
+    - rid: 3592961536010747936
+    - rid: 3592961536010747939
+    - rid: 3592961536010747933
     - rid: 5735539816121237521
   m_TriggerEvent:
     rid: 5735539816121237504
   references:
     version: 2
     RefIds:
+    - rid: 3592961536010747933
+      type: {class: InstructionCharacterNavigationMoveTo, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 3592961536010747934
+        m_Location:
+          m_Property:
+            rid: 3592961536010747935
+        m_WaitToArrive: 1
+        m_StopDistance: 0.5
+    - rid: 3592961536010747934
+      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Character: {fileID: 607978178}
+    - rid: 3592961536010747935
+      type: {class: GetLocationNavigationMarker, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Marker: {fileID: 1884434360}
+    - rid: 3592961536010747936
+      type: {class: InstructionCharacterNavigationMoveTo, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 3592961536010747937
+        m_Location:
+          m_Property:
+            rid: 3592961536010747938
+        m_WaitToArrive: 1
+        m_StopDistance: 0.5
+    - rid: 3592961536010747937
+      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Character: {fileID: 607978178}
+    - rid: 3592961536010747938
+      type: {class: GetLocationNavigationMarker, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Marker: {fileID: 2012251242}
+    - rid: 3592961536010747939
+      type: {class: InstructionCharacterNavigationMoveTo, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 0
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_Character:
+          m_Property:
+            rid: 3592961536010747940
+        m_Location:
+          m_Property:
+            rid: 3592961536010747941
+        m_WaitToArrive: 1
+        m_StopDistance: 0.5
+    - rid: 3592961536010747940
+      type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
+      data:
+        m_Character: {fileID: 607978178}
+    - rid: 3592961536010747941
+      type: {class: GetLocationNavigationMarker, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Marker: {fileID: 1505741195}
     - rid: 5735539816121237504
       type: {class: EventOnStart, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
     - rid: 5735539816121237505
@@ -8182,7 +8335,7 @@ MonoBehaviour:
     - rid: 5735539816121237511
       type: {class: GetLocationNavigationMarker, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Marker: {fileID: 1182527721}
+        m_Marker: {fileID: 1006480823}
     - rid: 5735539816121237512
       type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
@@ -8204,7 +8357,7 @@ MonoBehaviour:
     - rid: 5735539816121237515
       type: {class: GetLocationNavigationMarker, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Marker: {fileID: 1505741195}
+        m_Marker: {fileID: 1182527721}
     - rid: 5735539816121237516
       type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
@@ -8226,7 +8379,7 @@ MonoBehaviour:
     - rid: 5735539816121237519
       type: {class: GetLocationNavigationMarker, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
-        m_Marker: {fileID: 1884434360}
+        m_Marker: {fileID: 1753430646}
     - rid: 5735539816121237520
       type: {class: GetGameObjectCharactersInstance, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
@@ -8923,7 +9076,7 @@ GameObject:
   - component: {fileID: 1505741196}
   - component: {fileID: 1505741195}
   m_Layer: 0
-  m_Name: Marker_3
+  m_Name: Marker_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8965,7 +9118,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1507345092
 PrefabInstance:
@@ -10155,6 +10308,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4193679455884261387, guid: 182fc147398fa44388e62d350f86aed6, type: 3}
   m_PrefabInstance: {fileID: 1747651967}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1753430645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1753430647}
+  - component: {fileID: 1753430646}
+  m_Layer: 0
+  m_Name: Marker_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1753430646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753430645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b01c4c6ab8f24302816449b24f62efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StopDistance: 0
+  m_MarkerType:
+    rid: 3872144977834541058
+  m_UniqueID:
+    m_SerializedID:
+      m_String: 1da4a1fd-d0f2-4724-b4b1-b63cf963599f
+  references:
+    version: 2
+    RefIds:
+    - rid: 3872144977834541058
+      type: {class: MarkerTypeDirection, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+--- !u!4 &1753430647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753430645}
+  m_LocalRotation: {x: -0, y: 0.0000026822088, z: -0, w: 1}
+  m_LocalPosition: {x: -3.500001, y: 3, z: 9.00005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1758075934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10960,7 +11168,7 @@ GameObject:
   - component: {fileID: 1884434361}
   - component: {fileID: 1884434360}
   m_Layer: 0
-  m_Name: Marker_4
+  m_Name: Marker_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11002,7 +11210,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1001 &1898903462
 PrefabInstance:
@@ -11824,6 +12032,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7065020296910698035, guid: f0b815e86b2ad461bb2fd46a40b83377, type: 3}
   m_PrefabInstance: {fileID: 2012118792}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2012251241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012251243}
+  - component: {fileID: 2012251242}
+  m_Layer: 0
+  m_Name: Marker_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2012251242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012251241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b01c4c6ab8f24302816449b24f62efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StopDistance: 0
+  m_MarkerType:
+    rid: 3872144977834541058
+  m_UniqueID:
+    m_SerializedID:
+      m_String: 1da4a1fd-d0f2-4724-b4b1-b63cf963599f
+  references:
+    version: 2
+    RefIds:
+    - rid: 3872144977834541058
+      type: {class: MarkerTypeDirection, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+--- !u!4 &2012251243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012251241}
+  m_LocalRotation: {x: -0, y: 0.0000026822088, z: -0, w: 1}
+  m_LocalPosition: {x: -3.5, y: 3, z: 13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2022329942
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ namespace GameCreator.Editor.Inventory.UnityUI
         protected override void CreateSpecificInspectorGUI()
         {
             this.m_Content = this.serializedObject.FindProperty("m_Content");
-            this.m_Root.Add(new GameCreator.Editor.Common.PropertyTool(this.m_Content));
+            this.m_Root.Add(new PropertyField(this.m_Content));
         }
         
         // CREATE: --------------------------------------------------------------------------------

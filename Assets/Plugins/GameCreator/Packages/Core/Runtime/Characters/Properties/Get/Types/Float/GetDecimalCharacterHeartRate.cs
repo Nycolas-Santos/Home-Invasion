@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameCreator.Runtime.Characters
 {
     [Title("Heart Rate")]
-    [Category("Characters/Heart Rate")]
+    [Category("Characters/Animation/Heart Rate")]
     
     [Image(typeof(IconHeartBeat), ColorTheme.Type.Yellow)]
     [Description("The Character's Heart Rate value")]

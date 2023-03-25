@@ -1,6 +1,7 @@
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue.UnityUI;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -19,22 +20,22 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty keepAmount = this.serializedObject.FindProperty("m_KeepAmount");
             SerializedProperty maxAmount = this.serializedObject.FindProperty("m_MaxAmount");
             
-            this.m_Root.Add(new PropertyTool(content));
-            this.m_Root.Add(new PropertyTool(prefab));
+            this.m_Root.Add(new PropertyField(content));
+            this.m_Root.Add(new PropertyField(prefab));
 
-            PropertyTool fieldKeepAmount = new PropertyTool(keepAmount, "Max Amount");
-            PropertyTool fieldMaxAmount = new PropertyTool(maxAmount, " ");
+            PropertyField fieldKeepAmount = new PropertyField(keepAmount, "Max Amount");
+            PropertyField fieldMaxAmount = new PropertyField(maxAmount, " ");
             
             this.m_Root.Add(new SpaceSmall());
             this.m_Root.Add(fieldKeepAmount);
             this.m_Root.Add(fieldMaxAmount);
 
-            fieldKeepAmount.EventChange += changeEvent =>
+            fieldKeepAmount.RegisterValueChangeCallback(changeEvent =>
             {
                 fieldMaxAmount.style.display = changeEvent.changedProperty.boolValue
                     ? DisplayStyle.Flex
                     : DisplayStyle.None;
-            };
+            });
             
             fieldMaxAmount.style.display = keepAmount.boolValue
                 ? DisplayStyle.Flex

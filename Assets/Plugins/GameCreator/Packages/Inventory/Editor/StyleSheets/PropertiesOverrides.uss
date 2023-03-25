@@ -15,7 +15,7 @@
     margin-right: 2px;
 }
 
-#GC-Inventory-Properties-Overrides-Element PropertyTool {
+#GC-Inventory-Properties-Overrides-Element PropertyField {
     flex-grow: 1;
     margin-right: 2px;
 }

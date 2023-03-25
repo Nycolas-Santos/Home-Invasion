@@ -1,4 +1,5 @@
 using System;
+using GameCreator.Runtime.Characters;
 using UnityEngine;
 
 namespace GameCreator.Runtime.Common
@@ -6,7 +7,11 @@ namespace GameCreator.Runtime.Common
     [Serializable]
     public struct Location
     {
-        public static readonly Location NONE = new Location();
+        public static readonly Location NONE = new Location
+        {
+            m_HasPosition = false,
+            m_HasRotation = false
+        };
         
         // ENUMS: ---------------------------------------------------------------------------------
         
@@ -16,7 +21,7 @@ namespace GameCreator.Runtime.Common
             Transform,
             Marker   
         }
-    
+
         // MEMBERS: -------------------------------------------------------------------------------
 
         [SerializeField] private Vector3 m_Position;
@@ -24,39 +29,20 @@ namespace GameCreator.Runtime.Common
         
         [SerializeField] private bool m_HasPosition;
         [SerializeField] private bool m_HasRotation;
+        
+        // PROPERTIES: ----------------------------------------------------------------------------
+        
+        [field: NonSerialized] private Type LocationType { get; }
+        
+        [field: NonSerialized] private Transform Transform { get; }
+        [field: NonSerialized] private Marker Marker { get; }
 
-        // PUBLIC PROPERTIES: ---------------------------------------------------------------------
-
-        public Vector3 GetPosition(GameObject user)
-        {
-            switch (this.LocationType)
-            {
-                case Type.Transform:
-                    if (this.Transform == null) return Vector3.zero;
-                    return this.Transform.position + 
-                           this.Transform.TransformDirection(this.LocalOffset) +
-                           this.WorldOffset;
-                case Type.Marker:
-                    if (this.Marker == null) return Vector3.zero;
-                    return this.Marker.GetPosition(user) + 
-                           this.Marker.transform.TransformDirection(this.LocalOffset) +
-                           this.WorldOffset;
-                case Type.Position:
-                    return this.m_Position;
-                default: throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        public Quaternion GetRotation(GameObject user)
-        {
-            return this.LocationType switch
-            {
-                Type.Transform when this.Transform != null => this.Transform.rotation,
-                Type.Marker when this.Marker != null => this.Marker.GetRotation(user),
-                _ => this.m_Rotation
-            };
-        }
-
+        [field: NonSerialized] private Space OffsetSpace { get; }
+        [field: NonSerialized] private bool m_UseTransformRotation { get; } 
+        
+        [field: NonSerialized] private Vector3 OffsetPosition { get; }
+        [field: NonSerialized] private Quaternion OffsetRotation { get; }
+        
         public bool HasPosition => this.LocationType switch
         {
             Type.Transform when this.Transform != null => true,
@@ -69,136 +55,180 @@ namespace GameCreator.Runtime.Common
             Type.Marker when this.Marker != null => true,
             _ => this.m_HasRotation
         };
-
-        // PRIVATE PROPERTIES: --------------------------------------------------------------------
         
-        private Type LocationType { get; }
-        
-        private Transform Transform { get; }
-        private Marker Marker { get; }
-        
-        private Vector3 LocalOffset { get; }
-        private Vector3 WorldOffset { get; }
+        // CONSTRUCTORS CONSTANTS: ----------------------------------------------------------------
 
-        // CONSTRUCTORS: --------------------------------------------------------------------------
-
-        public Location(bool hasPosition, bool hasRotation, 
-            Vector3 position, Quaternion rotation) : this()
+        public Location(bool hasPosition, bool hasRotation, Vector3 position, Quaternion rotation)
+            : this()
         {
-            this.m_Position = position;
-            this.m_Rotation = rotation;
-            
             this.m_HasPosition = hasPosition;
             this.m_HasRotation = hasRotation;
-
-            this.LocationType = Type.Position;
-            this.Transform = null;
-            this.Marker = null;
             
-            LocalOffset = default;
-            WorldOffset = default;
-        }
-        
-        public Location(Vector3 position, Quaternion rotation) : this()
-        {
             this.m_Position = position;
             this.m_Rotation = rotation;
-            
-            this.m_HasPosition = true;
-            this.m_HasRotation = true;
 
             this.LocationType = Type.Position;
             this.Transform = null;
             this.Marker = null;
-            
-            LocalOffset = default;
-            WorldOffset = default;
-        }
-        
-        public Location(Vector3 position)
-        {
-            this.m_Position = position;
-            this.m_Rotation = Quaternion.identity;
-            
-            this.m_HasPosition = true;
-            this.m_HasRotation = false;
-            
-            this.LocationType = Type.Position;
-            this.Transform = null;
-            this.Marker = null;
-            
-            LocalOffset = default;
-            WorldOffset = default;
-        }
-        
-        public Location(Quaternion rotation)
-        {
-            this.m_Position = Vector3.zero;
-            this.m_Rotation = rotation;
-            
-            this.m_HasPosition = false;
-            this.m_HasRotation = true;
-            
-            this.LocationType = Type.Position;
-            this.Transform = null;
-            this.Marker = null;
-            
-            LocalOffset = default;
-            WorldOffset = default;
-        }
 
-        public Location(Marker marker, Vector3 offset) : this()
+            this.OffsetSpace = Space.Self;
+            this.OffsetPosition = Vector3.zero;
+            this.OffsetRotation = Quaternion.identity;
+        }
+        
+        public Location(Vector3 position, Quaternion rotation)
+            : this(true, true, position, rotation)
+        { }
+        
+        public Location(Vector3 position) 
+            : this(true, false, position, Quaternion.identity)
+        { }
+        
+        public Location(Quaternion rotation) 
+            : this(false, true, Vector3.zero, rotation)
+        { }
+        
+        // CONSTRUCTORS MARKERS: ------------------------------------------------------------------
+
+        public Location(Marker marker, Space offsetSpace, Vector3 offsetPosition, Quaternion offsetRotation) 
+            : this()
         {
             if (marker == null) return;
 
-            this.m_Position = marker.transform.position;
-            this.m_Rotation = marker.transform.rotation;
-            
             this.m_HasPosition = true;
             this.m_HasRotation = true;
             
+            this.m_Position = offsetSpace switch
+            {
+                Space.World => marker.transform.position + offsetPosition,
+                Space.Self => marker.transform.TransformPoint(offsetPosition),
+                _ => throw new ArgumentOutOfRangeException(nameof(offsetSpace))
+            };
+            
+            this.m_Rotation = marker.transform.rotation * offsetRotation;
+
             this.LocationType = Type.Marker;
             this.Transform = null;
             this.Marker = marker;
             
-            LocalOffset = offset;
-            WorldOffset = default;
-        }
-
-        public Location(GameObject gameObject, Vector3 offset, bool hasRotation) : this()
-        {
-            if (gameObject == null) return;
-
-            this.m_Position = gameObject.transform.position;
-            this.m_Rotation = gameObject.transform.rotation;
-            
-            this.m_HasPosition = true;
-            this.m_HasRotation = hasRotation;
-            
-            this.LocationType = Type.Transform;
-            this.Transform = gameObject.transform;
-            this.Marker = null;
-            
-            LocalOffset = offset;
-            WorldOffset = default;
+            this.OffsetSpace = offsetSpace;
+            this.OffsetPosition = offsetPosition;
+            this.OffsetRotation = offsetRotation;
         }
         
-        public Location(Transform transform, Vector3 offset, bool hasRotation) : this()
+        public Location(Marker marker, Vector3 offsetLocalPosition) 
+            : this(marker, Space.Self, offsetLocalPosition, Quaternion.identity)
+        { }
+        
+        public Location(Marker marker, Quaternion offsetRotation) 
+            : this(marker, Space.Self, Vector3.zero, offsetRotation)
+        { }
+
+        // CONSTRUCTORS TRANSFORMS: ---------------------------------------------------------------
+
+        public Location(Transform transform, Space offsetSpace, Vector3 offsetPosition, bool applyTransformRotation, Quaternion offsetRotation)
+            : this()
         {
             if (transform == null) return;
 
-            this.m_Position = transform.position;
-            this.m_Rotation = transform.rotation;
-            
             this.m_HasPosition = true;
-            this.m_HasRotation = hasRotation;
+            this.m_HasRotation = true;
             
+            this.m_Position = offsetSpace switch
+            {
+                Space.World => transform.position + offsetPosition,
+                Space.Self => transform.TransformPoint(offsetPosition),
+                _ => throw new ArgumentOutOfRangeException(nameof(offsetSpace))
+            };
+
+            this.m_Rotation = applyTransformRotation switch
+            {
+                false => offsetRotation,
+                true => transform.rotation * offsetRotation
+            };
+
             this.LocationType = Type.Transform;
             this.Transform = transform;
             this.Marker = null;
             
-            LocalOffset = offset;
-            WorldOffset = default;
+            this.OffsetSpace = offsetSpace;
+            this.m_UseTransformRotation = applyTransformRotation;
+            
+            this.OffsetPosition = offsetPosition;
+            this.OffsetRotation = offsetRotation;
+        }
+        
+        // +------------------------------------------------------------------+
+        // | TODO: Deprecate in 6 months from now [Creation date: 17/02/2023] |
+        // +------------------------------------------------------------------+
+        
+        [Obsolete(
+            "Creating a Location using a Game Object has been deprecated. " +
+            "Please, consider using the method with the complete signature"
+        )]
+        
+        public Location(GameObject gameObject, Vector3 offsetLocalSpace, bool applyTransformRotation) 
+            : this(gameObject != null ? gameObject.transform : null, Space.World, offsetLocalSpace, applyTransformRotation, Quaternion.identity)
+        { }
+
+        // +------------------------------------------------------------------+
+        // | TODO: Deprecate in 6 months from now [Creation date: 17/02/2023] |
+        // +------------------------------------------------------------------+
+        
+        [Obsolete(
+            "Creating a Location using a Game Object has been deprecated. " +
+            "Please, consider using the method with the complete signature"
+        )]
+        
+        public Location(Transform transform, Vector3 offsetLocalSpace, bool applyTransformRotation) 
+            : this(transform, Space.World, offsetLocalSpace, applyTransformRotation, Quaternion.identity)
+        { }
+        
+        // PUBLIC METHODS: ------------------------------------------------------------------------
+
+        public Vector3 GetPosition(GameObject target)
+        {
+            switch (this.LocationType)
+            {
+                case Type.Transform:
+                    if (this.Transform == null) return Vector3.zero;
+                    Character character = this.Transform.Get<Character>();
+                    Vector3 position = character != null ? character.Feet : this.Transform.position;
+                    return this.OffsetSpace switch
+                    {
+                        Space.World => position + this.OffsetPosition,
+                        Space.Self => position + this.Transform.TransformDirection(this.OffsetPosition),
+                        _ => throw new ArgumentOutOfRangeException(nameof(this.OffsetSpace))
+                    };
+                
+                case Type.Marker:
+                    if (this.Marker == null) return Vector3.zero;
+                    return this.Marker.GetPosition(target) + this.OffsetSpace switch 
+                    {
+                        Space.World => this.OffsetPosition,
+                        Space.Self => this.Marker.transform.TransformDirection(this.OffsetPosition), 
+                        _ => throw new ArgumentOutOfRangeException(nameof(this.OffsetSpace))
+                    };
+                
+                case Type.Position:
+                    return this.m_Position;
+                
+                default: throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public Quaternion GetRotation(GameObject user)
+        {
+            return this.LocationType switch
+            {
+                Type.Transform when this.Transform != null => this.m_UseTransformRotation switch
+                {
+                    false => this.OffsetRotation,
+                    true => this.Transform.rotation * this.OffsetRotation
+                },
+                Type.Marker when this.Marker != null => this.Marker.GetRotation(user) * this.OffsetRotation,
+                _ => this.m_Rotation
+            };
         }
     }
 }

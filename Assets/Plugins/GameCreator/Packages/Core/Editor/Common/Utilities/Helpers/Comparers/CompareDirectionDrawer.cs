@@ -15,8 +15,8 @@ namespace GameCreator.Editor.Common
             SerializedProperty comparison = property.FindPropertyRelative("m_Comparison");
             SerializedProperty compareTo = property.FindPropertyRelative("m_CompareTo");
             
-            PropertyTool fieldComparison = new PropertyTool(comparison);
-            PropertyTool fieldCompareTo = new PropertyTool(compareTo, property.displayName);
+            PropertyField fieldComparison = new PropertyField(comparison);
+            PropertyField fieldCompareTo = new PropertyField(compareTo, property.displayName);
 
             root.Add(fieldComparison);
             root.Add(fieldCompareTo);

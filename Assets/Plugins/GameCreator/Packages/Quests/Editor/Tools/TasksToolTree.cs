@@ -73,7 +73,14 @@ namespace GameCreator.Editor.Quests
             this.m_TreeView.showAlternatingRowBackgrounds = AlternatingRowBackground.All;
 
             this.m_TreeView.itemIndexChanged += this.ReorderItems;
+            
+            // TODO: [21/03/2023] Remove once Unity 2022.3 LTS is released and widely supported
+            
+            #if UNITY_2022_2_OR_NEWER
+            this.m_TreeView.selectionChanged += this.SelectionChange;
+            #else
             this.m_TreeView.onSelectionChange += this.SelectionChange;
+            #endif
             
             this.m_TreeView.RegisterCallback<KeyDownEvent>(keyEvent =>
             {
@@ -156,15 +163,13 @@ namespace GameCreator.Editor.Quests
                 this.CreateAsSelectionSibling(value);
                 return;
             }
-            
-            SerializationUtils.ApplyUnregisteredSerialization(this.TasksTool.SerializedObject);
-            
+
             int parentId = this.m_TreeView.GetIdForIndex(this.m_TreeView.selectedIndex);
             
             TasksTree tasksTree = this.TasksTool.Instance;
             int newId = tasksTree.AddChild(valueTask, parentId);
-            
-            SerializationUtils.ApplyUnregisteredSerialization(this.TasksTool.SerializedObject);
+
+            this.TasksTool.Instance = tasksTree;
 
             TreeViewItemData<Task> itemData = new TreeViewItemData<Task>(newId, valueTask);
             this.m_TreeView.AddItem(itemData, parentId);
@@ -175,8 +180,6 @@ namespace GameCreator.Editor.Quests
         
         public void CreateAsSelectionSibling(object value)
         {
-            SerializationUtils.ApplyUnregisteredSerialization(this.TasksTool.SerializedObject);
-
             if (value is not Task valueTask) return;
 
             TasksTree tasksTree = this.TasksTool.Instance;
@@ -192,7 +195,7 @@ namespace GameCreator.Editor.Quests
                 ? tasksTree.AddAfterSibling(valueTask, selectedId)
                 : tasksTree.AddToRoot(valueTask);
 
-            SerializationUtils.ApplyUnregisteredSerialization(this.TasksTool.SerializedObject);
+            this.TasksTool.Instance = tasksTree;
 
             int parentId = this.m_TreeView.GetParentIdForIndex(this.m_TreeView.selectedIndex);
             int selectedIndex = this.m_TreeView.viewController.GetChildIndexForId(selectedId);
@@ -216,9 +219,7 @@ namespace GameCreator.Editor.Quests
                 
                 if (!delete) return;
             }
-            
-            SerializationUtils.ApplyUnregisteredSerialization(this.TasksTool.SerializedObject);
-            
+
             if (this.m_TreeView.selectedIndex == -1) return;
             int selectedIndex = this.m_TreeView.selectedIndex;
 
@@ -228,9 +229,10 @@ namespace GameCreator.Editor.Quests
             TasksTree tasksTree = this.TasksTool.Instance;
             
             bool success = tasksTree.Remove(selectedId);
+            this.TasksTool.Instance = tasksTree;
+            
             if (!success) return;
             
-            SerializationUtils.ApplyUnregisteredSerialization(this.TasksTool.SerializedObject);
             this.m_TreeView.TryRemoveItem(selectedId);
             
             this.EventChange?.Invoke();
@@ -258,8 +260,7 @@ namespace GameCreator.Editor.Quests
             this.SynchronizeRoots(tasksTree);
             this.SynchronizeNodes(tasksTree);
             
-            this.TasksTool.SerializedObject.Update();
-            // this.DebugPrintTree();
+            this.TasksTool.Instance = tasksTree;
         }
         
         private void SynchronizeRoots(TasksTree tasksTree)

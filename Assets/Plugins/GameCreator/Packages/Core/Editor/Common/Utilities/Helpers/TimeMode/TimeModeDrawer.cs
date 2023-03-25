@@ -11,7 +11,7 @@ namespace GameCreator.Editor.Common
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
             SerializedProperty propertyUpdateTime = property.FindPropertyRelative("m_UpdateTime");
-            PropertyTool fieldUpdateTime = new PropertyTool(
+            PropertyField fieldUpdateTime = new PropertyField(
                 propertyUpdateTime, 
                 property.displayName
             );

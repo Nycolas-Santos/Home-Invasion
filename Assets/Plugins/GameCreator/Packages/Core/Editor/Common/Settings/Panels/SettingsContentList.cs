@@ -88,13 +88,24 @@ namespace GameCreator.Editor.Common
                 selectionType = SelectionType.Single
             };
 
+            // TODO: [15/03/2023] Remove when Unity 2022.3 LTS is released
+            #if UNITY_2022_2_OR_NEWER
+            this.m_ListView.selectionChanged += OnContentSelectItem;
+            #else
             this.m_ListView.onSelectionChange += OnContentSelectItem;
+            #endif
+
             this.Add(this.m_ListView);
         }
 
         public void OnDisable()
         {
+            // TODO: [15/03/2023] Remove when Unity 2022.3 LTS is released
+            #if UNITY_2022_2_OR_NEWER
+            this.m_ListView.selectionChanged -= OnContentSelectItem;
+            #else
             this.m_ListView.onSelectionChange -= OnContentSelectItem;
+            #endif
         }
 
         // CALLBACK METHODS: ----------------------------------------------------------------------

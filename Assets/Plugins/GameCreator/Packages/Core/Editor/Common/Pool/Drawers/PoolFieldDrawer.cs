@@ -35,7 +35,7 @@ namespace GameCreator.Editor.Common
                 bindingPath = usePooling.propertyPath
             };
 
-            PropertyTool fieldSize = new PropertyTool(size, string.Empty);
+            PropertyField fieldSize = new PropertyField(size, string.Empty);
 
             Toggle fieldHasDuration = new Toggle
             {
@@ -43,7 +43,7 @@ namespace GameCreator.Editor.Common
                 bindingPath = hasDuration.propertyPath
             };
 
-            PropertyTool fieldDuration = new PropertyTool(duration, string.Empty);
+            PropertyField fieldDuration = new PropertyField(duration, string.Empty);
 
             fieldUsePooling.style.marginRight = SEPARATION;
             fieldHasDuration.style.marginRight = SEPARATION;
@@ -59,7 +59,7 @@ namespace GameCreator.Editor.Common
             contentDuration.Add(fieldHasDuration);
             contentDuration.Add(fieldDuration);
             
-            root.Add(new PropertyTool(prefab));
+            root.Add(new PropertyField(prefab));
             root.Add(contentPooling);
             root.Add(contentDuration);
 

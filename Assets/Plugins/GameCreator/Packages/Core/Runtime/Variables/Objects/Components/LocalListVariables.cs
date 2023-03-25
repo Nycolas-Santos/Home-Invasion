@@ -21,12 +21,18 @@ namespace GameCreator.Runtime.Variables
         public int Count => this.m_Runtime.Count;
 
         public IdString TypeID => this.m_Runtime.TypeID;
+        
+        // EVENTS: --------------------------------------------------------------------------------
+        
+        public event Action<ListVariableRuntime.Change, int> EventChange;
 
         // INITIALIZERS: --------------------------------------------------------------------------
 
         protected override void Awake()
         {
             this.m_Runtime.OnStartup();
+            this.m_Runtime.EventChange += this.OnRuntimeChange;
+            
             base.Awake();
         }
         
@@ -36,20 +42,21 @@ namespace GameCreator.Runtime.Variables
             instance.m_Runtime = variables;
             instance.m_Runtime.OnStartup();
 
+            instance.m_Runtime.EventChange += instance.OnRuntimeChange;
             return instance;
         }
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
-        public object Get(IListGetPick pick)
+        public object Get(IListGetPick pick, Args args)
         {
-            int index = pick?.GetIndex(this.Count) ?? -1;
+            int index = pick?.GetIndex(this.Count, args) ?? -1;
             return this.Get(index);
         }
         
-        public object Get(IListSetPick pick)
+        public object Get(IListSetPick pick, Args args)
         {
-            int index = pick?.GetIndex(this.Count) ?? -1;
+            int index = pick?.GetIndex(this.Count, args) ?? -1;
             return this.Get(index);
         }
         
@@ -58,9 +65,9 @@ namespace GameCreator.Runtime.Variables
             return this.m_Runtime.Get(index);
         }
 
-        public void Set(IListSetPick pick, object value)
+        public void Set(IListSetPick pick, object value, Args args)
         {
-            int index = pick?.GetIndex(this.m_Runtime, this.Count) ?? 0;
+            int index = pick?.GetIndex(this.m_Runtime, this.Count, args) ?? 0;
             this.Set(index, value);
         }
         
@@ -69,9 +76,9 @@ namespace GameCreator.Runtime.Variables
             this.m_Runtime.Set(index, value);
         }
 
-        public void Insert(IListGetPick pick, object value)
+        public void Insert(IListGetPick pick, object value, Args args)
         {
-            int index = pick?.GetIndex(this.Count) ?? 0;
+            int index = pick?.GetIndex(this.Count, args) ?? 0;
             this.Insert(index, value);
         }
         
@@ -85,9 +92,9 @@ namespace GameCreator.Runtime.Variables
             this.m_Runtime.Push(value);
         }
 
-        public void Remove(IListGetPick pick)
+        public void Remove(IListGetPick pick, Args args)
         {
-            int index = pick?.GetIndex(this.Count) ?? 0;
+            int index = pick?.GetIndex(this.Count, args) ?? 0;
             this.Remove(index);
         }
         
@@ -104,10 +111,10 @@ namespace GameCreator.Runtime.Variables
             }
         }
 
-        public void Move(IListGetPick pickA, IListGetPick pickB)
+        public void Move(IListGetPick pickA, IListGetPick pickB, Args args)
         {
-            int indexA = pickA?.GetIndex(this.Count) ?? 0;
-            int indexB = pickB?.GetIndex(this.Count) ?? 0;
+            int indexA = pickA?.GetIndex(this.Count, args) ?? 0;
+            int indexB = pickB?.GetIndex(this.Count, args) ?? 0;
             
             this.Move(indexA, indexB);
         }
@@ -119,12 +126,12 @@ namespace GameCreator.Runtime.Variables
         
         public void Register(Action<ListVariableRuntime.Change, int> callback)
         {
-            this.m_Runtime.EventChange += callback;
+            this.EventChange += callback;
         }
         
         public void Unregister(Action<ListVariableRuntime.Change, int> callback)
         {
-            this.m_Runtime.EventChange -= callback;
+            this.EventChange -= callback;
         }
 
         public bool Contains(object value)
@@ -137,6 +144,13 @@ namespace GameCreator.Runtime.Variables
             }
 
             return false;
+        }
+        
+        // PRIVATE METHODS: -----------------------------------------------------------------------
+        
+        private void OnRuntimeChange(ListVariableRuntime.Change change, int index)
+        {
+            this.EventChange?.Invoke(change, index);
         }
         
         // IGAMESAVE: -----------------------------------------------------------------------------
@@ -160,6 +174,8 @@ namespace GameCreator.Runtime.Variables
             }
 
             this.m_Runtime.OnStartup();
+            // this.m_Runtime.EventChange += this.OnRuntimeChange;
+            
             return Task.FromResult(saveData != null || !this.m_SaveUniqueID.SaveValue);
         }
     }

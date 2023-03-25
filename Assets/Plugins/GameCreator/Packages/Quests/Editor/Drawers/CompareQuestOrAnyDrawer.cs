@@ -18,7 +18,7 @@ namespace GameCreator.Editor.Quests
             SerializedProperty option = property.FindPropertyRelative("m_Option");
             SerializedProperty quest = property.FindPropertyRelative("m_Quest");
             
-            PropertyTool fieldOption = new PropertyTool(option, property.displayName);
+            PropertyField fieldOption = new PropertyField(option, property.displayName);
             
             PropertyElement fieldQuest = new PropertyElement(
                 quest.FindPropertyRelative(IPropertyDrawer.PROPERTY_NAME),
@@ -27,13 +27,13 @@ namespace GameCreator.Editor.Quests
             
             head.Add(fieldOption);
             
-            fieldOption.EventChange += changeEvent =>
+            fieldOption.RegisterValueChangeCallback(changeEvent =>
             {
                 body.Clear();
                 if (changeEvent.changedProperty.intValue != 1) return;
                 body.Add(fieldQuest);
                 body.Bind(changeEvent.changedProperty.serializedObject);
-            };
+            });
 
             if (option.intValue == 1)
             {

@@ -2,6 +2,7 @@ using System;
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Cameras;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -39,10 +40,10 @@ namespace GameCreator.Editor.Cameras
             SerializedProperty clipping = this.serializedObject.FindProperty(PROP_CLIPPING);
             SerializedProperty shotType = this.serializedObject.FindProperty(PROP_SHOT_TYPE);
 
-            PropertyTool fieldIsMainShot = new PropertyTool(isMainShot);
-            PropertyTool fieldTimeMode = new PropertyTool(timeMode);
-            PropertyTool fieldClipping = new PropertyTool(clipping);
-            PropertyTool fieldShotType = new PropertyTool(shotType);
+            PropertyField fieldIsMainShot = new PropertyField(isMainShot);
+            PropertyField fieldTimeMode = new PropertyField(timeMode);
+            PropertyField fieldClipping = new PropertyField(clipping);
+            PropertyField fieldShotType = new PropertyField(shotType);
 
             root.Add(fieldIsMainShot);
             root.Add(fieldTimeMode);

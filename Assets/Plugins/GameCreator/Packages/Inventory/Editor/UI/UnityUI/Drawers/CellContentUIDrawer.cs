@@ -12,7 +12,7 @@ namespace GameCreator.Editor.Inventory.UnityUI
         protected override void AddBefore(VisualElement root, SerializedProperty property)
         {
             SerializedProperty activeCorner = property.FindPropertyRelative("m_ActiveCorner");
-            root.Add(new GameCreator.Editor.Common.PropertyTool(activeCorner));
+            root.Add(new PropertyField(activeCorner));
 
             base.AddBefore(root, property);
         }
@@ -26,9 +26,9 @@ namespace GameCreator.Editor.Inventory.UnityUI
             SerializedProperty stackCount = property.FindPropertyRelative("m_StackCount");
             
             root.Add(new SpaceSmall());
-            root.Add(new GameCreator.Editor.Common.PropertyTool(displayStack));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(stackContent));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(stackCount));
+            root.Add(new PropertyField(displayStack));
+            root.Add(new PropertyField(stackContent));
+            root.Add(new PropertyField(stackCount));
         }
     }
 }

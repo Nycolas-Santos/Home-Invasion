@@ -7,7 +7,9 @@ namespace GameCreator.Runtime.Characters.IK
     {
         public int Layer { get; }
         public bool Exists { get; }
+        
         public Vector3 Position { get; }
+        public GameObject Target { get; }
     }
     
     internal class ILookTrackComparer : IComparer<ILookTrack>

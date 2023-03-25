@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameCreator.Runtime.Characters
 {
     [Title("Jump Force")]
-    [Category("Characters/Jump Force")]
+    [Category("Characters/Navigation/Jump Force")]
     
     [Image(typeof(IconCharacterJump), ColorTheme.Type.Yellow)]
     [Description("The Character's Jump Force value")]

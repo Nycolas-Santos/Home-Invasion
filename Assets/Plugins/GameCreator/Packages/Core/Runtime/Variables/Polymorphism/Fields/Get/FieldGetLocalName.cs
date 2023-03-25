@@ -19,7 +19,7 @@ namespace GameCreator.Runtime.Variables
         
         // PUBLIC METHODS: ------------------------------------------------------------------------
         
-        public override object Get()
+        public override object Get(Args args)
         {
             return this.m_Variable != null ? this.m_Variable.Get(m_Name.String) : null;
         }

@@ -45,7 +45,7 @@ namespace GameCreator.Runtime.Variables
             
             for (int i = 0; i < this.m_List.Length; ++i)
             {
-                NameVariable variable = this.m_List.Get(i) as NameVariable;
+                NameVariable variable = this.m_List.Get(i);
                 if (variable == null) continue;
                 
                 if (this.Variables.ContainsKey(variable.Name)) continue;

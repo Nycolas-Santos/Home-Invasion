@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using GameCreator.Runtime.Characters;
@@ -13,8 +11,6 @@ namespace GameCreator.Editor.Characters
     public class CharacterKernelDrawer : PropertyDrawer
     {
         private const string PATH_STYLES = EditorPaths.CHARACTERS + "StyleSheets/";
-        
-        private static readonly IIcon ICON_PRESETS = new IconChevronDown(ColorTheme.Type.TextLight);
 
         private const string PLAYER = "m_Player";
         private const string MOTION = "m_Motion";
@@ -27,21 +23,17 @@ namespace GameCreator.Editor.Characters
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
             VisualElement root = new VisualElement();
-            VisualElement head = new VisualElement();
             VisualElement body = new VisualElement();
 
-            root.Add(head);
             root.Add(body);
             
             root.AddToClassList("gc-character-kernel-root");
-            head.AddToClassList("gc-character-kernel-head");
             body.AddToClassList("gc-character-kernel-body");
 
             string customUSS = PathUtils.Combine(PATH_STYLES, "Kernel");
             StyleSheet[] styleSheets = StyleSheetUtils.Load(customUSS);
             foreach (StyleSheet sheet in styleSheets) root.styleSheets.Add(sheet);
-
-            this.BuildHead(property, head, body);
+            
             this.BuildBody(property, body);
 
             if (EditorApplication.isPlayingOrWillChangePlaymode)
@@ -58,47 +50,6 @@ namespace GameCreator.Editor.Characters
             }
 
             return root;
-        }
-
-        private void BuildHead(SerializedProperty property, VisualElement head, VisualElement body)
-        {
-            Button buttonPreset = new Button { tooltip = "Choose a preset" };
-            buttonPreset.clicked += () => TypeSelectorFancyPopup.Open(
-                head, typeof(IKernelPreset),
-                newType =>
-                {
-                    property.serializedObject.Update();
-                    IKernelPreset preset = Activator.CreateInstance(newType) as IKernelPreset;
-        
-                    SerializedProperty propertyPlayer = property.FindPropertyRelative(PLAYER);
-                    SerializedProperty propertyMotion = property.FindPropertyRelative(MOTION);
-                    SerializedProperty propertyDriver = property.FindPropertyRelative(DRIVER);
-                    SerializedProperty propertyFacing = property.FindPropertyRelative(FACING);
-                    SerializedProperty propertyAnimim = property.FindPropertyRelative(ANIMIM);
-        
-                    propertyPlayer.SetValue(preset.MakePlayer);
-                    propertyMotion.SetValue(preset.MakeMotion);
-                    propertyDriver.SetValue(preset.MakeDriver);
-                    propertyFacing.SetValue(preset.MakeFacing);
-                    propertyAnimim.SetValue(preset.MakeAnimim);
-        
-                    SerializationUtils.ApplyUnregisteredSerialization(property.serializedObject);
-                    this.BuildBody(property, body);
-                }
-            );
-        
-            Image imagePreset = new Image
-            {
-                image = ICON_PRESETS.Texture
-            };
-        
-            imagePreset.AddToClassList("gc-character-kernel-head-preset__image");
-            buttonPreset.AddToClassList("gc-character-kernel-head-preset__button");
-        
-            buttonPreset.SetEnabled(!EditorApplication.isPlayingOrWillChangePlaymode);
-            buttonPreset.Add(imagePreset);
-        
-            head.Add(buttonPreset);
         }
 
         private void BuildBody(SerializedProperty property, VisualElement body)

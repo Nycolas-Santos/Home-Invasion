@@ -10,9 +10,9 @@ namespace GameCreator.Runtime.Stats
 
         public AttributeInfo() : base()
         {
-            this.acronym = new PropertyGetString("ATT");
-            this.name = new PropertyGetString("Attribute Name");
-            this.description = new PropertyGetString("Description...");
+            this.m_Acronym = new PropertyGetString("ATT");
+            this.m_Name = new PropertyGetString("Attribute Name");
+            this.m_Description = new PropertyGetString("Description...");
         }
     }
 }

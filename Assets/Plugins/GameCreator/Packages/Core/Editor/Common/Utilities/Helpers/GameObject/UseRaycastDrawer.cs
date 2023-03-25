@@ -27,7 +27,7 @@ namespace GameCreator.Editor.Common
                 bindingPath = useRaycast.propertyPath
             };
             
-            PropertyTool fieldLayerMask = new PropertyTool(layerMask, string.Empty);
+            PropertyField fieldLayerMask = new PropertyField(layerMask, string.Empty);
             
             fieldUseRaycast.RegisterValueChangedCallback(changeEvent =>
             {

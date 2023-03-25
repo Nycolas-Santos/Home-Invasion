@@ -1,6 +1,6 @@
-using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -16,20 +16,20 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty duration = property.FindPropertyRelative("m_Duration");
             SerializedProperty timeout = property.FindPropertyRelative("m_Timeout");
 
-            PropertyTool fieldTimedChoice = new PropertyTool(timedChoice);
-            PropertyTool fieldDuration = new PropertyTool(duration);
-            PropertyTool fieldTimeout = new PropertyTool(timeout);
+            PropertyField fieldTimedChoice = new PropertyField(timedChoice);
+            PropertyField fieldDuration = new PropertyField(duration);
+            PropertyField fieldTimeout = new PropertyField(timeout);
             
             root.Add(fieldTimedChoice);
             root.Add(fieldDuration);
             root.Add(fieldTimeout);
 
-            fieldTimedChoice.EventChange += changeEvent =>
+            fieldTimedChoice.RegisterValueChangeCallback(changeEvent =>
             {
                 bool state = changeEvent.changedProperty.boolValue;
                 fieldDuration.style.display = state ? DisplayStyle.Flex : DisplayStyle.None;
                 fieldTimeout.style.display = state ? DisplayStyle.Flex : DisplayStyle.None;
-            };
+            });
             
             bool state = timedChoice.boolValue;
             fieldDuration.style.display = state ? DisplayStyle.Flex : DisplayStyle.None;

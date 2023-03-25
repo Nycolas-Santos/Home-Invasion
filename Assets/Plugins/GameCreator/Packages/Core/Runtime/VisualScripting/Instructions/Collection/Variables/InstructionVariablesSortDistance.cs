@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Variables;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace GameCreator.Runtime.VisualScripting
         private CollectorListVariable m_ListVariable = new CollectorListVariable();
 
         [SerializeField] 
-        private PropertyGetPosition m_Position = GetPositionCharactersPlayer.Create;
+        private PropertyGetPosition m_Position = GetPositionCharacter.Create;
         
         [SerializeField]
         private Order m_Order = Order.ClosestToFarthest;

@@ -20,8 +20,8 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty currency = property.FindPropertyRelative(PROP_CURRENCY);
             SerializedProperty amount = property.FindPropertyRelative(PROP_AMOUNT);
 
-            var fieldCurrency = new GameCreator.Editor.Common.PropertyTool(currency);
-            var fieldAmount = new GameCreator.Editor.Common.PropertyTool(amount, " ");
+            PropertyField fieldCurrency = new PropertyField(currency);
+            PropertyField fieldAmount = new PropertyField(amount, " ");
             
             root.Add(fieldCurrency);
             root.Add(fieldAmount);

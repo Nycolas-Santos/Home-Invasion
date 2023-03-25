@@ -1,4 +1,5 @@
 using System;
+using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 
@@ -28,7 +29,7 @@ namespace GameCreator.Runtime.VisualScripting
         
         // MEMBERS: -------------------------------------------------------------------------------
 
-        [SerializeField] private PropertyGetPosition m_Position = GetPositionCharactersPlayer.Create;
+        [SerializeField] private PropertyGetPosition m_Position = GetPositionCharacter.Create;
         [SerializeField] private PropertyGetDecimal m_Radius = new PropertyGetDecimal(0.5f);
         [SerializeField] private LayerMask m_LayerMask = -1;
 
@@ -41,13 +42,13 @@ namespace GameCreator.Runtime.VisualScripting
         protected override bool Run(Args args)
         {
             int collisionCount = Physics2D.OverlapCircleNonAlloc(
-                Vector2Utils.XY(this.m_Position.Get(args)),
+                this.m_Position.Get(args).XY(),
                 (float) this.m_Radius.Get(args),
                 Colliders,
                 this.m_LayerMask
             );
             
-            return collisionCount == 0;
+            return collisionCount >= 1;
         }
     }
 }

@@ -41,7 +41,7 @@ namespace GameCreator.Runtime.VisualScripting
             if (character == null) return DefaultResult;
             if (prefab == null) return DefaultResult;
 
-            SkinMeshUtils.PutOn(prefab, character);
+            character.Props.AttachSkinMesh(prefab);
             return DefaultResult;
         }
     }

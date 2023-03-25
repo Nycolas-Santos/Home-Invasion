@@ -10,9 +10,9 @@ namespace GameCreator.Runtime.Stats
 
         public StatInfo() : base()
         {
-            this.acronym = new PropertyGetString("STA");
-            this.name = new PropertyGetString("Stat Name");
-            this.description = new PropertyGetString("Description...");
+            this.m_Acronym = new PropertyGetString("STA");
+            this.m_Name = new PropertyGetString("Stat Name");
+            this.m_Description = new PropertyGetString("Description...");
         }
     }
 }

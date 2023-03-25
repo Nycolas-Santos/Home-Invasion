@@ -20,6 +20,9 @@ namespace GameCreator.Runtime.Characters
             XZ,
             YZ,
         }
+
+        private const float MAX_SLOPE_SLIDE_FROM_CHARACTER = 90;
+        private const float EPSILON_SLIDE_FROM_CHARACTER = 0.001f;
         
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
 
@@ -43,7 +46,10 @@ namespace GameCreator.Runtime.Characters
         [NonSerialized] protected float m_GroundTime = -100f;
         [NonSerialized] protected float m_JumpTime = -100f;
 
-        [NonSerialized] protected DriverControllerComponent m_Helper;
+        [NonSerialized] private DriverControllerComponent m_Helper;
+        
+        [NonSerialized] private Vector3 m_SlideFromCharacter;
+        [NonSerialized] private int m_FrameSlideFromCharacter;
 
         // INTERFACE PROPERTIES: ------------------------------------------------------------------
 
@@ -53,7 +59,9 @@ namespace GameCreator.Runtime.Characters
         );
 
         public override float SkinWidth => this.m_Controller.skinWidth;
-        public override bool IsGrounded => this.m_Controller.isGrounded;
+        public override bool IsGrounded => this.m_Controller.isGrounded &&
+                                           this.m_FrameSlideFromCharacter < Time.frameCount;
+        
         public override Vector3 FloorNormal => this.m_FloorNormal.Current;
 
         public override bool Collision
@@ -68,6 +76,9 @@ namespace GameCreator.Runtime.Characters
         {
             this.m_MoveDirection = Vector3.zero;
             this.m_VerticalSpeed = 0f;
+            
+            this.m_SlideFromCharacter = Vector3.zero;
+            this.m_FrameSlideFromCharacter = -1;
         }
 
         public override void OnStartup(Character character)
@@ -132,7 +143,7 @@ namespace GameCreator.Runtime.Characters
         {
             this.m_FloorNormal.UpdateWithDelta(this.Character.Time.DeltaTime);
             this.m_MoveDirection = Vector3.zero;
-            this.m_IsGrounded.Update(this.m_Controller.isGrounded, COYOTE_TIME);
+            this.m_IsGrounded.Update(this.IsGrounded, COYOTE_TIME);
             
             if (Math.Abs(this.m_Controller.skinWidth - this.m_SkinWidth) > float.Epsilon)
             {
@@ -194,6 +205,8 @@ namespace GameCreator.Runtime.Characters
             float gravity = this.WorldMoveDirection.y >= 0f 
                 ? motion.GravityUpwards 
                 : motion.GravityDownwards;
+
+            gravity *= this.GravityInfluence;
             
             this.m_VerticalSpeed += gravity * this.Character.Time.DeltaTime;
 
@@ -232,6 +245,12 @@ namespace GameCreator.Runtime.Characters
 
             Vector3 rootMotion = this.Character.Animim.RootMotionDeltaPosition;
             movement += Vector3.Lerp(kinetic, rootMotion, this.Character.RootMotionPosition);
+
+            if (this.m_FrameSlideFromCharacter >= Time.frameCount - 1)
+            {
+                float deltaSpeed = motion.LinearSpeed * this.Character.Time.DeltaTime;
+                movement += this.m_SlideFromCharacter * deltaSpeed;
+            }
             
             if (this.m_Controller.enabled) this.m_Controller.Move(movement);
         }
@@ -315,28 +334,60 @@ namespace GameCreator.Runtime.Characters
             this.Transform.localScale += scale;
             Physics.SyncTransforms();
         }
+        
+        // GRAVITY METHODS: -----------------------------------------------------------------------
+
+        public override void ResetVerticalVelocity()
+        {
+            this.m_VerticalSpeed = 0f;
+        }
 
         // CALLBACK METHODS: ----------------------------------------------------------------------
 
         protected virtual void OnControllerColliderHit(ControllerColliderHit hit)
         {
             this.m_FloorNormal.Target = hit.normal;
+            float angle = Vector3.Angle(hit.normal, Vector3.up);
+            
+            this.OnColliderHitPushRigidbodies(hit, angle);
+            this.OnColliderHitSlideFromCharacters(hit, angle);
+        }
 
-            if (this.m_PushForce >= float.Epsilon)
-            {
-                float angle = Vector3.Angle(hit.normal, Vector3.up);
-                if (angle > 90f) return;
-                if (angle < 5f) return;
+        private void OnColliderHitSlideFromCharacters(ControllerColliderHit hit, float angle)
+        {
+            if (this.WorldMoveDirection.y > 0f || angle >= MAX_SLOPE_SLIDE_FROM_CHARACTER) return;
+            
+            Character other = hit.collider.Get<Character>();
+            if (other == null) return;
+            
+            Vector3 slideDirection =
+                Vector3.Scale(this.Character.transform.position, Vector3Plane.NormalUp) -
+                Vector3.Scale(other.transform.position, Vector3Plane.NormalUp);
 
-                Rigidbody hitRigidbody = hit.collider.attachedRigidbody;
-                if (hitRigidbody && !hitRigidbody.isKinematic)
-                {
-                    Vector3 force = hit.controller.velocity * this.m_PushForce;
-                    force /= this.Character.Time.FixedDeltaTime;
+            slideDirection = slideDirection.sqrMagnitude > EPSILON_SLIDE_FROM_CHARACTER
+                ? slideDirection.normalized
+                : other.transform.forward;
+            
+            slideDirection.y = -1f;
+                    
+            this.m_SlideFromCharacter = slideDirection;
+            this.m_FrameSlideFromCharacter = Time.frameCount;
+        }
 
-                    hitRigidbody.AddForceAtPosition(force, hit.point, ForceMode.Force);
-                }
-            }
+        private void OnColliderHitPushRigidbodies(ControllerColliderHit hit, float angle)
+        {
+            if (this.m_PushForce < float.Epsilon) return;
+            
+            if (angle > 90f) return;
+            if (angle < 5f) return;
+
+            Rigidbody hitRigidbody = hit.collider.attachedRigidbody;
+            if (!hitRigidbody || hitRigidbody.isKinematic) return;
+            
+            Vector3 force = hit.controller.velocity * this.m_PushForce;
+            force /= this.Character.Time.FixedDeltaTime;
+
+            hitRigidbody.AddForceAtPosition(force, hit.point, ForceMode.Force);
         }
         
         private void OnStartRagdoll()

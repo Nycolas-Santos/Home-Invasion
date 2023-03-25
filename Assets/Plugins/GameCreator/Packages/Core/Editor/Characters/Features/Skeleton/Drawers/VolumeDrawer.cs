@@ -12,13 +12,25 @@ namespace GameCreator.Editor.Characters
             VisualElement root = new VisualElement();
 
             SerializedProperty bone = property.FindPropertyRelative("m_Bone");
+            SerializedProperty weight = property.FindPropertyRelative("m_Weight");
             SerializedProperty joint = property.FindPropertyRelative("m_Joint");
             
-            PropertyTool boneField = new PropertyTool(bone);
+            PropertyField boneField = new PropertyField(bone);
+            Slider weightSlider = new Slider(weight.displayName, 0f, 1f)
+            {
+                bindingPath = weight.propertyPath,
+                showInputField = true
+            };
+
             PropertyElement jointSelector = new PropertyElement(joint, joint.displayName, false);
             
             root.Add(boneField);
+            root.Add(weightSlider);
+            
+            root.Add(new SpaceSmall());
             this.CreateGUI(property, root);
+            
+            root.Add(new SpaceSmall());
             root.Add(jointSelector);
 
             return root;

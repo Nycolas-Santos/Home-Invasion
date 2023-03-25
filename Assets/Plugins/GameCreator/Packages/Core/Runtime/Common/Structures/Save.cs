@@ -17,7 +17,7 @@ namespace GameCreator.Runtime.Common
 
         public Save()
         {
-            this.m_Save = true;
+            this.m_Save = false;
         }
 
         public Save(bool mSave) : this()

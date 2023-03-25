@@ -14,7 +14,7 @@ namespace GameCreator.Editor.Characters
         protected override void CreateContent()
         {
             SerializedProperty animation = this.serializedObject.FindProperty("m_StateClip");
-            PropertyTool fieldAnimation = new PropertyTool(animation);
+            PropertyField fieldAnimation = new PropertyField(animation);
             
             this.m_Root.Add(fieldAnimation);
         }

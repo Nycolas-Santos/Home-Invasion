@@ -65,7 +65,7 @@ namespace GameCreator.Editor.Characters
             this.RefreshLocomotion();
             this.RefreshAirborne();
             
-            PropertyTool fieldAirborneMode = new PropertyTool(this.m_PropertyAirborneMode);
+            PropertyField fieldAirborneMode = new PropertyField(this.m_PropertyAirborneMode);
             
             this.Space();
             this.m_Content.Add(m_StandContent);
@@ -77,8 +77,8 @@ namespace GameCreator.Editor.Characters
 
             this.EmptyLine();
 
-            PropertyTool fieldUseBreathing = new PropertyTool(useBreathing);
-            PropertyTool fieldUseTwitching = new PropertyTool(useTwitching);
+            PropertyField fieldUseBreathing = new PropertyField(useBreathing);
+            PropertyField fieldUseTwitching = new PropertyField(useTwitching);
 
             this.m_BreathContent = new VisualElement();
             this.m_TwitchContent = new VisualElement();
@@ -87,7 +87,7 @@ namespace GameCreator.Editor.Characters
             this.m_Content.Add(this.m_BreathContent);
             if (useBreathing.boolValue)
             {
-                this.m_BreathContent.Add(new PropertyTool(this.m_PropertyBreathing));
+                this.m_BreathContent.Add(new PropertyField(this.m_PropertyBreathing));
             }
 
             this.Space();
@@ -96,40 +96,40 @@ namespace GameCreator.Editor.Characters
             this.m_Content.Add(this.m_TwitchContent);
             if (useTwitching.boolValue)
             {
-                m_TwitchContent.Add(new PropertyTool(this.m_PropertyTwitching));
+                m_TwitchContent.Add(new PropertyField(this.m_PropertyTwitching));
             }
             
             this.Space();
 
-            fieldAirborneMode.EventChange += _ =>
+            fieldAirborneMode.RegisterValueChangeCallback(_ =>
             {
                 this.UpdateProperties();
                 this.m_PropertyAirborne.isExpanded = true;
                 
                 this.RefreshAirborne();
-            };
+            });
             
-            fieldUseBreathing.EventChange += changeEvent =>
+            fieldUseBreathing.RegisterValueChangeCallback(changeEvent =>
             {
                 this.m_BreathContent.Clear();
                 if (changeEvent.changedProperty.boolValue)
                 {
-                    PropertyTool fieldBreathing = new PropertyTool(this.m_PropertyBreathing);
+                    PropertyField fieldBreathing = new PropertyField(this.m_PropertyBreathing);
                     fieldBreathing.Bind(this.serializedObject);
                     this.m_BreathContent.Add(fieldBreathing);
                 }
-            };
+            });
             
-            fieldUseTwitching.EventChange += changeEvent =>
+            fieldUseTwitching.RegisterValueChangeCallback(changeEvent =>
             {
                 this.m_TwitchContent.Clear();
                 if (changeEvent.changedProperty.boolValue)
                 {
-                    PropertyTool fieldTwitching = new PropertyTool(this.m_PropertyTwitching);
+                    PropertyField fieldTwitching = new PropertyField(this.m_PropertyTwitching);
                     fieldTwitching.Bind(this.serializedObject);
                     this.m_TwitchContent.Add(fieldTwitching);
                 }
-            };
+            });
             
             this.m_Root.Add(this.m_Content);
         }
@@ -157,8 +157,8 @@ namespace GameCreator.Editor.Characters
             this.m_StandContent.Clear();
             this.m_LandContent.Clear();
 
-            PropertyTool fieldStand = new PropertyTool(this.m_PropertyStand);
-            PropertyTool fieldLand = new PropertyTool(this.m_PropertyLand);
+            PropertyField fieldStand = new PropertyField(this.m_PropertyStand);
+            PropertyField fieldLand = new PropertyField(this.m_PropertyLand);
             
             fieldStand.Bind(this.serializedObject);
             fieldLand.Bind(this.serializedObject);
@@ -171,7 +171,7 @@ namespace GameCreator.Editor.Characters
         {
             this.m_AirborneContent.Clear();
 
-            PropertyTool fieldAirborne = new PropertyTool(this.m_PropertyAirborne);
+            PropertyField fieldAirborne = new PropertyField(this.m_PropertyAirborne);
             fieldAirborne.Bind(this.serializedObject);
 
             this.m_AirborneContent.Add(fieldAirborne);

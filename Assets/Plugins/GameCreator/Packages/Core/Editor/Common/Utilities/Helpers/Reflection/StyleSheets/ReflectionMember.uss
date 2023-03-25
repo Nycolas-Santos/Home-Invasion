@@ -4,8 +4,6 @@
 }
 
 #GC-ReflectionPick-Name Label {
-    margin-left: var(--gc-common-label-margin-left);
-    width: var(--gc-common-label-width);
     flex-grow: 0;
     flex-shrink: 0;
     align-self: center;

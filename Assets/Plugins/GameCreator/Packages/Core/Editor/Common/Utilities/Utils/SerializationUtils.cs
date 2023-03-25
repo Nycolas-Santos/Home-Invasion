@@ -66,9 +66,9 @@ namespace GameCreator.Editor.Common
                 if (SerializedProperty.EqualContents(iteratorProperty, endProperty)) break;
                 if (excludeFields.Contains(iteratorProperty.name)) continue;
                 
-                PropertyTool field = hideLabelsInChildren
-                    ? new PropertyTool(iteratorProperty, SPACE)
-                    : new PropertyTool(iteratorProperty);
+                PropertyField field = hideLabelsInChildren
+                    ? new PropertyField(iteratorProperty, SPACE)
+                    : new PropertyField(iteratorProperty);
         
                 root.Add(field);
                 numProperties += 1;

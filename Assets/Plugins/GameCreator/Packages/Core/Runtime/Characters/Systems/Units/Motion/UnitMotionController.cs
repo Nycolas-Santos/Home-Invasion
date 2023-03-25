@@ -31,6 +31,7 @@ namespace GameCreator.Runtime.Characters
 
         [SerializeField] private MotionAcceleration m_Acceleration;
         [SerializeField] private MotionJump m_Jump;
+        [SerializeField] private MotionDash m_Dash;
         
         // INTERFACE PROPERTIES: ------------------------------------------------------------------
         
@@ -82,6 +83,24 @@ namespace GameCreator.Runtime.Characters
             set => m_Jump.AirJumps = value;
         }
 
+        public override int DashInSuccession
+        {
+            get => this.m_Dash.InSuccession;
+            set => this.m_Dash.InSuccession = value;
+        }
+
+        public override bool DashInAir
+        {
+            get => this.m_Dash.DashInAir;
+            set => this.m_Dash.DashInAir = value;
+        }
+
+        public override float DashCooldown
+        {
+            get => this.m_Dash.Cooldown;
+            set => this.m_Dash.Cooldown = value;
+        }
+
         public override float GravityUpwards
         {
             get => this.m_GravityUpwards;
@@ -106,7 +125,11 @@ namespace GameCreator.Runtime.Characters
             set => this.m_Jump.JumpCooldown = value;
         }
 
-        public override bool UseAcceleration => this.m_Acceleration.UseAcceleration;
+        public override bool UseAcceleration
+        {
+            get => this.m_Acceleration.UseAcceleration;
+            set => this.m_Acceleration.UseAcceleration = value;
+        }
 
         public override float Acceleration
         {

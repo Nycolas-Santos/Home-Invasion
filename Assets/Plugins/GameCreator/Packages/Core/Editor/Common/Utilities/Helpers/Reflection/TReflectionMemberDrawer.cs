@@ -44,7 +44,7 @@ namespace GameCreator.Editor.Common
             SerializedProperty component = property.FindPropertyRelative("m_Component");
             SerializedProperty member = property.FindPropertyRelative("m_Member");
 
-            PropertyTool fieldComponent = new PropertyTool(component, EMPTY_LABEL);
+            PropertyField fieldComponent = new PropertyField(component, EMPTY_LABEL);
             VisualElement fieldContent = new VisualElement { name = NAME_ROOT_NAME };
             
             TextField fieldText = new TextField(string.Empty)
@@ -91,6 +91,8 @@ namespace GameCreator.Editor.Common
             fieldContent.Add(new Label(" "));
             fieldContent.Add(fieldText);
             fieldContent.Add(fieldDropdown);
+
+            _ = new AlignLabel(fieldContent);
             
             root.Add(fieldComponent);
             root.Add(fieldContent);

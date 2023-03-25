@@ -48,11 +48,8 @@ namespace GameCreator.Editor.Dialogue
 
         protected override void SetupBody()
         {
-            PropertyTool field = new PropertyTool(this.m_Property);
-            field.EventChange += _ =>
-            {
-                this.UpdateHead();
-            };
+            PropertyField field = new PropertyField(this.m_Property);
+            field.RegisterValueChangeCallback(_ => this.UpdateHead());
             
             this.m_Body.Add(field);
             this.UpdateBody(false);

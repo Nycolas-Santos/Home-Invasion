@@ -24,11 +24,12 @@ namespace GameCreator.Runtime.Characters.IK
         
         [SerializeField] private float m_FootOffset;
         [SerializeField] private LayerMask m_FootMask = -1;
+        [SerializeField] private float m_SmoothTime = 0.25f;
 
         // MEMBERS: -------------------------------------------------------------------------------
 
-        private FootPlant m_LimbFootL;
-        private FootPlant m_LimbFootR;
+        [NonSerialized] private FootPlant m_LimbFootL;
+        [NonSerialized] private FootPlant m_LimbFootR;
 
         // PROPERTIES: ----------------------------------------------------------------------------
 
@@ -37,9 +38,11 @@ namespace GameCreator.Runtime.Characters.IK
         public override string Name => RIG_NAME;
         
         public override bool RequiresHuman => true;
+        public override bool DisableOnBusy => false;
 
         internal float FootOffset => m_FootOffset;
         internal LayerMask FootMask => this.m_FootMask;
+        internal float SmoothTime => this.m_SmoothTime;
 
         // IMPLEMENT METHODS: ---------------------------------------------------------------------
 

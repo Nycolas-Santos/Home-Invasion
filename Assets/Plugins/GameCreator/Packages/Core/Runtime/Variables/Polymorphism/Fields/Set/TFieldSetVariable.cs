@@ -13,8 +13,8 @@ namespace GameCreator.Runtime.Variables
 
         // ABSTRACT METHODS: ----------------------------------------------------------------------
         
-        public abstract void Set(object value);
-        public abstract object Get();
+        public abstract void Set(object value, Args args);
+        public abstract object Get(Args args);
 
         public abstract override string ToString();
     }

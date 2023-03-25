@@ -137,13 +137,16 @@ namespace GameCreator.Runtime.Common
 
 		protected virtual void AfterSerialize()
 		{
-			this.m_Dictionary = new Dictionary<TKey, TValue>();
+			this.m_Dictionary ??= new Dictionary<TKey, TValue>();
+			this.m_Dictionary.Clear();
+			
 			if (this.m_Keys == null || this.m_Values == null) return;
 			
 			for (int i = 0; i < this.m_Keys.Length; i++)
 			{
-				if (i < this.m_Values.Length) this.m_Dictionary[this.m_Keys[i]] = this.m_Values[i];
-				else this.m_Dictionary[this.m_Keys[i]] = default;
+				this.m_Dictionary[this.m_Keys[i]] = i < this.m_Values.Length
+					? this.m_Values[i]
+					: default;
 			}
 		}
 	}

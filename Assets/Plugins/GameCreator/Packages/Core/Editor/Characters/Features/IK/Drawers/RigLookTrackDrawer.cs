@@ -21,13 +21,13 @@ namespace GameCreator.Editor.Characters
             
             VisualElement root = new VisualElement();
             
-            root.Add(new PropertyTool(trackSpeed));
-            root.Add(new PropertyTool(maxAngle));
+            root.Add(new PropertyField(trackSpeed));
+            root.Add(new PropertyField(maxAngle));
             
-            root.Add(new PropertyTool(headWeight));
-            root.Add(new PropertyTool(neckWeight));
-            root.Add(new PropertyTool(chestWeight));
-            root.Add(new PropertyTool(spineWeight));
+            root.Add(new PropertyField(headWeight));
+            root.Add(new PropertyField(neckWeight));
+            root.Add(new PropertyField(chestWeight));
+            root.Add(new PropertyField(spineWeight));
 
             return root;
         }

@@ -25,19 +25,19 @@ namespace GameCreator.Editor.Characters
             
             VisualElement root = new VisualElement();
             
-            root.Add(new PropertyTool(inclineSpine));
-            root.Add(new PropertyTool(inclineLowerChest));
-            root.Add(new PropertyTool(inclineUpperChest));
+            root.Add(new PropertyField(inclineSpine));
+            root.Add(new PropertyField(inclineLowerChest));
+            root.Add(new PropertyField(inclineUpperChest));
             
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(declineSpine));
-            root.Add(new PropertyTool(declineLowerChest));
-            root.Add(new PropertyTool(declineUpperChest));
+            root.Add(new PropertyField(declineSpine));
+            root.Add(new PropertyField(declineLowerChest));
+            root.Add(new PropertyField(declineUpperChest));
             
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(rollSpine));
-            root.Add(new PropertyTool(rollLowerChest));
-            root.Add(new PropertyTool(rollUpperChest));
+            root.Add(new PropertyField(rollSpine));
+            root.Add(new PropertyField(rollLowerChest));
+            root.Add(new PropertyField(rollUpperChest));
 
             return root;
         }

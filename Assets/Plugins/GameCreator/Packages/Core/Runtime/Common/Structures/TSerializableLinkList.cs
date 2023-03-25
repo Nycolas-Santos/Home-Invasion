@@ -98,6 +98,8 @@ namespace GameCreator.Runtime.Common
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
+            if (AssemblyUtils.IsReloading) return;
+            
             if (this.m_LinkList == null)
             {
                 this.m_Values = Array.Empty<T>();
@@ -116,6 +118,7 @@ namespace GameCreator.Runtime.Common
 
         void ISerializationCallbackReceiver.OnAfterDeserialize()
         {
+            if (AssemblyUtils.IsReloading) return;
             this.m_LinkList = new LinkedList<T>(this.m_Values);
         }
     }

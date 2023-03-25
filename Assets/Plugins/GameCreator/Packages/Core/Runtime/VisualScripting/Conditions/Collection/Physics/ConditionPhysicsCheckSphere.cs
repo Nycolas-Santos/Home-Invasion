@@ -1,11 +1,12 @@
 using System;
+using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 
 namespace GameCreator.Runtime.VisualScripting
 {
     [Title("Check Sphere")]
-    [Description("Returns true if casting a sphere at a position doesn't collide with anything")]
+    [Description("Returns true if casting a sphere at a position collides with something")]
 
     [Category("Physics/Check Sphere")]
     
@@ -26,7 +27,7 @@ namespace GameCreator.Runtime.VisualScripting
     {
         // MEMBERS: -------------------------------------------------------------------------------
 
-        [SerializeField] private PropertyGetPosition m_Position = GetPositionCharactersPlayer.Create;
+        [SerializeField] private PropertyGetPosition m_Position = GetPositionCharacter.Create;
         [SerializeField] private PropertyGetDecimal m_Radius = new PropertyGetDecimal(0.5f);
         [SerializeField] private LayerMask m_LayerMask = -1;
 

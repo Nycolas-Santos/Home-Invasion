@@ -10,7 +10,7 @@ namespace GameCreator.Runtime.Common.UnityUI
     [Image(typeof(IconUIImage), ColorTheme.Type.TextLight)]
     [Description("The Sprite texture of an Image component")]
 
-    [Serializable] [HideLabelsInEditor]
+    [Serializable]
     public class GetSpriteUIImage : PropertyTypeGetSprite
     {
         [SerializeField] protected bool m_OverrideSprite = true;

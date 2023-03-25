@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -76,18 +77,27 @@ namespace GameCreator.Runtime.Common.SaveSystem
             }
 
             if (token.Count == 0) return;
-            this.m_ScenesProgress = new float[token.Count];
 
+            string[] scenes = GeneralRepository.Get.Save.Load switch
+            {
+                LoadSceneMode.AllSavedScenes => token.Names,
+                LoadSceneMode.MainSavedScene => new []{ token.Names[0] },
+                LoadSceneMode.Scene => new []{ GeneralRepository.Get.Save.GetSceneName(Args.EMPTY) },
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            
+            this.m_ScenesProgress = new float[scenes.Length];
+            
             await this.LoadScene(
-                0, token.Names,
-                LoadSceneMode.Single
+                0, scenes,
+                UnityEngine.SceneManagement.LoadSceneMode.Single
             );
 
-            for (int i = 1; i < token.Count; ++i)
+            for (int i = 1; i < scenes.Length; ++i)
             {
                 await this.LoadScene(
-                    i, token.Names,
-                    LoadSceneMode.Additive
+                    i, scenes,
+                    UnityEngine.SceneManagement.LoadSceneMode.Additive
                 );
             }
             
@@ -104,7 +114,10 @@ namespace GameCreator.Runtime.Common.SaveSystem
         
         // PRIVATE METHODS: -----------------------------------------------------------------------
 
-        private async Task LoadScene(int index, string[] names, LoadSceneMode mode)
+        private async Task LoadScene(
+            int index, 
+            IReadOnlyList<string> names, 
+            UnityEngine.SceneManagement.LoadSceneMode mode)
         {
             AsyncOperation async = SceneManager.LoadSceneAsync(names[index], mode);
             while (!AsyncManager.ExitRequest && !async.isDone)

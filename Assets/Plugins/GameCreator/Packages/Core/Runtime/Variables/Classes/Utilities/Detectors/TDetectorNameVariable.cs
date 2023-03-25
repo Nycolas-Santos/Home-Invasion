@@ -59,7 +59,7 @@ namespace GameCreator.Runtime.Variables
             if (this.m_When == Detection.Name)
             {
                 string[] split = this.m_Name.String.Split('/');
-                if (split[split.Length - 1] != name) return;
+                if (split[^1] != name) return;
             }
             
             this.EventOnChange?.Invoke(name);

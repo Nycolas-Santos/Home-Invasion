@@ -1,4 +1,5 @@
 using System;
+using GameCreator.Runtime.Characters;
 using UnityEngine;
 
 namespace GameCreator.Runtime.Common
@@ -15,7 +16,7 @@ namespace GameCreator.Runtime.Common
     public class GetDecimalTransformsPositionZ : PropertyTypeGetDecimal
     {
         [SerializeField]
-        protected PropertyGetPosition m_Position = GetPositionCharactersPlayer.Create;
+        protected PropertyGetPosition m_Position = GetPositionCharacter.Create;
 
         public override double Get(Args args) => this.m_Position.Get(args).z;
         public override double Get(GameObject gameObject) => this.m_Position.Get(gameObject).z;

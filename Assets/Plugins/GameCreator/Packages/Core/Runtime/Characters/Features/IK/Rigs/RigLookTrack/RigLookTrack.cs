@@ -27,8 +27,7 @@ namespace GameCreator.Runtime.Characters.IK
 
                 foreach (ILookTrack lookTrack in this)
                 {
-                    if (lookTrack == null) continue;
-                    if (!lookTrack.Exists) continue;
+                    if (lookTrack is not { Exists: true }) continue;
 
                     float distance = Vector3.Distance(target, lookTrack.Position);
                     if (!(distance < minDistance)) continue;
@@ -62,12 +61,13 @@ namespace GameCreator.Runtime.Characters.IK
         
         // MEMBERS: -------------------------------------------------------------------------------
         
-        private float m_WeightTarget;
+        [NonSerialized] private float m_WeightTarget;
 
-        private Transform m_LookHandle;
-        private Transform m_LookPoint;
+        [NonSerialized] private Transform m_LookHandle;
+        [NonSerialized] private Transform m_LookPoint;
 
-        private readonly LookLayers m_Layers = new LookLayers();
+        [NonSerialized] private ILookTrack m_LookTrackTarget;
+        [NonSerialized] private readonly LookLayers m_Layers = new LookLayers();
 
         // PROPERTIES: ----------------------------------------------------------------------------
         
@@ -75,14 +75,17 @@ namespace GameCreator.Runtime.Characters.IK
         public override string Name => RIG_NAME;
 
         public override bool RequiresHuman => true;
+        public override bool DisableOnBusy => true;
 
         protected override float WeightTarget => this.m_WeightTarget;
         protected override float WeightSmoothTime => 0.35f;
         
-        private MultiAimConstraint ConstraintHead { get; set; }
-        private MultiAimConstraint ConstraintNeck { get; set; }
-        private MultiAimConstraint ConstraintChest { get; set; }
-        private MultiAimConstraint ConstraintSpine { get; set; }
+        [field: NonSerialized] private MultiAimConstraint ConstraintHead { get; set; }
+        [field: NonSerialized] private MultiAimConstraint ConstraintNeck { get; set; }
+        [field: NonSerialized] private MultiAimConstraint ConstraintChest { get; set; }
+        [field: NonSerialized] private MultiAimConstraint ConstraintSpine { get; set; }
+
+        public ILookTrack LookTrackTarget => this.m_LookTrackTarget;
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
@@ -113,29 +116,53 @@ namespace GameCreator.Runtime.Characters.IK
         protected override bool DoUpdate(Character character)
         {
             bool rebuildGraph = base.DoUpdate(character);
+
+            bool hasNeck = this.Animator.GetBoneTransform(HumanBodyBones.Neck) != null;
+            bool hasChest = this.Animator.GetBoneTransform(HumanBodyBones.Chest) != null;
+
+            if (hasNeck)
+            {
+                this.ConstraintHead.data.sourceObjects.SetWeight(0, this.m_HeadWeight);
+                this.ConstraintNeck.data.sourceObjects.SetWeight(0, this.m_NeckWeight);
+            }
+            else
+            {
+                float weight = this.m_HeadWeight + this.m_NeckWeight;
+                this.ConstraintHead.data.sourceObjects.SetWeight(0, weight);
+            }
+
+            if (hasChest)
+            {
+                this.ConstraintChest.data.sourceObjects.SetWeight(0, this.m_ChestWeight);
+                this.ConstraintSpine.data.sourceObjects.SetWeight(0, this.m_SpineWeight);
+            }
+            else
+            {
+                float weight = this.m_ChestWeight + this.m_SpineWeight;
+                this.ConstraintSpine.data.sourceObjects.SetWeight(0, weight);
+            }
             
-            this.ConstraintHead.data.sourceObjects.SetWeight(0, this.m_HeadWeight);
-            this.ConstraintNeck.data.sourceObjects.SetWeight(0, this.m_NeckWeight);
-            this.ConstraintChest.data.sourceObjects.SetWeight(0, this.m_ChestWeight);
-            this.ConstraintSpine.data.sourceObjects.SetWeight(0, this.m_SpineWeight);
-            
-            ILookTrack lookTrackTarget = this.GetLookTrackTarget(character);
-            
-            Vector3 targetPosition = character.Eyes + character.transform.forward * HORIZON;
+            this.m_LookTrackTarget = this.GetLookTrackTarget(character);
+
             Vector3 targetDirection;
 
             this.m_LookHandle.position = character.Eyes;
             
-            if (lookTrackTarget is { Exists: true })
+            if (this.m_LookTrackTarget is { Exists: true })
             {
                 this.m_WeightTarget = 1f;
-                targetPosition = lookTrackTarget.Position;
+                Vector3 targetPosition = this.m_LookTrackTarget.Position;
                 
                 Vector3 characterDirection = character.transform.forward;
                 targetDirection = targetPosition - character.Eyes;
                 
                 float angle = Vector3.Angle(characterDirection, targetDirection);
-                if (angle > this.m_MaxAngle)
+                float distance = Vector2.Distance(
+                    character.transform.position.XZ(),
+                    targetPosition.XZ()
+                );
+                
+                if (angle > this.m_MaxAngle || distance < character.Motion.Radius)
                 {
                     this.m_WeightTarget = 0f;
                     targetDirection = character.transform.forward;
@@ -152,9 +179,6 @@ namespace GameCreator.Runtime.Characters.IK
                 Quaternion.LookRotation(targetDirection, Vector3.up),
                 character.Time.DeltaTime * this.m_TrackSpeed
             );
-
-            Debug.DrawLine(character.Eyes, targetPosition, Color.red);
-            Debug.DrawLine(character.Eyes, this.m_LookPoint.position, Color.blue);
 
             return rebuildGraph;
         }
@@ -212,7 +236,7 @@ namespace GameCreator.Runtime.Characters.IK
             foreach (KeyValuePair<int,LookTargets> entryLayer in this.m_Layers)
             {
                 ILookTrack target = entryLayer.Value.Get(character.Eyes);
-                if (target != null && target.Exists) return target;
+                if (target is { Exists: true }) return target;
             }
             
             return null;

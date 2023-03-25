@@ -59,7 +59,7 @@ namespace GameCreator.Runtime.Inventory
         bool Move(Vector2Int positionA, Vector2Int positionB, bool allowStack);
 
         bool Add(RuntimeItem runtimeItem, Vector2Int position, bool allowStack);
-        bool Add(RuntimeItem runtimeItem, bool allowStack);
+        Vector2Int Add(RuntimeItem runtimeItem, bool allowStack);
         
         RuntimeItem AddType(Item item, Vector2Int position, bool allowStack);
         RuntimeItem AddType(Item item, bool allowStack);

@@ -48,12 +48,10 @@ namespace GameCreator.Runtime.VisualScripting
         {
             Character character = this.m_Character.Get<Character>(args);
             if (character == null) return DefaultResult;
-            if (character.Busy.AreLegsBusy) return DefaultResult;
-            
+
             GameObject target = this.m_Target.Get(args);
             if (target == null) return DefaultResult;
             
-            character.Busy.MakeLegsBusy();
             character.Motion.StartFollowingTarget(
                 target.transform,
                 this.m_MinDistance,

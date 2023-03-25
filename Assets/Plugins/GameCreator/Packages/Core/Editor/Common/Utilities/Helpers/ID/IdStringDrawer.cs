@@ -1,5 +1,6 @@
 using GameCreator.Runtime.Common;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Common
@@ -11,20 +12,20 @@ namespace GameCreator.Editor.Common
         public const string NAME_HASH = "m_Hash";
         
         // PAINT METHODS: -------------------------------------------------------------------------
-        
+
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
             SerializedProperty value = property.FindPropertyRelative(NAME_STRING);
-            PropertyTool field = new PropertyTool(value, property.displayName);
+            PropertyField field = new PropertyField(value, property.displayName);
             
-            field.EventChange += changeEvent =>
+            field.RegisterValueChangeCallback(changeEvent =>
             {
                 string text = changeEvent.changedProperty.stringValue;
                 value.stringValue = TextUtils.ProcessID(text, false);
                 
                 property.serializedObject.ApplyModifiedProperties();
                 property.serializedObject.Update();
-            };
+            });
 
             return field;
         }

@@ -21,6 +21,26 @@ MonoBehaviour:
   m_Finish: {fileID: 0}
   m_Select: {fileID: 0}
   m_Submit: {fileID: 0}
+  m_ValuesChoices:
+    m_HideUnavailable: 0
+    m_HideVisited: 0
+    m_SkipChoice: 0
+    m_ShuffleChoices: 0
+    m_TimedChoice:
+      m_TimedChoice: 0
+      m_Duration:
+        m_Property:
+          rid: 1442245365460369415
+      m_Timeout: 0
+  m_ValuesRandom:
+    m_AllowRepeat: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 1442245365460369415
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 10
 --- !u!221 &8305944992580982055
 AnimatorOverrideController:
   m_ObjectHideFlags: 1

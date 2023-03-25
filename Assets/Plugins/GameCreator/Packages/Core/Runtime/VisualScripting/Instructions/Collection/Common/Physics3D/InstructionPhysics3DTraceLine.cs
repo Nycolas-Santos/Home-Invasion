@@ -30,10 +30,10 @@ namespace GameCreator.Runtime.VisualScripting
         // MEMBERS: -------------------------------------------------------------------------------
         
         [SerializeField] 
-        private PropertyGetPosition m_PointA = GetPositionCharactersPlayer.Create;
+        private PropertyGetPosition m_PointA = GetPositionCharacter.Create;
 
-        [SerializeField] 
-        private PropertyGetPosition m_PointB = GetPositionCharacter.Create;
+        [SerializeField]
+        private PropertyGetPosition m_PointB = GetPositionCharacter.CreateWith(null);
 
         // PROPERTIES: ----------------------------------------------------------------------------
 

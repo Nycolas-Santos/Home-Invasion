@@ -14,7 +14,7 @@ namespace GameCreator.Editor.Variables
             VisualElement root = new VisualElement();
             
             SerializedProperty propertyValue = property.FindPropertyRelative("m_Value");
-            PropertyTool fieldValue = new PropertyTool(propertyValue);
+            PropertyField fieldValue = new PropertyField(propertyValue);
             
             root.Add(fieldValue);
             return root;

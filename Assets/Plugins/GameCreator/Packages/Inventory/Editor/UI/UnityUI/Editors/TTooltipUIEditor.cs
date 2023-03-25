@@ -16,11 +16,11 @@ namespace GameCreator.Editor.Inventory.UnityUI
             SerializedProperty keepInParent = this.serializedObject.FindProperty("m_KeepInParent");
             SerializedProperty input = this.serializedObject.FindProperty("m_InputMouse");
 
-            root.Add(new GameCreator.Editor.Common.PropertyTool(tooltip));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(offset));
-            root.Add(new GameCreator.Editor.Common.PropertyTool(keepInParent));
+            root.Add(new PropertyField(tooltip));
+            root.Add(new PropertyField(offset));
+            root.Add(new PropertyField(keepInParent));
             root.Add(new SpaceSmall());
-            root.Add(new GameCreator.Editor.Common.PropertyTool(input));
+            root.Add(new PropertyField(input));
             
             return root;
         }

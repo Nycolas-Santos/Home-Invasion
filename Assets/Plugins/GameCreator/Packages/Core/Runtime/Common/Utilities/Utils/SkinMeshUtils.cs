@@ -1,54 +1,21 @@
-using System.Collections.Generic;
 using GameCreator.Runtime.Characters;
 using UnityEngine;
 
 namespace GameCreator.Runtime.Common
 {
-    public static class SkinMeshUtils
+    internal static class SkinMeshUtils
     {
         private const string NAME = "Armature-{0}";
 
-        private class Armature : Dictionary<string, Transform>
-        {
-            public Armature(Transform transform)
-            {
-                GatherBones(transform);
-            }
-
-            private void GatherBones(Transform transform)
-            {
-                if (this.ContainsKey(transform.name))
-                {
-                    Remove(transform.name);
-                }
-
-                Add(transform.name, transform);
-                int childCount = transform.childCount;
-                
-                for (int i = 0; i < childCount; ++i)
-                {
-                    this.GatherBones(transform.GetChild(i));
-                }
-            }
-
-            public Transform Get(string name)
-            {
-                return this.ContainsKey(name) ? this[name] : null;
-            }
-        }
-        
         // PUBLIC METHODS: ------------------------------------------------------------------------
         
-        public static GameObject PutOn(GameObject prefab, Character character)
+        public static GameObject PutOn(GameObject prefab, Animator animator)
         {
-            if (prefab == null || character == null) return null;
-
-            Animator animator = character.Animim.Animator;
-            if (animator == null) return null;
+            if (prefab == null || animator == null) return null;
 
             Transform root = animator.transform;
-            Armature armature = new Armature(root);
-            
+            Armature armature = new Armature(animator.GetComponentInParent<Character>(), root);
+
             GameObject instance = Object.Instantiate(prefab, root.position, root.rotation);
             instance.name = string.Format(NAME, prefab.name);
             
@@ -64,20 +31,23 @@ namespace GameCreator.Runtime.Common
             return target.gameObject;
         }
 
-        public static GameObject TakeOff(GameObject prefab, Character character)
+        public static void TakeOff(GameObject instance)
         {
-            if (prefab == null || character == null) return null;
-
-            Animator animator = character.Animim.Animator;
-            if (animator == null) return null;
+            if (instance == null) return;
+            Object.Destroy(instance);
+        }
+        
+        public static void TakeOff(GameObject prefab, Animator animator)
+        {
+            if (prefab == null || animator == null) return;
 
             string wearName = string.Format(NAME, prefab.name);
             Transform wear = animator.transform.Find(wearName);
             
-            if (wear != null) Object.Destroy(wear.gameObject);
-            return null;
+            if (wear == null) return;
+            Object.Destroy(wear.gameObject);
         }
-        
+
         // PRIVATE METHODS: -----------------------------------------------------------------------
 
         private static Transform SetupSkin(Transform source, Transform parent)
@@ -104,7 +74,7 @@ namespace GameCreator.Runtime.Common
 
             SkinnedMeshRenderer instanceMesh = instance.AddComponent<SkinnedMeshRenderer>();
             instanceMesh.sharedMesh = source.sharedMesh;
-            instanceMesh.materials = source.materials;
+            instanceMesh.sharedMaterials = source.sharedMaterials;
             return instanceMesh;
         }
 

@@ -7,10 +7,9 @@ namespace GameCreator.Editor.Common
 {
     public sealed class SelectTypeElement : TypeSelectorValueElement
     {
-        private const string USS_PATH = (
+        private const string USS_PATH = 
             EditorPaths.COMMON + 
-            "Utilities/Helpers/TypeReference/StyleSheets/SelectType"
-        );
+            "Utilities/Helpers/TypeReference/StyleSheets/SelectType";
         
         // MEMBERS: -------------------------------------------------------------------------------
 
@@ -46,12 +45,13 @@ namespace GameCreator.Editor.Common
             this.m_Label = new Label();
             this.m_Label.AddToClassList("unity-base-field__label");
             this.m_Label.AddToClassList("unity-label");
-            this.m_Label.AddToClassList("unity-inspector-element");
             this.m_Label.AddToClassList("unity-property-field__label");
+            this.m_Label.AddToClassList(AlignLabel.CLASS_UNITY_INSPECTOR_ELEMENT);
             
             this.m_Head.Add(this.m_Label);
             this.m_Head.Add(this.m_Button);
 
+            _ = new AlignLabel(this.m_Head);
             this.LoadHeadStyleSheet(this.m_Head);
         }
 

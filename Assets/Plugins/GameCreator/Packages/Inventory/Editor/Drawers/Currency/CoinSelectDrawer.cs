@@ -20,17 +20,17 @@ namespace GameCreator.Editor.Inventory
 
             SerializedProperty currency = property.FindPropertyRelative(PROP_CURRENCY);
 
-            var fieldCurrency = new GameCreator.Editor.Common.PropertyTool(currency);
+            PropertyField fieldCurrency = new PropertyField(currency);
             VisualElement contentCoinIndex = new VisualElement();
             
             root.Add(fieldCurrency);
             root.Add(contentCoinIndex);
             
             this.RefreshCoinIndex(contentCoinIndex, property);
-            fieldCurrency.EventChange += _ =>
+            fieldCurrency.RegisterValueChangeCallback(_ =>
             {
                 this.RefreshCoinIndex(contentCoinIndex, property);
-            };
+            });
 
             return root;
         }

@@ -16,8 +16,8 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty name = property.FindPropertyRelative("m_Name");
             SerializedProperty description = property.FindPropertyRelative("m_Description");
 
-            PropertyTool fieldName = new PropertyTool(name);
-            PropertyTool fieldDescription = new PropertyTool(description);
+            PropertyField fieldName = new PropertyField(name);
+            PropertyField fieldDescription = new PropertyField(description);
 
             root.Add(fieldName);
             root.Add(fieldDescription);

@@ -36,8 +36,8 @@ namespace GameCreator.Runtime.VisualScripting
         {
             List<object> elements = this.m_ListVariable.Get;
 
-            int index1 = this.m_Element1.GetIndex(elements.Count);
-            int index2 = this.m_Element2.GetIndex(elements.Count);
+            int index1 = this.m_Element1.GetIndex(elements.Count, args);
+            int index2 = this.m_Element2.GetIndex(elements.Count, args);
 
             object value1 = elements[index1];
             object value2 = elements[index2];

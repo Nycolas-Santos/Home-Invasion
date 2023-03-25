@@ -25,10 +25,10 @@ namespace GameCreator.Runtime.Common
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
         /// <summary>
-        /// Raises an event with the specified Signal <paramref name="args"/>. If any receivers
+        /// Emits an event with the specified Signal <paramref name="args"/>. If any receivers
         /// are listening, these will be invoked in order. 
         /// </summary>
-        public static void Raise(SignalArgs args)
+        public static void Emit(SignalArgs args)
         {
             if (ApplicationManager.IsExiting) return;
             if (!SIGNALS.TryGetValue(args.signal, out List<ISignalReceiver> receivers))
@@ -40,6 +40,13 @@ namespace GameCreator.Runtime.Common
             {
                 receiver.OnReceiveSignal(args);
             }
+        }
+
+        // TODO: Remove in 6 months (deprecated in 02/2023)
+        [Obsolete("Deprecated method. Please, use 'Emit(args)' instead")]
+        public static void Raise(SignalArgs args)
+        {
+            Emit(args);
         }
 
         // SUBSCRIPTION METHODS: ------------------------------------------------------------------

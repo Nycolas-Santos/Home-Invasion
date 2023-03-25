@@ -258,6 +258,8 @@ namespace GameCreator.Runtime.Inventory
             if (runtimeItem == null) return false;
             if (this.Contains(runtimeItem)) return false;
 
+            RuntimeItem.Bag_LastItemAttemptedAdd = runtimeItem;
+            
             IdString rootRuntimeItemID = this.m_Matrix[position];
             if (this.m_Cells.TryGetValue(rootRuntimeItemID, out Cell cell))
             {
@@ -301,7 +303,7 @@ namespace GameCreator.Runtime.Inventory
             return true;
         }
 
-        public override bool Add(RuntimeItem runtimeItem, bool allowStack)
+        public override Vector2Int Add(RuntimeItem runtimeItem, bool allowStack)
         {
             for (int i = 0; i < this.m_Matrix.MatrixWidth; ++i)
             {
@@ -313,16 +315,20 @@ namespace GameCreator.Runtime.Inventory
                     {
                         if (allowStack && cell.CanStack(runtimeItem))
                         {
-                            return this.Add(runtimeItem, stackPosition, true);
+                            return this.Add(runtimeItem, stackPosition, true)
+                                ? stackPosition
+                                : INVALID;
                         }
                     }
                 }
             }
             
             Vector2Int availablePosition = this.FindAvailableSpace(runtimeItem);
-            if (availablePosition == INVALID) return false;
+            if (availablePosition == INVALID) return INVALID;
             
-            return this.Add(runtimeItem, availablePosition, allowStack);
+            return this.Add(runtimeItem, availablePosition, allowStack)
+                ? availablePosition
+                : INVALID;
         }
 
         public override RuntimeItem AddType(Item item, Vector2Int position, bool allowStack)
@@ -340,7 +346,7 @@ namespace GameCreator.Runtime.Inventory
             if (item == null) return null;
             
             RuntimeItem runtimeItem = item.CreateRuntimeItem();
-            return this.Add(runtimeItem, allowStack)
+            return this.Add(runtimeItem, allowStack) != INVALID
                 ? runtimeItem
                 : null;
         }
@@ -491,6 +497,8 @@ namespace GameCreator.Runtime.Inventory
         
         private RuntimeItem Remove(Vector2Int position, RuntimeItem runtimeItem)
         {
+            RuntimeItem.Bag_LastItemAttemptedRemove = runtimeItem;
+            
             position = this.FindRoot(position);
             Cell cell = this.GetContent(position);
             

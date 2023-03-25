@@ -10,7 +10,7 @@ namespace GameCreator.Runtime.Variables
     [Image(typeof(IconNameVariable), ColorTheme.Type.Purple)]
     [Description("Returns the Game Object value of a Local Name Variable")]
     
-    [Serializable] [HideLabelsInEditor]
+    [Serializable]
     public class GetLocationObjectLocalName : PropertyTypeGetLocation
     {
         [SerializeField]
@@ -20,12 +20,14 @@ namespace GameCreator.Runtime.Variables
 
         public override Location Get(Args args)
         {
-            return new Location(this.m_Variable.Get<GameObject>(), Vector3.zero, this.m_Rotate);
-        }
-
-        public override Location Get(GameObject gameObject)
-        {
-            return new Location(this.m_Variable.Get<GameObject>(), Vector3.zero, this.m_Rotate);
+            GameObject value = this.m_Variable.Get<GameObject>(args);
+            
+            return new Location(
+                value != null ? value.transform : null,
+                Space.Self, Vector3.zero,
+                this.m_Rotate,
+                Quaternion.identity
+            );
         }
 
         public override string String => this.m_Variable.ToString();

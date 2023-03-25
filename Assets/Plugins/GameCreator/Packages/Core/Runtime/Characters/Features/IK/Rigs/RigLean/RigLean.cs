@@ -22,8 +22,8 @@ namespace GameCreator.Runtime.Characters.IK
 
         // MEMBERS: -------------------------------------------------------------------------------
 
-        private Vector3 m_LastMoveDirection;
-        private LeanSection[] m_LeanSections;
+        [NonSerialized] private Vector3 m_LastMoveDirection;
+        [NonSerialized] private LeanSection[] m_LeanSections;
         
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
 
@@ -46,6 +46,7 @@ namespace GameCreator.Runtime.Characters.IK
         public override string Name => RIG_NAME;
         
         public override bool RequiresHuman => true;
+        public override bool DisableOnBusy => true;
 
         // IMPLEMENT METHODS: ---------------------------------------------------------------------
 

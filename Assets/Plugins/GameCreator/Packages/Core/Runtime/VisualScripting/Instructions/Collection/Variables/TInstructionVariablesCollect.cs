@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Variables;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace GameCreator.Runtime.VisualScripting
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
         
         [SerializeField] 
-        private PropertyGetPosition m_Origin = GetPositionCharactersPlayer.Create;
+        private PropertyGetPosition m_Origin = GetPositionCharacter.Create;
 
         [SerializeField] 
         private PropertyGetDecimal m_MaxRadius = GetDecimalDecimal.Create(5f);

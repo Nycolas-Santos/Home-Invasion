@@ -15,7 +15,7 @@ namespace GameCreator.Runtime.Characters
 
         public static int Count => HASH_PHASES.Length;
 
-        private const float GROUND_THRESHOLD = 0.85f;
+        private const float GROUND_THRESHOLD = 0.1f;
         
         // MEMBERS: -------------------------------------------------------------------------------
 

@@ -23,9 +23,12 @@ namespace GameCreator.Runtime.Common
         public override Location Get(Args args)
         {
             GameObject gameObject = this.m_GameObject.Get(args);
-            return gameObject != null
-                ? new Location(gameObject.transform, this.m_LocalOffset, this.m_Rotate)
-                : new Location();
+            if (gameObject == null) return new Location();
+
+            Marker marker = gameObject.Get<Marker>();
+            return marker != null 
+                ? new Location(marker, this.m_LocalOffset) 
+                : new Location(gameObject.transform, Space.Self, this.m_LocalOffset, this.m_Rotate, Quaternion.identity);
         }
 
         public static PropertyGetLocation Create => new PropertyGetLocation(

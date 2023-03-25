@@ -6,11 +6,22 @@ using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Common
 {
+    [Obsolete(
+        "The wrapper class PropertyTool is obsolete and will be removed soon. " +
+        "Please upgrade your Game Creator projects to their latest version to avoid any " +
+        "conflicts in the future"
+    )]
+    
     public class PropertyTool : VisualElement
     {
-        // TODO: 2022-10-30: Unity does not keep a consistent Label width between versions.
+        // TODO:
+        // [2022-10-30]: Unity does not keep a consistent Label width between versions.
         // Seems they have settled with 120px in future versions, but while the LTS version 
         // is the recommended one, we'll use 150px as a fallback.
+        // 
+        // [2023-03-10]: Now that Unity has changed how UIToolkit fields behave making them more
+        // similar to IMGUI, there is no need for this wrapper class and thus is marked for
+        // deprecation. Remove once all modules are upgraded to use PropertyField instead.
         
         #if UNITY_2021
         private const float LABEL_WIDTH = 150f;

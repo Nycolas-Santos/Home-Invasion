@@ -6,6 +6,8 @@ namespace GameCreator.Runtime.Characters
         FromLeft,
         FromRight,
         FromFront,
-        FromBack
+        FromBack,
+        FromTop,
+        FromBottom
     }
 }

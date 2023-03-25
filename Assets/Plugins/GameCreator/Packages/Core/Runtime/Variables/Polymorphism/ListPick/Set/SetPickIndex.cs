@@ -13,10 +13,10 @@ namespace GameCreator.Runtime.Variables
     [Serializable]
     public class SetPickIndex : TListSetPick
     {
-        [SerializeField] private int m_Index = 0;
+        [SerializeField] private PropertyGetInteger m_Index = GetDecimalInteger.Create(0);
 
-        public override int GetIndex(ListVariableRuntime list, int count) => this.m_Index;
-        public override int GetIndex(int count) => this.m_Index;
+        public override int GetIndex(ListVariableRuntime list, int count, Args args) => (int) this.m_Index.Get(args);
+        public override int GetIndex(int count, Args args) => (int) this.m_Index.Get(args);
 
         public override string ToString() => this.m_Index.ToString();
     }

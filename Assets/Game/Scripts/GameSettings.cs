@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode;
 
 namespace Game.Scripts
 {

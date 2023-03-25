@@ -59,7 +59,7 @@ namespace GameCreator.Editor.Stats
             fieldFormula.multiline = true;
             fieldFormula.AddToClassList(CLASS_MONOSPACE);
 
-            PropertyTool fieldTable = new PropertyTool(propertyTable, LABEL_TABLE)
+            PropertyField fieldTable = new PropertyField(propertyTable, LABEL_TABLE)
             {
                 name = NAME_TABLE
             };
@@ -72,10 +72,10 @@ namespace GameCreator.Editor.Stats
                 this.m_ScheduleValidation.ExecuteLater(VALIDATE_DELAY_MS);
             });
             
-            fieldTable.EventChange += _ =>
+            fieldTable.RegisterValueChangeCallback(_ =>
             {
                 this.RefreshValidation();
-            };
+            });
             
             this.m_Root.Add(labelTitle);
             this.m_Root.Add(fieldFormula);

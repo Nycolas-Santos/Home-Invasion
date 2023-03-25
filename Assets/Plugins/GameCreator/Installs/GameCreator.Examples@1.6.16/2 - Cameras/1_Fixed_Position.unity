@@ -1456,6 +1456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TimeMode:
     m_UpdateTime: 0
+  m_RunIn: 0
   m_Transition:
     m_CurrentShotCamera: {fileID: 839876509}
     m_SmoothTimePosition: 0.1
@@ -2666,8 +2667,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55db089f35f4457a8ff1981374b2de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsMainShot: 0
   m_TimeMode:
     m_UpdateTime: 0
+  m_Clipping: 0
   m_ShotType:
     rid: 5735539856820142284
   references:
@@ -2676,6 +2679,22 @@ MonoBehaviour:
     - rid: 5735539856820142284
       type: {class: ShotTypeFixed, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data:
+        m_ShotSystemViewport:
+          m_Projection:
+            m_IsEnabled: 0
+            m_Value: 0
+          m_FieldOfView:
+            m_IsEnabled: 0
+            m_Value: 60
+          m_OrthographicSize:
+            m_IsEnabled: 0
+            m_Value: 5
+          m_ClipPlaneNear:
+            m_IsEnabled: 0
+            m_Value: 0.3
+          m_ClipPlaneFar:
+            m_IsEnabled: 0
+            m_Value: 1000
         m_ShotSystemLook:
           m_IsActive: 1
           m_LookTarget:
@@ -3260,6 +3279,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4784298385919399504, guid: c9d3f027132904e4b86bd8b47491e3b5, type: 3}
+      propertyPath: managedReferences[4505834252451184651].m_IsExpanded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784298385919399504, guid: c9d3f027132904e4b86bd8b47491e3b5, type: 3}
+      propertyPath: managedReferences[5735539992345182264].m_IsExpanded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784298385919399504, guid: c9d3f027132904e4b86bd8b47491e3b5, type: 3}
+      propertyPath: managedReferences[5735539999292522505].m_IsExpanded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784298385919399504, guid: c9d3f027132904e4b86bd8b47491e3b5, type: 3}
+      propertyPath: managedReferences[5735539999292522509].m_IsExpanded
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5289743268377336459, guid: c9d3f027132904e4b86bd8b47491e3b5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3307,6 +3342,10 @@ PrefabInstance:
     - target: {fileID: 7380151076527158935, guid: c9d3f027132904e4b86bd8b47491e3b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163411015668231101, guid: c9d3f027132904e4b86bd8b47491e3b5, type: 3}
+      propertyPath: managedReferences[5735539999292522518].m_IsExpanded
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d3f027132904e4b86bd8b47491e3b5, type: 3}

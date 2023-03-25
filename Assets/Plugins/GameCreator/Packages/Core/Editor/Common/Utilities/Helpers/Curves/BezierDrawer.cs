@@ -30,15 +30,15 @@ namespace GameCreator.Editor.Common
             SerializedProperty controlA = property.FindPropertyRelative("m_ControlA");
             SerializedProperty controlB = property.FindPropertyRelative("m_ControlB");
             
-            container.Add(new PropertyTool(pointA));
-            container.Add(new PropertyTool(pointB));
+            container.Add(new PropertyField(pointA));
+            container.Add(new PropertyField(pointB));
 
             VisualElement space = new VisualElement();
             space.AddToClassList("gc-space-small");
             container.Add(space);
             
-            container.Add(new PropertyTool(controlA));
-            container.Add(new PropertyTool(controlB));
+            container.Add(new PropertyField(controlA));
+            container.Add(new PropertyField(controlB));
         }
         
         // SCENE GUI: -----------------------------------------------------------------------------

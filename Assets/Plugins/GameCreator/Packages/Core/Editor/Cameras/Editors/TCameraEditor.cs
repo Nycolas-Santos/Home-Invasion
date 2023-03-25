@@ -23,10 +23,10 @@ namespace GameCreator.Editor.Cameras
             SerializedProperty transition = this.serializedObject.FindProperty("m_Transition");
             SerializedProperty avoidClip = this.serializedObject.FindProperty("m_AvoidClip");
             
-            PropertyTool fieldTimeMode = new PropertyTool(timeMode);
-            PropertyTool fieldRunIn = new PropertyTool(runIn);
-            PropertyTool fieldTransition = new PropertyTool(transition);
-            PropertyTool fieldAvoidClip = new PropertyTool(avoidClip);
+            PropertyField fieldTimeMode = new PropertyField(timeMode);
+            PropertyField fieldRunIn = new PropertyField(runIn);
+            PropertyField fieldTransition = new PropertyField(transition);
+            PropertyField fieldAvoidClip = new PropertyField(avoidClip);
             
             root.Add(fieldTimeMode);
             root.Add(fieldRunIn);

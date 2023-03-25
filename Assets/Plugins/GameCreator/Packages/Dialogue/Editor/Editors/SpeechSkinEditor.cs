@@ -5,6 +5,7 @@ using GameCreator.Editor.Core;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Dialogue;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -44,16 +45,16 @@ namespace GameCreator.Editor.Dialogue
 
             root.Add(new SpaceSmall());
             root.Add(new LabelTitle("Animations"));
-            root.Add(new PropertyTool(when));
-            root.Add(new PropertyTool(idle));
-            root.Add(new PropertyTool(open));
+            root.Add(new PropertyField(when));
+            root.Add(new PropertyField(idle));
+            root.Add(new PropertyField(open));
             root.Add(new SpaceSmall());
             root.Add(new LabelTitle("Sound Effects"));
-            root.Add(new PropertyTool(start));
-            root.Add(new PropertyTool(finish));
+            root.Add(new PropertyField(start));
+            root.Add(new PropertyField(finish));
             root.Add(new SpaceSmall());
             root.Add(new LabelTitle("Override"));
-            root.Add(new PropertyTool(log));
+            root.Add(new PropertyField(log));
 
             return root;
         }

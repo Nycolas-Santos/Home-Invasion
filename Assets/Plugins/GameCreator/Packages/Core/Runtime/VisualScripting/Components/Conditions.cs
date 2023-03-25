@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using GameCreator.Runtime.Common;
 using UnityEngine;
@@ -21,6 +22,11 @@ namespace GameCreator.Runtime.VisualScripting
 
         public bool IsRunning => this.m_Branches.IsRunning;
         
+        // EVENTS: --------------------------------------------------------------------------------
+        
+        public event Action EventStartRunning;
+        public event Action EventEndRunning;
+        
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
         public void Invoke(GameObject self = null)
@@ -37,7 +43,11 @@ namespace GameCreator.Runtime.VisualScripting
 
         public async Task Run(Args args)
         {
+            this.EventStartRunning?.Invoke();
+            
             await this.m_Branches.Evaluate(args);
+            
+            this.EventEndRunning?.Invoke();
         }
 
         public void Cancel()

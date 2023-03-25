@@ -137,18 +137,18 @@ namespace GameCreator.Runtime.Variables
             }
         }
 
-        public void Remove(IListGetPick pick)
+        public void Remove(IListGetPick pick, Args args)
         {
             switch (this.m_ListVariable)
             {
                 case Type.LocalList:
                     if (this.m_LocalList == null) return;
-                    this.m_LocalList.Remove(pick);
+                    this.m_LocalList.Remove(pick, args);
                     break;
                 
                 case Type.GlobalList:
                     if (this.m_GlobalList == null) return;
-                    this.m_GlobalList.Remove(pick);
+                    this.m_GlobalList.Remove(pick, args);
                     break;
                 
                 default: throw new ArgumentOutOfRangeException();

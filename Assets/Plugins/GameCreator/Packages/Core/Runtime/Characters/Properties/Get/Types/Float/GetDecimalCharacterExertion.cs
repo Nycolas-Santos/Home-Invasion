@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameCreator.Runtime.Characters
 {
     [Title("Exertion")]
-    [Category("Characters/Exertion")]
+    [Category("Characters/Animation/Exertion")]
     
     [Image(typeof(IconExertion), ColorTheme.Type.Yellow)]
     [Description("The Character's Exertion value")]

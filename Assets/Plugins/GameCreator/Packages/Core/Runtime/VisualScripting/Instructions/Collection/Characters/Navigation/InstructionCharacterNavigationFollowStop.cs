@@ -28,8 +28,7 @@ namespace GameCreator.Runtime.VisualScripting
         {
             Character character = this.m_Character.Get<Character>(args);
             if (character == null) return DefaultResult;
-
-            character.Busy.RemoveLegsBusy();
+            
             character.Motion.StopFollowingTarget();
             return DefaultResult;
         }

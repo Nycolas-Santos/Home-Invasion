@@ -107,6 +107,10 @@ namespace GameCreator.Runtime.Common
 
         private void OnDrawGizmos()
         {
+            #if UNITY_EDITOR
+            if (UnityEditor.PrefabUtility.IsPartOfPrefabAsset(this.gameObject)) return;
+            #endif
+            
             Vector3 position = transform.position + Vector3.up * 0.01f;
 
             Gizmos.color = Color.yellow;
@@ -123,6 +127,10 @@ namespace GameCreator.Runtime.Common
 
         private void OnDrawGizmosSelected()
         {
+            #if UNITY_EDITOR
+            if (UnityEditor.PrefabUtility.IsPartOfPrefabAsset(this.gameObject)) return;
+            #endif
+            
             Gizmos.color = COLOR_GIZMO_CAPSULE;
             float radius = 0.2f;
             float height = 2f;

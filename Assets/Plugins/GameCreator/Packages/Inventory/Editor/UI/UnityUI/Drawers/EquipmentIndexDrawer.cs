@@ -24,17 +24,17 @@ namespace GameCreator.Editor.Inventory.UnityUI
             root.Add(body);
             
             SerializedProperty equipmentAsset = property.FindPropertyRelative(PROP_EQUIPMENT);
-            var fieldEquipment = new GameCreator.Editor.Common.PropertyTool(equipmentAsset);
+            var fieldEquipment = new PropertyField(equipmentAsset);
             head.Add(fieldEquipment);
             
             this.Refresh(body, property);
-            fieldEquipment.EventChange += _ =>
+            fieldEquipment.RegisterValueChangeCallback(_ =>
             {
                 property.serializedObject.ApplyModifiedProperties();
                 property.serializedObject.Update();
                 
                 this.Refresh(body, property);
-            };
+            });
             
             return root;
         }

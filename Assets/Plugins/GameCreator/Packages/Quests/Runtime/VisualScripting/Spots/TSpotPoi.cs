@@ -17,6 +17,10 @@ namespace GameCreator.Runtime.Quests
 
         [SerializeField] private InterestLayer m_Layers = InterestLayers.Every;
 
+        [SerializeField] private float m_FadeOutDistance;
+        [SerializeField] private float m_FadeInDistance;
+        [SerializeField] private float m_FadeInPadding;
+
         // PROPERTIES: ----------------------------------------------------------------------------
 
         public Vector3 Position
@@ -39,9 +43,11 @@ namespace GameCreator.Runtime.Quests
         [field: NonSerialized] public Hotspot Hotspot { get; private set; }
         [field: NonSerialized] public Args Args { get; private set; }
         
-        public abstract string GetName { get; }
+        public abstract string GetName   { get; }
         public abstract Sprite GetSprite { get; }
-        public abstract Color GetColor { get; }
+        public abstract Color GetColor   { get; }
+
+        public float Alpha { get; private set; } = 1f;
         
         [field: NonSerialized] protected int Id { get; private set; }
 
@@ -75,6 +81,35 @@ namespace GameCreator.Runtime.Quests
             hotspot.EventOnDeactivate -= this.OnHotspotDeactivate;
             
             this.Refresh();
+        }
+
+        public override void OnUpdate(Hotspot hotspot)
+        {
+            base.OnUpdate(hotspot);
+
+            if (hotspot.IsActive)
+            {
+                this.Alpha = 1f;
+                float currentDistance = hotspot.Distance;
+                
+                float startFadeOutDistance = hotspot.Radius - this.m_FadeOutDistance;
+                if (currentDistance >= startFadeOutDistance)
+                {
+                    float fadeOutDistance = hotspot.Radius - startFadeOutDistance;
+                    float ratio = (currentDistance - startFadeOutDistance) / fadeOutDistance;
+                    this.Alpha = 1f - ratio;
+                }
+
+                if (currentDistance <= this.m_FadeInPadding + this.m_FadeInDistance)
+                {
+                    float confinedDistance = Math.Max(currentDistance - this.m_FadeInPadding, 0f);
+                    this.Alpha = confinedDistance / this.m_FadeInDistance;
+                }
+            }
+            else
+            {
+                this.Alpha = 0;   
+            }
         }
 
         // ABSTRACT METHODS: ----------------------------------------------------------------------

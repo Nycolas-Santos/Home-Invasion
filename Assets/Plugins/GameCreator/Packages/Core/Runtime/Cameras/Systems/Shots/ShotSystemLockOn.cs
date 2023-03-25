@@ -71,15 +71,17 @@ namespace GameCreator.Runtime.Cameras
         public override void OnUpdate(TShotType shotType)
         {
             base.OnUpdate(shotType);
-
+            
             Vector3 positionTarget = this.GetTargetPosition(shotType as TShotTypeLook);
+            
             Vector3 positionAnchor = this.GetAnchorPosition(shotType);
+            Vector3 offsetAnchor = this.GetAnchorOffset(shotType);
 
             Vector3 direction = positionTarget - positionAnchor;
             Vector3 position = positionAnchor - direction.normalized * this.m_Radius;
             
-            this.m_AnchorPosition = positionAnchor;
-            shotType.Position = position;
+            this.m_AnchorPosition = positionAnchor + offsetAnchor;
+            shotType.Position = position + offsetAnchor;
         }
 
         // GIZMOS: --------------------------------------------------------------------------------
@@ -112,10 +114,13 @@ namespace GameCreator.Runtime.Cameras
         
         private Vector3 GetAnchorPosition(TShotType shotType)
         {
-            GameObject anchor = this.m_Anchor.Get(shotType.Args);
-            if (anchor == null) return this.m_AnchorPosition;
-            
-            return anchor.transform.position + this.m_AnchorOffset.Get(shotType.Args);
+            Transform anchor = this.m_Anchor.Get<Transform>(shotType.Args);
+            return anchor != null ? anchor.position : this.m_AnchorPosition;
+        }
+
+        private Vector3 GetAnchorOffset(TShotType shotType)
+        {
+            return this.m_AnchorOffset.Get(shotType.Args);
         }
 
         private void DoDrawGizmos(TShotTypeLook shotType, Color color)

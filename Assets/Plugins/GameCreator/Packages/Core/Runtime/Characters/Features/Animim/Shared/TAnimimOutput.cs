@@ -8,6 +8,8 @@ namespace GameCreator.Runtime.Characters.Animim
     {
         protected static readonly Task TASK_COMPLETE = Task.FromResult(true);
         
+        protected const float SAFE_TIME_EPSILON = 0.01f;
+        
         // MEMBERS: -------------------------------------------------------------------------------
         
         [NonSerialized] protected readonly AnimimGraph m_AnimimGraph;

@@ -30,6 +30,8 @@ namespace GameCreator.Runtime.Characters.IK
             }
         }
 
+        public GameObject Target => this.m_Transform != null ? this.m_Transform.gameObject : null;
+
         // CONSTRUCTOR: ---------------------------------------------------------------------------
         
         public LookTrackTransform(int layer, Transform transform, Vector3 offset)

@@ -16,12 +16,9 @@ namespace GameCreator.Runtime.Variables
         [SerializeField]
         protected FieldSetLocalList m_Variable = new FieldSetLocalList(ValueSprite.TYPE_ID);
 
-        public override void Set(Sprite value, Args args) => this.m_Variable.Set(value);
-        public override void Set(Sprite value, GameObject gameObject) => this.m_Variable.Set(value);
+        public override void Set(Sprite value, Args args) => this.m_Variable.Set(value, args);
+        public override Sprite Get(Args args) => this.m_Variable.Get(args) as Sprite;
 
-        public override Sprite Get(Args args) => this.m_Variable.Get() as Sprite;
-        public override Sprite Get(GameObject gameObject) => this.m_Variable.Get() as Sprite;
-        
         public static PropertySetSprite Create => new PropertySetSprite(
             new SetSpriteLocalList()
         );

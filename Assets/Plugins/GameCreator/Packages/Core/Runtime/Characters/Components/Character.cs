@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using GameCreator.Runtime.Characters.Animim;
 using GameCreator.Runtime.Common;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace GameCreator.Runtime.Characters
 {
@@ -52,6 +53,7 @@ namespace GameCreator.Runtime.Characters
         [SerializeField] protected Props m_Props = new Props();
         [SerializeField] protected Combat m_Combat = new Combat();
         [SerializeField] protected Jump m_Jump = new Jump();
+        [SerializeField] protected Dash m_Dash = new Dash();
 
         [SerializeField] protected UniqueID m_UniqueID = new UniqueID();
         
@@ -112,7 +114,10 @@ namespace GameCreator.Runtime.Characters
         public Props Props => this.m_Props;
         public Combat Combat => this.m_Combat;
         public Jump Jump => this.m_Jump;
+        public Dash Dash => this.m_Dash;
 
+        public PlayableGraph AnimationGraph => this.m_AnimimGraph.Graph;
+        
         public StatesOutput States => this.m_AnimimGraph.States;
         public GesturesOutput Gestures => this.m_AnimimGraph.Gestures;
         
@@ -130,16 +135,27 @@ namespace GameCreator.Runtime.Characters
         public IUnitFacing Facing => this.m_Kernel?.Facing;
         public IUnitAnimim Animim => this.m_Kernel?.Animim;
         
-        public Vector3 Eyes => this.Animim.Animator != null && this.Animim.Animator.isHuman
-            ? this.Animim.Animator.GetBoneTransform(HumanBodyBones.Head).position
-            : this.transform.position + Vector3.up * this.Motion.Height / 2f;
-        
+        public Vector3 Eyes
+        {
+            get
+            {
+                if (this.Animim.Animator != null && this.Animim.Animator.isHuman)
+                {
+                    Transform head = this.Animim.Animator.GetBoneTransform(HumanBodyBones.Head);
+                    if (head != null) return head.position;
+                }
+
+                return this.transform.position + Vector3.up * this.Motion.Height / 2f;
+            }
+        }
+
         public Vector3 Feet => this.transform.position - Vector3.up * this.Motion.Height / 2f;
         
         // EVENTS: --------------------------------------------------------------------------------
 
         public event Action EventEnable;
         public event Action EventDisable;
+        public event Action EventDestroy;
 
         public event Action EventBeforeUpdate;
         public event Action EventAfterUpdate;
@@ -178,6 +194,7 @@ namespace GameCreator.Runtime.Characters
             this.m_Props?.OnStartup(this);
             this.m_Combat?.OnStartup(this);
             this.m_Jump?.OnStartup(this);
+            this.m_Dash?.OnStartup(this);
             
             SpatialHashCharacters.Insert(this);
             Characters[this.m_UniqueID.Get] = this;
@@ -195,6 +212,7 @@ namespace GameCreator.Runtime.Characters
             this.m_Props?.AfterStartup(this);
             this.m_Combat?.AfterStartup(this);
             this.m_Jump?.AfterStartup(this);
+            this.m_Dash?.AfterStartup(this);
         }
 
         protected virtual void OnDestroy()
@@ -207,9 +225,12 @@ namespace GameCreator.Runtime.Characters
             this.m_Props?.OnDispose(this);
             this.m_Combat?.OnDispose(this);
             this.m_Jump?.OnDispose(this);
+            this.m_Dash?.OnDispose(this);
             
             SpatialHashCharacters.Remove(this);
             Characters.Remove(this.m_UniqueID.Get);
+            
+            this.EventDestroy?.Invoke();
         }
 
         protected virtual void OnEnable()
@@ -222,6 +243,7 @@ namespace GameCreator.Runtime.Characters
             this.m_Props?.OnEnable();
             this.m_Combat?.OnEnable();
             this.m_Jump?.OnEnable();
+            this.m_Dash?.OnEnable();
             
             this.EventEnable?.Invoke();
         }
@@ -236,6 +258,7 @@ namespace GameCreator.Runtime.Characters
             this.m_Props?.OnDisable();
             this.m_Combat?.OnDisable();
             this.m_Jump?.OnDisable();
+            this.m_Dash?.OnDisable();
             
             this.EventDisable?.Invoke();
         }
@@ -278,10 +301,15 @@ namespace GameCreator.Runtime.Characters
 
         protected virtual void OnDrawGizmosSelected()
         {
+            #if UNITY_EDITOR
+            if (UnityEditor.PrefabUtility.IsPartOfPrefabAsset(this.gameObject)) return;
+            #endif
+            
             this.m_Kernel?.OnDrawGizmos(this);
             this.m_InverseKinematics?.OnDrawGizmos(this);
             this.m_Interaction?.OnDrawGizmos(this);
             this.m_Footsteps?.OnDrawGizmos(this);
+            this.m_Combat?.OnDrawGizmos(this);
         }
 
         // CALLBACKS: -----------------------------------------------------------------------------
@@ -376,6 +404,15 @@ namespace GameCreator.Runtime.Characters
             
             this.EventAfterChangeModel?.Invoke();
             return model;
+        }
+
+        public void ChangeId(IdString nextId)
+        {
+            IdString prevId = this.m_UniqueID.Get;
+            this.m_UniqueID.Set = nextId;
+            
+            Characters.Remove(prevId);
+            Characters[nextId] = this;
         }
         
         // PUBLIC STATIC METHODS: -----------------------------------------------------------------

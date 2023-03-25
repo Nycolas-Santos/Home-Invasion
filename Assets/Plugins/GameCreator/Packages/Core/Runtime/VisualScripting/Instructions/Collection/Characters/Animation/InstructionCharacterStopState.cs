@@ -34,7 +34,7 @@ namespace GameCreator.Runtime.VisualScripting
         [SerializeField] private float m_Delay = 0f;
         [SerializeField] private float m_Transition = 0.1f;
 
-        public override string Title => $"Stop state on {this.m_Character}";
+        public override string Title => $"Stop {this.m_Character} State in Layer {this.m_Layer}";
 
         protected override Task Run(Args args)
         {

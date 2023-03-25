@@ -1,6 +1,6 @@
-using GameCreator.Editor.Common;
 using GameCreator.Runtime.Dialogue.UnityUI;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -17,8 +17,8 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty container = this.serializedObject.FindProperty("m_SpeechContainer");
             SerializedProperty speech = this.serializedObject.FindProperty("m_DefaultSpeech");
             
-            this.m_Root.Add(new PropertyTool(container, "Speech"));
-            this.m_Root.Add(new PropertyTool(speech, "Default"));
+            this.m_Root.Add(new PropertyField(container, "Speech"));
+            this.m_Root.Add(new PropertyField(speech, "Default"));
 
             return this.m_Root;
         }

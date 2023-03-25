@@ -37,13 +37,20 @@ namespace GameCreator.Runtime.VisualScripting
         // PROPERTIES: ----------------------------------------------------------------------------
 
         public GameObject Target => this.m_Target.Get(this.m_Args);
-        public float Radius => this.m_Radius;
+        
+        public float Radius
+        {
+            get => this.m_Radius;
+            set => this.m_Radius = value;
+        }
 
         public Vector3 Position => this.transform.TransformPoint(this.m_Offset);
         public Quaternion Rotation => this.transform.rotation;
 
-        public bool IsActive { get; private set; }
-        public float Transition { get; private set; }
+        [field: NonSerialized] public bool IsActive { get; private set; }
+        [field: NonSerialized] public float Transition { get; private set; }
+        
+        [field: NonSerialized] public float Distance { get; private set; }
         
         // EVENTS: --------------------------------------------------------------------------------
 
@@ -66,16 +73,20 @@ namespace GameCreator.Runtime.VisualScripting
         private void Update()
         {
             bool wasActive = this.IsActive;
-            
-            if (this.Target == null) this.IsActive = false;
+
+            if (this.Target == null)
+            {
+                this.IsActive = false;
+                this.Distance = float.MaxValue;
+            }
             else
             {
-                float distance = Vector3.Distance(
+                this.Distance = Vector3.Distance(
                     this.Target.transform.position,
                     this.Position
                 );
 
-                this.IsActive = distance <= this.Radius;
+                this.IsActive = this.Distance <= this.Radius;
             }
 
             this.Transition = Mathf.SmoothDamp(
@@ -122,6 +133,10 @@ namespace GameCreator.Runtime.VisualScripting
 
         private void OnDrawGizmosSelected()
         {
+            #if UNITY_EDITOR
+            if (UnityEditor.PrefabUtility.IsPartOfPrefabAsset(this.gameObject)) return;
+            #endif
+            
             float alpha = Mathf.Lerp(
                 GIZMOS_ALPHA_OFF,
                 GIZMOS_ALPHA_ON,

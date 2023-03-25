@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 
 namespace GameCreator.Runtime.Common.SaveSystem
@@ -13,9 +14,11 @@ namespace GameCreator.Runtime.Common.SaveSystem
     [Serializable]
     public class StoragePlayerPrefs : IDataStorage
     {
+        // PROPERTIES: ----------------------------------------------------------------------------
+        
         string IDataStorage.Title => "Player Prefs";
         string IDataStorage.Description => "Store all game information using Unity Player Prefs";
-
+        
         // HIERARCHY: -----------------------------------------------------------------------------
 
         Task IDataStorage.DeleteAll()

@@ -1,13 +1,11 @@
 ﻿* {
-    --gc-common-label-length: 120px;
-    --gc-common-label-width: 117px;
-    --gc-common-label-margin-left: 3px;
+    /* DEPRECATED */
+    /*--gc-common-label-length: 120px;*/
+    /*--gc-common-label-width: 117px;*/
+    /*--gc-common-label-margin-left: 3px;*/
+    /* DEPRECATED */
     
-    /*--gc-common-label-grow-ratio: 0.45;*/
-    /*--gc-common-control-grow-ratio: 0.55;*/
-    /*--gc-common-label-min-width: 0px;*/
-    /*--gc-common-control-min-width: 80px;*/
-    
+    --gc-common-element-width: 120px;
     --gc-common-element-height: 20px;
 
     --gc-common-border-width: 1px;

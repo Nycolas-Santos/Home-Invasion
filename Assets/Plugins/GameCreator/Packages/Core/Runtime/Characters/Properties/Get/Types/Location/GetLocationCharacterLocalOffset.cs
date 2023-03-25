@@ -25,7 +25,7 @@ namespace GameCreator.Runtime.Characters
         {
             Character character = this.m_Character.Get<Character>(args);
             return character != null 
-                ? new Location(character.transform, this.m_LocalOffset, this.m_Rotate) 
+                ? new Location(character.transform, Space.Self, this.m_LocalOffset, this.m_Rotate, Quaternion.identity)
                 : new Location();
         }
 

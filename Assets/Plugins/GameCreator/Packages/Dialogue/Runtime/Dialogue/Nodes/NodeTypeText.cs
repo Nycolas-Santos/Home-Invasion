@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GameCreator.Runtime.Common;
+using UnityEngine;
 
 namespace GameCreator.Runtime.Dialogue
 {

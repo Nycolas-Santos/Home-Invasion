@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using GameCreator.Runtime.Characters;
 using GameCreator.Runtime.Common;
 using UnityEngine;
 
@@ -27,7 +28,7 @@ namespace GameCreator.Runtime.VisualScripting
         private PropertyGetInstantiate m_GameObject = new PropertyGetInstantiate();
 
         [SerializeField] 
-        private PropertyGetLocation m_Location = GetLocationCharactersPlayer.Create;
+        private PropertyGetLocation m_Location = GetLocationCharacter.Create;
 
         [SerializeField] 
         private PropertyGetGameObject m_Parent = GetGameObjectNone.Create();

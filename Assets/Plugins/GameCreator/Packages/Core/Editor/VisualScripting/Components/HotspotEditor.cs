@@ -14,11 +14,11 @@ namespace GameCreator.Editor.VisualScripting
         {
             VisualElement container = new VisualElement();
 
-            container.Add(new PropertyTool(this.serializedObject.FindProperty("m_Target")));
+            container.Add(new PropertyField(this.serializedObject.FindProperty("m_Target")));
             
             container.Add(new SpaceSmaller());
-            container.Add(new PropertyTool(this.serializedObject.FindProperty("m_Radius")));
-            container.Add(new PropertyTool(this.serializedObject.FindProperty("m_Offset")));
+            container.Add(new PropertyField(this.serializedObject.FindProperty("m_Radius")));
+            container.Add(new PropertyField(this.serializedObject.FindProperty("m_Offset")));
 
             container.Add(new SpaceSmaller());
             container.Add(new PropertyField(this.serializedObject.FindProperty("m_Spots")));

@@ -1,5 +1,6 @@
 using GameCreator.Editor.Common;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Dialogue
@@ -19,11 +20,11 @@ namespace GameCreator.Editor.Dialogue
             SerializedProperty skin = this.serializedObject.FindProperty("m_OverrideSpeechSkin");
             SerializedProperty portrait = this.serializedObject.FindProperty("m_Portrait");
             
-            PropertyTool fieldActant = new PropertyTool(actant);
-            PropertyTool fieldExpressions = new PropertyTool(expressions);
-            PropertyTool fieldTypewriter = new PropertyTool(typewriter);
-            PropertyTool fieldSkin = new PropertyTool(skin, "Optional Skin");
-            PropertyTool fieldPortrait = new PropertyTool(portrait, "Default Portrait");
+            PropertyField fieldActant = new PropertyField(actant);
+            PropertyField fieldExpressions = new PropertyField(expressions);
+            PropertyField fieldTypewriter = new PropertyField(typewriter);
+            PropertyField fieldSkin = new PropertyField(skin, "Optional Skin");
+            PropertyField fieldPortrait = new PropertyField(portrait, "Default Portrait");
 
             this.m_Root.Add(fieldActant);
             this.m_Root.Add(new SpaceSmall());

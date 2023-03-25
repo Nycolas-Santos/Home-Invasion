@@ -14,14 +14,14 @@ namespace GameCreator.Editor.Stats.UnityUI
             VisualElement root = new VisualElement();
 
             root.Add(new LabelTitle("Graphics:"));
-            root.Add(new PropertyTool(property.FindPropertyRelative("m_Icon")));
-            root.Add(new PropertyTool(property.FindPropertyRelative("m_Color")));
+            root.Add(new PropertyField(property.FindPropertyRelative("m_Icon")));
+            root.Add(new PropertyField(property.FindPropertyRelative("m_Color")));
             
             root.Add(new SpaceSmall());
             root.Add(new LabelTitle("Texts:"));
-            root.Add(new PropertyTool(property.FindPropertyRelative("m_Name")));
-            root.Add(new PropertyTool(property.FindPropertyRelative("m_Acronym")));
-            root.Add(new PropertyTool(property.FindPropertyRelative("m_Description")));
+            root.Add(new PropertyField(property.FindPropertyRelative("m_Name")));
+            root.Add(new PropertyField(property.FindPropertyRelative("m_Acronym")));
+            root.Add(new PropertyField(property.FindPropertyRelative("m_Description")));
             
             return root;
         }

@@ -17,12 +17,9 @@ namespace GameCreator.Runtime.Inventory
         [SerializeField]
         protected FieldSetGlobalList m_Variable = new FieldSetGlobalList(ValueItem.TYPE_ID);
 
-        public override void Set(Item value, Args args) => this.m_Variable.Set(value);
-        public override void Set(Item value, GameObject gameObject) => this.m_Variable.Set(value);
+        public override void Set(Item value, Args args) => this.m_Variable.Set(value, args);
+        public override Item Get(Args args) => this.m_Variable.Get(args) as Item;
 
-        public override Item Get(Args args) => this.m_Variable.Get() as Item;
-        public override Item Get(GameObject gameObject) => this.m_Variable.Get() as Item;
-        
         public static PropertySetItem Create => new PropertySetItem(
             new SetItemGlobalList()
         );

@@ -74,6 +74,9 @@ namespace GameCreator.Editor.Dialogue
         public ContentToolSettings(ContentTool contentTool)
         {
             this.ContentTool = contentTool;
+            
+            this.AddToClassList(AlignLabel.CLASS_UNITY_INSPECTOR_ELEMENT);
+            this.AddToClassList(AlignLabel.CLASS_UNITY_MAIN_CONTAINER);
 
             this.m_Scroll = new ScrollView { name = NAME_SCROLL };
 
@@ -135,15 +138,15 @@ namespace GameCreator.Editor.Dialogue
                 .FindPropertyRelative("m_Time");
             
             ErrorMessage fieldError = new ErrorMessage("A 'Dialogue Skin' asset is required");
-            PropertyTool fieldDialogueSkin = new PropertyTool(dialogueSkin);
-            PropertyTool fieldTime = new PropertyTool(time);
+            PropertyField fieldDialogueSkin = new PropertyField(dialogueSkin);
+            PropertyField fieldTime = new PropertyField(time);
 
             this.m_ConfigContent.Add(fieldError);
             this.m_ConfigContent.Add(fieldDialogueSkin);
             this.m_ConfigContent.Add(new SpaceSmallest());
             this.m_ConfigContent.Add(fieldTime);
 
-            fieldDialogueSkin.EventChange += changeEvent =>
+            fieldDialogueSkin.RegisterValueChangeCallback(changeEvent =>
             {
                 if (changeEvent.changedProperty.objectReferenceValue != null)
                 {
@@ -156,7 +159,7 @@ namespace GameCreator.Editor.Dialogue
                 {
                     fieldError.style.display = DisplayStyle.Flex;
                 }
-            };
+            });
             
             fieldError.style.display = dialogueSkin.objectReferenceValue != null
                 ? DisplayStyle.None
@@ -181,13 +184,13 @@ namespace GameCreator.Editor.Dialogue
                     .objectReferenceValue as Actor;
 
                 string title = actor != null ? actor.name : "(missing)";
-                PropertyTool fieldRole = new PropertyTool(role, title);
+                PropertyField fieldRole = new PropertyField(role, title);
 
                 this.m_RolesContent.Add(fieldRole);
                 this.m_RolesContent.Add(new SpaceSmaller());
                 fieldRole.Bind(this.ContentTool.SerializedObject);
 
-                fieldRole.EventChange += _ => this.OnChangeActor();
+                fieldRole.RegisterValueChangeCallback(_ => this.OnChangeActor());
             }
         }
 

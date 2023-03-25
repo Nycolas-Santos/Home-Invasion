@@ -28,13 +28,13 @@ namespace GameCreator.Editor.Quests
             SerializedProperty sprite = this.serializedObject.FindProperty("m_Sprite");
             
             root.Add(new SpaceSmall());
-            root.Add(new PropertyTool(title));
+            root.Add(new PropertyField(title));
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(description));
+            root.Add(new PropertyField(description));
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(color));
+            root.Add(new PropertyField(color));
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(sprite));
+            root.Add(new PropertyField(sprite));
             
             SerializedProperty styleGraphics = this.serializedObject.FindProperty("m_StyleGraphics");
             SerializedProperty activeElements = this.serializedObject.FindProperty("m_ActiveElements");
@@ -52,29 +52,29 @@ namespace GameCreator.Editor.Quests
             SerializedProperty showHidden = this.serializedObject.FindProperty("m_ShowHidden");
             
             root.Add(new SpaceSmaller());
-            root.Add(new PropertyTool(show));
-            root.Add(new PropertyTool(showHidden));
+            root.Add(new PropertyField(show));
+            root.Add(new PropertyField(showHidden));
             
             SerializedProperty tasksContent = this.serializedObject.FindProperty("m_TasksContent");
             SerializedProperty taskPrefab = this.serializedObject.FindProperty("m_TaskPrefab");
 
-            PropertyTool fieldTasksContent = new PropertyTool(tasksContent);
+            PropertyField fieldTasksContent = new PropertyField(tasksContent);
             ErrorMessage fieldErrorTaskPrefab = new ErrorMessage(ERR_PREFAB);
-            PropertyTool fieldTaskPrefab = new PropertyTool(taskPrefab);
+            PropertyField fieldTaskPrefab = new PropertyField(taskPrefab);
             
             root.Add(new SpaceSmaller());
             root.Add(fieldTasksContent);
             root.Add(fieldErrorTaskPrefab);
             root.Add(fieldTaskPrefab);
 
-            fieldTaskPrefab.EventChange += changeEvent =>
+            fieldTaskPrefab.RegisterValueChangeCallback(changeEvent =>
             {
                 GameObject prefab = changeEvent.changedProperty.objectReferenceValue as GameObject;
                 fieldErrorTaskPrefab.style.display =
                     prefab != null && prefab.GetComponent<TaskUI>() == null
                         ? DisplayStyle.Flex
                         : DisplayStyle.None;
-            };
+            });
             
             GameObject prefab = taskPrefab.objectReferenceValue as GameObject;
             fieldErrorTaskPrefab.style.display =

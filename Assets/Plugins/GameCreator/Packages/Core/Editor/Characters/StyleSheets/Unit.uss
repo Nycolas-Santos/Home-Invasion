@@ -26,8 +26,7 @@
     border-color: var(--gc-color-border-default);
     
     border-width: var(--gc-common-border-width);
-
-    /*padding: var(--gc-common-padding-box);*/
+    
     padding: var(--gc-common-space-smaller);
     margin: var(--gc-common-border-inverse-width) 2px 0 2px;
 }
@@ -38,6 +37,13 @@
     width: var(--gc-character-unit-head-image-size);
     height: var(--gc-character-unit-head-image-size);
     margin: var(--gc-character-unit-head-image-margin);
+}
+
+.gc-character-unit-head-arrow {
+    width: var(--gc-character-unit-head-image-size);
+    height: var(--gc-character-unit-head-image-size);
+    margin: var(--gc-character-unit-head-image-margin);
+    margin-left: 0;
 }
 
 .gc-character-unit-head-btn__toggle {
@@ -64,4 +70,6 @@
     padding: 0;
     margin: 0;
     -unity-text-align: middle-left;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }

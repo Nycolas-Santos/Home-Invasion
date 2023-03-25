@@ -2,6 +2,7 @@ using System;
 using GameCreator.Runtime.Common;
 using GameCreator.Runtime.Common.UnityUI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace GameCreator.Runtime.Quests.UnityUI
@@ -12,14 +13,7 @@ namespace GameCreator.Runtime.Quests.UnityUI
     [Serializable]
     public class CompassItemUI : MonoBehaviour
     {
-        // EXPOSED MEMBERS: -----------------------------------------------------------------------
-
-        [SerializeField] private TextReference m_Text;
-        [SerializeField] private Image m_Sprite;
-        [SerializeField] private Graphic m_Color;
-
-        [SerializeField] private CanvasGroup m_CanvasGroup;
-        [SerializeField] private Gradient m_Alpha = new Gradient
+        private static readonly Gradient GRADIENT = new Gradient
         {
             alphaKeys = new[]
             {
@@ -29,6 +23,26 @@ namespace GameCreator.Runtime.Quests.UnityUI
                 new GradientAlphaKey(0f, 1.0f),
             }
         };
+        
+        private enum OpacityMode
+        {
+            FadeByDistance,
+            FadeByDirection,
+            Both
+        }
+        
+        // EXPOSED MEMBERS: -----------------------------------------------------------------------
+
+        [SerializeField] private TextReference m_Text = new TextReference();
+        [SerializeField] private Image m_Sprite;
+        [SerializeField] private Graphic m_Color;
+        
+        [SerializeField] private OpacityMode m_Mode = OpacityMode.Both;
+        [SerializeField] private CanvasGroup m_Opacity;
+
+        [SerializeField] private TextReference m_Distance = new TextReference();
+        [SerializeField] private PropertyGetDecimal m_Multiplier = new PropertyGetDecimal(1f);
+        [SerializeField] private PropertyGetString m_Unit = new PropertyGetString("m");
 
         // PUBLIC METHODS: ------------------------------------------------------------------------
 
@@ -41,10 +55,21 @@ namespace GameCreator.Runtime.Quests.UnityUI
             if (this.m_Sprite != null) this.m_Sprite.overrideSprite = spot.GetSprite;
             if (this.m_Color != null) this.m_Color.color = spot.GetColor;
 
-            if (this.m_CanvasGroup != null)
+            if (this.m_Opacity != null)
             {
-                this.m_CanvasGroup.alpha = this.m_Alpha.Evaluate(ratio).a;
+                float alpha = this.m_Mode switch
+                {
+                    OpacityMode.FadeByDistance => spot.Alpha,
+                    OpacityMode.FadeByDirection => GRADIENT.Evaluate(ratio).a,
+                    OpacityMode.Both => Math.Min(spot.Alpha, GRADIENT.Evaluate(ratio).a),
+                    _ => throw new ArgumentOutOfRangeException()
+                };
+                
+                this.m_Opacity.alpha = alpha;
             }
+
+            float distance = spot.Hotspot.Distance * (float) this.m_Multiplier.Get(spot.Args);
+            this.m_Distance.Text = $"{distance:0}{this.m_Unit.Get(spot.Args)}";
         }
     }
 }

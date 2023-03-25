@@ -55,7 +55,9 @@ namespace GameCreator.Runtime.Cameras
                 if (character != null)
                 {
                     Vector3 direction = Vector3.ClampMagnitude(
-                        character.Driver.LocalMoveDirection / character.Motion.LinearSpeed,
+                        character.Motion.LinearSpeed > 0f
+                            ? character.Driver.LocalMoveDirection / character.Motion.LinearSpeed
+                            : Vector3.zero,
                         1f
                     );
 

@@ -21,11 +21,13 @@ namespace GameCreator.Runtime.Characters
         {
             Character character = this.m_Character.Get<Character>(args);
             if (character == null) return default;
-
+            
             return new Location(
-                this.m_Bone.GetTransform(character.Animim?.Animator), 
+                this.m_Bone.GetTransform(character.Animim?.Animator),
+                Space.Self,
                 Vector3.zero,
-                this.m_Rotate
+                this.m_Rotate,
+                Quaternion.identity
             );
         }
 

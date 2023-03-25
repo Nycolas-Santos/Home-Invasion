@@ -25,9 +25,16 @@ namespace GameCreator.Editor.Stats
             
             SerializedProperty className = this.serializedObject.FindProperty("m_Class");
             SerializedProperty classDesc = this.serializedObject.FindProperty("m_Description");
+            SerializedProperty classSprite = this.serializedObject.FindProperty("m_Sprite");
+            SerializedProperty classColor = this.serializedObject.FindProperty("m_Color");
             
-            root.Add(new PropertyTool(className));
-            root.Add(new PropertyTool(classDesc));
+            root.Add(new PropertyField(className));
+            root.Add(new SpaceSmaller());
+            root.Add(new PropertyField(classDesc));
+            root.Add(new SpaceSmaller());
+            root.Add(new PropertyField(classSprite));
+            root.Add(new SpaceSmaller());
+            root.Add(new PropertyField(classColor));
             
             Label labelAttributes = new Label("Attributes:");
             Label labelStats = new Label("Stats:");
@@ -41,8 +48,11 @@ namespace GameCreator.Editor.Stats
             PropertyField fieldAttributes = new PropertyField(attributes);
             PropertyField fieldStats = new PropertyField(stats);
 
+            root.Add(new SpaceSmall());
             root.Add(labelAttributes);
             root.Add(fieldAttributes);
+            
+            root.Add(new SpaceSmall());
             root.Add(labelStats);
             root.Add(fieldStats);
 

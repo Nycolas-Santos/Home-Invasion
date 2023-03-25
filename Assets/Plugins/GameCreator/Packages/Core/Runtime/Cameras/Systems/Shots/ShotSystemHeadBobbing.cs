@@ -10,22 +10,20 @@ namespace GameCreator.Runtime.Cameras
     {
         public static readonly int ID = nameof(ShotSystemHeadBobbing).GetHashCode();
         
-        private const float BOB_SMOOTH_TIME = 0.5f;
+        private const float BOB_SMOOTH_TIME = 0.35f;
         
         // EXPOSED MEMBERS: -----------------------------------------------------------------------
 
         [SerializeField] private bool m_IsActive = true;
+        [SerializeField] private float m_SmoothTime = BOB_SMOOTH_TIME;
         
         [SerializeField] private PropertyGetDecimal m_StepLength = GetDecimalDecimal.Create(0.75f);
-        [SerializeField] private PropertyGetDecimal m_StepHeight = GetDecimalDecimal.Create(0.05f);
-        [SerializeField] private PropertyGetDecimal m_StepWidth = GetDecimalDecimal.Create(0.1f);
+        [SerializeField] private PropertyGetDecimal m_StepHeight = GetDecimalDecimal.Create(0.02f);
+        [SerializeField] private PropertyGetDecimal m_StepWidth = GetDecimalDecimal.Create(0.01f);
         
         // MEMBERS: -------------------------------------------------------------------------------
 
-        private float m_BobTarget;
-        private float m_BobCurrent;
-        
-        private float m_BobVelocity;
+        private AnimFloat m_Speed;
         
         // PROPERTIES: ----------------------------------------------------------------------------
 
@@ -43,38 +41,41 @@ namespace GameCreator.Runtime.Cameras
         { }
 
         // IMPLEMENTS: ----------------------------------------------------------------------------
-        
+
+        public override void OnAwake(TShotType shotType)
+        {
+            base.OnAwake(shotType);
+            this.m_Speed = new AnimFloat(0f, this.m_SmoothTime);
+        }
+
         public override void OnUpdate(TShotType shotType)
         {
             base.OnUpdate(shotType);
-            
-            ShotTypeFirstPerson shotTypeFirstPerson = shotType as ShotTypeFirstPerson;
-            if (shotTypeFirstPerson == null) return;
-            
+
+            if (shotType is not ShotTypeFirstPerson shotTypeFirstPerson) return;
+            float speed;
+
             if (this.m_IsActive)
             {
                 Character character = shotTypeFirstPerson.Character;
-                if (character == null || !character.Driver.IsGrounded) this.m_BobTarget = 0f;
-                else this.m_BobTarget = this.GetStepSpeedCoefficient(shotTypeFirstPerson);
+                if (character == null || !character.Driver.IsGrounded) speed = 0f;
+                else speed = this.GetStepSpeedCoefficient(shotTypeFirstPerson);
             }
             else
             {
-                this.m_BobTarget = 0f;
+                speed = 0f;
             }
             
-            this.m_BobCurrent = Mathf.SmoothDamp(
-                this.m_BobCurrent, 
-                this.m_BobTarget,
-                ref this.m_BobVelocity,
-                BOB_SMOOTH_TIME
+            this.m_Speed.UpdateWithDelta(
+                speed,
+                this.m_SmoothTime,
+                shotType.ShotCamera.TimeMode.DeltaTime
             );
-            
-            Vector3 movement = new Vector3(
-                this.BobStepBalance(shotTypeFirstPerson),
-                this.BobStepHeight(shotTypeFirstPerson),
-                0f
-            );
-            
+
+            float x = this.BobStepBalance(shotTypeFirstPerson);
+            float y = this.BobStepHeight(shotTypeFirstPerson);
+
+            Vector3 movement = shotType.Transform.TransformDirection(new Vector3(x, y, 0f));
             shotType.Position += movement;
         }
         
@@ -85,7 +86,7 @@ namespace GameCreator.Runtime.Cameras
             Character character = shotType.Character;
             float stepLength = (float) this.m_StepLength.Get(shotType.Args);
             
-            return character != null 
+            return character != null && character.Motion.LinearSpeed > 0f
                 ? Mathf.Clamp01(stepLength / character.Motion.LinearSpeed) 
                 : 0f;
         }
@@ -95,7 +96,7 @@ namespace GameCreator.Runtime.Cameras
             Character character = shotType.Character;
             Vector3 velocity = Vector3.Scale(Vector3Plane.NormalUp, character.Driver.WorldMoveDirection);
             
-            return character != null 
+            return character != null && character.Motion.LinearSpeed > 0f
                 ? Mathf.Clamp01(velocity.magnitude / character.Motion.LinearSpeed) 
                 : 0f;
         }
@@ -112,14 +113,10 @@ namespace GameCreator.Runtime.Cameras
         private float BobStepHeight(ShotTypeFirstPerson shotType)
         {
             float stepHeight = (float) this.m_StepHeight.Get(shotType.Args);
-            float speed = this.GetStepSpeedCoefficient(shotType);
             float t = this.GetStepPeriod(shotType);
-            
-            return Mathf.Lerp(
-                0f, 
-                (Mathf.Cos(t * 2f) - 1f) * stepHeight * speed,
-                t * this.m_BobCurrent
-            );
+
+            float maxValue = (Mathf.Cos(t * 2f) - 1f) * stepHeight * this.m_Speed.Current;
+            return Mathf.Lerp(0f, maxValue, t);
         }
 
         // +--------------------------------------------------------------------------------------+
@@ -128,14 +125,9 @@ namespace GameCreator.Runtime.Cameras
         private float BobStepBalance(ShotTypeFirstPerson shotType)
         {
             float stepWidth = (float) this.m_StepWidth.Get(shotType.Args);
-            float speed = this.GetStepSpeedCoefficient(shotType);
             float t = this.GetStepPeriod(shotType);
-
-            return Mathf.Lerp(
-                0f, 
-                Mathf.Sin(t) * stepWidth * speed, 
-                t * this.m_BobCurrent
-            );
+            float maxValue = Mathf.Sin(t) * stepWidth * this.m_Speed.Current; 
+            return Mathf.Lerp(0f, maxValue, t);
         }
 
         // GIZMOS: --------------------------------------------------------------------------------

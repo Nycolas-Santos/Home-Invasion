@@ -1,10 +1,8 @@
 using System;
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Characters;
-using GameCreator.Runtime.Common;
 using UnityEditor;
 using UnityEditor.UIElements;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace GameCreator.Editor.Characters
@@ -34,14 +32,14 @@ namespace GameCreator.Editor.Characters
             SerializedProperty human = property.FindPropertyRelative(PROP_HUMAN);
             SerializedProperty path = property.FindPropertyRelative(PROP_PATH);
 
-            PropertyTool fieldType = new PropertyTool(type, label);
-            PropertyTool fieldHuman = new PropertyTool(human, " ");
-            PropertyTool fieldPath = new PropertyTool(path, " ");
+            PropertyField fieldType = new PropertyField(type, label);
+            PropertyField fieldHuman = new PropertyField(human, " ");
+            PropertyField fieldPath = new PropertyField(path, " ");
 
-            fieldType.EventChange += changeEvent =>
+            fieldType.RegisterValueChangeCallback(changeEvent =>
             {
                 RefreshBody(body, fieldHuman, fieldPath, changeEvent.changedProperty);
-            };
+            });
             
             head.Add(fieldType);
             RefreshBody(body, fieldHuman, fieldPath, type);
@@ -64,8 +62,8 @@ namespace GameCreator.Editor.Characters
             };
         }
 
-        private static void RefreshBody(VisualElement body, PropertyTool fieldHuman, 
-            PropertyTool fieldPath, SerializedProperty type)
+        private static void RefreshBody(VisualElement body, PropertyField fieldHuman, 
+            PropertyField fieldPath, SerializedProperty type)
         {
             body.Clear();
             switch (type.enumValueIndex)

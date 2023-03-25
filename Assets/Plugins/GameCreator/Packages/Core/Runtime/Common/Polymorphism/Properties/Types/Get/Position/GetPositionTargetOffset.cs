@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace GameCreator.Runtime.Common
 {
-    [Title("Target")]
-    [Category("Target")]
+    [Title("Target with Offset")]
+    [Category("Offsets/Target with Offset")]
     
     [Image(typeof(IconTarget), ColorTheme.Type.Yellow)]
     [Description("Returns the position of the targeted object plus an offset in local space")]

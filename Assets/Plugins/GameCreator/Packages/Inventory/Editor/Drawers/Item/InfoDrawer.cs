@@ -18,10 +18,10 @@ namespace GameCreator.Editor.Inventory
             SerializedProperty sprite = property.FindPropertyRelative("m_Sprite");
             SerializedProperty color = property.FindPropertyRelative("m_Color");
 
-            var fieldName = new GameCreator.Editor.Common.PropertyTool(name);
-            var fieldDescription = new GameCreator.Editor.Common.PropertyTool(description);
-            var fieldSprite = new GameCreator.Editor.Common.PropertyTool(sprite);
-            var fieldColor = new GameCreator.Editor.Common.PropertyTool(color);
+            PropertyField fieldName = new PropertyField(name);
+            PropertyField fieldDescription = new PropertyField(description);
+            PropertyField fieldSprite = new PropertyField(sprite);
+            PropertyField fieldColor = new PropertyField(color);
 
             container.Add(fieldName);
             container.Add(new SpaceSmall());
