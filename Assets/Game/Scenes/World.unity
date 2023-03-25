@@ -395,7 +395,7 @@ MonoBehaviour:
       data:
         m_Value: 0.25
     - rid: 9161455631301083190
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -4723,7 +4723,6 @@ MonoBehaviour:
       type: {class: ShotTypeAnimation, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data:
         m_ShotSystemViewport:
-          m_SmoothTime: 0.01
           m_Projection:
             m_IsEnabled: 0
             m_Value: 0
@@ -4733,6 +4732,12 @@ MonoBehaviour:
           m_OrthographicSize:
             m_IsEnabled: 0
             m_Value: 5
+          m_ClipPlaneNear:
+            m_IsEnabled: 0
+            m_Value: 0.3
+          m_ClipPlaneFar:
+            m_IsEnabled: 0
+            m_Value: 1000
         m_ShotSystemLook:
           m_IsActive: 1
           m_LookTarget:
@@ -13598,7 +13603,7 @@ MonoBehaviour:
       data:
         m_Value: 1
     - rid: 9161455741094592522
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -19172,7 +19177,7 @@ MonoBehaviour:
     - rid: 1442245147447001114
       type: {class: InstructionGameObjectInstantiate, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
-        m_IsExpanded: 0
+        m_IsExpanded: 1
         m_Breakpoint: 0
         m_IsEnabled: 1
         m_GameObject:
@@ -19184,7 +19189,7 @@ MonoBehaviour:
           duration: 10
         m_Location:
           m_Property:
-            rid: 1442245147447001119
+            rid: 1442245365542682633
         m_Parent:
           m_Property:
             rid: 1442245147447001117
@@ -19199,9 +19204,12 @@ MonoBehaviour:
       type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 1442245147447001118
       type: {class: SetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 1442245147447001119
-      type: {class: GetLocationCharactersPlayerBone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 1442245365542682633
+      type: {class: GetLocationCharacterBone, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
+        m_Character:
+          m_Property:
+            rid: 1442245365542682634
         m_Bone:
           m_IsExpanded: 1
           m_Breakpoint: 0
@@ -19209,7 +19217,9 @@ MonoBehaviour:
           m_Type: 1
           m_Human: 8
           m_Path: 
-        m_Rotate: 0
+        m_Rotate: 1
+    - rid: 1442245365542682634
+      type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
 --- !u!1 &540692693
 GameObject:
   m_ObjectHideFlags: 0
@@ -20718,6 +20728,14 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 1442245365542682624
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
+    - rid: 1442245365542682625
+      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_Value: 1
     - rid: 1542767747813605441
       type: {class: Branch, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -20934,19 +20952,16 @@ MonoBehaviour:
         m_FieldOfView:
           m_Property:
             rid: 1542767747813605543
-        m_Smooth:
+        m_Duration:
           m_Property:
-            rid: 1542767747813605544
+            rid: 1442245365542682624
+        m_Easing: 3
     - rid: 1542767747813605542
       type: {class: GetCameraMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
     - rid: 1542767747813605543
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 50
-    - rid: 1542767747813605544
-      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 0.009999999776482582
     - rid: 1542767747813605545
       type: {class: InstructionCameraFOV, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -20959,19 +20974,16 @@ MonoBehaviour:
         m_FieldOfView:
           m_Property:
             rid: 1542767747813605547
-        m_Smooth:
+        m_Duration:
           m_Property:
-            rid: 1542767747813605548
+            rid: 1442245365542682625
+        m_Easing: 3
     - rid: 1542767747813605546
       type: {class: GetCameraMain, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
     - rid: 1542767747813605547
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 45
-    - rid: 1542767747813605548
-      type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_Value: 0.009999999776482582
     - rid: 1542767747813605549
       type: {class: InstructionCommonAudioUIPlay, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
@@ -25879,7 +25891,7 @@ MonoBehaviour:
       data:
         m_Value: 0.25
     - rid: 9161455631301083182
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -33255,6 +33267,7 @@ MonoBehaviour:
     - rid: 1542767844054270136
       type: {class: Content, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
       data:
+        m_Dirty: 0
         m_Data:
           m_Keys: 7e7e9361
           m_Values:
@@ -33323,6 +33336,7 @@ MonoBehaviour:
         m_IsExpanded: 1
         m_Breakpoint: 0
         m_IsEnabled: 1
+        m_Options: 0
     - rid: 1542767844054270139
       type: {class: GetStringTextArea, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
@@ -35553,6 +35567,10 @@ MonoBehaviour:
           m_AirJumps: 0
           m_JumpForce: 5
           m_JumpCooldown: 0.5
+        m_Dash:
+          m_InSuccession: 0
+          m_DashInAir: 0
+          m_Cooldown: 1
     - rid: 9161455624811708429
       type: {class: UnitDriverController, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
@@ -37589,6 +37607,10 @@ MonoBehaviour:
           m_AirJumps: 0
           m_JumpForce: 5
           m_JumpCooldown: 0.5
+        m_Dash:
+          m_InSuccession: 0
+          m_DashInAir: 0
+          m_Cooldown: 1
     - rid: 1442245062053331076
       type: {class: UnitAnimimKinematic, ns: GameCreator.Runtime.Characters, asm: GameCreator.Runtime.Core}
       data:
@@ -38186,7 +38208,7 @@ MonoBehaviour:
           m_ActionMap: Player
           m_Action: Interact
     - rid: 9161455646766006305
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -39111,6 +39133,7 @@ MonoBehaviour:
     - rid: 1542767844054270143
       type: {class: Content, ns: GameCreator.Runtime.Dialogue, asm: GameCreator.Runtime.Dialogue}
       data:
+        m_Dirty: 0
         m_Data:
           m_Keys: bdcaf907
           m_Values:
@@ -39179,6 +39202,7 @@ MonoBehaviour:
         m_IsExpanded: 1
         m_Breakpoint: 0
         m_IsEnabled: 1
+        m_Options: 0
     - rid: 1542767844054270146
       type: {class: GetStringTextArea, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
@@ -54411,7 +54435,7 @@ MonoBehaviour:
         m_Signal:
           m_String: Open-Phone
     - rid: 9161455669159919626
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -55590,7 +55614,7 @@ MonoBehaviour:
     - rid: 8406859392272039966
       type: {class: GetGameObjectSelf, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 9161455741094592522
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -57064,7 +57088,7 @@ MonoBehaviour:
     - rid: 1542768348523135071
       type: {class: GetGameObjectPlayer, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 9161455664503980054
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -71092,7 +71116,6 @@ MonoBehaviour:
       type: {class: ShotTypeThirdPerson, ns: GameCreator.Runtime.Cameras, asm: GameCreator.Runtime.Core}
       data:
         m_ShotSystemViewport:
-          m_SmoothTime: 0
           m_Projection:
             m_IsEnabled: 0
             m_Value: 0
@@ -71102,6 +71125,12 @@ MonoBehaviour:
           m_OrthographicSize:
             m_IsEnabled: 0
             m_Value: 5
+          m_ClipPlaneNear:
+            m_IsEnabled: 0
+            m_Value: 0.3
+          m_ClipPlaneFar:
+            m_IsEnabled: 0
+            m_Value: 1000
         m_ShotSystemLook:
           m_IsActive: 1
           m_LookTarget:
