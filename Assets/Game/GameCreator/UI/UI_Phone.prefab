@@ -57,7 +57,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 1442245328630186086
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -1729,8 +1729,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d67d3d78934ef5877531e9503984d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageLogs: []
+  contactName: Boyfriend
   contactPicture: {fileID: 21300000, guid: 8aabf1fde206b7143b23d8f5c05ddcde, type: 3}
+  messages: []
+  messageLogs: []
 --- !u!114 &1079260884791618878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1974,7 +1976,7 @@ MonoBehaviour:
         m_Signal:
           m_String: Close-Phone
     - rid: 1442244927301091402
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -2514,7 +2516,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 6638674339394748471
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -2707,7 +2709,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 6638674339394748471
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -2784,6 +2786,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 8909497579650351439}
+  playerMessagePrefab: {fileID: 7763762668613323443, guid: d8c482e20f72b42e79eb489c909b521f, type: 3}
+  contactMessagePrefab: {fileID: 7763762668613323443, guid: 3b0f53d80f541416e9f33a5c9f57e2d8, type: 3}
+  dateMessagePrefab: {fileID: 2647849578128337146, guid: a09a4a3d1fd4bc7419c278b1a63fadb6, type: 3}
 --- !u!1 &2845277309583219158
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,8 +3210,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e5c8d3ceff460a91d10f16c3b91db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageLogs: []
+  contactName: Grandma
   contactPicture: {fileID: 21300000, guid: 3373109778efd2f4d8e60c1231e823c7, type: 3}
+  messages:
+  - sender: 0
+    type: 1
+    content: 11/02
+  - sender: 0
+    type: 0
+    content: Hey dumb bitch
+  - sender: 1
+    type: 0
+    content: Sup horny asshole
+  messageLogs: []
 --- !u!114 &7638459042956519944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3948,7 +3964,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 1442245328630186086
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -4133,7 +4149,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 6638674339394748471
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -8316,7 +8332,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 6638674339394748471
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -8480,7 +8496,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 6638674339394748471
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -8932,7 +8948,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 1442245328630186086
-      type: {class: EventOnInput, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      type: {class: EventOnInputButton, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:
         m_Button:
           m_Input:
@@ -9446,8 +9462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd9316d653a4b2b919bf9083164b96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageLogs: []
+  contactName: Unknown
   contactPicture: {fileID: 21300000, guid: 726d3a5cdcdf650968b5c4fb76b62279, type: 3}
+  messages: []
+  messageLogs: []
 --- !u!114 &1804546507072334655
 MonoBehaviour:
   m_ObjectHideFlags: 0

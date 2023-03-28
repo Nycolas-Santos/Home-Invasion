@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 8860984520516738050}
   - component: {fileID: 8860984520516738051}
   - component: {fileID: 6992901671934241145}
+  - component: {fileID: 8869063501663692918}
   m_Layer: 5
   m_Name: Actor
   m_TagString: Untagged
@@ -743,6 +744,18 @@ MonoBehaviour:
   m_FlexibleWidth: 99999
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &8869063501663692918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8860984520516738061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d061bd4da456d024b8efa61e1c7c2086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8947968085024399214
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +832,7 @@ GameObject:
   - component: {fileID: 8400801506901646442}
   - component: {fileID: 3024049866262763082}
   - component: {fileID: 4634409948824699591}
+  - component: {fileID: 6684034002476145591}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -888,3 +902,15 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
   m_Text: Vivamus sagittis lacus vel augue laoreet rutrum faucibus.
+--- !u!114 &6684034002476145591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151785561079897212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c942e623a98c49147b5811bbe129e68c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
