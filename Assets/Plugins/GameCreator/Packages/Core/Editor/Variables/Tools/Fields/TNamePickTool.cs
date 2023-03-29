@@ -17,7 +17,7 @@ namespace GameCreator.Editor.Variables
         protected const string NAME_ROOT_NAME = "GC-NamePickTool-Name";
         protected const string NAME_DROPDOWN = "GC-NamePickTool-Dropdown";
 
-        protected static readonly IIcon ICON_DROPDOWN = new IconArrowDropDown(ColorTheme.Type.TextLight);
+        protected static readonly IIcon ICON_DROPDOWN = new IconDropdown(ColorTheme.Type.TextLight);
         
         // MEMBERS: -------------------------------------------------------------------------------
 

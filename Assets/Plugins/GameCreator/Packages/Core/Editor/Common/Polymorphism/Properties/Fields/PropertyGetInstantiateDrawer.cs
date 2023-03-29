@@ -70,6 +70,9 @@ namespace GameCreator.Editor.Common
             contentPooling.Add(fieldSize);
             contentDuration.Add(fieldHasDuration);
             contentDuration.Add(fieldDuration);
+
+            _ = new AlignLabel(contentPooling);
+            _ = new AlignLabel(contentDuration);
             
             root.Add(contentPooling);
             root.Add(contentDuration);

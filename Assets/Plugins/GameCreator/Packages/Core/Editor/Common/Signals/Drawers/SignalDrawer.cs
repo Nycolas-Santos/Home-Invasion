@@ -30,7 +30,7 @@ namespace GameCreator.Editor.Common
         
         private static readonly IIcon ICON_FAVORITE_ON = new IconStarSolid(ColorTheme.Type.Yellow);
         private static readonly IIcon ICON_FAVORITE_OFF = new IconStarOutline(ColorTheme.Type.TextLight);
-        private static readonly IIcon ICON_DROPDOWN = new IconArrowDropDown(ColorTheme.Type.TextLight);
+        private static readonly IIcon ICON_DROPDOWN = new IconDropdown(ColorTheme.Type.TextLight);
         
         public const string KEY_SIGNALS_FAVORITES = "gc:signals-favorites";
 

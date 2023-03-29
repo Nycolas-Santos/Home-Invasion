@@ -19,7 +19,7 @@ namespace GameCreator.Editor.VisualScripting
         private const string NAME_HEAD_BUTTON_LABEL = "GC-Event-Head-BtnLabel";
         private const string NAME_HEAD_BUTTON_ARROW = "GC-Event-Head-BtnArrow";
 
-        private static readonly IIcon ICON_CHEVRON_DOWN = new IconDropdown(ColorTheme.Type.TextLight);
+        private static readonly IIcon ICON_DROPDOWN = new IconDropdown(ColorTheme.Type.TextLight);
         
         // MEMBERS: -------------------------------------------------------------------------------
         
@@ -57,7 +57,7 @@ namespace GameCreator.Editor.VisualScripting
             this.m_Button.Add(this.m_ButtonLabel);
             this.m_Button.Add(new Image
             {
-                image = ICON_CHEVRON_DOWN.Texture,
+                image = ICON_DROPDOWN.Texture,
                 name = NAME_HEAD_BUTTON_ARROW
             });
             

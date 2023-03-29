@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace GameCreator.Runtime.Common
@@ -66,7 +65,6 @@ namespace GameCreator.Runtime.Common
 
         public TSerializableTree()
         {
-            this.m_Dirty = 0;
             this.m_Data = new TTreeData<TValue>();
             this.m_Nodes = new TreeNodes();
             this.m_Roots = new List<int>();

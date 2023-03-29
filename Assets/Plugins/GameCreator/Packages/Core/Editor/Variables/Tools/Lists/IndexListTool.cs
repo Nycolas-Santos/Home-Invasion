@@ -18,7 +18,7 @@ namespace GameCreator.Editor.Variables
         private const string CLASS_HEAD_BUTTON = "gc-variables-index-button";
         private const string CLASS_HEAD_DROPDOWN = "gc-variables-index-dropdown";
 
-        private static readonly IIcon ICON_CHEVRON_DOWN = new IconDropdown(ColorTheme.Type.TextLight);
+        private static readonly IIcon ICON_DROPDOWN = new IconDropdown(ColorTheme.Type.TextLight);
         private static readonly IIcon ICON_COLLAPSE = new IconCollapse(ColorTheme.Type.TextNormal);
         private static readonly IIcon ICON_ADD = new IconPlus(ColorTheme.Type.TextNormal);
 
@@ -82,7 +82,7 @@ namespace GameCreator.Editor.Variables
             this.m_ChangeTypeButton.Add(this.m_ChangeTypeIcon);
             this.m_ChangeTypeButton.Add(this.m_ChangeTypeText);
             this.m_ChangeTypeButton.Add(new FlexibleSpace());
-            this.m_ChangeTypeButton.Add(new Image { image = ICON_CHEVRON_DOWN.Texture });
+            this.m_ChangeTypeButton.Add(new Image { image = ICON_DROPDOWN.Texture });
             
             this.RefreshChangeType();
             this.m_ChangeTypeDropdown = new ListTypeElement(

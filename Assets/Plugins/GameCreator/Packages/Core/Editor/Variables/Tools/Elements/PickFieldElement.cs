@@ -3,7 +3,6 @@ using UnityEditor;
 using UnityEngine.UIElements;
 using GameCreator.Editor.Common;
 using GameCreator.Runtime.Common;
-using UnityEngine;
 
 namespace GameCreator.Editor.Variables
 {
@@ -42,15 +41,15 @@ namespace GameCreator.Editor.Variables
             this.m_Button.AddToClassList("unity-base-field__input");
 
             this.m_Label = new Label();
-            this.m_Label.AddToClassList("unity-base-field__label");
             this.m_Label.AddToClassList("unity-label");
-            this.m_Label.AddToClassList("unity-inspector-element");
+            this.m_Label.AddToClassList("unity-base-field__label");
             this.m_Label.AddToClassList("unity-property-field__label");
-            
+
             this.m_Head.Add(this.m_Label);
             this.m_Head.Add(this.m_Button);
-
+            
             this.LoadHeadStyleSheet(this.m_Head);
+            _ = new AlignLabel(this.m_Head);
         }
 
         protected override void CreateBody()

@@ -24,7 +24,7 @@ namespace GameCreator.Editor.Common
         private const string NAME_ROOT_NAME = "GC-ReflectionPick-Name";
         private const string NAME_DROPDOWN = "GC-ReflectionPick-Dropdown";
         
-        private static readonly IIcon DROPDOWN = new IconArrowDropDown(ColorTheme.Type.TextLight);
+        private static readonly IIcon DROPDOWN = new IconDropdown(ColorTheme.Type.TextLight);
         
         // PROPERTIES: ----------------------------------------------------------------------------
         
